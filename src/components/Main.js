@@ -279,20 +279,32 @@ const Main = () => {
           </div>
           <div
             style={{
-              height: "100%",
-              display: "flex",
               padding: "0 30px",
-              //   justifyContent: "space-between",
+              width: 630,
+              textAlign: "center",
             }}
           >
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
-            <GameItem />
+            <div style={{ display: "flex" }}>
+              <GameItem />
+              <GameItem />
+              <GameItem />
+              {/* <GameItem /> */}
+              {/* <GameItem />
+              <GameItem /> */}
+            </div>
           </div>
-          {/* <footer>Footer</footer> */}
+          <div
+            style={{
+              fontFamily: "AppleSDGothicNeo",
+              color: "#598b9b",
+              padding: "70px 0",
+              fontSize: 38,
+              fontWeight: 500,
+              cursor: "pointer",
+            }}
+          >
+            View All Games
+          </div>
         </div>
       </div>
     </>

@@ -5,6 +5,7 @@ const GameItem = () => {
     <>
       <div
         style={{
+          width: 190,
           borderRadius: 12.5,
           boxShadow: "0 13px 13px 0 rgba(77, 93, 107, 0.13)",
           border: "solid 2.5px #86b1be",
@@ -23,7 +24,7 @@ const GameItem = () => {
         >
           img
         </div>
-        <div style={{ padding: "25px 22px" }}>
+        <div style={{ height: 124 }}>
           <span style={{ display: "flex" }}>
             <p style={{ border: "1px solid" }}>pp</p>
             <p>num</p>
