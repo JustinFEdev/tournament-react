@@ -1,0 +1,9 @@
+.main-container {
+  position: relative;
+  min-width: 690px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(201, 226, 234);
+}
