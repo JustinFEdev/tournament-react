@@ -1,39 +1,36 @@
 import React from "react";
+import PropTypes from "prop-types";
+import "./slide.css";
+const GameItem = ({ menuData }) => {
+  console.log("menuData로 도착");
+  console.log(menuData);
 
-const GameItem = () => {
   return (
     <>
-      <div
-        style={{
-          width: 190,
-          borderRadius: 12.5,
-          boxShadow: "0 13px 13px 0 rgba(77, 93, 107, 0.13)",
-          border: "solid 2.5px #86b1be",
-          backgroundColor: " #fff",
-          margin: "25px 25px 0 0",
-        }}
-      >
-        <div
-          style={{
-            width: 190,
-            height: 191,
-            borderRadius: "12.5px 12.5px 0 0 ",
-            backgroundColor: "#c9e2ea",
-          }}
-          alt=""
-        >
-          img
+      {menuData.map((info) => (
+        <div className="gameItem-container">
+          <div className="gameItem-img" alt="">
+            img
+          </div>
+          <div className="gameItem-wrapper">
+            <span className="gameItem-pointarea">
+              <div className="gameItem-icon">PP</div>
+              <p className="gameItem-point">{info.point}</p>
+            </span>
+            <span className="gameItem-userarea">
+              <p className="gameItem-usericon">II</p>
+              <p className="gameItem-number">{info.user}</p>
+            </span>
+          </div>
         </div>
-        <div style={{ height: 124 }}>
-          <span style={{ display: "flex" }}>
-            <p style={{ border: "1px solid" }}>pp</p>
-            <p>num</p>
-          </span>
-          <span>user</span>
-        </div>
-      </div>
+      ))}
     </>
   );
 };
 
 export default GameItem;
+
+GameItem.prototype = {
+  menuData: PropTypes.arrayOf(PropTypes.object),
+};
+GameItem.defaultType = {};

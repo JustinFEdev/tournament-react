@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ContinueSlide from "./box/ContinueSlide";
 import LiveSlide from "./box/LiveSlide";
 import MissionSlide from "./box/MissionSlide";
@@ -7,153 +7,86 @@ import NaviBar from "./navigation/NaviBar";
 import "./layout.css";
 
 const Main = () => {
+  const [gameData, setGameData] = useState([]);
+  const typeData = [
+    {
+      id: 1,
+      title: "Continue Playing",
+      route: "option",
+      slide: <ContinueSlide />,
+    },
+    {
+      id: 2,
+      title: "Weekly Mission",
+      route: "See All",
+      slide: <MissionSlide />,
+    },
+  ];
+
+  function AddComma(num) {
+    var regexp = /\B(?=(\d{3})+(?!\d))/g;
+    return num.toString().replace(regexp, ",");
+  }
+
+  // const renNumber = AddComma(Math.floor(Math.random() * 100000));
+  // const renPoint = AddComma(Math.floor(Math.random() * 10000000));
+  // console.log(renNumber);
+  // console.log(gameData);
+
+  useEffect(() => {
+    for (var i = 0; i < 5; i++) {
+      const count = Math.floor(Math.random() * 10000);
+      const num = AddComma(Math.floor(Math.random() * 10000000));
+      const people = AddComma(Math.floor(Math.random() * 100000));
+      const menuDatas = {
+        img: count,
+        point: num,
+        user: people,
+      };
+
+      setGameData(menuDatas);
+      console.log(menuDatas);
+    }
+    // const tt = [];
+    // gameData.map((info) => tt.push(info));
+    // console.log(tt);
+  }, []);
+
   return (
     <>
       <div className="main-container">
-        <div
-          style={{
-            width: 690,
-            minWidth: 690,
-            backgroundColor: "#fff",
-            height: "100%",
-          }}
-        >
+        <div className="main-wrapper">
           <header>
             <NaviBar />
           </header>
           {/* LiveSlide */}
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              padding: "30px 0 0 0",
-            }}
-          >
-            <div style={{ paddingBottom: 59.5 }}>
-              <LiveSlide />
-            </div>
+          <div className="main-live-wrapper">
+            <LiveSlide />
           </div>
           {/* Continue Playing */}
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              padding: "0 0 59.5px 0",
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  padding: "0 30px 40px 30px",
-                }}
-              >
-                <div
-                  style={{
-                    paddingTop: "24.5px",
-                    borderTop: "solid 1.3px #c9e2ea",
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "AppleSDGothicNeo",
-                      fontSize: 38,
-                      color: "#09607b",
-                      fontWeight: 800,
-                    }}
-                  >
-                    Continue Playing
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "AppleSDGothicNeo",
-                      fontSize: 38,
-                      fontWeight: 500,
-                      color: "#57a8c2",
-                      cursor: "pointer",
-                    }}
-                  >
-                    option
-                  </span>
-                </div>
-              </div>
-              <div style={{ height: 362 }}>
-                <ContinueSlide />
-              </div>
-            </div>
-          </div>
           {/* Weekly Mission */}
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  padding: "0 30px 40px 30px",
-                }}
-              >
-                <div
-                  style={{
-                    paddingTop: "24.5px",
-                    borderTop: "solid 1.3px #c9e2ea",
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "AppleSDGothicNeo",
-                      fontSize: 38,
-                      color: "#09607b",
-                      fontWeight: 800,
-                    }}
-                  >
-                    Weekly Mission
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "AppleSDGothicNeo",
-                      fontSize: 38,
-                      fontWeight: 500,
-                      color: "#57a8c2",
-                      cursor: "pointer",
-                    }}
-                  >
-                    See All
-                  </span>
+          {typeData.map((info) => (
+            <>
+              <div className="slide-contianer">
+                <div className="slide-wrapper">
+                  <div className="slide-space">
+                    <div className="slide-title-wrapper">
+                      {/* Continue Playing */}
+                      <span className="slide-title">{info.title}</span>
+                      {/* option */}
+                      <span className="slide-route">{info.route}</span>
+                    </div>
+                  </div>
+                  <div className="slide-area">{info.slide}</div>
+                  {info.id === 2 && (
+                    <h2 className="weekly-daycount">6 days left to complet</h2>
+                  )}
                 </div>
               </div>
-              <div style={{ height: 345 }}>
-                <MissionSlide />
-              </div>
-              <h2 style={{ padding: "35px 0 60px 0" }}>
-                6 days left to complet
-              </h2>
-            </div>
-          </div>
+            </>
+          ))}
           {/* Featured Tournament */}
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              //   borderBottom: "solid 1.3px #c9e2ea",
-            }}
-          >
+          <div className="featured-container">
             <div
               style={{
                 width: "100%",
@@ -164,66 +97,20 @@ const Main = () => {
                   padding: "0 30px",
                 }}
               >
-                <p
-                  style={{
-                    fontFamily: "AppleSDGothicNeo",
-                    paddingTop: "24.5px",
-                    borderTop: "solid 1.3px #c9e2ea",
-                    display: "flex",
-                    justifyContent: "space-between",
-                    fontSize: 38,
-                    color: "#09607b",
-                    fontWeight: 800,
-                  }}
-                >
-                  Featured Tournaments
-                </p>
+                <p className="featured-title">Featured Tournaments</p>
                 {/* big img area */}
-                <img
-                  style={{
-                    width: "100%",
-                    height: 314,
-                    marginTop: "20px",
-                    borderRadius: 12.5,
-                    boxShadow: "0 13px 13px 0 rgba(77, 93, 107, 0.13)",
-                    border: "solid 2.5px #86b1be",
-                    backgroundColor: "#c9e2ea",
-                    outline: "none",
-                  }}
-                  alt=""
-                />
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <div>
-                    <span>PP</span>
-                  </div>
+                <img className="featured-img" alt="" />
+                <div className="featured-infoarea">
+                  <span>PP</span>
                   <div>
                     <span>num</span>
                     <span>notice</span>
                   </div>
                 </div>
                 {/* small img area */}
-                <div
-                  style={{
-                    width: "100%",
-                    borderBottom: "solid 1.3px #c9e2ea",
-                    padding: "43px 0 63px 0",
-                  }}
-                >
-                  <div style={{ width: 291, textAlign: "left" }}>
-                    <div
-                      style={{
-                        width: "100%",
-                        height: 361,
-                        borderRadius: 12.5,
-                        boxShadow: "0 13px 13px 0 rgba(77, 93, 107, 0.13)",
-                        border: "solid 2.5px #86b1be",
-                        backgroundColor: "#c9e2ea",
-                        outline: "none",
-                      }}
-                      alt="1"
-                    />
+                <div className="featured-smallarea">
+                  <div className="featured-samll-wrapper">
+                    <div className="featured-samll-img" alt="1" />
                     <div
                       style={{
                         display: "flex",
@@ -244,34 +131,19 @@ const Main = () => {
             </div>
           </div>
           {/* Slide menu */}
-          <div
-            style={{
-              width: "100%",
-              padding: "15px 0 0 0",
-              display: "inline-flex",
-            }}
-          >
+          <div className="menu-container">
             <span
-              style={{
-                padding: "17px 27px",
-                borderRadius: 35,
-                backgroundColor: "#9bd0e1",
-                fontSize: 30,
-                fontWeight: 500,
-                marginRight: 15,
-              }}
+              className="menu-selector"
+              style={{ backgroundColor: "#9bd0e1", color: "#fff" }}
             >
               All Games
             </span>
             <span
+              className="menu-selector"
               style={{
-                padding: "17px 27px",
-                borderRadius: 35,
                 backgroundColor: "#fff",
                 border: "solid 2.5px #77b5c9",
-                fontSize: 30,
-                fontWeight: 500,
-                marginRight: 15,
+                color: "#77b5c9",
               }}
             >
               New Arrival
@@ -280,17 +152,17 @@ const Main = () => {
           <div
             style={{
               padding: "0 30px",
-              width: 630,
               textAlign: "center",
             }}
           >
-            <div style={{ display: "flex" }}>
-              <GameItem />
-              <GameItem />
-              <GameItem />
-              {/* <GameItem /> */}
-              {/* <GameItem />
-              <GameItem /> */}
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-evenly",
+                flexWrap: "wrap",
+              }}
+            >
+              {/* <GameItem menuData={gameData} /> */}
             </div>
           </div>
           <div
