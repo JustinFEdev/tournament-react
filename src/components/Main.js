@@ -46,10 +46,8 @@ const Main = () => {
 
       setGameData(menuDatas);
       console.log(menuDatas);
+      // gameData.forEach((info) => console.log(info));
     }
-    // const tt = [];
-    // gameData.map((info) => tt.push(info));
-    // console.log(tt);
   }, []);
 
   return (
