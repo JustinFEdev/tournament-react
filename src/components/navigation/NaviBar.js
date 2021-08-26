@@ -16,6 +16,7 @@ const NaviBar = () => {
       >
         <button>Menu</button>
         <div>Menu status</div>
+
         <div style={{ display: "flex", alignItems: "center" }}>
           <div className="navi-pointwrapper">
             <span className="navi-insideball">PP</span>

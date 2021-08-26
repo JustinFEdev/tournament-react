@@ -5,6 +5,7 @@ import MissionSlide from "./box/MissionSlide";
 import GameItem from "./box/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.css";
+import Modal from "./modal/Modal";
 
 const Main = () => {
   const [gameData, setGameData] = useState([]);
@@ -33,6 +34,26 @@ const Main = () => {
   // console.log(renNumber);
   // console.log(gameData);
 
+  const [show, setShow] = useState(false);
+  const closeHandle = (event) => {
+    event.preventDefault();
+    setShow(false);
+    console.log("close modal");
+  };
+  const openHandle = () => {
+    setShow(!show);
+    console.log("open modal");
+  };
+
+  // useEffect(() => {
+  //   if (show) {
+  //     const notice = setTimeout(() => {
+  //       setShow(false);
+  //     }, 3000);
+  //     return () => clearTimeout(notice);
+  //   }
+  // }, [show]);
+
   useEffect(() => {
     for (var i = 0; i < 5; i++) {
       const count = Math.floor(Math.random() * 10000);
@@ -57,10 +78,28 @@ const Main = () => {
           <header>
             <NaviBar />
           </header>
+          <div
+            style={{
+              cursor: "pointer",
+              backgroundColor: "lightgray",
+              borderRadius: 20,
+              padding: 15,
+              border: "none",
+              color: "#fff",
+              fontSize: 20,
+              fontWeight: "border",
+              width: "50%",
+            }}
+            onClick={openHandle}
+          >
+            test modal
+          </div>
+
           {/* LiveSlide */}
           <div className="main-live-wrapper">
             <LiveSlide />
           </div>
+
           {/* Continue Playing */}
           {/* Weekly Mission */}
           {typeData.map((info) => (
@@ -176,6 +215,30 @@ const Main = () => {
             View All Games
           </div>
         </div>
+        {show === true && (
+          <>
+            <div>
+              <Modal show={show} closeModal={closeHandle} />
+              {/* <div
+                style={{
+                  position: "absolute",
+                  zIndex: 101,
+                  width: 80,
+                  height: 50,
+                  border: "1px solid",
+                  top: 0,
+                  right: 0,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                onClick={closeHandle}
+              >
+                close
+              </div> */}
+            </div>
+          </>
+        )}
       </div>
     </>
   );
