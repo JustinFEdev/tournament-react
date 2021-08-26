@@ -8,8 +8,37 @@ import "./layout.css";
 import Modal from "./modal/Modal";
 import bulso from "./resource/video/bulso.mp4";
 
+const Progress = ({ done }) => {
+  const [style, setStyle] = useState({});
+
+  setTimeout(() => {
+    const newStyle = {
+      opacity: 1,
+      width: `${done}`,
+    };
+    setStyle(newStyle);
+  }, 1000);
+
+  return (
+    <>
+      <div className="progress">
+        <div
+          className="progress-done"
+          style={{
+            opacity: 1,
+            width: `${done}%`,
+          }}
+        >
+          {done}%
+        </div>
+      </div>
+    </>
+  );
+};
+
 const Main = () => {
   const [gameData, setGameData] = useState([]);
+
   const typeData = [
     {
       id: 1,
@@ -79,6 +108,7 @@ const Main = () => {
           <header>
             <NaviBar />
           </header>
+          <Progress done="70" />
           <div
             style={{
               cursor: "pointer",
