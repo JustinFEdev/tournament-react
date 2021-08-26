@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./slide.css";
+import "./slide.scss";
 const GameItem = ({ menuData }) => {
   console.log("menuData로 도착");
   console.log(menuData);

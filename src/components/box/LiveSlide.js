@@ -95,17 +95,31 @@ const LiveSlide = () => {
             >
               WIN
             </span>
-            <div
+            <span
               style={{
-                border: "solid 1.3px #149231",
+                width: 34,
+                height: 34,
+                border: "solid 1.5px #149231",
                 backgroundColor: "#38ae53",
-                borderRadius: 27,
-                padding: 6,
                 color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 25,
               }}
             >
-              <span style={{ fontSize: 22, fontWeight: "bold" }}>PP</span>
-            </div>
+              <p
+                style={{
+                  fontSize: 22,
+                  fontWeight: 800,
+                  display: "flex",
+                  height: "88%",
+                  alignItems: "flex-end",
+                }}
+              >
+                PP
+              </p>
+            </span>
             <span
               style={{ fontSize: 32, fontWeight: "bold", color: "#09607b" }}
             >

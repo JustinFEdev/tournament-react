@@ -1,0 +1,143 @@
+/* Game Item */
+.gameItem-container {
+  cursor: pointer;
+  width: 190px;
+  border-radius: 12.5px;
+  box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
+  border: solid 2.5px #86b1be;
+  background-color: #fff;
+  margin: 25px 7px;
+}
+.gameItem-img {
+  width: 190px;
+  height: 191px;
+  border-radius: 12.5px 12.5px 0 0;
+  background-color: #c9e2ea;
+}
+.gameItem-wrapper {
+  padding: 25px 3%;
+}
+.gameItem-pointarea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameItem-icon {
+  width: 38px;
+  height: 38px;
+  margin: 0 7px 0 0;
+  opacity: 0.78;
+  border: solid 1.5px #149231;
+  background-color: #38ae53;
+  border-radius: 24px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameItem-point {
+  font-size: 26px;
+  font-weight: bold;
+  color: #09607b;
+}
+.gameItem-userarea {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gameItem-usericon {
+  font-size: 24px;
+  font-weight: 500;
+  color: #598b9b;
+}
+.gameItem-number {
+  font-size: 24px;
+  font-weight: 500;
+  color: #598b9b;
+}
+
+//3D 회전
+.scene {
+  width: 200px;
+  height: 200px;
+  perspective: 600px;
+}
+
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  animation: rotation 5s infinite;
+}
+
+.cube__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 2.5em;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &--front {
+    background: rgba(98, 206, 203, 0.7);
+    transform: rotateY(0deg) translateZ(100px);
+  }
+
+  &--back {
+    background: rgba(98, 155, 206, 0.7);
+    transform: rotateY(180deg) translateZ(100px);
+  }
+
+  &--right {
+    background: rgba(98, 101, 206, 0.7);
+    transform: rotateY(90deg) translateZ(100px);
+  }
+
+  &--left {
+    background: rgba(149, 98, 206, 0.7);
+    transform: rotateY(-90deg) translateZ(100px);
+  }
+
+  &--top {
+    background: rgba(203, 98, 206, 0.7);
+    transform: rotateX(90deg) translateZ(100px);
+  }
+
+  &--bottom {
+    background: rgba(206, 98, 155, 0.7);
+    transform: rotateX(-90deg) translateZ(100px);
+  }
+}
+
+html {
+  height: 100%;
+}
+// body {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   min-height: 100%;
+//   margin: 0;
+//   padding: 0;
+// }
+h1 {
+  margin-bottom: 30px;
+}
+
+@keyframes rotation {
+  0% {
+    transform: translateZ(-100px) rotate3d(0, 0, 0);
+  }
+  100% {
+    transform: translateZ(-100px) rotate3d(1, 0, 1, 360deg);
+  }
+}

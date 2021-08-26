@@ -6,6 +6,7 @@ import GameItem from "./box/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.css";
 import Modal from "./modal/Modal";
+import bulso from "./resource/video/bulso.mp4";
 
 const Main = () => {
   const [gameData, setGameData] = useState([]);
@@ -94,12 +95,47 @@ const Main = () => {
           >
             test modal
           </div>
-
+          <div
+            style={{
+              // position: "absolute",
+              width: "100%",
+              height: 350,
+              left: 0,
+              zIndex: 0,
+              opacity: 0.3,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* <video
+              autoPlay
+              loop
+              muted
+              style={{
+                position: "relative",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+            >
+              <source src={bulso} type="video/mp4" />
+            </video> */}
+            <div className="scene">
+              <div className="cube">
+                <div className="cube__face cube__face--front">front</div>
+                <div className="cube__face cube__face--back">back</div>
+                <div className="cube__face cube__face--right">right</div>
+                <div className="cube__face cube__face--left">left</div>
+                <div className="cube__face cube__face--top">top</div>
+                <div className="cube__face cube__face--bottom">bottom</div>
+              </div>
+            </div>
+          </div>
           {/* LiveSlide */}
           <div className="main-live-wrapper">
             <LiveSlide />
           </div>
-
           {/* Continue Playing */}
           {/* Weekly Mission */}
           {typeData.map((info) => (
@@ -113,6 +149,61 @@ const Main = () => {
                       {/* option */}
                       <span className="slide-route">{info.route}</span>
                     </div>
+                    {info.id === 2 && (
+                      <>
+                        <div style={{ display: "flex", alignItems: "center" }}>
+                          <h3
+                            style={{
+                              fontSize: 32,
+                              fontWeight: "bold",
+                              color: "#09607b",
+                              margin: "12px 0",
+                            }}
+                          >
+                            You Won
+                          </h3>
+                          <span
+                            style={{
+                              width: 34,
+                              height: 34,
+                              border: "solid 1.5px #149231",
+                              backgroundColor: "#38ae53",
+                              margin: " 0 10px",
+                              color: "#fff",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              borderRadius: 25,
+                            }}
+                          >
+                            <p
+                              style={{
+                                margin: "auto",
+                                fontSize: 22,
+                                fontWeight: 800,
+                                display: "flex",
+                                height: "88%",
+                                alignItems: "flex-end",
+                              }}
+                            >
+                              PP
+                            </p>
+                          </span>
+                          <div
+                            style={{
+                              fontSize: 32,
+                              fontWeight: "bold",
+                              color: "#09607b",
+                            }}
+                          >
+                            0/20
+                          </div>
+                        </div>
+                        <div
+                          style={{ height: 12, backgroundColor: "#d8d8d8" }}
+                        />
+                      </>
+                    )}
                   </div>
                   <div className="slide-area">{info.slide}</div>
                   {info.id === 2 && (

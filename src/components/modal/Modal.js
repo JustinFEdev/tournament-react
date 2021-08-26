@@ -62,7 +62,6 @@ const Modal = (props) => {
     border-radius: 5px;
     animation: ${(props) => (props.show ? fadeOut : fadeIn)} 0.35s linear;
   `;
-  // animation: ${fadeOut} 2s;
 
   useEffect(() => {
     document.body.style.cssText = `
@@ -82,7 +81,15 @@ const Modal = (props) => {
       <Wrapper>
         <Overlay onClick={(event) => closeModal(event)} />
         <Card>
-          <h1>Modal</h1>
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/ZNv5T23rDqs?rel=0&autoplay=1"
+            title="DragonBlood"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen={true}
+          />
           <div
             style={{
               position: "absolute",
@@ -91,11 +98,12 @@ const Modal = (props) => {
               height: 50,
               border: "1px solid",
               top: 0,
-              right: 0,
+              right: "-10.5%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               cursor: "pointer",
+              backgroundColor: "#fff",
             }}
             onClick={(event) => closeModal(event)}
           >

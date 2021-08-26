@@ -29,8 +29,32 @@ const MissionSlide = () => {
             }}
           >
             <span>To Win</span>
-            <span className="navi-insideball" style={{ margin: "0 15px" }}>
-              PP
+            <span
+              style={{
+                width: 34,
+                height: 34,
+                border: "solid 1.5px #149231",
+                backgroundColor: "#38ae53",
+                margin: " 0 10px",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                borderRadius: 25,
+              }}
+            >
+              <p
+                style={{
+                  margin: "auto",
+                  fontSize: 22,
+                  fontWeight: 800,
+                  display: "flex",
+                  height: "88%",
+                  alignItems: "flex-end",
+                }}
+              >
+                PP
+              </p>
             </span>
             <span>2</span>
           </p>
