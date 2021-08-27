@@ -10,14 +10,15 @@ import bulso from "./resource/video/bulso.mp4";
 
 const Progress = ({ done }) => {
   const [style, setStyle] = useState({});
+  const [data, setData] = useState();
 
-  setTimeout(() => {
-    const newStyle = {
-      opacity: 1,
-      width: `${done}`,
-    };
-    setStyle(newStyle);
-  }, 1000);
+  // setTimeout(() => {
+  //   const newStyle = {
+  //     opacity: 1,
+  //     width: `${done}`,
+  //   };
+  //   setStyle(newStyle);
+  // }, 1000);
 
   return (
     <>
@@ -37,69 +38,159 @@ const Progress = ({ done }) => {
 };
 
 const Main = () => {
+  const [show, setShow] = useState(false);
   const [gameData, setGameData] = useState([]);
+  const [weekly, setWeekly] = useState();
+  const [conti, setConti] = useState();
 
+  // ContinueSlide && MissionSlide
   const typeData = [
     {
       id: 1,
       title: "Continue Playing",
-      route: "option",
-      slide: <ContinueSlide />,
+      route: "/option",
+      slide: <ContinueSlide conti={conti} />,
     },
     {
       id: 2,
       title: "Weekly Mission",
-      route: "See All",
-      slide: <MissionSlide />,
+      route: "/See All",
+      slide: <MissionSlide weekly={weekly} />,
     },
   ];
 
+  //comma function
   function AddComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
     return num.toString().replace(regexp, ",");
   }
 
-  // const renNumber = AddComma(Math.floor(Math.random() * 100000));
-  // const renPoint = AddComma(Math.floor(Math.random() * 10000000));
-  // console.log(renNumber);
-  // console.log(gameData);
-
-  const [show, setShow] = useState(false);
+  // modal close function
   const closeHandle = (event) => {
     event.preventDefault();
     setShow(false);
     console.log("close modal");
   };
+
+  // modal open function
   const openHandle = () => {
     setShow(!show);
     console.log("open modal");
   };
 
-  // useEffect(() => {
-  //   if (show) {
-  //     const notice = setTimeout(() => {
-  //       setShow(false);
-  //     }, 3000);
-  //     return () => clearTimeout(notice);
-  //   }
-  // }, [show]);
-
+  // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
-    for (var i = 0; i < 5; i++) {
+    const aa = [];
+    for (var i = 0; i < 10; i++) {
       const count = Math.floor(Math.random() * 10000);
-      const num = AddComma(Math.floor(Math.random() * 10000000));
-      const people = AddComma(Math.floor(Math.random() * 100000));
+      const num = AddComma(
+        Math.floor(Math.random() * 10000000)
+      );
+      const people = AddComma(
+        Math.floor(Math.random() * 100000)
+      );
       const menuDatas = {
         img: count,
         point: num,
         user: people,
       };
-
-      setGameData(menuDatas);
-      console.log(menuDatas);
-      // gameData.forEach((info) => console.log(info));
+      aa.push(menuDatas);
     }
+    setGameData(aa);
+
+    //weekly mission
+    const datas = [
+      {
+        id: 1,
+        title: "aa",
+        target: 4,
+        point: 2,
+        img: "1111",
+      },
+      {
+        id: 2,
+        title: "bb",
+        target: 5,
+        point: 10,
+        img: "2222",
+      },
+      {
+        id: 3,
+        title: "cc",
+        target: 2,
+        point: 5,
+        img: "3333",
+      },
+      {
+        id: 4,
+        title: "dd",
+        target: 3,
+        point: 1,
+        img: "4444",
+      },
+      {
+        id: 5,
+        title: "ff",
+        target: 5,
+        point: 6,
+        img: "555",
+      },
+    ];
+
+    //continue mission
+    const contiInfo = [
+      {
+        id: 1,
+        title: "aa",
+        time: 4,
+        point: 2,
+        img: "1111",
+      },
+      {
+        id: 2,
+        title: "bb",
+        time: 5,
+        point: 10,
+        img: "2222",
+      },
+      {
+        id: 3,
+        title: "cc",
+        time: 2,
+        point: 5,
+        img: "3333",
+      },
+      {
+        id: 4,
+        title: "dd",
+        time: "2:11",
+        point: 10,
+        img: "444",
+      },
+    ];
+    setWeekly(datas);
+    setConti(contiInfo);
   }, []);
+
+  console.log("weekly");
+  console.log(weekly);
+  console.log("conti");
+  console.log(conti);
+
+  //weekly mission data
+  // useEffect(() => {
+  //   console.log("weekly mission data ");
+  // }, []);
+
+  // 모달 show 제한시간 3초
+  // useEffect(() => {
+  //   if (show) {
+  //     const notice = setTimeout(() => {
+  //       setShow(false);
+  //     }, 3000);ㅁ
+  //     return () => clearTimeout(notice);
+  //   }
+  // }, [show]);
 
   return (
     <>
@@ -153,12 +244,24 @@ const Main = () => {
             </video> */}
             <div className="scene">
               <div className="cube">
-                <div className="cube__face cube__face--front">front</div>
-                <div className="cube__face cube__face--back">back</div>
-                <div className="cube__face cube__face--right">right</div>
-                <div className="cube__face cube__face--left">left</div>
-                <div className="cube__face cube__face--top">top</div>
-                <div className="cube__face cube__face--bottom">bottom</div>
+                <div className="cube__face cube__face--front">
+                  front
+                </div>
+                <div className="cube__face cube__face--back">
+                  back
+                </div>
+                <div className="cube__face cube__face--right">
+                  right
+                </div>
+                <div className="cube__face cube__face--left">
+                  left
+                </div>
+                <div className="cube__face cube__face--top">
+                  top
+                </div>
+                <div className="cube__face cube__face--bottom">
+                  bottom
+                </div>
               </div>
             </div>
           </div>
@@ -175,13 +278,22 @@ const Main = () => {
                   <div className="slide-space">
                     <div className="slide-title-wrapper">
                       {/* Continue Playing */}
-                      <span className="slide-title">{info.title}</span>
+                      <span className="slide-title">
+                        {info.title}
+                      </span>
                       {/* option */}
-                      <span className="slide-route">{info.route}</span>
+                      <span className="slide-route">
+                        {info.route}
+                      </span>
                     </div>
                     {info.id === 2 && (
                       <>
-                        <div style={{ display: "flex", alignItems: "center" }}>
+                        <div
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
                           <h3
                             style={{
                               fontSize: 32,
@@ -230,15 +342,22 @@ const Main = () => {
                           </div>
                         </div>
                         <div
-                          style={{ height: 12, backgroundColor: "#d8d8d8" }}
+                          style={{
+                            height: 12,
+                            backgroundColor: "#d8d8d8",
+                          }}
                         />
                       </>
                     )}
                   </div>
-                  <div className="slide-area">{info.slide}</div>
-                  {info.id === 2 && (
-                    <h2 className="weekly-daycount">6 days left to complet</h2>
-                  )}
+                  <div className="slide-area">
+                    {info.slide}
+                  </div>
+                  {/* {info.id === 2 && (
+                    <h2 className="weekly-daycount">
+                      {weekly.length} days left to complet
+                    </h2>
+                  )} */}
                 </div>
               </div>
             </>
@@ -255,7 +374,9 @@ const Main = () => {
                   padding: "0 30px",
                 }}
               >
-                <p className="featured-title">Featured Tournaments</p>
+                <p className="featured-title">
+                  Featured Tournaments
+                </p>
                 {/* big img area */}
                 <img className="featured-img" alt="" />
                 <div className="featured-infoarea">
@@ -268,7 +389,10 @@ const Main = () => {
                 {/* small img area */}
                 <div className="featured-smallarea">
                   <div className="featured-samll-wrapper">
-                    <div className="featured-samll-img" alt="1" />
+                    <div
+                      className="featured-samll-img"
+                      alt="1"
+                    />
                     <div
                       style={{
                         display: "flex",
@@ -292,7 +416,10 @@ const Main = () => {
           <div className="menu-container">
             <span
               className="menu-selector"
-              style={{ backgroundColor: "#9bd0e1", color: "#fff" }}
+              style={{
+                backgroundColor: "#9bd0e1",
+                color: "#fff",
+              }}
             >
               All Games
             </span>
@@ -316,25 +443,30 @@ const Main = () => {
             <div
               style={{
                 display: "flex",
-                justifyContent: "space-evenly",
+                justifyContent: "flex-start",
                 flexWrap: "wrap",
               }}
             >
-              {/* <GameItem menuData={gameData} /> */}
+              <GameItem menuData={gameData} />
             </div>
           </div>
-          <div
-            style={{
-              fontFamily: "AppleSDGothicNeo",
-              color: "#598b9b",
-              padding: "70px 0",
-              fontSize: 38,
-              fontWeight: 500,
-              cursor: "pointer",
-            }}
-          >
-            View All Games
-          </div>
+          {gameData.length < 15 && (
+            <>
+              <div
+                style={{
+                  fontFamily: "AppleSDGothicNeo",
+                  color: "#598b9b",
+                  padding: "70px 0",
+                  fontSize: 38,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                }}
+                // onClick={}
+              >
+                View All Games
+              </div>
+            </>
+          )}
         </div>
         {show === true && (
           <>

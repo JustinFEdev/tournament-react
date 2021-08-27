@@ -32,7 +32,8 @@ const Modal = (props) => {
     height: 100%;
     z-index: 99;
     transition: opacity linear 0.15s;
-    animation: ${(props) => (props.show ? fadeOut : fadeIn)} 0.35s linear;
+    animation: ${(props) => (props.show ? fadeOut : fadeIn)}
+      0.35s linear;
   `;
 
   const Wrapper = styled.div`
@@ -47,7 +48,8 @@ const Modal = (props) => {
     justify-content: center;
     align-item: center;
     transition: opacity linear 0.15s;
-    animation: ${(props) => (props.show ? fadeOut : fadeIn)} 0.35s linear;
+    animation: ${(props) => (props.show ? fadeOut : fadeIn)}
+      0.35s linear;
   `;
 
   const Card = styled.div`
@@ -60,7 +62,8 @@ const Modal = (props) => {
     height: 500px;
     background-color: lightgray;
     border-radius: 5px;
-    animation: ${(props) => (props.show ? fadeOut : fadeIn)} 0.35s linear;
+    animation: ${(props) => (props.show ? fadeOut : fadeIn)}
+      0.35s linear;
   `;
 
   useEffect(() => {

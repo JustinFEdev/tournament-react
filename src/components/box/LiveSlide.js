@@ -74,7 +74,13 @@ const LiveSlide = () => {
               paddingLeft: 25,
             }}
           >
-            <span style={{ fontSize: 38, fontWeight: 500, color: "#09607b" }}>
+            <span
+              style={{
+                fontSize: 38,
+                fontWeight: 500,
+                color: "#09607b",
+              }}
+            >
               Bit Miner
             </span>
             <br />
@@ -91,7 +97,11 @@ const LiveSlide = () => {
             }}
           >
             <span
-              style={{ fontSize: 32, fontWeight: "bold", color: "#09607b" }}
+              style={{
+                fontSize: 32,
+                fontWeight: "bold",
+                color: "#09607b",
+              }}
             >
               WIN
             </span>
@@ -121,7 +131,11 @@ const LiveSlide = () => {
               </p>
             </span>
             <span
-              style={{ fontSize: 32, fontWeight: "bold", color: "#09607b" }}
+              style={{
+                fontSize: 32,
+                fontWeight: "bold",
+                color: "#09607b",
+              }}
             >
               Point
             </span>

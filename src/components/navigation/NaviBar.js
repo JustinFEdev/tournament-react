@@ -14,10 +14,18 @@ const NaviBar = () => {
           backgroundColor: "#c9e2ea",
         }}
       >
-        <button>Menu</button>
+        <button>
+          <a href="/Demo">menu </a>
+        </button>
+
         <div>Menu status</div>
 
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <div className="navi-pointwrapper">
             <span className="navi-insideball">PP</span>
             <span>number</span>
