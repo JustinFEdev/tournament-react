@@ -42,7 +42,7 @@ const Main = () => {
   const [gameData, setGameData] = useState([]);
   const [weekly, setWeekly] = useState();
   const [conti, setConti] = useState();
-
+  const [live, setLive] = useState();
   // ContinueSlide && MissionSlide
   const typeData = [
     {
@@ -168,15 +168,56 @@ const Main = () => {
         img: "444",
       },
     ];
+    //Live mission
+    const liveInfo = [
+      {
+        id: 1,
+        status: "live",
+        title: "aa",
+        time: 4,
+        point: 2,
+        number: 35,
+        img: "1111",
+      },
+      {
+        id: 2,
+        status: "live",
+        title: "bb",
+        time: 6,
+        point: 12,
+        number: 22,
+        img: "2222",
+      },
+      {
+        id: 3,
+        status: "live",
+        title: "cc",
+        time: 65,
+        point: 266,
+        number: 878,
+        img: "3333",
+      },
+      {
+        id: 4,
+        status: "live",
+        title: "dd",
+        time: 1,
+        point: 21,
+        number: 45,
+        img: "4444",
+      },
+    ];
     setWeekly(datas);
     setConti(contiInfo);
+    setLive(liveInfo);
   }, []);
 
   console.log("weekly");
   console.log(weekly);
   console.log("conti");
   console.log(conti);
-
+  console.log("live");
+  console.log(live);
   //weekly mission data
   // useEffect(() => {
   //   console.log("weekly mission data ");
@@ -267,7 +308,7 @@ const Main = () => {
           </div>
           {/* LiveSlide */}
           <div className="main-live-wrapper">
-            <LiveSlide />
+            <LiveSlide live={live} />
           </div>
           {/* Continue Playing */}
           {/* Weekly Mission */}
