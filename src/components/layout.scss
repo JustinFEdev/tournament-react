@@ -4,6 +4,10 @@
 a {
   text-decoration: none;
 }
+header {
+  position: relative;
+  z-index: 100;
+}
 .main-container {
   position: relative;
   min-width: 690px;
@@ -19,6 +23,17 @@ a {
   background-color: #fff;
   height: 100%;
 }
+
+.detail-img-layout {
+  border: 1px solid;
+  height: 250px;
+  width: 690px;
+  background-color: lightcoral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* .slick-list {
   overflow: hidden;
 } */

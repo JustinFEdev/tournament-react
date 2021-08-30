@@ -13,6 +13,7 @@ const NaviBar = () => {
     { name: "allrank", path: "/allrank" },
     { name: "smash", path: "/smash" },
   ];
+
   const menudrower = () => {
     console.log("시원하게 넘어갑시다");
   };

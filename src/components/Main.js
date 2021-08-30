@@ -62,9 +62,11 @@ const Main = () => {
       const num = AddComma(
         Math.floor(Math.random() * 10000000)
       );
+
       const people = AddComma(
         Math.floor(Math.random() * 100000)
       );
+
       const menuDatas = {
         img: count,
         point: num,

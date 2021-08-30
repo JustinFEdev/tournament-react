@@ -11,6 +11,7 @@ const LiveSlide = ({ live }) => {
     speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3500,
     centerMode: true,
