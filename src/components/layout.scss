@@ -1,6 +1,9 @@
 * {
   font-family: "AppleSDGothicNeo";
 }
+a {
+  text-decoration: none;
+}
 .main-container {
   position: relative;
   min-width: 690px;
@@ -59,13 +62,58 @@
   font-weight: 800;
 }
 .slide-route {
-  font-size: 38px;
+  font-size: 32px;
   font-weight: 500;
   color: #57a8c2;
   cursor: pointer;
+  transition-duration: 0.2s;
 }
+.slide-route:hover {
+  color: #e3da5b;
+}
+
 .slide-area {
   height: 362px;
+}
+/* weekly */
+.weekly-textwrapper {
+  display: flex;
+  align-items: center;
+}
+.weekly-towin {
+  font-size: 32px;
+  font-weight: bold;
+  color: #09607b;
+  margin: 12px 0;
+}
+.weekly-ppimg-layout {
+  width: 34px;
+  height: 34px;
+  border: solid 1.5px #149231;
+  background-color: #38ae53;
+  margin: 0 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+}
+.weekly-ppimg-text {
+  margin: auto;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  height: 88%;
+  align-items: flex-end;
+}
+.weekly-game-status {
+  font-size: 32px;
+  font-weight: bold;
+  color: #09607b;
+}
+.weekly-progress-layout {
+  height: 12px;
+  background-color: #d8d8d8;
 }
 .weekly-daycount {
   padding: 35px 0 60px 0;

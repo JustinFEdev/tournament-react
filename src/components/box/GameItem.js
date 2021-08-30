@@ -9,23 +9,25 @@ const GameItem = ({ menuData }) => {
     <>
       {menuData !== undefined && (
         <>
-          {menuData.map((info) => (
-            <div className="gameItem-container">
+          {menuData.map((info, index) => (
+            <div className="gameItem-container" key={index}>
               <div className="gameItem-img" alt="">
                 img
               </div>
               <div className="gameItem-wrapper">
                 <span className="gameItem-pointarea">
                   <div className="gameItem-icon">PP</div>
-                  <p className="gameItem-point">
+                  <div className="gameItem-point">
                     {info.point}
-                  </p>
+                  </div>
                 </span>
                 <span className="gameItem-userarea">
-                  <p className="gameItem-usericon">II</p>
-                  <p className="gameItem-number">
+                  <div className="gameItem-usericon">
+                    II
+                  </div>
+                  <span className="gameItem-number">
                     {info.user}
-                  </p>
+                  </span>
                 </span>
               </div>
             </div>

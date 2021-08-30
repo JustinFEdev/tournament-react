@@ -24,7 +24,7 @@ const LiveSlide = ({ live }) => {
       {live !== undefined && (
         <>
           <Slider {...liveSettings}>
-            {live.map((info) => (
+            {live.map((info, index) => (
               <div
                 style={{
                   position: "relative",
@@ -32,6 +32,7 @@ const LiveSlide = ({ live }) => {
                   width: 620,
                   margin: "0 15px",
                 }}
+                key={index}
               >
                 <div
                   style={{
@@ -39,7 +40,7 @@ const LiveSlide = ({ live }) => {
                     zIndex: 1,
                   }}
                 >
-                  <p
+                  <div
                     style={{
                       width: 68,
                       border: "1px solid",
@@ -52,8 +53,8 @@ const LiveSlide = ({ live }) => {
                     }}
                   >
                     {info.live}
-                  </p>
-                  <p
+                  </div>
+                  <div
                     style={{
                       width: 183,
                       border: "1px solid",
@@ -67,7 +68,7 @@ const LiveSlide = ({ live }) => {
                     }}
                   >
                     {info.time}
-                  </p>
+                  </div>
                 </div>
                 <div
                   style={{
@@ -114,7 +115,7 @@ const LiveSlide = ({ live }) => {
                       {info.title}
                     </span>
                     <br />
-                    <icon>icon</icon>
+                    <span>icon</span>
                     <span>{info.number}</span>
                     <span>watch</span>
                   </div>

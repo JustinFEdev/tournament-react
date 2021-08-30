@@ -1,5 +1,5 @@
 import React from "react";
-import "../navigation/navi.css";
+import "../navigation/navi.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -26,7 +26,7 @@ const ContinueSlide = ({ conti }) => {
       {conti !== undefined && (
         <>
           <Slider {...contiSettings}>
-            {conti.map((info) => (
+            {conti.map((info, index) => (
               <>
                 <div
                   style={{
@@ -34,6 +34,7 @@ const ContinueSlide = ({ conti }) => {
                     position: "relative",
                     border: "none",
                   }}
+                  key={index}
                 >
                   <img
                     style={{
@@ -73,7 +74,7 @@ const ContinueSlide = ({ conti }) => {
                       padding: "20px 0 0 0",
                     }}
                   >
-                    <p
+                    <div
                       style={{
                         fontSize: 30,
                         fontWeight: 500,
@@ -81,8 +82,8 @@ const ContinueSlide = ({ conti }) => {
                       }}
                     >
                       Play Again
-                    </p>
-                    <p
+                    </div>
+                    <div
                       style={{
                         fontSize: 32,
                         fontWeight: "bold",
@@ -106,7 +107,7 @@ const ContinueSlide = ({ conti }) => {
                           borderRadius: 25,
                         }}
                       >
-                        <p
+                        <div
                           style={{
                             margin: "auto",
                             fontSize: 22,
@@ -117,10 +118,10 @@ const ContinueSlide = ({ conti }) => {
                           }}
                         >
                           PP
-                        </p>
+                        </div>
                       </span>
                       <span>{info.point}</span>
-                    </p>
+                    </div>
                   </div>
                 </div>
               </>

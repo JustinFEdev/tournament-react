@@ -4,22 +4,9 @@ import LiveSlide from "./box/LiveSlide";
 import MissionSlide from "./box/MissionSlide";
 import GameItem from "./box/GameItem";
 import NaviBar from "./navigation/NaviBar";
-import "./layout.css";
-import Modal from "./modal/Modal";
-import bulso from "./resource/video/bulso.mp4";
+import "./layout.scss";
 
 const Progress = ({ done }) => {
-  const [style, setStyle] = useState({});
-  const [data, setData] = useState();
-
-  // setTimeout(() => {
-  //   const newStyle = {
-  //     opacity: 1,
-  //     width: `${done}`,
-  //   };
-  //   setStyle(newStyle);
-  // }, 1000);
-
   return (
     <>
       <div className="progress">
@@ -38,23 +25,25 @@ const Progress = ({ done }) => {
 };
 
 const Main = () => {
-  const [show, setShow] = useState(false);
   const [gameData, setGameData] = useState([]);
   const [weekly, setWeekly] = useState();
   const [conti, setConti] = useState();
   const [live, setLive] = useState();
+
   // ContinueSlide && MissionSlide
   const typeData = [
     {
       id: 1,
       title: "Continue Playing",
-      route: "/option",
+      route: "Completed >",
+      direction: "/completed",
       slide: <ContinueSlide conti={conti} />,
     },
     {
       id: 2,
       title: "Weekly Mission",
-      route: "/See All",
+      route: "See All >",
+      direction: "/allrank",
       slide: <MissionSlide weekly={weekly} />,
     },
   ];
@@ -65,23 +54,10 @@ const Main = () => {
     return num.toString().replace(regexp, ",");
   }
 
-  // modal close function
-  const closeHandle = (event) => {
-    event.preventDefault();
-    setShow(false);
-    console.log("close modal");
-  };
-
-  // modal open function
-  const openHandle = () => {
-    setShow(!show);
-    console.log("open modal");
-  };
-
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 9; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
         Math.floor(Math.random() * 10000000)
@@ -212,27 +188,6 @@ const Main = () => {
     setLive(liveInfo);
   }, []);
 
-  console.log("weekly");
-  console.log(weekly);
-  console.log("conti");
-  console.log(conti);
-  console.log("live");
-  console.log(live);
-  //weekly mission data
-  // useEffect(() => {
-  //   console.log("weekly mission data ");
-  // }, []);
-
-  // 모달 show 제한시간 3초
-  // useEffect(() => {
-  //   if (show) {
-  //     const notice = setTimeout(() => {
-  //       setShow(false);
-  //     }, 3000);ㅁ
-  //     return () => clearTimeout(notice);
-  //   }
-  // }, [show]);
-
   return (
     <>
       <div className="main-container">
@@ -241,79 +196,15 @@ const Main = () => {
             <NaviBar />
           </header>
           <Progress done="70" />
-          <div
-            style={{
-              cursor: "pointer",
-              backgroundColor: "lightgray",
-              borderRadius: 20,
-              padding: 15,
-              border: "none",
-              color: "#fff",
-              fontSize: 20,
-              fontWeight: "border",
-              width: "50%",
-            }}
-            onClick={openHandle}
-          >
-            test modal
-          </div>
-          <div
-            style={{
-              // position: "absolute",
-              width: "100%",
-              height: 350,
-              left: 0,
-              zIndex: 0,
-              opacity: 0.3,
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {/* <video
-              autoPlay
-              loop
-              muted
-              style={{
-                position: "relative",
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-            >
-              <source src={bulso} type="video/mp4" />
-            </video> */}
-            <div className="scene">
-              <div className="cube">
-                <div className="cube__face cube__face--front">
-                  front
-                </div>
-                <div className="cube__face cube__face--back">
-                  back
-                </div>
-                <div className="cube__face cube__face--right">
-                  right
-                </div>
-                <div className="cube__face cube__face--left">
-                  left
-                </div>
-                <div className="cube__face cube__face--top">
-                  top
-                </div>
-                <div className="cube__face cube__face--bottom">
-                  bottom
-                </div>
-              </div>
-            </div>
-          </div>
+
           {/* LiveSlide */}
           <div className="main-live-wrapper">
             <LiveSlide live={live} />
           </div>
-          {/* Continue Playing */}
-          {/* Weekly Mission */}
-          {typeData.map((info) => (
-            <div className="slide-contianer">
+
+          {/* Weekly Mission & Continue Playing */}
+          {typeData.map((info, index) => (
+            <div className="slide-contianer" key={index}>
               <div className="slide-wrapper">
                 <div className="slide-space">
                   <div className="slide-title-wrapper">
@@ -322,71 +213,28 @@ const Main = () => {
                       {info.title}
                     </span>
                     {/* option */}
-                    <span className="slide-route">
-                      {info.route}
-                    </span>
+                    <a href={info.direction}>
+                      <span className="slide-route">
+                        {info.route}
+                      </span>
+                    </a>
                   </div>
                   {info.id === 2 && (
                     <>
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <h3
-                          style={{
-                            fontSize: 32,
-                            fontWeight: "bold",
-                            color: "#09607b",
-                            margin: "12px 0",
-                          }}
-                        >
+                      <div className="weekly-textwrapper">
+                        <h className="weekly-towin">
                           You Won
-                        </h3>
-                        <span
-                          style={{
-                            width: 34,
-                            height: 34,
-                            border: "solid 1.5px #149231",
-                            backgroundColor: "#38ae53",
-                            margin: " 0 10px",
-                            color: "#fff",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            borderRadius: 25,
-                          }}
-                        >
-                          <p
-                            style={{
-                              margin: "auto",
-                              fontSize: 22,
-                              fontWeight: 800,
-                              display: "flex",
-                              height: "88%",
-                              alignItems: "flex-end",
-                            }}
-                          >
+                        </h>
+                        <span className="weekly-ppimg-layout">
+                          <p className="weekly-ppimg-text">
                             PP
                           </p>
                         </span>
-                        <div
-                          style={{
-                            fontSize: 32,
-                            fontWeight: "bold",
-                            color: "#09607b",
-                          }}
-                        >
+                        <div className="weekly-game-status">
                           0/20
                         </div>
                       </div>
-                      <div
-                        style={{
-                          height: 12,
-                          backgroundColor: "#d8d8d8",
-                        }}
-                      />
+                      <div className="weekly-progress-layout" />
                     </>
                   )}
                 </div>
@@ -394,10 +242,14 @@ const Main = () => {
                   {info.slide}
                 </div>
                 {/* {info.id === 2 && (
-                    <h2 className="weekly-daycount">
-                      {weekly.length} days left to complet
-                    </h2>
-                  )} */}
+                  <h2 className="weekly-daycount">
+                    {info.length !== undefined && (
+                      <>
+                        {weekly.length} days left to complet
+                      </>
+                    )}
+                  </h2>
+                )} */}
               </div>
             </div>
           ))}
@@ -500,37 +352,12 @@ const Main = () => {
                   fontWeight: 500,
                   cursor: "pointer",
                 }}
-                // onClick={}
               >
-                View All Games
+                <a href="/allgames">View All Games</a>
               </div>
             </>
           )}
         </div>
-        {show === true && (
-          <>
-            <div>
-              <Modal show={show} closeModal={closeHandle} />
-              {/* <div
-                style={{
-                  position: "absolute",
-                  zIndex: 101,
-                  width: 80,
-                  height: 50,
-                  border: "1px solid",
-                  top: 0,
-                  right: 0,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={closeHandle}
-              >
-                close
-              </div> */}
-            </div>
-          </>
-        )}
       </div>
     </>
   );

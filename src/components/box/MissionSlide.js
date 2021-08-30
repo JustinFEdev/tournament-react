@@ -13,12 +13,10 @@ const MissionSlide = ({ weekly }) => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    // centerPadding: "0 0 30px 0",
     centerMode: false,
     swipe: true,
     swipeToSlide: false,
     touchMove: true,
-    // useCSS: true,
   };
 
   return (
@@ -26,7 +24,7 @@ const MissionSlide = ({ weekly }) => {
       {weekly !== undefined && (
         <>
           <Slider {...settings}>
-            {weekly.map((info) => (
+            {weekly.map((info, index) => (
               <>
                 <div
                   style={{
@@ -34,6 +32,7 @@ const MissionSlide = ({ weekly }) => {
                     position: "relative",
                     margin: "0 0 15px 0",
                   }}
+                  key={index}
                 >
                   <img
                     style={{
@@ -54,7 +53,7 @@ const MissionSlide = ({ weekly }) => {
                       padding: "20px 0 0 0",
                     }}
                   >
-                    <p
+                    <div
                       style={{
                         fontSize: 32,
                         fontWeight: "bold",
@@ -78,7 +77,7 @@ const MissionSlide = ({ weekly }) => {
                           borderRadius: 25,
                         }}
                       >
-                        <p
+                        <div
                           style={{
                             margin: "auto",
                             fontSize: 22,
@@ -89,11 +88,11 @@ const MissionSlide = ({ weekly }) => {
                           }}
                         >
                           PP
-                        </p>
+                        </div>
                       </span>
                       <span>{info.point}</span>
-                    </p>
-                    <p
+                    </div>
+                    <div
                       style={{
                         fontSize: 30,
                         fontWeight: 500,
@@ -101,15 +100,15 @@ const MissionSlide = ({ weekly }) => {
                       }}
                     >
                       Target {info.target}
-                    </p>
-                    <p
+                    </div>
+                    <div
                       style={{
                         fontSize: 30,
                         color: "#85b8c8",
                       }}
                     >
                       START NOW
-                    </p>
+                    </div>
                   </div>
                 </div>
               </>
