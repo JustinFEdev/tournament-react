@@ -8,16 +8,16 @@ const LiveSlide = ({ live }) => {
     arrows: false,
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
-    // centerMode: true,
+    autoplaySpeed: 3500,
+    centerMode: true,
     swipe: true,
     swipeToSlide: false,
     touchMove: true,
-    // useCSS: true,
+    useCSS: true,
   };
   return (
     <>
@@ -25,154 +25,153 @@ const LiveSlide = ({ live }) => {
         <>
           <Slider {...liveSettings}>
             {live.map((info) => (
-              <>
+              <div
+                style={{
+                  position: "relative",
+                  display: "block",
+                  width: 620,
+                  margin: "0 15px",
+                }}
+              >
                 <div
                   style={{
-                    position: "relative",
-                    width: 620,
+                    position: "absolute",
+                    zIndex: 1,
+                  }}
+                >
+                  <p
+                    style={{
+                      width: 68,
+                      border: "1px solid",
+                      borderRadius: 3.8,
+                      backgroundColor: "#09607b",
+                      fontSize: 19,
+                      fontWeight: 500,
+                      padding: "10px 14px 12px",
+                      color: "#88d9f3",
+                    }}
+                  >
+                    {info.live}
+                  </p>
+                  <p
+                    style={{
+                      width: 183,
+                      border: "1px solid",
+                      borderRadius: 3.8,
+                      backgroundColor: "#09607b",
+                      fontSize: 19,
+                      fontWeight: 500,
+                      padding: "10px 14px 12px",
+                      color: "#88d9f3",
+                      marginTop: 190,
+                    }}
+                  >
+                    {info.time}
+                  </p>
+                </div>
+                <div
+                  style={{
+                    height: 316,
+                    width: "100%",
+                    borderRadius: "16px 16px 0 0 ",
+                    border: "solid 2.5px #86b1be",
+                    borderBottom: "none",
+                    backgroundColor: "#c9e2ea",
+                    margin: 0,
+                    padding: 0,
+                  }}
+                >
+                  <img src={info.img} alt={info.img} />
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    height: 157,
+                    border: "solid 2.5px #86b1be",
+                    borderRadius: "0 0 16px 16px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    boxShadow:
+                      "0 13px 13px 0 rgb(77 93 107 / 13%)",
                   }}
                 >
                   <div
                     style={{
-                      position: "absolute",
-                      zIndex: 1,
-                      padding: "0 0 0 15px",
+                      width: "60%",
+                      textAlign: "left",
+                      paddingLeft: 25,
                     }}
                   >
-                    <p
+                    <span
                       style={{
-                        width: 68,
-                        border: "1px solid",
-                        borderRadius: 3.8,
-                        backgroundColor: "#09607b",
-                        fontSize: 19,
+                        fontSize: 38,
                         fontWeight: 500,
-                        padding: "10px 14px 12px",
-                        color: "#88d9f3",
+                        color: "#09607b",
                       }}
                     >
-                      {info.live}
-                    </p>
-                    <p
-                      style={{
-                        width: 183,
-                        border: "1px solid",
-                        borderRadius: 3.8,
-                        backgroundColor: "#09607b",
-                        fontSize: 19,
-                        fontWeight: 500,
-                        padding: "10px 14px 12px",
-                        color: "#88d9f3",
-                        marginTop: 190,
-                      }}
-                    >
-                      {info.time}
-                    </p>
+                      {/* Bit Miner */}
+                      {info.title}
+                    </span>
+                    <br />
+                    <icon>icon</icon>
+                    <span>{info.number}</span>
+                    <span>watch</span>
                   </div>
                   <div
                     style={{
-                      height: 316,
-                      width: "100%",
-                      borderRadius: "16px 16px 0 0 ",
-                      border: "solid 2.5px #86b1be",
-                      borderBottom: "none",
-                      backgroundColor: "#c9e2ea",
-                      margin: 0,
-                      padding: 0,
-                    }}
-                  >
-                    <img src={info.img} alt={info.img} />
-                  </div>
-                  <div
-                    style={{
-                      width: "100%",
-                      height: 157,
-                      border: "solid 2.5px #86b1be",
-                      borderRadius: "0 0 16px 16px",
+                      width: "40%",
                       display: "flex",
-                      justifyContent: "space-between",
                       alignItems: "center",
-                      boxShadow:
-                        "0 13px 13px 0 rgb(77 93 107 / 13%)",
+                      justifyContent: "space-evenly",
                     }}
                   >
-                    <div
+                    <span
                       style={{
-                        width: "60%",
-                        textAlign: "left",
-                        paddingLeft: 25,
+                        fontSize: 32,
+                        fontWeight: "bold",
+                        color: "#09607b",
                       }}
                     >
-                      <span
-                        style={{
-                          fontSize: 38,
-                          fontWeight: 500,
-                          color: "#09607b",
-                        }}
-                      >
-                        {/* Bit Miner */}
-                        {info.title}
-                      </span>
-                      <br />
-                      <icon>icon</icon>
-                      <span>{info.number}</span>
-                      <span>watch</span>
-                    </div>
-                    <div
+                      WIN
+                    </span>
+                    <span
                       style={{
-                        width: "40%",
+                        width: 34,
+                        height: 34,
+                        border: "solid 1.5px #149231",
+                        backgroundColor: "#38ae53",
+                        color: "#fff",
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "space-evenly",
+                        justifyContent: "center",
+                        borderRadius: 25,
                       }}
                     >
-                      <span
+                      <p
                         style={{
-                          fontSize: 32,
-                          fontWeight: "bold",
-                          color: "#09607b",
-                        }}
-                      >
-                        WIN
-                      </span>
-                      <span
-                        style={{
-                          width: 34,
-                          height: 34,
-                          border: "solid 1.5px #149231",
-                          backgroundColor: "#38ae53",
-                          color: "#fff",
+                          fontSize: 22,
+                          fontWeight: 800,
                           display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          borderRadius: 25,
+                          height: "88%",
+                          alignItems: "flex-end",
                         }}
                       >
-                        <p
-                          style={{
-                            fontSize: 22,
-                            fontWeight: 800,
-                            display: "flex",
-                            height: "88%",
-                            alignItems: "flex-end",
-                          }}
-                        >
-                          PP
-                        </p>
-                      </span>
-                      <span
-                        style={{
-                          fontSize: 32,
-                          fontWeight: "bold",
-                          color: "#09607b",
-                        }}
-                      >
-                        {info.point}
-                      </span>
-                    </div>
+                        PP
+                      </p>
+                    </span>
+                    <span
+                      style={{
+                        fontSize: 32,
+                        fontWeight: "bold",
+                        color: "#09607b",
+                      }}
+                    >
+                      {info.point}
+                    </span>
                   </div>
                 </div>
-              </>
+              </div>
             ))}
           </Slider>
         </>

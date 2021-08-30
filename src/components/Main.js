@@ -313,95 +313,93 @@ const Main = () => {
           {/* Continue Playing */}
           {/* Weekly Mission */}
           {typeData.map((info) => (
-            <>
-              <div className="slide-contianer">
-                <div className="slide-wrapper">
-                  <div className="slide-space">
-                    <div className="slide-title-wrapper">
-                      {/* Continue Playing */}
-                      <span className="slide-title">
-                        {info.title}
-                      </span>
-                      {/* option */}
-                      <span className="slide-route">
-                        {info.route}
-                      </span>
-                    </div>
-                    {info.id === 2 && (
-                      <>
-                        <div
+            <div className="slide-contianer">
+              <div className="slide-wrapper">
+                <div className="slide-space">
+                  <div className="slide-title-wrapper">
+                    {/* Continue Playing */}
+                    <span className="slide-title">
+                      {info.title}
+                    </span>
+                    {/* option */}
+                    <span className="slide-route">
+                      {info.route}
+                    </span>
+                  </div>
+                  {info.id === 2 && (
+                    <>
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <h3
                           style={{
-                            display: "flex",
-                            alignItems: "center",
+                            fontSize: 32,
+                            fontWeight: "bold",
+                            color: "#09607b",
+                            margin: "12px 0",
                           }}
                         >
-                          <h3
+                          You Won
+                        </h3>
+                        <span
+                          style={{
+                            width: 34,
+                            height: 34,
+                            border: "solid 1.5px #149231",
+                            backgroundColor: "#38ae53",
+                            margin: " 0 10px",
+                            color: "#fff",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 25,
+                          }}
+                        >
+                          <p
                             style={{
-                              fontSize: 32,
-                              fontWeight: "bold",
-                              color: "#09607b",
-                              margin: "12px 0",
-                            }}
-                          >
-                            You Won
-                          </h3>
-                          <span
-                            style={{
-                              width: 34,
-                              height: 34,
-                              border: "solid 1.5px #149231",
-                              backgroundColor: "#38ae53",
-                              margin: " 0 10px",
-                              color: "#fff",
+                              margin: "auto",
+                              fontSize: 22,
+                              fontWeight: 800,
                               display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              borderRadius: 25,
+                              height: "88%",
+                              alignItems: "flex-end",
                             }}
                           >
-                            <p
-                              style={{
-                                margin: "auto",
-                                fontSize: 22,
-                                fontWeight: 800,
-                                display: "flex",
-                                height: "88%",
-                                alignItems: "flex-end",
-                              }}
-                            >
-                              PP
-                            </p>
-                          </span>
-                          <div
-                            style={{
-                              fontSize: 32,
-                              fontWeight: "bold",
-                              color: "#09607b",
-                            }}
-                          >
-                            0/20
-                          </div>
-                        </div>
+                            PP
+                          </p>
+                        </span>
                         <div
                           style={{
-                            height: 12,
-                            backgroundColor: "#d8d8d8",
+                            fontSize: 32,
+                            fontWeight: "bold",
+                            color: "#09607b",
                           }}
-                        />
-                      </>
-                    )}
-                  </div>
-                  <div className="slide-area">
-                    {info.slide}
-                  </div>
-                  {/* {info.id === 2 && (
+                        >
+                          0/20
+                        </div>
+                      </div>
+                      <div
+                        style={{
+                          height: 12,
+                          backgroundColor: "#d8d8d8",
+                        }}
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="slide-area">
+                  {info.slide}
+                </div>
+                {/* {info.id === 2 && (
                     <h2 className="weekly-daycount">
                       {weekly.length} days left to complet
                     </h2>
                   )} */}
-                </div>
               </div>
-            </>
+            </div>
           ))}
           {/* Featured Tournament */}
           <div className="featured-container">

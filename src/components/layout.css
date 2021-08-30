@@ -16,10 +16,22 @@
   background-color: #fff;
   height: 100%;
 }
+/* .slick-list {
+  overflow: hidden;
+} */
+.slick-slide > div {
+  width: 560px;
+  padding: 0 30px 0 20px;
+}
+/* .slick-slide > .slide-contianer {
+  padding: 0 50px;
+} */
 .main-live-wrapper {
   width: 100%;
-  /* display: flex;
-  justify-content: center; */
+  overflow: hidden;
+  /* width: 690px; */
+  /* display: block; */
+  /* justify-content: center; */
   padding: 30px 0 59.5px 0;
 }
 

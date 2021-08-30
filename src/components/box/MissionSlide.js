@@ -7,12 +7,13 @@ const MissionSlide = ({ weekly }) => {
   const settings = {
     arrows: false,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    // centerPadding: "0 0 30px 0",
     centerMode: false,
     swipe: true,
     swipeToSlide: false,
@@ -31,6 +32,7 @@ const MissionSlide = ({ weekly }) => {
                   style={{
                     width: 220,
                     position: "relative",
+                    margin: "0 0 15px 0",
                   }}
                 >
                   <img
