@@ -12,6 +12,7 @@ const NaviBar = () => {
     { name: "allgames", path: "/allgames" },
     { name: "allrank", path: "/allrank" },
     { name: "smash", path: "/smash" },
+    { name: "leaderboard", path: "/leaderboard" },
   ];
 
   const menudrower = () => {
@@ -126,6 +127,17 @@ const NaviBar = () => {
                     </div>
                   </>
                 ) : pathName === "/allrank" ? (
+                  <div className="navi-opac-container">
+                    <div style={{ float: "left" }}>
+                      <a href="/" key={index}>
+                        <h3>
+                          {pathName === title.path &&
+                            " < " + title.name}
+                        </h3>
+                      </a>
+                    </div>
+                  </div>
+                ) : pathName === "/leaderboard" ? (
                   <div className="navi-opac-container">
                     <div style={{ float: "left" }}>
                       <a href="/" key={index}>

@@ -185,6 +185,33 @@ const Main = () => {
         img: "4444",
       },
     ];
+    //feature
+    const featureInfo = [
+      {
+        id: 1,
+        status: "live",
+        time: 4,
+        point: 2,
+        number: 35,
+        img: "1111",
+      },
+      {
+        id: 2,
+        status: "live",
+        time: 6,
+        point: 12,
+        number: 22,
+        img: "2222",
+      },
+      {
+        id: 3,
+        status: "live",
+        time: 65,
+        point: 266,
+        number: 878,
+        img: "3333",
+      },
+    ];
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
