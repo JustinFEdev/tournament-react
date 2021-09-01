@@ -9,29 +9,34 @@ const GameItem = ({ menuData }) => {
     <>
       {menuData !== undefined && (
         <>
-          {menuData.map((info, index) => (
-            <div className="gameItem-container" key={index}>
-              <div className="gameItem-img" alt="">
-                img
-              </div>
-              <div className="gameItem-wrapper">
-                <span className="gameItem-pointarea">
-                  <div className="gameItem-icon">PP</div>
-                  <div className="gameItem-point">
-                    {info.point}
-                  </div>
-                </span>
-                <span className="gameItem-userarea">
-                  <div className="gameItem-usericon">
-                    II
-                  </div>
-                  <span className="gameItem-number">
-                    {info.user}
+          {menuData
+            // .sort(([a], [b]) => a.point - b.point)
+            .map((info, index) => (
+              <div
+                className="gameItem-container"
+                key={index}
+              >
+                <div className="gameItem-img" alt="">
+                  img
+                </div>
+                <div className="gameItem-wrapper">
+                  <span className="gameItem-pointarea">
+                    <div className="gameItem-icon">PP</div>
+                    <div className="gameItem-point">
+                      {info.point}
+                    </div>
                   </span>
-                </span>
+                  <span className="gameItem-userarea">
+                    <div className="gameItem-usericon">
+                      II
+                    </div>
+                    <span className="gameItem-number">
+                      {info.user}
+                    </span>
+                  </span>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </>
       )}
     </>

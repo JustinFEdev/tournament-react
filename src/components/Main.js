@@ -384,6 +384,7 @@ const Main = () => {
               >
                 <a href="/allgames">View All Games</a>
               </div>
+              0
             </>
           )}
         </div>
