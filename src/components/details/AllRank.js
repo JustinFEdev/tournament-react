@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../layout.scss";
+import "./details.scss";
 import NaviBar from "../navigation/NaviBar";
 // import styled from "styled-components";
 const AllRank = () => {
@@ -31,143 +32,37 @@ const AllRank = () => {
                 <h1>img area</h1>
               </div>
             </header>
-            <div
-              style={{
-                position: "relative",
-                padding: "58px 32px 48px 32px",
-              }}
-            >
+            <div className="detail-body-container">
               {/* top title & Live button */}
-              <div
-                style={{
-                  width: "100%",
-                  padding: "0 0 48px 0",
-                  textAlign: "center",
-                }}
-              >
-                <h1
-                  style={{
-                    color: "#09607b",
-                    textTransform: "uppercase",
-                  }}
-                >
+              <div className="detail-body-toparea">
+                <h1 className="detail-point-text">
                   PP 2,222 Tournament
                 </h1>
-                <span
-                  style={{
-                    padding: "10px 14px 10px",
-                    width: 68,
-                    borderRadius: 3.8,
-                    backgroundColor: "#09607b",
-                    fontSize: 19,
-                    fontWeight: 500,
-                    color: "#88d9f3",
-                  }}
-                >
-                  LIVE
-                </span>
+                <span className="detail-livebox">LIVE</span>
               </div>
               {/* icon box */}
-              <div
-                style={{
-                  // height: "30vh",
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "46px 0 60px 0",
-                }}
-              >
+              <div className="icon-container">
                 {gameData.map((info) => (
                   <>
-                    <div
-                      style={{
-                        position: "relative",
-                        height: "100%",
-                        margin: "0 6px",
-                      }}
-                    >
-                      <span
-                        style={{
-                          position: "relative",
-                          top: "3%",
-                          width: 60,
-                          height: 60,
-                          margin: "0 69px 137px",
-                          padding: "19px 12px 18px 14px",
-                          border: "solid 2.5px #86b1be",
-                          backgroundColor: "#dcedf2",
-                          borderRadius: 30,
-                        }}
-                      >
+                    <div className="icon-wrapper">
+                      <span className="icon-round">
                         icon
                       </span>
-                      <div
-                        style={{
-                          padding: "46px 30px 35px 31px",
-                          // width: 198,
-                          // height: 163,
-                          borderRadius: 15.1,
-                          border: "solid 2.5px #86b1be",
-                          backgroundColor: "#f3f8f9",
-                          display: "flex",
-                          justifyContent: "space-around",
-                        }}
-                      >
+                      <div className="icon-inside-layout">
                         <div
                           style={{ textAlign: "center" }}
                         >
-                          <span
-                            style={{
-                              fontSize: 30,
-                              fontWeight: 500,
-                              color: "#598b9b",
-                            }}
-                          >
+                          <span className="icon-textarea">
                             Prize Pool
                           </span>
 
-                          <div
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              marginTop: 9,
-                            }}
-                          >
-                            <span
-                              style={{
-                                width: 34,
-                                height: 34,
-                                border:
-                                  "solid 1.5px #149231",
-                                backgroundColor: "#38ae53",
-                                margin: " 0 5px 0 0 ",
-                                color: "#fff",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                borderRadius: 25,
-                              }}
-                            >
-                              <div
-                                style={{
-                                  margin: "auto",
-                                  fontSize: 22,
-                                  fontWeight: 800,
-                                  display: "flex",
-                                  height: "88%",
-                                  alignItems: "flex-end",
-                                }}
-                              >
+                          <div className="pp-container">
+                            <span className="pp-wrapper">
+                              <div className="pp-text">
                                 PP
                               </div>
                             </span>
-                            <span
-                              style={{
-                                fontSize: 28,
-                                fontWeight: 500,
-                                color: "#09607b",
-                              }}
-                            >
+                            <span className="icon-ppnum">
                               2
                             </span>
                           </div>
@@ -179,40 +74,21 @@ const AllRank = () => {
               </div>
               {/* ranking graph */}
               <div style={{ textAlign: "left" }}>
-                <div
-                  style={{
-                    color: "#09607b",
-                    fontFamily: "AppleSDGothicNeo",
-                    fontSize: 38,
-                    fontWeight: "bold",
-                    marginBottom: 25,
-                  }}
-                >
+                <div className="prize-text">
                   Prize Break-up
                 </div>
                 {rankData.map((info) => (
                   <>
                     <div
+                      className="prize-rank-layout"
                       style={{
-                        border: "1px solid #a7ccd5",
-                        padding: "16px 50px",
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
                         backgroundColor:
                           info.oddeven === 1
                             ? "#eaf2f4"
                             : "#fff",
                       }}
                     >
-                      <p
-                        style={{
-                          fontFamily: "AppleSDGothicNeo",
-                          fontSize: 32,
-                          fontWeight: 500,
-                          color: "#09607b",
-                        }}
-                      >
+                      <p className="prize-rank-text">
                         Rank {info.num}
                       </p>
 
@@ -224,40 +100,10 @@ const AllRank = () => {
                           justifyContent: "space-around",
                         }}
                       >
-                        <span
-                          style={{
-                            width: 34,
-                            height: 34,
-                            border: "solid 1.5px #149231",
-                            backgroundColor: "#38ae53",
-                            margin: " 0 5px 0 0 ",
-                            color: "#fff",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            borderRadius: 25,
-                          }}
-                        >
-                          <div
-                            style={{
-                              height: "88%",
-                              margin: "auto",
-                              fontSize: 22,
-                              fontWeight: 800,
-                              display: "flex",
-                              alignItems: "flex-end",
-                            }}
-                          >
-                            PP
-                          </div>
+                        <span className="pp-wrapper">
+                          <div className="pp-text">PP</div>
                         </span>
-                        <span
-                          style={{
-                            fontSize: 28,
-                            fontWeight: 500,
-                            color: "#09607b",
-                          }}
-                        >
+                        <span className="icon-ppnum">
                           {info.point}
                         </span>
                       </div>
@@ -267,23 +113,7 @@ const AllRank = () => {
               </div>
               {/* Join button */}
               <a href="/smash">
-                <button
-                  style={{
-                    width: "100%",
-                    height: 108,
-                    marginTop: 50,
-                    borderRadius: 12.5,
-                    boxShadow:
-                      "0 13px 13px 0 rgba(77, 93, 107, 0.13)",
-                    border: "solid 2.5px #149231",
-                    backgroundColor: "#65c17a",
-                    fontFamily: "AppleSDGothicNeo",
-                    fontSize: 38,
-                    fontWeight: "bold",
-                    color: "#fff",
-                    cursor: "pointer",
-                  }}
-                >
+                <button className="allrank-join-button">
                   Join Tournament Free
                 </button>
               </a>

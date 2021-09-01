@@ -1,3 +1,81 @@
+// live Slide
+.live-container {
+  position: relative;
+  display: block;
+  width: 620px;
+  margin: 0 15px;
+}
+.live-wrapper {
+  position: absolute;
+  z-index: 1;
+}
+.live-livestatus {
+  width: 68px;
+  border: 1px solid;
+  border-radius: 3.8px;
+  background-color: #09607b;
+  font-size: 19px;
+  font-weight: 500;
+  padding: 10px 14px 12px;
+  color: #88d9f3;
+}
+.live-timestatus {
+  width: 183px;
+  border: 1px solid;
+  border-radius: 3.8px;
+  background-color: #09607b;
+  font-size: 19px;
+  font-weight: 500;
+  padding: 10px 14px 12px;
+  color: #88d9f3;
+  margin-top: 190px;
+}
+.live-imgarea {
+  height: 316px;
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+  border: solid 2.5px #86b1be;
+  border-bottom: none;
+  background-color: #c9e2ea;
+  margin: 0;
+  padding: 0;
+}
+.live-info-wrapper {
+  width: 100%;
+  height: 157px;
+  border: solid 2.5px #86b1be;
+  border-radius: 0 0 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 13px 13px 0 rgb(77 93 107 / 13%);
+}
+.live-info-titlearea {
+  width: 60%;
+  text-align: left;
+  padding-left: 25px;
+}
+.live-info-title {
+  font-size: 38px;
+  font-weight: 500;
+  color: #09607b;
+}
+.live-wininfo {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.live-win {
+  font-size: 32px;
+  font-weight: bold;
+  color: #09607b;
+}
+.live-point {
+  font-size: 32px;
+  font-weight: bold;
+  color: #09607b;
+}
 /* Game Item */
 .gameItem-container {
   cursor: pointer;
