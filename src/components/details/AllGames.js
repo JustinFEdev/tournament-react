@@ -2,10 +2,44 @@ import React, { useState, useEffect } from "react";
 import "../layout.scss";
 import NaviBar from "../navigation/NaviBar";
 import GameItem from "../box/GameItem";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const AllGames = () => {
   const [gameData, setGameData] = useState([]);
-  const [pickone, setPickone] = useState({});
+
+  const titleSettings = {
+    arrows: false,
+    dots: false,
+    infinite: false,
+    speed: 1500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initialSlide: 0,
+    centerMode: false,
+    swipe: true,
+    swipeToSlide: true,
+    touchMove: true,
+    useCss: true,
+  };
+  const pickMenu = [
+    { type: "newarivel" },
+    { type: "shooting" },
+    { type: "sports" },
+    { type: "arcade" },
+    { type: "rpg" },
+    { type: "adventure" },
+    { type: "puzzle" },
+    { type: "rhythm" },
+  ];
+  console.log("pickMenu");
+  console.log(pickMenu.map((info) => info.type));
+
+  const ClickTypeHandle = () => {
+    console.log("click");
+  };
+
   function AddComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
     return num.toString().replace(regexp, ",");
@@ -56,6 +90,7 @@ const AllGames = () => {
         status[
           Math.floor(Math.random() * 100000) % status.length
         ];
+
       const menuDatas = {
         img: AddComma(Number(count)),
         point: AddComma(Number(num)),
@@ -68,8 +103,6 @@ const AllGames = () => {
     const array = [];
     aa.map((info) => array.push(info.point));
     array.sort();
-    console.log("array");
-    console.log(aa);
     setGameData(aa);
   }, []);
 
@@ -87,25 +120,47 @@ const AllGames = () => {
                 padding: 0,
               }}
             >
-              <span
-                className="menu-selector"
-                style={{
-                  backgroundColor: "#9bd0e1",
-                  color: "#fff",
-                }}
-              >
-                All Games
-              </span>
-              <span
-                className="menu-selector"
-                style={{
-                  backgroundColor: "#fff",
-                  border: "solid 2.5px #77b5c9",
-                  color: "#77b5c9",
-                }}
-              >
-                New Arrival
-              </span>
+              <div style={{ width: "100%" }}>
+                <Slider {...titleSettings}>
+                  <div>
+                    <button
+                      className="menu-selector"
+                      style={{
+                        width: 185,
+                        backgroundColor: "#9bd0e1",
+                        color: "#fff",
+                      }}
+                    >
+                      All Games
+                    </button>
+                  </div>
+                  {pickMenu.map((info) => (
+                    <>
+                      <div
+                        style={{
+                          display: "inline-flex",
+                          width: "100%",
+                        }}
+                      >
+                        <button
+                          type="button"
+                          onClick={ClickTypeHandle}
+                          className="menu-selector"
+                          style={{
+                            width: 160,
+                            backgroundColor: "#fff",
+                            border: "solid 2.5px #77b5c9",
+                            color: "#77b5c9",
+                            padding: "0px ​10px",
+                          }}
+                        >
+                          {info.type}
+                        </button>
+                      </div>
+                    </>
+                  ))}
+                </Slider>
+              </div>
             </div>
             <div
               style={{
