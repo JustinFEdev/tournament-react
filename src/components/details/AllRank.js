@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "../layout.scss";
 import "./details.scss";
 import NaviBar from "../navigation/NaviBar";
 // import styled from "styled-components";
 const AllRank = () => {
-  const [rank, setRank] = useState([]);
+  // const [rank, setRank] = useState([]);
   const rankData = [
     { num: "1", point: 5, oddeven: 1 },
     { num: "2", point: 4, oddeven: 0 },

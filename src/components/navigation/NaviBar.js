@@ -15,9 +15,9 @@ const NaviBar = () => {
     { name: "leaderboard", path: "/leaderboard" },
   ];
 
-  const menudrower = () => {
-    console.log("시원하게 넘어갑시다");
-  };
+  // const menudrower = () => {
+  //   console.log("시원하게 넘어갑시다");
+  // };
 
   return (
     <>

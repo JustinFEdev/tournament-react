@@ -203,6 +203,7 @@ header {
   outline: none;
 }
 .menu-container {
+  position: relative;
   width: 100%;
   padding: 15px 0 0 0;
   display: inline-flex;
@@ -210,9 +211,9 @@ header {
 }
 .menu-selector {
   position: relative;
-  width: 120px;
+  width: 185px;
   padding: 17px 27px;
-  border-radius: 30px;
+  border-radius: 45px;
   font-size: 30px;
   font-weight: 500;
   margin-right: 15px;
@@ -220,4 +221,30 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 1px solid #fff;
+  transition-duration: 0.2s;
+  background-color: #9bd0e1;
+  &:hover {
+    color: gold;
+    border: 1px solid gold;
+  }
+}
+.menu-selector-sub {
+  position: relative;
+  width: 160px;
+  padding: 17px 27px;
+  border-radius: 45px;
+  font-size: 30px;
+  font-weight: 500;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  background-color: #fff;
+  &:hover {
+    color: gold;
+    border: 1px solid gold;
+  }
 }

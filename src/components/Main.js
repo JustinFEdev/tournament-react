@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
-import ContinueSlide from "./box/ContinueSlide";
-import LiveSlide from "./box/LiveSlide";
-import MissionSlide from "./box/MissionSlide";
-import GameItem from "./box/GameItem";
+import ContinueSlide from "./slides/ContinueSlide";
+import LiveSlide from "./slides/LiveSlide";
+import MissionSlide from "./slides/MissionSlide";
+import GameItem from "./slides/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.scss";
+// import AllGames from "./details/AllGames";
 
 const Progress = ({ done }) => {
   return (
     <>
-      <div className="progress">
+      <div
+        className="progress"
+        style={{
+          position: "absolute",
+          width: "100%",
+          justifyContent: "center",
+        }}
+      >
         <div
           className="progress-done"
           style={{
@@ -186,32 +194,32 @@ const Main = () => {
       },
     ];
     //feature
-    const featureInfo = [
-      {
-        id: 1,
-        status: "live",
-        time: 4,
-        point: 2,
-        number: 35,
-        img: "1111",
-      },
-      {
-        id: 2,
-        status: "live",
-        time: 6,
-        point: 12,
-        number: 22,
-        img: "2222",
-      },
-      {
-        id: 3,
-        status: "live",
-        time: 65,
-        point: 266,
-        number: 878,
-        img: "3333",
-      },
-    ];
+    // const featureInfo = [
+    //   {
+    //     id: 1,
+    //     status: "live",
+    //     time: 4,
+    //     point: 2,
+    //     number: 35,
+    //     img: "1111",
+    //   },
+    //   {
+    //     id: 2,
+    //     status: "live",
+    //     time: 6,
+    //     point: 12,
+    //     number: 22,
+    //     img: "2222",
+    //   },
+    //   {
+    //     id: 3,
+    //     status: "live",
+    //     time: 65,
+    //     point: 266,
+    //     number: 878,
+    //     img: "3333",
+    //   },
+    // ];
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
@@ -224,7 +232,6 @@ const Main = () => {
           <header>
             <NaviBar />
           </header>
-          <Progress done="70" />
 
           {/* LiveSlide */}
           <div className="main-live-wrapper">
@@ -251,9 +258,9 @@ const Main = () => {
                   {info.id === 2 && (
                     <>
                       <div className="weekly-textwrapper">
-                        <h className="weekly-towin">
+                        <h4 className="weekly-towin">
                           You Won
-                        </h>
+                        </h4>
                         <span className="weekly-ppimg-layout">
                           <p className="weekly-ppimg-text">
                             PP
@@ -263,7 +270,10 @@ const Main = () => {
                           0/20
                         </div>
                       </div>
-                      <div className="weekly-progress-layout" />
+
+                      <div className="weekly-progress-layout">
+                        <Progress done="70" />
+                      </div>
                     </>
                   )}
                 </div>
@@ -368,6 +378,7 @@ const Main = () => {
               }}
             >
               <GameItem menuData={gameData} />
+              {/* <AllGames /> */}
             </div>
           </div>
           {gameData.length < 15 && (
@@ -384,7 +395,6 @@ const Main = () => {
               >
                 <a href="/allgames">View All Games</a>
               </div>
-              0
             </>
           )}
         </div>

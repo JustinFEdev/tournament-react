@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../layout.scss";
 import "./details.scss";
 import NaviBar from "../navigation/NaviBar";
 
 const Completed = () => {
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   useEffect(() => {}, []);
 
   return (

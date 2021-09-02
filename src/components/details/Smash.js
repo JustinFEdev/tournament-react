@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../layout.scss";
 import NaviBar from "../navigation/NaviBar";
-import MissionSlide from "../box/MissionSlide";
+// import MissionSlide from "../box/MissionSlide";
 
 const Smash = () => {
   const [weekly, setWeekly] = useState();

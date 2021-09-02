@@ -11,6 +11,7 @@ p {
   border: 1px solid;
   justify-content: space-between;
   background-color: #c9e2ea;
+  z-index: 1000;
 }
 .navi-title-container {
   position: fixed;
@@ -18,9 +19,10 @@ p {
   height: 80px;
   display: flex;
   align-items: center;
-  border: 1px solid;
+  border: solid 1.3px #86b1be;
   justify-content: flex-start;
   background-color: #c9e2ea;
+  z-index: 1000;
 }
 .navi-opac-container {
   width: 690px;
@@ -31,6 +33,7 @@ p {
   border: 1px solid;
   justify-content: flex-start;
   background-color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
 }
 .navi-content-container {
   display: flex;
