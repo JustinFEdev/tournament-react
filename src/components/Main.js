@@ -55,7 +55,7 @@ const Main = () => {
   //하단 게임메뉴 state
   const [allItem, setAllItem] = useState(false);
   const [gameType, setGameType] = useState({});
-  const [max, setMax] = useState();
+  // const [max, setMax] = useState();
 
   //하단 게임메뉴 slide
   const titleSettings = {

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router";
-
+import SideBar from "./SideBar";
 import "./navi.scss";
 
 const NaviBar = () => {
   const pathName = useLocation().pathname;
+  const [menubtn, setMenubtn] = useState(false);
 
+  const menuButtonhandle = () => {
+    setMenubtn(!menubtn);
+    console.log(menubtn);
+  };
   const titles = [
     { name: "main", path: "/" },
     { name: "completed", path: "/completed" },
@@ -43,8 +48,10 @@ const NaviBar = () => {
                 {pathName === "/" && (
                   <>
                     <div className="navi-container">
-                      <a href="/">menu</a>
-                      <a href="/yourscore">Menu status</a>
+                      <button onClick={menuButtonhandle}>
+                        Menu
+                      </button>
+                      <a href="/yourscore">Your Score</a>
                       <div className="navi-content-container">
                         <div className="navi-pointwrapper">
                           <span className="navi-insideball">
@@ -68,6 +75,11 @@ const NaviBar = () => {
                         </div>
                       </div>
                     </div>
+                    {!menubtn && (
+                      <>
+                        <SideBar />
+                      </>
+                    )}
                   </>
                 )}
 

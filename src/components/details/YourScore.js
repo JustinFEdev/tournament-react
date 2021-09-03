@@ -267,16 +267,17 @@ const YourScore = () => {
             </div>
             <div
               style={{
+                position: "relative",
                 width: "100%",
                 textAlign: "center",
                 fontSize: 30,
                 fontWeight: 800,
-                // color: "#fff",
-                zIndex: 100,
+                color: "#fff",
+                zIndex: 1,
                 marginTop: 25,
               }}
             >
-              Full Ranking
+              <a href="/leaderboard">Full Ranking</a>
             </div>
           </div>
         </div>
