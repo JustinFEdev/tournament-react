@@ -13,6 +13,7 @@ const NaviBar = () => {
     { name: "allrank", path: "/allrank" },
     { name: "smash", path: "/smash" },
     { name: "leaderboard", path: "/leaderboard" },
+    { name: "yourscore", path: "/yourscore" },
   ];
 
   // const menudrower = () => {
@@ -43,7 +44,7 @@ const NaviBar = () => {
                   <>
                     <div className="navi-container">
                       <a href="/">menu</a>
-                      <div>Menu status</div>
+                      <a href="/yourscore">Menu status</a>
                       <div className="navi-content-container">
                         <div className="navi-pointwrapper">
                           <span className="navi-insideball">
@@ -146,6 +147,54 @@ const NaviBar = () => {
                             " < " + title.name}
                         </h3>
                       </a>
+                    </div>
+                  </div>
+                ) : pathName === "/yourscore" ? (
+                  <div className="navi-opac-container">
+                    <div
+                      style={{
+                        float: "left",
+                        padding: "0 30px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                        width: "100%",
+                      }}
+                    >
+                      <a href="/" key={index}>
+                        <h3>
+                          {pathName === title.path && "X"}
+                        </h3>
+                      </a>
+                      <div className="navi-pointwrapper">
+                        <span
+                          style={{
+                            width: 34,
+                            height: 34,
+                            // border: "solid 1.5px #149231",
+                            backgroundColor: "#38ae53",
+                            margin: " 0 5px 0 0 ",
+                            color: "#fff",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            borderRadius: 25,
+                          }}
+                        >
+                          <div
+                            style={{
+                              margin: "auto",
+                              fontSize: 22,
+                              fontWeight: 800,
+                              display: "flex",
+                              height: "88%",
+                              alignItems: "flex-end",
+                            }}
+                          >
+                            PP
+                          </div>
+                        </span>
+                        <span>number</span>
+                      </div>
                     </div>
                   </div>
                 ) : (

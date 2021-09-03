@@ -3,21 +3,21 @@ import PropTypes from "prop-types";
 import "./slide.scss";
 
 const GameItem = ({ menuData, gameType, limitNum }) => {
-  console.log("menuData로 도착");
-  console.log(menuData);
-  console.log(gameType);
-  console.log("limitNum");
-  console.log(limitNum);
+  // console.log("menuData로 도착");
+  // console.log(menuData);
+  // console.log(gameType);
+  // console.log("limitNum");
+  // console.log(limitNum);
 
-  const sliced = menuData.slice(0, 50);
-  console.log("sliced");
-  console.log(sliced);
+  const sliced = menuData.slice(0, 40);
+  // console.log("sliced");
+  // console.log(sliced);
 
   return (
     <>
       {menuData !== undefined && (
         <>
-          {limitNum === true ? (
+          {limitNum === false ? (
             <>
               {menuData.map((info, index) => (
                 <>
@@ -42,7 +42,13 @@ const GameItem = ({ menuData, gameType, limitNum }) => {
                           <div className="gameItem-wrapper">
                             <span className="gameItem-pointarea">
                               <div className="gameItem-icon">
-                                PP
+                                <p
+                                  style={{
+                                    paddingTop: 2.5,
+                                  }}
+                                >
+                                  PP
+                                </p>
                               </div>
                               <div className="gameItem-point">
                                 {info.point}
@@ -83,7 +89,11 @@ const GameItem = ({ menuData, gameType, limitNum }) => {
                         <div className="gameItem-wrapper">
                           <span className="gameItem-pointarea">
                             <div className="gameItem-icon">
-                              PP
+                              <p
+                                style={{ paddingTop: 2.5 }}
+                              >
+                                PP
+                              </p>
                             </div>
                             <div className="gameItem-point">
                               {data.point}

@@ -48,12 +48,15 @@ const Main = () => {
   const [conti, setConti] = useState();
   // weekly mession state
   const [weekly, setWeekly] = useState();
+  // weekly mession state
+  const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
   //하단 게임메뉴 state
   const [allItem, setAllItem] = useState(false);
   const [gameType, setGameType] = useState({});
-  console.log(gameType);
+  const [max, setMax] = useState();
+
   //하단 게임메뉴 slide
   const titleSettings = {
     arrows: false,
@@ -96,6 +99,7 @@ const Main = () => {
       route: "See All >",
       direction: "/allrank",
       slide: <MissionSlide weekly={weekly} />,
+      complete: 5,
     },
   ];
 
@@ -252,35 +256,45 @@ const Main = () => {
       },
     ];
     //feature
-    // const featureInfo = [
-    //   {
-    //     id: 1,
-    //     status: "live",
-    //     time: 4,
-    //     point: 2,
-    //     number: 35,
-    //     img: "1111",
-    //   },
-    //   {
-    //     id: 2,
-    //     status: "live",
-    //     time: 6,
-    //     point: 12,
-    //     number: 22,
-    //     img: "2222",
-    //   },
-    //   {
-    //     id: 3,
-    //     status: "live",
-    //     time: 65,
-    //     point: 266,
-    //     number: 878,
-    //     img: "3333",
-    //   },
-    // ];
+    const featureInfo = [
+      {
+        id: 1,
+        time: 4,
+        point: 2,
+        user: 35,
+        img: "1111",
+      },
+      {
+        id: 2,
+        time: 6,
+        point: 12,
+        user: 22,
+        img: "2222",
+      },
+      {
+        id: 3,
+        time: 65,
+        point: 266,
+        user: 878,
+        img: "3333",
+      },
+    ];
+
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
+    setFeature(featureInfo);
+
+    // console.log("featureInfo");
+    // console.log(featureInfo);
+
+    // feature.map((data) => console.log(data));
+    // console.log("feature");
+    // console.log(feature);
+
+    // const maxNum = Math.max(...max);
+    // console.log("maxNum");
+    // console.log(maxNum);
   }, []);
 
   return (
@@ -297,59 +311,62 @@ const Main = () => {
           </div>
 
           {/* Weekly Mission & Continue Playing */}
-          {typeData.map((info, index) => (
-            <div className="slide-contianer" key={index}>
-              <div className="slide-wrapper">
-                <div className="slide-space">
-                  <div className="slide-title-wrapper">
-                    {/* Continue Playing */}
-                    <span className="slide-title">
-                      {info.title}
-                    </span>
-                    {/* option */}
-                    <a href={info.direction}>
-                      <span className="slide-route">
-                        {info.route}
-                      </span>
-                    </a>
-                  </div>
-                  {info.id === 2 && (
-                    <>
-                      <div className="weekly-textwrapper">
-                        <h4 className="weekly-towin">
-                          You Won
-                        </h4>
-                        <span className="weekly-ppimg-layout">
-                          <p className="weekly-ppimg-text">
-                            PP
-                          </p>
+          {typeData !== undefined && (
+            <>
+              {typeData.map((info, index) => (
+                <div
+                  className="slide-contianer"
+                  key={index}
+                >
+                  <div className="slide-wrapper">
+                    <div className="slide-space">
+                      <div className="slide-title-wrapper">
+                        {/* Continue Playing */}
+                        <span className="slide-title">
+                          {info.title}
                         </span>
-                        <div className="weekly-game-status">
-                          0/20
-                        </div>
+                        {/* option */}
+                        <a href={info.direction}>
+                          <span className="slide-route">
+                            {info.route}
+                          </span>
+                        </a>
                       </div>
+                      {info.id === 2 && (
+                        <>
+                          <div className="weekly-textwrapper">
+                            <h4 className="weekly-towin">
+                              You Won
+                            </h4>
+                            <span className="weekly-ppimg-layout">
+                              <p className="weekly-ppimg-text">
+                                PP
+                              </p>
+                            </span>
+                            <div className="weekly-game-status">
+                              0/20
+                            </div>
+                          </div>
 
-                      <div className="weekly-progress-layout">
-                        <Progress done="70" />
-                      </div>
-                    </>
-                  )}
-                </div>
-                <div className="slide-area">
-                  {info.slide}
-                </div>
-                {/* {info.id === 2 && (
-                  <h2 className="weekly-daycount">
-                    {info.length !== undefined && (
-                      <>
-                        {weekly.length} days left to complet
-                      </>
+                          <div className="weekly-progress-layout">
+                            <Progress done="70" />
+                          </div>
+                        </>
+                      )}
+                    </div>
+                    <div className="slide-area">
+                      {info.slide}
+                    </div>
+                    {info.id === 2 && (
+                      <h2 className="weekly-daycount">
+                        {info.complete} days left to complet
+                      </h2>
                     )}
-                  </h2>
-                )} */}
-              </div>
-            </div>
-          ))}
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
           {/* Featured Tournament */}
           <div className="featured-container">
             <div
@@ -366,13 +383,29 @@ const Main = () => {
                   Featured Tournaments
                 </p>
                 {/* big img area */}
+                {/* {feature !== undefined && (
+                  <>
+                    {feature.map((data) => (
+                      <> */}
                 <img className="featured-img" alt="" />
                 <div className="featured-infoarea">
-                  <span>PP</span>
-                  <div>
-                    <span>num</span>
-                    <span>notice</span>
-                  </div>
+                  <span className="gameItem-pointarea">
+                    <div className="gameItem-icon">
+                      <p style={{ paddingTop: 2.5 }}>PP</p>
+                    </div>
+                    <div className="gameItem-point">
+                      point
+                    </div>
+                  </span>
+                  <span className="gameItem-userarea">
+                    <div className="gameItem-usericon">
+                      Icon
+                    </div>
+                    <span className="gameItem-number">
+                      user
+                    </span>
+                    <div>Info icon</div>
+                  </span>
                 </div>
                 {/* small img area */}
                 <div className="featured-smallarea">
@@ -387,16 +420,36 @@ const Main = () => {
                         justifyContent: "space-between",
                       }}
                     >
-                      <div>
-                        <span>PP</span>
-                      </div>
-                      <div>
-                        <span>num</span>
-                        <span>notice</span>
-                      </div>
+                      <span className="gameItem-pointarea">
+                        <div className="gameItem-icon">
+                          <p
+                            style={{
+                              paddingTop: 2.5,
+                            }}
+                          >
+                            PP
+                          </p>
+                        </div>
+                        <div className="gameItem-point">
+                          point
+                        </div>
+                      </span>
+                      <span className="gameItem-userarea">
+                        <div className="gameItem-usericon">
+                          <i class="fas fa-user" />
+                        </div>
+                        <span className="gameItem-number">
+                          user
+                        </span>
+                        <div>Info icon</div>
+                      </span>
                     </div>
                   </div>
                 </div>
+                {/* </>
+                    ))}
+                  </>
+                )} */}
               </div>
             </div>
           </div>
@@ -484,7 +537,7 @@ const Main = () => {
               <GameItem
                 menuData={gameData}
                 gameType={gameType}
-                limitNum={false}
+                limitNum={true}
               />
             </div>
           </div>

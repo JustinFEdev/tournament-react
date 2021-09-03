@@ -58,7 +58,7 @@ const AllGames = () => {
       "puzzle",
       "rhythm",
     ];
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 150; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = Math.floor(Math.random() * 10000000);
       const people = AddComma(
@@ -88,9 +88,16 @@ const AllGames = () => {
   return (
     <>
       <div className="main-container">
-        <div className="main-wrapper">
+        <div
+          className="main-wrapper"
+          style={{ paddingBottom: 150 }}
+        >
           <div
-            style={{ height: "100%", minHeight: "100vh" }}
+            style={{
+              height: "100%",
+              minHeight: "100vh",
+              paddingBottom: 550,
+            }}
           >
             <NaviBar />
             <div
