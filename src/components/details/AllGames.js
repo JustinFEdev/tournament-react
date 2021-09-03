@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "../layout.scss";
-// import GameItem from "../slides/GameItem";
+import GameItem from "../slides/GameItem";
 import NaviBar from "../navigation/NaviBar";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { AddComma } from "../Main";
 
 const AllGames = () => {
   const [gameData, setGameData] = useState([]);
   const [gameType, setGameType] = useState({});
-  console.log("gameType");
-  console.log(gameType);
-
   const [allItem, setAllItem] = useState(false);
 
   const titleSettings = {
@@ -48,11 +46,6 @@ const AllGames = () => {
   //   setGameData(gameData);
   // };
 
-  function AddComma(num) {
-    var regexp = /\B(?=(\d{3})+(?!\d))/g;
-    return num.toString().replace(regexp, ",");
-  }
-
   useEffect(() => {
     const aa = [];
     const status = [
@@ -71,12 +64,10 @@ const AllGames = () => {
       const people = AddComma(
         Math.floor(Math.random() * 100000)
       );
-
       const choose =
         status[
           Math.floor(Math.random() * 100000) % status.length
         ];
-
       const menuDatas = {
         img: AddComma(Number(count)),
         point: AddComma(Number(num)),
@@ -86,14 +77,12 @@ const AllGames = () => {
       };
       aa.push(menuDatas);
     }
-    // console.log("sort");
     const array = [];
     aa.map((info) => array.push(info));
-    // array.sort();
-    //
-    setGameData(array);
-    console.log("gameData");
-    console.log(gameData);
+
+    setGameData(
+      array.sort((a, b) => (a.point > b.point ? -1 : 1))
+    );
   }, []);
 
   return (
@@ -160,72 +149,17 @@ const AllGames = () => {
             </div>
             <div
               style={{
-                // display: "flex",
-                // justifyContent: "center",
-                // flexWrap: "wrap",
                 padding: "0 31px",
                 width: "100%",
                 minHeight: "100vh",
                 height: "100%",
               }}
             >
-              {/* {
-                !allItem && (
-                  <> */}
-              {gameData.map((info, index) => (
-                <>
-                  <div
-                    style={{
-                      float: "left",
-                      height: "100%",
-                    }}
-                  >
-                    {info.status === gameType && (
-                      <>
-                        <div
-                          className="gameItem-container"
-                          key={index}
-                        >
-                          <div
-                            className="gameItem-img"
-                            alt=""
-                          >
-                            img
-                          </div>
-                          <div className="gameItem-wrapper">
-                            <span className="gameItem-pointarea">
-                              <div className="gameItem-icon">
-                                PP
-                              </div>
-                              <div className="gameItem-point">
-                                {info.point}
-                              </div>
-                            </span>
-                            <span className="gameItem-userarea">
-                              <div className="gameItem-usericon">
-                                II
-                              </div>
-                              <span className="gameItem-number">
-                                {info.user}
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </>
-                    )}
-                    {/* {info.allItems === true && (
-                      <>
-                        <GameItem menuData={gameData} />
-                      </>
-                    )} */}
-                  </div>
-                </>
-              ))}
-              {/* </>
-                )
-                //  : (
-                // ) */}
-              {/* } */}
+              <GameItem
+                menuData={gameData}
+                gameType={gameType}
+                limitNum={false}
+              />
             </div>
           </div>
         </div>

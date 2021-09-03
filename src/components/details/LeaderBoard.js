@@ -2,15 +2,10 @@ import React, { useState, useEffect } from "react";
 import "../layout.scss";
 import "./details.scss";
 import NaviBar from "../navigation/NaviBar";
+import { AddComma } from "../Main";
 
 const LeaderBoard = () => {
   const [rankInfo, setRankInfo] = useState();
-  // console.log("상단 rankInfo");
-  // console.log(rankInfo);
-  function AddComma(num) {
-    var regexp = /\B(?=(\d{3})+(?!\d))/g;
-    return num.toString().replace(regexp, ",");
-  }
 
   useEffect(() => {
     const array = [];
@@ -79,8 +74,10 @@ const LeaderBoard = () => {
                         width: 45,
                         height: 45,
                         border: "solid 2.5px #4c8597",
-                        backgroundColor: "#6fa9bb",
+                        backgroundColor: "#fff",
                         borderRadius: 50,
+                        top: "5vh",
+                        left: "4vw",
                       }}
                     />
                   </div>
@@ -142,14 +139,10 @@ const LeaderBoard = () => {
                       )}
                       <div
                         className="prize-rank-layout"
-                        style={
-                          {
-                            // backgroundColor:
-                            //   info.oddeven === 1
-                            //     ? "#eaf2f4"
-                            //     : "#fff",
-                          }
-                        }
+                        style={{
+                          backgroundColor:
+                            index % 2 ? "#fff" : "#eaf2f4",
+                        }}
                       >
                         <p
                           className="prize-rank-text"

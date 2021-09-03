@@ -5,8 +5,17 @@ import MissionSlide from "./slides/MissionSlide";
 import GameItem from "./slides/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.scss";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // import AllGames from "./details/AllGames";
 
+export function AddComma(num) {
+  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+  return num.toString().replace(regexp, ",");
+}
+
+// weekly progress bar
 const Progress = ({ done }) => {
   return (
     <>
@@ -33,10 +42,44 @@ const Progress = ({ done }) => {
 };
 
 const Main = () => {
-  const [gameData, setGameData] = useState([]);
-  const [weekly, setWeekly] = useState();
-  const [conti, setConti] = useState();
+  //liveslide state
   const [live, setLive] = useState();
+  // continue state
+  const [conti, setConti] = useState();
+  // weekly mession state
+  const [weekly, setWeekly] = useState();
+  // game menu data
+  const [gameData, setGameData] = useState([]);
+  //하단 게임메뉴 state
+  const [allItem, setAllItem] = useState(false);
+  const [gameType, setGameType] = useState({});
+  console.log(gameType);
+  //하단 게임메뉴 slide
+  const titleSettings = {
+    arrows: false,
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    // slidesToScroll: 1,
+    initialSlide: 0,
+    centerMode: false,
+    swipe: true,
+    swipeToSlide: true,
+    touchMove: true,
+    useCss: true,
+  };
+  //하단 게임메뉴 data
+  const pickMenu = [
+    { type: "newarivel" },
+    { type: "shooting" },
+    { type: "sports" },
+    { type: "arcade" },
+    { type: "rpg" },
+    { type: "adventure" },
+    { type: "puzzle" },
+    { type: "rhythm" },
+  ];
 
   // ContinueSlide && MissionSlide
   const typeData = [
@@ -65,12 +108,25 @@ const Main = () => {
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
-    for (var i = 0; i < 9; i++) {
+    const status = [
+      "newarivel",
+      "shooting",
+      "sports",
+      "arcade",
+      "rpg",
+      "adventure",
+      "puzzle",
+      "rhythm",
+    ];
+    for (var i = 0; i < 100; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
         Math.floor(Math.random() * 10000000)
       );
-
+      const choose =
+        status[
+          Math.floor(Math.random() * 100000) % status.length
+        ];
       const people = AddComma(
         Math.floor(Math.random() * 100000)
       );
@@ -79,12 +135,14 @@ const Main = () => {
         img: count,
         point: num,
         user: people,
+        status: choose,
       };
+
       aa.push(menuDatas);
     }
     setGameData(aa);
 
-    //weekly mission
+    //weekly mission datas
     const datas = [
       {
         id: 1,
@@ -123,7 +181,7 @@ const Main = () => {
       },
     ];
 
-    //continue mission
+    //continue mission data
     const contiInfo = [
       {
         id: 1,
@@ -344,7 +402,7 @@ const Main = () => {
           </div>
           {/* Slide menu */}
           <div className="menu-container">
-            <span
+            {/* <span
               className="menu-selector"
               style={{
                 backgroundColor: "#9bd0e1",
@@ -362,12 +420,58 @@ const Main = () => {
               }}
             >
               New Arrival
-            </span>
+            </span> */}
+            <div style={{ width: "100%" }}>
+              <Slider {...titleSettings}>
+                <div>
+                  <button
+                    onClick={() => setAllItem(!allItem)}
+                    className="menu-selector"
+                  >
+                    All Games
+                  </button>
+                </div>
+                {pickMenu.map((info) => (
+                  <>
+                    <div
+                      style={{
+                        display: "inline-flex",
+                        width: "100%",
+                        marginLeft: 25,
+                      }}
+                    >
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setGameType(info.type)
+                        }
+                        className="menu-selector-sub"
+                        style={{
+                          border:
+                            gameType === info.type
+                              ? "solid 2.5px black"
+                              : "solid 2.5px #77b5c9",
+                          color:
+                            gameType === info.type
+                              ? "black"
+                              : "#77b5c9",
+                          padding: "0px ​10px",
+                          textTransform: "capitalize",
+                        }}
+                      >
+                        {info.type}
+                      </button>
+                    </div>
+                  </>
+                ))}
+              </Slider>
+            </div>
           </div>
           <div
             style={{
               padding: "0 30px",
               textAlign: "center",
+              minHeight: "450px",
             }}
           >
             <div
@@ -377,11 +481,14 @@ const Main = () => {
                 flexWrap: "wrap",
               }}
             >
-              <GameItem menuData={gameData} />
-              {/* <AllGames /> */}
+              <GameItem
+                menuData={gameData}
+                gameType={gameType}
+                limitNum={false}
+              />
             </div>
           </div>
-          {gameData.length < 15 && (
+          {gameData.length > 15 && (
             <>
               <div
                 style={{
