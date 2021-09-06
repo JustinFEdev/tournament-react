@@ -52,6 +52,8 @@ const Main = () => {
   const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
+  console.log("gameData");
+  console.log(gameData);
   //하단 게임메뉴 state
   const [allItem, setAllItem] = useState(false);
   const [gameType, setGameType] = useState({});
@@ -545,12 +547,14 @@ const Main = () => {
             <>
               <div
                 style={{
+                  position: "relative",
                   fontFamily: "AppleSDGothicNeo",
                   color: "#598b9b",
                   padding: "70px 0",
                   fontSize: 38,
                   fontWeight: 500,
                   cursor: "pointer",
+                  zIndex: 100,
                 }}
               >
                 <a href="/allgames">View All Games</a>

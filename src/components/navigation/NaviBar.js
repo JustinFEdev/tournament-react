@@ -7,10 +7,12 @@ const NaviBar = () => {
   const pathName = useLocation().pathname;
   const [menubtn, setMenubtn] = useState(false);
 
-  const menuButtonhandle = () => {
-    setMenubtn(!menubtn);
-    console.log(menubtn);
-  };
+  // const menuButtonhandle = () => {
+  //   setMenubtn(!menubtn);
+  //   console.log("menubtn 시작점");
+  //   console.log(menubtn);
+  // };
+
   const titles = [
     { name: "main", path: "/" },
     { name: "completed", path: "/completed" },
@@ -21,34 +23,20 @@ const NaviBar = () => {
     { name: "yourscore", path: "/yourscore" },
   ];
 
-  // const menudrower = () => {
-  //   console.log("시원하게 넘어갑시다");
-  // };
-
   return (
     <>
       {titles.map((title, index) => {
         return (
-          // <div
-          //   className={`${
-          //     pathName === title.path ? (
-          //       "navi-container"
-          //     ) : pathName === title.path ? (
-          //       "navi-title-container"
-          //     ) : pathName === title.path ? (
-          //       "navi-opac-container"
-          //     ) : (
-          //       <></>
-          //     )
-          //   }`}
-          // >
           <>
             {title.path === pathName && (
               <>
+                {/* main page  */}
                 {pathName === "/" && (
                   <>
                     <div className="navi-container">
-                      <button onClick={menuButtonhandle}>
+                      <button
+                        onClick={() => setMenubtn(true)}
+                      >
                         Menu
                       </button>
                       <a href="/yourscore">Your Score</a>
@@ -75,27 +63,17 @@ const NaviBar = () => {
                         </div>
                       </div>
                     </div>
-                    {!menubtn && (
-                      <>
-                        <SideBar />
-                      </>
-                    )}
                   </>
                 )}
-
-                {/* {pathName === "/completed" ? (
-                  <div className="navi-title-container">
-                    <div style={{ float: "left" }}>
-                      <a href="/" key={index}>
-                        {pathName === title.path &&
-                          title.name}
-                      </a>
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )} */}
-
+                {menubtn === true && (
+                  <>
+                    <SideBar
+                      btnSwitch={(menubtn) =>
+                        setMenubtn(menubtn)
+                      }
+                    />
+                  </>
+                )}
                 {/* title */}
                 {pathName === "/allgames" ? (
                   <>
@@ -182,7 +160,6 @@ const NaviBar = () => {
                           style={{
                             width: 34,
                             height: 34,
-                            // border: "solid 1.5px #149231",
                             backgroundColor: "#38ae53",
                             margin: " 0 5px 0 0 ",
                             color: "#fff",
@@ -215,7 +192,6 @@ const NaviBar = () => {
               </>
             )}
           </>
-          // </div>
         );
       })}
     </>
