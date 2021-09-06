@@ -6,13 +6,6 @@ import "./navi.scss";
 const NaviBar = () => {
   const pathName = useLocation().pathname;
   const [menubtn, setMenubtn] = useState(false);
-
-  // const menuButtonhandle = () => {
-  //   setMenubtn(!menubtn);
-  //   console.log("menubtn 시작점");
-  //   console.log(menubtn);
-  // };
-
   const titles = [
     { name: "main", path: "/" },
     { name: "completed", path: "/completed" },
@@ -65,6 +58,7 @@ const NaviBar = () => {
                     </div>
                   </>
                 )}
+
                 {menubtn === true && (
                   <>
                     <SideBar

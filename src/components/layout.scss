@@ -5,7 +5,7 @@ a {
   text-decoration: none;
 }
 a:visited {
-  text-decoration: none;
+  // text-decoration: none;
   // color: #fff;
 }
 a:hover {
@@ -65,6 +65,8 @@ header {
   min-width: 690px;
   background-color: #fff;
   height: 100%;
+  overflow: hidden;
+  z-index: 1000;
 }
 
 /* .slick-list {

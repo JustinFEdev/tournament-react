@@ -15,7 +15,7 @@ const YourScore = () => {
     <>
       <div
         className="main-container"
-        style={{ backgroundColor: "#fff" }}
+        // style={{ backgroundColor: "#fff" }}
       >
         <div
           style={{
@@ -36,6 +36,7 @@ const YourScore = () => {
             style={{
               height: "100%",
               padding: "200px 30px 100px 30px",
+              backgroundColor: "#c9e2ea",
             }}
           >
             <div
@@ -66,8 +67,6 @@ const YourScore = () => {
                     position: "absolute",
                     width: 168,
                     height: 168,
-                    //   margin: "0 229px 358px",
-                    // padding: "5px 5px 5px 4px",
                     borderRadius: 12,
                     boxShadow:
                       "0 10px 10px 0 rgba(77, 93, 107, 0.13)",
@@ -174,7 +173,6 @@ const YourScore = () => {
             </div>
             <div
               style={{
-                border: "1px solid",
                 height: 400,
                 marginTop: 373,
                 position: "relative",
