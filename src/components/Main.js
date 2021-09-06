@@ -385,73 +385,92 @@ const Main = () => {
                   Featured Tournaments
                 </p>
                 {/* big img area */}
-                {/* {feature !== undefined && (
+                {feature !== undefined && (
                   <>
                     {feature.map((data) => (
-                      <> */}
-                <img className="featured-img" alt="" />
-                <div className="featured-infoarea">
-                  <span className="gameItem-pointarea">
-                    <div className="gameItem-icon">
-                      <p style={{ paddingTop: 2.5 }}>PP</p>
-                    </div>
-                    <div className="gameItem-point">
-                      point
-                    </div>
-                  </span>
-                  <span className="gameItem-userarea">
-                    <div className="gameItem-usericon">
-                      Icon
-                    </div>
-                    <span className="gameItem-number">
-                      user
-                    </span>
-                    <div>Info icon</div>
-                  </span>
-                </div>
-                {/* small img area */}
-                <div className="featured-smallarea">
-                  <div className="featured-samll-wrapper">
-                    <div
-                      className="featured-samll-img"
-                      alt="1"
-                    />
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <span className="gameItem-pointarea">
-                        <div className="gameItem-icon">
-                          <p
-                            style={{
-                              paddingTop: 2.5,
-                            }}
-                          >
-                            PP
-                          </p>
-                        </div>
-                        <div className="gameItem-point">
-                          point
-                        </div>
-                      </span>
-                      <span className="gameItem-userarea">
-                        <div className="gameItem-usericon">
-                          <i class="fas fa-user" />
-                        </div>
-                        <span className="gameItem-number">
-                          user
-                        </span>
-                        <div>Info icon</div>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                {/* </>
+                      <>
+                        {data.id === 1 ? (
+                          <>
+                            <img
+                              className="featured-img"
+                              alt=""
+                            />
+                            <div className="featured-infoarea">
+                              <span className="gameItem-pointarea">
+                                <div className="gameItem-icon">
+                                  <p
+                                    style={{
+                                      paddingTop: 2.5,
+                                    }}
+                                  >
+                                    PP
+                                  </p>
+                                </div>
+                                <div className="gameItem-point">
+                                  point
+                                </div>
+                              </span>
+                              <span className="gameItem-userarea">
+                                <div className="gameItem-usericon">
+                                  Icon
+                                </div>
+                                <span className="gameItem-number">
+                                  user
+                                </span>
+                                <div>Info icon</div>
+                              </span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            {/* small img area */}
+                            {/* <div> */}
+                            <div className="featured-smallarea">
+                              <div className="featured-samll-wrapper">
+                                <div
+                                  className="featured-samll-img"
+                                  alt="1"
+                                />
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent:
+                                      "space-between",
+                                  }}
+                                >
+                                  <span className="gameItem-pointarea">
+                                    <div className="gameItem-icon">
+                                      <p
+                                        style={{
+                                          paddingTop: 2.5,
+                                        }}
+                                      >
+                                        PP
+                                      </p>
+                                    </div>
+                                    <div className="gameItem-point">
+                                      point
+                                    </div>
+                                  </span>
+                                  <span className="gameItem-userarea">
+                                    <div className="gameItem-usericon">
+                                      <i class="fas fa-user" />
+                                    </div>
+                                    <span className="gameItem-number">
+                                      user
+                                    </span>
+                                    <div>Info icon</div>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            {/* </div> */}
+                          </>
+                        )}
+                      </>
                     ))}
                   </>
-                )} */}
+                )}
               </div>
             </div>
           </div>

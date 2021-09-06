@@ -34,9 +34,17 @@ const YourScore = () => {
           </header>
           <div
             style={{
+              position: "absolute",
+              height: "100%",
+              width: "690px",
+              backgroundColor: "#2a6a80",
+              opacity: 0.65,
+            }}
+          />
+          <div
+            style={{
               height: "100%",
               padding: "200px 30px 100px 30px",
-              backgroundColor: "#c9e2ea",
             }}
           >
             <div
