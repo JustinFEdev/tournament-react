@@ -107,7 +107,7 @@ const GamePopup = () => {
                           paddingTop: 2.5,
                         }}
                       >
-                        PP
+                        PP.
                       </p>
                     </div>
                     <div className="gameItem-point">
