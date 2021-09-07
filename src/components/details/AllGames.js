@@ -6,11 +6,13 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AddComma } from "../Main";
+import GamePopup from "../modal/GamePopup";
 
 const AllGames = () => {
   const [gameData, setGameData] = useState([]);
   const [gameType, setGameType] = useState({});
   const [allItem, setAllItem] = useState(false);
+  // const [popup, setPopup] = useState(true);
 
   const titleSettings = {
     arrows: false,
@@ -168,6 +170,8 @@ const AllGames = () => {
                 limitNum={false}
               />
             </div>
+            {/* popup zone */}
+            <GamePopup />
           </div>
         </div>
       </div>

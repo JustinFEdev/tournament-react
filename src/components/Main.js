@@ -52,10 +52,9 @@ const Main = () => {
   const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
-  console.log("gameData");
-  console.log(gameData);
+
   //하단 게임메뉴 state
-  const [allItem, setAllItem] = useState(false);
+  const [allItem, setAllItem] = useState(true);
   const [gameType, setGameType] = useState({});
   // const [max, setMax] = useState();
 
@@ -281,19 +280,13 @@ const Main = () => {
         img: "3333",
       },
     ];
-
+    // featureInfo[0] = "main";
+    // featureInfo[(1, 2)] = "sub";
+    // console.log();
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
     setFeature(featureInfo);
-
-    // console.log("featureInfo");
-    // console.log(featureInfo);
-
-    // feature.map((data) => console.log(data));
-    // console.log("feature");
-    // console.log(feature);
-
     // const maxNum = Math.max(...max);
     // console.log("maxNum");
     // console.log(maxNum);
@@ -389,11 +382,11 @@ const Main = () => {
                   <>
                     {feature.map((data) => (
                       <>
-                        {data.id === 1 ? (
+                        {data.id === 1 && (
                           <>
-                            <img
+                            <div
                               className="featured-img"
-                              alt=""
+                              alt={data.img}
                             />
                             <div className="featured-infoarea">
                               <span className="gameItem-pointarea">
@@ -407,7 +400,7 @@ const Main = () => {
                                   </p>
                                 </div>
                                 <div className="gameItem-point">
-                                  point
+                                  {data.point}
                                 </div>
                               </span>
                               <span className="gameItem-userarea">
@@ -415,17 +408,20 @@ const Main = () => {
                                   Icon
                                 </div>
                                 <span className="gameItem-number">
-                                  user
+                                  {data.user}
                                 </span>
                                 <div>Info icon</div>
                               </span>
                             </div>
                           </>
-                        ) : (
-                          <>
-                            {/* small img area */}
-                            {/* <div> */}
-                            <div className="featured-smallarea">
+                        )}
+                      </>
+                    ))}
+                    <div className="featured-smallarea">
+                      {feature.map((data) => (
+                        <>
+                          {data.id === 2 && (
+                            <>
                               <div className="featured-samll-wrapper">
                                 <div
                                   className="featured-samll-img"
@@ -449,26 +445,67 @@ const Main = () => {
                                       </p>
                                     </div>
                                     <div className="gameItem-point">
-                                      point
+                                      {data.point}
                                     </div>
                                   </span>
                                   <span className="gameItem-userarea">
                                     <div className="gameItem-usericon">
-                                      <i class="fas fa-user" />
+                                      Icon
                                     </div>
                                     <span className="gameItem-number">
-                                      user
+                                      {data.user}
                                     </span>
                                     <div>Info icon</div>
                                   </span>
                                 </div>
                               </div>
-                            </div>
-                            {/* </div> */}
-                          </>
-                        )}
-                      </>
-                    ))}
+                            </>
+                          )}
+                          {data.id === 3 && (
+                            <>
+                              <div className="featured-samll-wrapper">
+                                <div
+                                  className="featured-samll-img"
+                                  alt="1"
+                                />
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent:
+                                      "space-between",
+                                  }}
+                                >
+                                  <span className="gameItem-pointarea">
+                                    <div className="gameItem-icon">
+                                      <p
+                                        style={{
+                                          paddingTop: 2.5,
+                                        }}
+                                      >
+                                        PP
+                                      </p>
+                                    </div>
+                                    <div className="gameItem-point">
+                                      {data.point}
+                                    </div>
+                                  </span>
+                                  <span className="gameItem-userarea">
+                                    <div className="gameItem-usericon">
+                                      Icon
+                                    </div>
+                                    <span className="gameItem-number">
+                                      {data.user}
+                                    </span>
+                                    <div>Info icon</div>
+                                  </span>
+                                </div>
+                              </div>
+                            </>
+                          )}
+                          {/* -- */}
+                        </>
+                      ))}
+                    </div>
                   </>
                 )}
               </div>
@@ -499,7 +536,7 @@ const Main = () => {
               <Slider {...titleSettings}>
                 <div>
                   <button
-                    onClick={() => setAllItem(!allItem)}
+                    onClick={() => setAllItem(allItem)}
                     className="menu-selector"
                   >
                     All Games

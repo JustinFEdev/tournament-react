@@ -198,6 +198,8 @@ header {
   justify-content: space-between;
 }
 .featured-smallarea {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   border-bottom: solid 1.3px #c9e2ea;
   padding: 43px 0 63px 0;

@@ -1,0 +1,46 @@
+.allgame-popup {
+  position: fixed;
+  background-color: #fff;
+  //   min-height: 500px;
+  width: 690px;
+  z-index: 1001;
+  bottom: 0;
+  padding: 108px 0 35px 0;
+  border-radius: 25px 25px 0 0;
+  display: flex;
+  justify-content: center;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  animation: allgame-popup-in 1s forwards;
+  -webkit-animation: allgame-popup-in 1s forwards;
+}
+
+@keyframes allgame-popup-in {
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes allgame-popup-in {
+  100% {
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@keyframes allgame-popup-out {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@-webkit-keyframes allgame-popup-out {
+  0% {
+    -webkit-transform: translateY(0%);
+  }
+  100% {
+    -webkit-transform: translateY(-100%);
+  }
+}
