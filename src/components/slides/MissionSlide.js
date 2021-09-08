@@ -17,7 +17,7 @@ const MissionSlide = ({ weekly }) => {
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,
-    swipeToSlide: false,
+    swipeToSlide: true,
     touchMove: true,
   };
 
