@@ -75,6 +75,7 @@ const Main = () => {
   };
   //하단 게임메뉴 data
   const pickMenu = [
+    { type: "all games" },
     { type: "newarivel" },
     { type: "shooting" },
     { type: "sports" },
@@ -280,16 +281,10 @@ const Main = () => {
         img: "3333",
       },
     ];
-    // featureInfo[0] = "main";
-    // featureInfo[(1, 2)] = "sub";
-    // console.log();
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
     setFeature(featureInfo);
-    // const maxNum = Math.max(...max);
-    // console.log("maxNum");
-    // console.log(maxNum);
   }, []);
 
   return (
@@ -534,14 +529,14 @@ const Main = () => {
             </span> */}
             <div style={{ width: "100%" }}>
               <Slider {...titleSettings}>
-                <div>
+                {/* <div>
                   <button
                     onClick={() => setAllItem(allItem)}
                     className="menu-selector"
                   >
                     All Games
                   </button>
-                </div>
+                </div> */}
                 {pickMenu.map((info) => (
                   <>
                     <div
@@ -551,27 +546,52 @@ const Main = () => {
                         marginLeft: 25,
                       }}
                     >
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setGameType(info.type)
-                        }
-                        className="menu-selector-sub"
-                        style={{
-                          border:
-                            gameType === info.type
-                              ? "solid 2.5px black"
-                              : "solid 2.5px #77b5c9",
-                          color:
-                            gameType === info.type
-                              ? "black"
-                              : "#77b5c9",
-                          padding: "0px ​10px",
-                          textTransform: "capitalize",
-                        }}
-                      >
-                        {info.type}
-                      </button>
+                      {info.type === "all games" ? (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setGameType(info.type)
+                            }
+                            className="menu-selector"
+                            style={{
+                              border:
+                                gameType === info.type
+                                  ? "solid 2.5px #77b5c9"
+                                  : "solid 2.5px #fff",
+                              color:
+                                gameType === info.type &&
+                                "#fff",
+                            }}
+                          >
+                            {info.type}
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setGameType(info.type)
+                            }
+                            className="menu-selector-sub"
+                            style={{
+                              border:
+                                gameType === info.type
+                                  ? "solid 2.5px black"
+                                  : "solid 2.5px #77b5c9",
+                              color:
+                                gameType === info.type
+                                  ? "black"
+                                  : "#77b5c9",
+                              padding: "0px ​10px",
+                              textTransform: "capitalize",
+                            }}
+                          >
+                            {info.type}
+                          </button>
+                        </>
+                      )}
                     </div>
                   </>
                 ))}

@@ -226,8 +226,8 @@ header {
 }
 .menu-selector {
   position: relative;
-  width: 185px;
-  padding: 17px 27px;
+  width: 170px;
+  padding: 17px 10px;
   border-radius: 45px;
   font-size: 30px;
   font-weight: 500;
@@ -236,13 +236,15 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 1px solid #fff;
-  transition-duration: 0.2s;
+  // border: 1px solid #fff;
+  transition-duration: 0.4s;
   background-color: #9bd0e1;
-  &:hover {
-    color: gold;
-    border: 1px solid gold;
-  }
+  text-transform: capitalize;
+
+  // &:hover {
+  //   color: gold;
+  //   border: 1px solid gold;
+  // }
 }
 .menu-selector-sub {
   position: relative;

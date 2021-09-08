@@ -44,3 +44,14 @@
     -webkit-transform: translateY(-100%);
   }
 }
+
+.allgame-square-img {
+  position: absolute;
+  width: 198px;
+  height: 198px;
+  border-radius: 14.1px;
+  box-shadow: 0 12px 12px 0 rgba(77, 93, 107, 0.13);
+  border: solid 2.3px #86b1be;
+  background-color: #c9e2ea;
+  top: -110px;
+}

@@ -39,20 +39,9 @@ const GamePopup = () => {
         <>
           <Overlay onClick={() => setSwitchPop(false)} />
           <div className="allgame-popup">
+            <div className="allgame-square-img" />
             <div
-              style={{
-                position: "absolute",
-                width: 198,
-                height: 198,
-                borderRadius: 14.1,
-                boxShadow:
-                  "0 12px 12px 0 rgba(77, 93, 107, 0.13)",
-                border: "solid 2.3px #86b1be",
-                backgroundColor: "#c9e2ea",
-                top: "-110px",
-              }}
-            />
-            <div
+              // className="allgame-square-img"
               style={{
                 width: "100%",
                 padding: "0 32px",
