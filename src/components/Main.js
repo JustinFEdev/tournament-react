@@ -9,11 +9,20 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import AllGames from "./details/AllGames";
+import styled, { ThemeProvider } from "styled-components";
+import {
+  lightTheme,
+  darkTheme,
+  GlobalStyles,
+} from "../themes";
 
 export function AddComma(num) {
   var regexp = /\B(?=(\d{3})+(?!\d))/g;
   return num.toString().replace(regexp, ",");
 }
+const StyledApp = styled.div`
+  color: ${(props) => props.theme.fontColor};
+`;
 
 // weekly progress bar
 const Progress = ({ done }) => {
@@ -287,228 +296,246 @@ const Main = () => {
     setFeature(featureInfo);
   }, []);
 
+  const [theme, setTheme] = useState("light");
+  const themeToggler = () => {
+    theme === "light"
+      ? setTheme("dark")
+      : setTheme("light");
+    console.log("theme 모드 설정");
+    console.log(theme);
+  };
+
   return (
     <>
-      <div className="main-container">
-        <div className="main-wrapper">
-          <header>
-            <NaviBar />
-          </header>
+      <ThemeProvider
+        theme={theme === "light" ? lightTheme : darkTheme}
+      >
+        <GlobalStyles />
+        <StyledApp>
+          <div className="main-container">
+            <div className="main-wrapper">
+              <header>
+                <NaviBar
+                  onClick={() => themeToggler()}
+                  theme={theme}
+                />
+              </header>
 
-          {/* LiveSlide */}
-          <div className="main-live-wrapper">
-            <LiveSlide live={live} />
-          </div>
+              {/* LiveSlide */}
+              <div className="main-live-wrapper">
+                <LiveSlide live={live} />
+              </div>
 
-          {/* Weekly Mission & Continue Playing */}
-          {typeData !== undefined && (
-            <>
-              {typeData.map((info, index) => (
-                <div
-                  className="slide-contianer"
-                  key={index}
-                >
-                  <div className="slide-wrapper">
-                    <div className="slide-space">
-                      <div className="slide-title-wrapper">
-                        {/* Continue Playing */}
-                        <span className="slide-title">
-                          {info.title}
-                        </span>
-                        {/* option */}
-                        <a href={info.direction}>
-                          <span className="slide-route">
-                            {info.route}
-                          </span>
-                        </a>
-                      </div>
-                      {info.id === 2 && (
-                        <>
-                          <div className="weekly-textwrapper">
-                            <h4 className="weekly-towin">
-                              You Won
-                            </h4>
-                            <span className="weekly-ppimg-layout">
-                              <p className="weekly-ppimg-text">
-                                PP
-                              </p>
+              {/* Weekly Mission & Continue Playing */}
+              {typeData !== undefined && (
+                <>
+                  {typeData.map((info, index) => (
+                    <div
+                      className="slide-contianer"
+                      key={index}
+                    >
+                      <div className="slide-wrapper">
+                        <div className="slide-space">
+                          <div className="slide-title-wrapper">
+                            {/* Continue Playing */}
+                            <span className="slide-title">
+                              {info.title}
                             </span>
-                            <div className="weekly-game-status">
-                              0/20
-                            </div>
+                            {/* option */}
+                            <a href={info.direction}>
+                              <span className="slide-route">
+                                {info.route}
+                              </span>
+                            </a>
                           </div>
+                          {info.id === 2 && (
+                            <>
+                              <div className="weekly-textwrapper">
+                                <h4 className="weekly-towin">
+                                  You Won
+                                </h4>
+                                <span className="weekly-ppimg-layout">
+                                  <p className="weekly-ppimg-text">
+                                    PP
+                                  </p>
+                                </span>
+                                <div className="weekly-game-status">
+                                  0/20
+                                </div>
+                              </div>
 
-                          <div className="weekly-progress-layout">
-                            <Progress done="70" />
-                          </div>
-                        </>
-                      )}
+                              <div className="weekly-progress-layout">
+                                <Progress done="70" />
+                              </div>
+                            </>
+                          )}
+                        </div>
+                        <div className="slide-area">
+                          {info.slide}
+                        </div>
+                        {info.id === 2 && (
+                          <h2 className="weekly-daycount">
+                            {info.complete} days left to
+                            complet
+                          </h2>
+                        )}
+                      </div>
                     </div>
-                    <div className="slide-area">
-                      {info.slide}
-                    </div>
-                    {info.id === 2 && (
-                      <h2 className="weekly-daycount">
-                        {info.complete} days left to complet
-                      </h2>
+                  ))}
+                </>
+              )}
+              {/* Featured Tournament */}
+              <div className="featured-container">
+                <div
+                  style={{
+                    width: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      padding: "0 30px",
+                    }}
+                  >
+                    <p className="featured-title">
+                      Featured Tournaments
+                    </p>
+                    {/* big img area */}
+                    {feature !== undefined && (
+                      <>
+                        {feature.map((data) => (
+                          <>
+                            {data.id === 1 && (
+                              <>
+                                <div
+                                  className="featured-img"
+                                  alt={data.img}
+                                />
+                                <div className="featured-infoarea">
+                                  <span className="gameItem-pointarea">
+                                    <div className="gameItem-icon">
+                                      <p
+                                        style={{
+                                          paddingTop: 2.5,
+                                        }}
+                                      >
+                                        PP
+                                      </p>
+                                    </div>
+                                    <div className="gameItem-point">
+                                      {data.point}
+                                    </div>
+                                  </span>
+                                  <span className="gameItem-userarea">
+                                    <div className="gameItem-usericon">
+                                      Icon
+                                    </div>
+                                    <span className="gameItem-number">
+                                      {data.user}
+                                    </span>
+                                    <div>Info icon</div>
+                                  </span>
+                                </div>
+                              </>
+                            )}
+                          </>
+                        ))}
+                        <div className="featured-smallarea">
+                          {feature.map((data) => (
+                            <>
+                              {data.id === 2 && (
+                                <>
+                                  <div className="featured-samll-wrapper">
+                                    <div
+                                      className="featured-samll-img"
+                                      alt="1"
+                                    />
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent:
+                                          "space-between",
+                                      }}
+                                    >
+                                      <span className="gameItem-pointarea">
+                                        <div className="gameItem-icon">
+                                          <p
+                                            style={{
+                                              paddingTop: 2.5,
+                                            }}
+                                          >
+                                            PP
+                                          </p>
+                                        </div>
+                                        <div className="gameItem-point">
+                                          {data.point}
+                                        </div>
+                                      </span>
+                                      <span className="gameItem-userarea">
+                                        <div className="gameItem-usericon">
+                                          Icon
+                                        </div>
+                                        <span className="gameItem-number">
+                                          {data.user}
+                                        </span>
+                                        <div>Info icon</div>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </>
+                              )}
+                              {data.id === 3 && (
+                                <>
+                                  <div className="featured-samll-wrapper">
+                                    <div
+                                      className="featured-samll-img"
+                                      alt="1"
+                                    />
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        justifyContent:
+                                          "space-between",
+                                      }}
+                                    >
+                                      <span className="gameItem-pointarea">
+                                        <div className="gameItem-icon">
+                                          <p
+                                            style={{
+                                              paddingTop: 2.5,
+                                            }}
+                                          >
+                                            PP
+                                          </p>
+                                        </div>
+                                        <div className="gameItem-point">
+                                          {data.point}
+                                        </div>
+                                      </span>
+                                      <span className="gameItem-userarea">
+                                        <div className="gameItem-usericon">
+                                          Icon
+                                        </div>
+                                        <span className="gameItem-number">
+                                          {data.user}
+                                        </span>
+                                        <div>Info icon</div>
+                                      </span>
+                                    </div>
+                                  </div>
+                                </>
+                              )}
+                              {/* -- */}
+                            </>
+                          ))}
+                        </div>
+                      </>
                     )}
                   </div>
                 </div>
-              ))}
-            </>
-          )}
-          {/* Featured Tournament */}
-          <div className="featured-container">
-            <div
-              style={{
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  padding: "0 30px",
-                }}
-              >
-                <p className="featured-title">
-                  Featured Tournaments
-                </p>
-                {/* big img area */}
-                {feature !== undefined && (
-                  <>
-                    {feature.map((data) => (
-                      <>
-                        {data.id === 1 && (
-                          <>
-                            <div
-                              className="featured-img"
-                              alt={data.img}
-                            />
-                            <div className="featured-infoarea">
-                              <span className="gameItem-pointarea">
-                                <div className="gameItem-icon">
-                                  <p
-                                    style={{
-                                      paddingTop: 2.5,
-                                    }}
-                                  >
-                                    PP
-                                  </p>
-                                </div>
-                                <div className="gameItem-point">
-                                  {data.point}
-                                </div>
-                              </span>
-                              <span className="gameItem-userarea">
-                                <div className="gameItem-usericon">
-                                  Icon
-                                </div>
-                                <span className="gameItem-number">
-                                  {data.user}
-                                </span>
-                                <div>Info icon</div>
-                              </span>
-                            </div>
-                          </>
-                        )}
-                      </>
-                    ))}
-                    <div className="featured-smallarea">
-                      {feature.map((data) => (
-                        <>
-                          {data.id === 2 && (
-                            <>
-                              <div className="featured-samll-wrapper">
-                                <div
-                                  className="featured-samll-img"
-                                  alt="1"
-                                />
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    justifyContent:
-                                      "space-between",
-                                  }}
-                                >
-                                  <span className="gameItem-pointarea">
-                                    <div className="gameItem-icon">
-                                      <p
-                                        style={{
-                                          paddingTop: 2.5,
-                                        }}
-                                      >
-                                        PP
-                                      </p>
-                                    </div>
-                                    <div className="gameItem-point">
-                                      {data.point}
-                                    </div>
-                                  </span>
-                                  <span className="gameItem-userarea">
-                                    <div className="gameItem-usericon">
-                                      Icon
-                                    </div>
-                                    <span className="gameItem-number">
-                                      {data.user}
-                                    </span>
-                                    <div>Info icon</div>
-                                  </span>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {data.id === 3 && (
-                            <>
-                              <div className="featured-samll-wrapper">
-                                <div
-                                  className="featured-samll-img"
-                                  alt="1"
-                                />
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    justifyContent:
-                                      "space-between",
-                                  }}
-                                >
-                                  <span className="gameItem-pointarea">
-                                    <div className="gameItem-icon">
-                                      <p
-                                        style={{
-                                          paddingTop: 2.5,
-                                        }}
-                                      >
-                                        PP
-                                      </p>
-                                    </div>
-                                    <div className="gameItem-point">
-                                      {data.point}
-                                    </div>
-                                  </span>
-                                  <span className="gameItem-userarea">
-                                    <div className="gameItem-usericon">
-                                      Icon
-                                    </div>
-                                    <span className="gameItem-number">
-                                      {data.user}
-                                    </span>
-                                    <div>Info icon</div>
-                                  </span>
-                                </div>
-                              </div>
-                            </>
-                          )}
-                          {/* -- */}
-                        </>
-                      ))}
-                    </div>
-                  </>
-                )}
               </div>
-            </div>
-          </div>
-          {/* Slide menu */}
-          <div className="menu-container">
-            {/* <span
+              {/* Slide menu */}
+              <div className="menu-container">
+                {/* <span
               className="menu-selector"
               style={{
                 backgroundColor: "#9bd0e1",
@@ -527,9 +554,9 @@ const Main = () => {
             >
               New Arrival
             </span> */}
-            <div style={{ width: "100%" }}>
-              <Slider {...titleSettings}>
-                {/* <div>
+                <div style={{ width: "100%" }}>
+                  <Slider {...titleSettings}>
+                    {/* <div>
                   <button
                     onClick={() => setAllItem(allItem)}
                     className="menu-selector"
@@ -537,108 +564,111 @@ const Main = () => {
                     All Games
                   </button>
                 </div> */}
-                {pickMenu.map((info) => (
-                  <>
-                    <div
-                      style={{
-                        display: "inline-flex",
-                        width: "100%",
-                        marginLeft: 25,
-                      }}
-                    >
-                      {info.type === "all games" ? (
-                        <>
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setGameType(info.type)
-                            }
-                            className="menu-selector"
-                            style={{
-                              border:
-                                gameType === info.type
-                                  ? "solid 2.5px #77b5c9"
-                                  : "solid 2.5px #fff",
-                              color:
-                                gameType === info.type &&
-                                "#fff",
-                            }}
-                          >
-                            {info.type}
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setGameType(info.type)
-                            }
-                            className="menu-selector-sub"
-                            style={{
-                              border:
-                                gameType === info.type
-                                  ? "solid 2.5px black"
-                                  : "solid 2.5px #77b5c9",
-                              color:
-                                gameType === info.type
-                                  ? "black"
-                                  : "#77b5c9",
-                              padding: "0px ​10px",
-                              textTransform: "capitalize",
-                            }}
-                          >
-                            {info.type}
-                          </button>
-                        </>
-                      )}
-                    </div>
-                  </>
-                ))}
-              </Slider>
-            </div>
-          </div>
-          <div
-            style={{
-              padding: "0 30px",
-              textAlign: "center",
-              minHeight: "450px",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "flex-start",
-                flexWrap: "wrap",
-              }}
-            >
-              <GameItem
-                menuData={gameData}
-                gameType={gameType}
-                limitNum={true}
-              />
-            </div>
-          </div>
-          {gameData.length > 15 && (
-            <>
+                    {pickMenu.map((info) => (
+                      <>
+                        <div
+                          style={{
+                            display: "inline-flex",
+                            width: "100%",
+                            marginLeft: 25,
+                          }}
+                        >
+                          {info.type === "all games" ? (
+                            <>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setGameType(info.type)
+                                }
+                                className="menu-selector"
+                                style={{
+                                  border:
+                                    gameType === info.type
+                                      ? "solid 2.5px #77b5c9"
+                                      : "solid 2.5px #fff",
+                                  color:
+                                    gameType ===
+                                      info.type && "#fff",
+                                }}
+                              >
+                                {info.type}
+                              </button>
+                            </>
+                          ) : (
+                            <>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  setGameType(info.type)
+                                }
+                                className="menu-selector-sub"
+                                style={{
+                                  border:
+                                    gameType === info.type
+                                      ? "solid 2.5px black"
+                                      : "solid 2.5px #77b5c9",
+                                  color:
+                                    gameType === info.type
+                                      ? "black"
+                                      : "#77b5c9",
+                                  padding: "0px ​10px",
+                                  textTransform:
+                                    "capitalize",
+                                }}
+                              >
+                                {info.type}
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </>
+                    ))}
+                  </Slider>
+                </div>
+              </div>
               <div
                 style={{
-                  position: "relative",
-                  fontFamily: "AppleSDGothicNeo",
-                  color: "#598b9b",
-                  padding: "70px 0",
-                  fontSize: 38,
-                  fontWeight: 500,
-                  cursor: "pointer",
-                  zIndex: 100,
+                  padding: "0 30px",
+                  textAlign: "center",
+                  minHeight: "450px",
                 }}
               >
-                <a href="/allgames">View All Games</a>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    flexWrap: "wrap",
+                  }}
+                >
+                  <GameItem
+                    menuData={gameData}
+                    gameType={gameType}
+                    limitNum={true}
+                  />
+                </div>
               </div>
-            </>
-          )}
-        </div>
-      </div>
+              {gameData.length > 15 && (
+                <>
+                  <div
+                    style={{
+                      position: "relative",
+                      fontFamily: "AppleSDGothicNeo",
+                      color: "#598b9b",
+                      padding: "70px 0",
+                      fontSize: 38,
+                      fontWeight: 500,
+                      cursor: "pointer",
+                      zIndex: 100,
+                    }}
+                  >
+                    <a href="/allgames">View All Games</a>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
+        </StyledApp>
+      </ThemeProvider>
     </>
   );
 };

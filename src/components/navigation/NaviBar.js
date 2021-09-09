@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import SideBar from "./SideBar";
 import "./navi.scss";
 
-const NaviBar = () => {
+const NaviBar = ({ onClick, theme }) => {
   const pathName = useLocation().pathname;
   const [menubtn, setMenubtn] = useState(false);
   const titles = [
@@ -15,7 +15,8 @@ const NaviBar = () => {
     { name: "leaderboard", path: "/leaderboard" },
     { name: "yourscore", path: "/yourscore" },
   ];
-
+  console.log("theme");
+  console.log(theme);
   return (
     <>
       {titles.map((title, index) => {
@@ -33,6 +34,68 @@ const NaviBar = () => {
                         Menu
                       </button>
                       <a href="/yourscore">Your Score</a>
+                      <div
+                        onClick={onClick}
+                        style={{
+                          width: 150,
+                          height: 50,
+                          border: "1px solid",
+                          display: "flex",
+                          alignItems: "center",
+                          // justifyContent:
+                          //   theme === "light"
+                          //     ? "flex-start"
+                          //     : "flex-end",
+                        }}
+                      >
+                        {theme === "light" ? (
+                          <div
+                            style={{
+                              position: "relative",
+                              height: "100%",
+                              backgroundColor: "#000",
+                              color: "#fff",
+                              fontWeight: "bold",
+                              fontSize: 15,
+                              display: "flex",
+                              alignItems: "center",
+                              animationDuration: "2s",
+                              transition: "1s",
+                              right:
+                                theme === "light"
+                                  ? 0
+                                  : "50%",
+                              cursor: "pointer",
+                              userSelect: "none",
+                            }}
+                          >
+                            Dark Mode
+                          </div>
+                        ) : (
+                          <div
+                            style={{
+                              position: "relative",
+                              height: "100%",
+                              backgroundColor: "#fff",
+                              color: "#000",
+                              fontWeight: "bold",
+                              fontSize: 15,
+                              display: "flex",
+                              alignItems: "center",
+                              animationDuration: "0.8s",
+                              transition: "1s",
+                              left:
+                                theme === "light"
+                                  ? 0
+                                  : "50%",
+                              cursor: "pointer",
+                              userSelect: "none",
+                            }}
+                          >
+                            Light Mode
+                          </div>
+                        )}
+                      </div>
                       <div className="navi-content-container">
                         <div className="navi-pointwrapper">
                           <span className="navi-insideball">
