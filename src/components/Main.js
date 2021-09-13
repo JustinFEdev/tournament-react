@@ -15,11 +15,13 @@ import {
   darkTheme,
   GlobalStyles,
 } from "../themes";
+// import ToggleComponent from "./util/ToggleComponent";
 
 export function AddComma(num) {
   var regexp = /\B(?=(\d{3})+(?!\d))/g;
   return num.toString().replace(regexp, ",");
 }
+
 const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `;
@@ -28,23 +30,20 @@ const StyledApp = styled.div`
 const Progress = ({ done }) => {
   return (
     <>
-      <div
-        className="progress"
-        style={{
-          position: "absolute",
-          width: "100%",
-          justifyContent: "center",
-        }}
-      >
+      <div className="progress-wrapper">
         <div
-          className="progress-done"
+          // className="progress-done"
           style={{
-            opacity: 1,
+            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            // opacity: 1,
             width: `${done}%`,
+            backgroundColor: "lightGreen",
           }}
-        >
-          {done}%
-        </div>
+        />
+        <div style={{ position: "absolute" }}>{done}%</div>
       </div>
     </>
   );
@@ -61,6 +60,7 @@ const Main = () => {
   const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
+  const [ff, setFf] = useState(0);
 
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
@@ -102,14 +102,14 @@ const Main = () => {
       title: "Continue Playing",
       route: "Completed >",
       direction: "/completed",
-      slide: <ContinueSlide conti={conti} />,
+      slide: <ContinueSlide conti={conti} size={ff} />,
     },
     {
       id: 2,
       title: "Weekly Mission",
       route: "See All >",
       direction: "/allrank",
-      slide: <MissionSlide weekly={weekly} />,
+      slide: <MissionSlide weekly={weekly} size={ff} />,
       complete: 5,
     },
   ];
@@ -122,6 +122,9 @@ const Main = () => {
 
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
+    console.log("들어와");
+    // console.log(window.innerWidth);
+
     const aa = [];
     const status = [
       "newarivel",
@@ -290,11 +293,16 @@ const Main = () => {
         img: "3333",
       },
     ];
+    const widthScreen = window.innerWidth;
+    console.log("widthScreen");
+    console.log(widthScreen);
+    setFf(widthScreen);
+
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
     setFeature(featureInfo);
-  }, []);
+  }, [ff]);
 
   const [theme, setTheme] = useState("light");
   const themeToggler = () => {
@@ -320,7 +328,8 @@ const Main = () => {
                   theme={theme}
                 />
               </header>
-
+              {/* 연습용  ToggleComponent 기능*/}
+              {/* <ToggleComponent /> */}
               {/* LiveSlide */}
               <div className="main-live-wrapper">
                 <LiveSlide live={live} />
@@ -372,6 +381,11 @@ const Main = () => {
                         </div>
                         <div className="slide-area">
                           {info.slide}
+                          {/* {info.id === 1 ? (
+                            <ContinueSlide conti={conti} />
+                          ) : (
+                            <MissionSlide weekly={weekly} />
+                          )} */}
                         </div>
                         {info.id === 2 && (
                           <h2 className="weekly-daycount">
@@ -626,20 +640,8 @@ const Main = () => {
                   </Slider>
                 </div>
               </div>
-              <div
-                style={{
-                  padding: "0 30px",
-                  textAlign: "center",
-                  minHeight: "450px",
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-start",
-                    flexWrap: "wrap",
-                  }}
-                >
+              <div className="gameitems-container">
+                <div className="gameitems-wrapper">
                   <GameItem
                     menuData={gameData}
                     gameType={gameType}
@@ -649,18 +651,7 @@ const Main = () => {
               </div>
               {gameData.length > 15 && (
                 <>
-                  <div
-                    style={{
-                      position: "relative",
-                      fontFamily: "AppleSDGothicNeo",
-                      color: "#598b9b",
-                      padding: "70px 0",
-                      fontSize: 38,
-                      fontWeight: 500,
-                      cursor: "pointer",
-                      zIndex: 100,
-                    }}
-                  >
+                  <div className="gameitems-overtext">
                     <a href="/allgames">View All Games</a>
                   </div>
                 </>

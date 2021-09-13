@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import "./navi.scss";
@@ -7,7 +7,7 @@ import "../layout.scss";
 const Overlay = styled.div`
   position: absolute;
   background-color: rgb(0, 0, 0);
-  opacity: 0.5;
+  opacity: 0.68;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -29,8 +29,10 @@ const SideBar = (props) => {
     "faq",
     "logout",
   ];
-
-  useEffect(() => {
+  // useLayoutEffect(() => {
+  //   console.log("layout effect");
+  // }, []);
+  useLayoutEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
       top: -${window.scrollY}px;

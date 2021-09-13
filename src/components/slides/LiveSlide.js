@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 const LiveSlide = ({ live }) => {
   const liveSettings = {
     arrows: false,
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 1500,
     slidesToShow: 1,
@@ -16,12 +16,13 @@ const LiveSlide = ({ live }) => {
     initialSlide: 0,
     autoplay: true,
     autoplaySpeed: 3500,
-    centerMode: true,
+    centerMode: false,
     swipe: true,
     swipeToSlide: false,
     touchMove: true,
     useCSS: true,
   };
+
   return (
     <>
       {live !== undefined && (

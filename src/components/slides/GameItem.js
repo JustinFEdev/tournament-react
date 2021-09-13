@@ -3,16 +3,7 @@ import PropTypes from "prop-types";
 import "./slide.scss";
 
 const GameItem = ({ menuData, gameType, limitNum }) => {
-  // console.log("menuData로 도착");
-  // console.log(menuData);
-  // console.log(gameType);
-  // console.log("limitNum");
-  // console.log(limitNum);
-
   const sliced = menuData.slice(0, 40);
-  // console.log("sliced");
-  // console.log(sliced);
-
   return (
     <>
       {menuData !== undefined && (

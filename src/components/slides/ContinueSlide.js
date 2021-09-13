@@ -4,13 +4,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ContinueSlide = ({ conti }) => {
+const ContinueSlide = ({ conti, size }) => {
+  console.log("넘어온 size");
+  console.log(size);
   const contiSettings = {
     arrows: false,
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: size < 501 ? 3 : 4,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,

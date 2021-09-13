@@ -1,18 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const MissionSlide = ({ weekly }) => {
+const MissionSlide = ({ weekly, size }) => {
   const settings = {
     arrows: false,
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: size < 501 ? 2 : 3,
     slidesToScroll: 1,
     initialSlide: 0,
-
     autoplay: true,
     autoplaySpeed: 3000,
     centerMode: false,
@@ -21,6 +20,13 @@ const MissionSlide = ({ weekly }) => {
     touchMove: true,
   };
 
+  // useEffect(() => {
+
+  //   // const ban = Math.round(window.innerWidth * 0.0045);
+  //   // console.log("ban");
+  //   // console.log(ban);
+  //   // setFf(ban);
+  // }, [ff]);
   return (
     <>
       {weekly !== undefined && (
