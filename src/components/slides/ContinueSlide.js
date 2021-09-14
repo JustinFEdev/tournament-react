@@ -26,12 +26,12 @@ const ContinueSlide = ({ conti, size }) => {
     useCSS: true,
     vertical: false,
     responsive: [
-      {
-        breakpoint: 620, //화면 사이즈 501
-        settings: {
-          slidesToShow: 4,
-        },
-      },
+      // {
+      //   breakpoint: 620, //화면 사이즈 501
+      //   settings: {
+      //     slidesToShow: 4,
+      //   },
+      // },
       {
         breakpoint: 501, //화면 사이즈 501
         settings: {
