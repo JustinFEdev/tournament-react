@@ -32,12 +32,12 @@ a:link {
   height: 34px;
   border: solid 1.5px #149231;
   background-color: #38ae53;
-  margin: 0 5px 0 0;
+  margin: 0 10px;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25px;
+  border-radius: 10px;
 }
 .pp-text {
   margin: auto;
@@ -73,23 +73,22 @@ header {
   border: 1px solid blue;
 }
 
-/* .slick-list {
-  overflow: hidden;
-} */
-.slick-slide > div {
-  width: 560px;
-  padding: 0 30px 0 20px;
+.slick-list {
+  padding-bottom: 20px;
 }
-/* .slick-slide > .slide-contianer {
+.slick-slide > div {
+  // width: 560px;
+  padding: 0 9% 0 3.5%;
+}
+
+.slick-slide > .slide-contianer {
   padding: 0 50px;
-} */
+}
+
 .main-live-wrapper {
   width: 100%;
   overflow: hidden;
-  /* width: 690px; */
-  /* display: block; */
-  /* justify-content: center; */
-  padding: 30px 0 59.5px 0;
+  padding: 115px 0 59.5px 0;
 }
 
 .slide-contianer {

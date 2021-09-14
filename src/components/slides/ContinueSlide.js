@@ -12,7 +12,7 @@ const ContinueSlide = ({ conti, size }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: size < 501 ? 3 : 4,
+    slidesToShow: size < 501 ? 2 : 3,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
@@ -21,7 +21,7 @@ const ContinueSlide = ({ conti, size }) => {
     swipe: true,
     swipeToSlide: true,
     touchMove: true,
-    // useCSS: true,
+    useCSS: true,
   };
 
   return (
@@ -29,6 +29,10 @@ const ContinueSlide = ({ conti, size }) => {
       {conti !== undefined && (
         <>
           <Slider {...contiSettings}>
+            {/* <div
+              className="slick-list"
+              style={{ display: "flex" }}
+            > */}
             {conti.map((info, index) => (
               <>
                 <div
@@ -59,6 +63,7 @@ const ContinueSlide = ({ conti, size }) => {
                 </div>
               </>
             ))}
+            {/* </div> */}
           </Slider>
         </>
       )}

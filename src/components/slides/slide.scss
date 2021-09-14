@@ -2,12 +2,14 @@
 .live-container {
   position: relative;
   display: block;
-  width: 620px;
+  max-width: 620px;
   margin: 0 15px;
 }
 .live-wrapper {
   position: absolute;
   z-index: 1;
+  right: 0;
+  padding: 25px;
 }
 .live-livestatus {
   width: 68px;
@@ -20,43 +22,42 @@
   color: #88d9f3;
 }
 .live-timestatus {
-  width: 183px;
-  border: 1px solid;
-  border-radius: 3.8px;
-  background-color: #09607b;
-  font-size: 19px;
+  border-radius: 10px;
+  background-color: #000;
+  opacity: 0.6;
+  font-size: 16px;
   font-weight: 500;
-  padding: 10px 14px 12px;
-  color: #88d9f3;
-  margin-top: 190px;
+  padding: 8px 20px 8px;
+  color: #fff;
 }
 .live-imgarea {
-  height: 316px;
+  height: 240px;
   width: 100%;
-  border-radius: 16px 16px 0 0;
-  border: solid 2.5px #86b1be;
+  border-radius: 25px 25px 0 0;
+  // border: solid 2.5px #86b1be;
   border-bottom: none;
   background-color: #c9e2ea;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .live-info-wrapper {
   width: 100%;
-  height: 157px;
-  border: solid 2.5px #86b1be;
+  // height: 120px;
+  // border: solid 2.5px #86b1be;
   border-radius: 0 0 16px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   box-shadow: 0 13px 13px 0 rgb(77 93 107 / 13%);
 }
 .live-info-titlearea {
-  width: 60%;
+  // width: 60%;
   text-align: left;
-  padding-left: 25px;
+  // padding-left: 25px
+  padding: 15px;
 }
 .live-info-title {
-  font-size: 38px;
+  font-size: 30px;
   font-weight: 500;
   color: #09607b;
 }
@@ -64,18 +65,31 @@
   width: 40%;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 }
 .live-win {
-  font-size: 32px;
-  font-weight: bold;
+  font-size: 20px;
+  // font-weight: bold;
   color: #09607b;
 }
 .live-point {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: bold;
   color: #09607b;
 }
+
+@media only screen and (min-width: 330px) and (max-width: 550px) {
+  .live-liveinfo {
+    transition: 0.2s;
+  }
+}
+@media only screen and (min-width: 551px) {
+  .live-liveinfo {
+    padding: 0 10%;
+    transition: 0.2s;
+  }
+}
+
 /* Game Item */
 .gameItem-container {
   cursor: pointer;

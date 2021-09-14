@@ -3,14 +3,19 @@ p {
   padding: 0;
 }
 .navi-container {
-  // width: 690px;
-  position: sticky;
+  width: 100%;
+  min-width: 360px;
+  max-width: 690px;
+  position: fixed;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #c9e2ea;
+  // background-color: #c9e2ea;
+  background-color: #fff;
+  opacity: 0.9;
   z-index: 1;
+  top: 0;
 }
 .navi-title-container {
   position: fixed;
