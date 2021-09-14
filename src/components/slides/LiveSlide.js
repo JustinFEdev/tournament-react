@@ -4,7 +4,6 @@ import "../navigation/navi.scss";
 import "./slide.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import moment from "moment";
 // import { isBrowser, isMobile } from "react-device-detect";
 
 const LiveSlide = ({ live, size }) => {
@@ -21,7 +20,7 @@ const LiveSlide = ({ live, size }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3500,
     centerMode: false,
     swipe: true,

@@ -74,7 +74,7 @@ const Main = () => {
   const [theme, setTheme] = useState("light");
   //현 시간
   const nowTime = moment().format("HH:mm:ss");
-  console.log(nowTime);
+  // console.log(nowTime);
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
   const [gameType, setGameType] = useState({});
@@ -158,7 +158,15 @@ const Main = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [handleResize]);
-
+  // useEffect(() => {
+  //   const meta = document.createElement("meta");
+  //   meta.name = "viewport";
+  //   meta.content =
+  //     "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover";
+  //   document
+  //     .getElementsByTagName("head")[0]
+  //     .appendChild(meta);
+  // }, []);
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];

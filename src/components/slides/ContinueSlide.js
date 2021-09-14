@@ -12,7 +12,8 @@ const ContinueSlide = ({ conti, size }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: size < 500 ? 2 : 3,
+    // slidesToShow: size < 501 ? 2 : 3,
+    slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,
@@ -21,7 +22,29 @@ const ContinueSlide = ({ conti, size }) => {
     swipe: true,
     swipeToSlide: true,
     touchMove: true,
+    pauseOnHover: true,
     useCSS: true,
+    vertical: false,
+    responsive: [
+      {
+        breakpoint: 620, //화면 사이즈 501
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 501, //화면 사이즈 501
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 500, //화면 사이즈 500
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
 
   return (
