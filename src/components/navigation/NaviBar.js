@@ -41,9 +41,9 @@ const NaviBar = ({ onClick, theme }) => {
                       Menu
                     </button>
                     {/* 임시 스코어경로 라우팅 */}
-                    <a href="/yourscore">Your Score</a>
+                    {/* <a href="/yourscore">Your Score</a> */}
                     {/* dark mode */}
-                    <div
+                    {/* <div
                       onClick={onClick}
                       style={{
                         width: 150,
@@ -96,7 +96,7 @@ const NaviBar = ({ onClick, theme }) => {
                           Light Mode
                         </div>
                       )}
-                    </div>
+                    </div> */}
                     {/* 점수 & 유저수 현황 */}
                     <div className="navi-content-container">
                       <div className="navi-pointwrapper">
