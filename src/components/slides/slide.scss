@@ -79,12 +79,12 @@
   color: #09607b;
 }
 
-@media only screen and (min-width: 330px) and (max-width: 550px) {
+@media only screen and (min-width: 330px) and (max-width: 360px) {
   .live-liveinfo {
     transition: 0.2s;
   }
 }
-@media only screen and (min-width: 551px) {
+@media only screen and (min-width: 361px) {
   .live-liveinfo {
     padding: 0 10%;
     transition: 0.2s;
