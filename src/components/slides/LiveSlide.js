@@ -4,12 +4,7 @@ import "../navigation/navi.scss";
 import "./slide.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  BrowserView,
-  MobileView,
-  isBrowser,
-  isMobile,
-} from "react-device-detect";
+import { isBrowser } from "react-device-detect";
 
 const LiveSlide = ({ live }) => {
   const liveSettings = {

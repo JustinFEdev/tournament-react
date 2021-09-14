@@ -5,8 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import {
   BrowserView,
   MobileView,
-  isBrowser,
-  isMobile,
 } from "react-device-detect";
 
 const MissionSlide = ({ weekly, size }) => {
