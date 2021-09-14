@@ -342,7 +342,7 @@ const Main = () => {
     setConti(contiInfo);
     setLive(liveInfo);
     setFeature(featureInfo);
-  }, []);
+  }, [nowTime]);
 
   return (
     <>
