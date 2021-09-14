@@ -57,13 +57,21 @@ header {
   position: relative;
   z-index: 100;
 }
+
 .main-container {
   position: relative;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -webkit-appearance: none;
 }
+
 .main-wrapper {
   width: 100%;
   min-width: 360px;
@@ -72,8 +80,13 @@ header {
   overflow: hidden;
   z-index: 1000;
   border: 1px solid blue;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -webkit-appearance: none;
 }
-
 .slick-list {
   padding-bottom: 20px;
 }

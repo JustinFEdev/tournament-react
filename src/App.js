@@ -7,9 +7,11 @@ import Page from "./Page";
 function App() {
   return (
     <>
-      <Router>
-        <Page />
-      </Router>
+      <div className="App">
+        <Router>
+          <Page />
+        </Router>
+      </div>
     </>
   );
 }

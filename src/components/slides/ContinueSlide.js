@@ -5,14 +5,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ContinueSlide = ({ conti, size }) => {
-  console.log("넘어온 size");
-  console.log(size);
+  // console.log("넘어온 size");
+  // console.log(size);
   const contiSettings = {
     arrows: false,
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: size < 501 ? 2 : 3,
+    slidesToShow: size < 500 ? 2 : 3,
     slidesToScroll: 1,
     initialSlide: 0,
     autoplay: true,

@@ -1,13 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, {
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 import ContinueSlide from "./slides/ContinueSlide";
 import LiveSlide from "./slides/LiveSlide";
 import MissionSlide from "./slides/MissionSlide";
 import GameItem from "./slides/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.scss";
+import "../App.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import moment from "moment";
+
 // import AllGames from "./details/AllGames";
 import styled, { ThemeProvider } from "styled-components";
 import {
@@ -60,8 +67,14 @@ const Main = () => {
   const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
-  const [ff, setFf] = useState(0);
-
+  const [widthStatus, setWidthStatus] = useState(
+    window.innerWidth
+  );
+  // dark mode
+  const [theme, setTheme] = useState("light");
+  //현 시간
+  const nowTime = moment().format("HH:mm:ss");
+  console.log(nowTime);
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
   const [gameType, setGameType] = useState({});
@@ -102,29 +115,52 @@ const Main = () => {
       title: "Continue Playing",
       route: "Completed >",
       direction: "/completed",
-      slide: <ContinueSlide conti={conti} size={ff} />,
+      slide: (
+        <ContinueSlide conti={conti} size={widthStatus} />
+      ),
     },
     {
       id: 2,
       title: "Weekly Mission",
       route: "See All >",
       direction: "/allrank",
-      slide: <MissionSlide weekly={weekly} size={ff} />,
+      slide: (
+        <MissionSlide weekly={weekly} size={widthStatus} />
+      ),
       complete: 5,
     },
   ];
 
-  //comma function
+  // comma function
   function AddComma(num) {
     var regexp = /\B(?=(\d{3})+(?!\d))/g;
     return num.toString().replace(regexp, ",");
   }
 
+  // dark mode trigger
+  const themeToggler = () => {
+    theme === "light"
+      ? setTheme("dark")
+      : setTheme("light");
+    console.log("theme 모드 설정");
+    console.log(theme);
+  };
+
+  // auto resize handler
+  const handleResize = useCallback((event) => {
+    setWidthStatus(window.innerWidth);
+  }, []);
+
+  // resize useEffect
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
-    console.log("들어와");
-    // console.log(window.innerWidth);
-
     const aa = [];
     const status = [
       "newarivel",
@@ -236,7 +272,7 @@ const Main = () => {
         id: 1,
         status: "live",
         title: "Bit Miner Bit 22 Miner Game",
-        time: "24:00:00",
+        time: nowTime,
         point: 2,
         number: 35,
         img: "1111",
@@ -293,25 +329,12 @@ const Main = () => {
         img: "3333",
       },
     ];
-    const widthScreen = window.innerWidth;
-    console.log("widthScreen");
-    console.log(widthScreen);
-    setFf(widthScreen);
 
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
     setFeature(featureInfo);
-  }, [ff]);
-
-  const [theme, setTheme] = useState("light");
-  const themeToggler = () => {
-    theme === "light"
-      ? setTheme("dark")
-      : setTheme("light");
-    console.log("theme 모드 설정");
-    console.log(theme);
-  };
+  }, []);
 
   return (
     <>
@@ -332,7 +355,7 @@ const Main = () => {
               {/* <ToggleComponent /> */}
               {/* LiveSlide */}
               <div className="main-live-wrapper">
-                <LiveSlide live={live} />
+                <LiveSlide live={live} size={widthStatus} />
               </div>
 
               {/* Weekly Mission & Continue Playing */}
