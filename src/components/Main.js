@@ -454,14 +454,14 @@ const Main = () => {
                             </>
                           )}
                         </div>
-                        <div className="slide-area">
-                          {info.slide}
-                        </div>
+                        <span>{info.slide}</span>
+                        {/* <div className="slide-area"> */}
+                        {/* </div> */}
                         {info.id === 2 && (
-                          <h2 className="weekly-daycount">
+                          <p className="weekly-daycount">
                             {info.complete} days left to
                             complet
-                          </h2>
+                          </p>
                         )}
                       </div>
                     </div>
@@ -469,7 +469,7 @@ const Main = () => {
                 </>
               )}
               {/* Featured Tournament */}
-              <div className="featured-container">
+              {/* <div className="featured-container">
                 <div
                   style={{
                     width: "100%",
@@ -483,7 +483,6 @@ const Main = () => {
                     <p className="featured-title">
                       Featured Tournaments
                     </p>
-                    {/* big img area */}
                     {feature !== undefined && (
                       <>
                         {feature.map((data) => (
@@ -608,7 +607,6 @@ const Main = () => {
                                   </div>
                                 </>
                               )}
-                              {/* -- */}
                             </>
                           ))}
                         </div>
@@ -616,7 +614,7 @@ const Main = () => {
                     )}
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* Slide menu */}
               <div className="menu-container">
                 {/* <span
@@ -638,9 +636,9 @@ const Main = () => {
             >
               New Arrival
             </span> */}
-                <div style={{ width: "100%" }}>
-                  <Slider {...titleSettings}>
-                    {/* <div>
+
+                {/* 슬라이더안 div(잠시 주석) */}
+                {/* <div>
                   <button
                     onClick={() => setAllItem(allItem)}
                     className="menu-selector"
@@ -648,6 +646,8 @@ const Main = () => {
                     All Games
                   </button>
                 </div> */}
+                {/* <div style={{ width: "100%" }}>
+                  <Slider {...titleSettings}>
                     {pickMenu.map((info) => (
                       <>
                         <div
@@ -708,9 +708,9 @@ const Main = () => {
                       </>
                     ))}
                   </Slider>
-                </div>
+                </div> */}
               </div>
-              <div className="gameitems-container">
+              {/* <div className="gameitems-container">
                 <div className="gameitems-wrapper">
                   <GameItem
                     menuData={gameData}
@@ -725,7 +725,22 @@ const Main = () => {
                     <a href="/allgames">View All Games</a>
                   </div>
                 </>
-              )}
+              )} */}
+              <footer
+                style={{
+                  position: "fixed",
+                  bottom: 0,
+                  width: "100%",
+                  height: 44,
+                  maxWidth: "690px",
+                  backgroundColor: "ButtonHighlight",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                asdasd
+              </footer>
             </div>
           </div>
         </StyledApp>

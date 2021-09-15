@@ -10,7 +10,7 @@ const ContinueSlide = ({ conti, size }) => {
   const contiSettings = {
     arrows: false,
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
     // slidesToShow: size < 501 ? 2 : 3,
     slidesToShow: 5,
@@ -18,7 +18,6 @@ const ContinueSlide = ({ conti, size }) => {
     initialSlide: 0,
     autoplay: false,
     autoplaySpeed: 3000,
-    centerMode: false,
     swipe: true,
     swipeToSlide: true,
     touchMove: true,

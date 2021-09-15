@@ -27,20 +27,20 @@ const MissionSlide = ({ weekly, size }) => {
     useCSS: true,
     vertical: false,
     responsive: [
-      // {
-      //   breakpoint: 620, //화면 사이즈 501
-      //   settings: {
-      //     slidesToShow: 4,
-      //   },
-      // },
       {
-        breakpoint: 501, //화면 사이즈 501
+        breakpoint: 690, //화면 사이즈 690
         settings: {
           slidesToShow: 3,
         },
       },
       {
-        breakpoint: 500, //화면 사이즈 500
+        breakpoint: 501, //화면 사이즈 501
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 360, //화면 사이즈 360
         settings: {
           slidesToShow: 2,
         },
@@ -66,9 +66,11 @@ const MissionSlide = ({ weekly, size }) => {
                   style={{
                     width: 220,
                     position: "relative",
-                    margin: "0 0 15px 0",
+                    // margin: "0 0 15px 0",
                     border: "1px solid",
                     borderRadius: 10,
+                    boxShadow:
+                      "0 13px 13px 0 rgb(77 93 107 / 13%)",
                   }}
                   key={index}
                 >
