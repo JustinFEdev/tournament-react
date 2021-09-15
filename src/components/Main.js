@@ -45,12 +45,11 @@ const Progress = ({ done }) => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            // opacity: 1,
             width: `${done}%`,
             backgroundColor: "lightGreen",
           }}
         />
-        <div style={{ position: "absolute" }}>{done}%</div>
+        {/* <div style={{ position: "absolute" }}>{done}%</div> */}
       </div>
     </>
   );
@@ -158,6 +157,7 @@ const Main = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [handleResize]);
+
   // useEffect(() => {
   //   const meta = document.createElement("meta");
   //   meta.name = "viewport";
@@ -167,6 +167,7 @@ const Main = () => {
   //     .getElementsByTagName("head")[0]
   //     .appendChild(meta);
   // }, []);
+
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
@@ -249,42 +250,42 @@ const Main = () => {
         id: 1,
         title: "aa",
         time: 4,
-        point: 2,
+        point: 2000,
         img: "1111",
       },
       {
         id: 2,
         title: "bb",
         time: 5,
-        point: 10,
+        point: 1000,
         img: "2222",
       },
       {
         id: 3,
         title: "cc",
         time: 2,
-        point: 5,
+        point: 5000,
         img: "3333",
       },
       {
         id: 4,
         title: "dd",
         time: "2:11",
-        point: 10,
+        point: 1000,
         img: "444",
       },
       {
         id: 3,
         title: "cc",
         time: 2,
-        point: 5,
+        point: 6000,
         img: "3333",
       },
       {
         id: 4,
         title: "dd",
         time: "2:11",
-        point: 10,
+        point: 8000,
         img: "444",
       },
     ];
@@ -404,22 +405,51 @@ const Main = () => {
                           </div>
                           {info.id === 2 && (
                             <>
-                              <div className="weekly-textwrapper">
-                                <h4 className="weekly-towin">
-                                  You Won
-                                </h4>
-                                <span className="weekly-ppimg-layout">
-                                  <p className="weekly-ppimg-text">
-                                    PP
-                                  </p>
-                                </span>
-                                <div className="weekly-game-status">
-                                  0/20
+                              <div
+                                style={{
+                                  border:
+                                    "solid 1px #e6e8ec",
+                                  borderRadius: 10,
+                                  padding:
+                                    "0 15.4px 16px 15.4px",
+                                  marginTop: 17,
+                                }}
+                              >
+                                <div className="weekly-textwrapper">
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <p className="weekly-towin">
+                                      You Won
+                                    </p>
+                                    <span className="weekly-ppimg-layout">
+                                      <p className="weekly-ppimg-text">
+                                        PP
+                                      </p>
+                                    </span>
+                                    <div className="weekly-game-status">
+                                      2000
+                                    </div>
+                                  </div>
+                                  <div
+                                    style={{
+                                      width: 61,
+                                      height: 24,
+                                      padding: "4px 16px",
+                                      borderRadius: 12,
+                                      backgroundImage:
+                                        "linear-gradient(103deg, var(--primay-2-01) -11%, #92b2ff 122%, var(--primay-2-02) 122%)",
+                                    }}
+                                  >
+                                    0/30
+                                  </div>
                                 </div>
-                              </div>
-
-                              <div className="weekly-progress-layout">
-                                <Progress done="70" />
+                                <div className="weekly-progress-layout">
+                                  <Progress done="70" />
+                                </div>
                               </div>
                             </>
                           )}

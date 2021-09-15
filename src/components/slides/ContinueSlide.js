@@ -10,7 +10,7 @@ const ContinueSlide = ({ conti, size }) => {
   const contiSettings = {
     arrows: false,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     // slidesToShow: size < 501 ? 2 : 3,
     slidesToShow: 5,
@@ -62,27 +62,46 @@ const ContinueSlide = ({ conti, size }) => {
                   className="continue-container"
                   key={index}
                 >
-                  <img
-                    className="continue-img"
-                    alt={info.img}
-                  />
-                  {/* <div className="continue-time-wrapper">
-                    <span className="continue-time-text">
-                      Time :{info.time}
-                    </span>
-                  </div>
-                  <div className="continue-text-wrapper">
-                    <div className="continue-playagin">
-                      Play Again
+                  {/* <div className="continue-imgarea"> */}
+                  <div
+                    style={{
+                      position: "relative",
+                      width: 122,
+                      height: 141,
+                    }}
+                  >
+                    <div className="continue-time-wrapper">
+                      <div className="continue-time-text">
+                        Time :{info.time}
+                      </div>
                     </div>
-                    <div className="continue-wininfo">
-                      <span>To Win</span>
+
+                    <img
+                      className="continue-img"
+                      alt={info.img}
+                    />
+                  </div>
+                  <div className="content-text-wrapper">
+                    <div className="content-playagin">
+                      <p>Play Again</p>
+                      <span>icon</span>
+                    </div>
+                    <div className="content-wininfo">
+                      <span>Win</span>
                       <span className="pp-wrapper">
                         <div className="pp-text">PP</div>
                       </span>
-                      <span>{info.point}</span>
+                      <span
+                        style={{
+                          fontSize: 16,
+                          fontWeight: 500,
+                          color: "#1b202a",
+                        }}
+                      >
+                        {info.point}
+                      </span>
                     </div>
-                  </div> */}
+                  </div>
                 </div>
               </>
             ))}

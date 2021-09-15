@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "../layout.scss";
 // import { isBrowser, isMobile } from "react-device-detect";
 
 const MissionSlide = ({ weekly, size }) => {
@@ -10,7 +11,7 @@ const MissionSlide = ({ weekly, size }) => {
   const settings = {
     arrows: false,
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     // slidesToShow: size < 501 ? 2 : 3,
     slidesToShow: 3,
@@ -66,6 +67,8 @@ const MissionSlide = ({ weekly, size }) => {
                     width: 220,
                     position: "relative",
                     margin: "0 0 15px 0",
+                    border: "1px solid",
+                    borderRadius: 10,
                   }}
                   key={index}
                 >
@@ -73,15 +76,36 @@ const MissionSlide = ({ weekly, size }) => {
                     style={{
                       position: "relative",
                       width: "100%",
-                      height: 217,
+                      height: 118,
                       borderRadius: "16px",
-                      backgroundColor: "#9bc8d7",
+                      backgroundColor: "lightyellow",
                       border: "none",
                     }}
                     src={info.img}
                     alt=""
                   />
-                  <div
+                  <div className="content-text-wrapper">
+                    <div className="content-playagin">
+                      <p>Play Again</p>
+                      <span>icon</span>
+                    </div>
+                    <div className="content-wininfo">
+                      <span>Win</span>
+                      <span className="pp-wrapper">
+                        <div className="pp-text">PP</div>
+                      </span>
+                      <span
+                        style={{
+                          fontSize: 16,
+                          fontWeight: 500,
+                          color: "#1b202a",
+                        }}
+                      >
+                        {info.point}
+                      </span>
+                    </div>
+                  </div>
+                  {/* <div
                     style={{
                       fontFamily: "AppleSDGothicNeo",
                       textAlign: "left",
@@ -144,7 +168,7 @@ const MissionSlide = ({ weekly, size }) => {
                     >
                       START NOW
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ))}

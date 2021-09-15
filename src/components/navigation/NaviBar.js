@@ -103,20 +103,34 @@ const NaviBar = ({ onClick, theme }) => {
                         <span className="navi-insideball">
                           PP
                         </span>
-                        <span>number</span>
+                        <span
+                          style={{
+                            fontSize: 16,
+                            fontWeight: "bold",
+                            color: "#1b202a",
+                          }}
+                        >
+                          2000
+                        </span>
                       </div>
                       <div className="navi-pointwrapper">
                         <span
                           className="navi-insideball"
                           style={{
                             backgroundColor: "#ffb400",
-                            opacity: 0.78,
-                            border: " solid 1.5px #ff9600",
                           }}
                         >
                           T
                         </span>
-                        <span>number</span>
+                        <span
+                          style={{
+                            fontSize: 16,
+                            fontWeight: "bold",
+                            color: "#1b202a",
+                          }}
+                        >
+                          2000
+                        </span>
                       </div>
                     </div>
                   </div>
