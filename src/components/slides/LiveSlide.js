@@ -11,16 +11,16 @@ const LiveSlide = ({ live, size }) => {
   // console.log(size);
   const liveSettings = {
     arrows: false,
-    dots:
-      // (isBrowser && true) ||
-      size > 499 ? true : false,
+    dots: true,
+    // (isBrowser && true) ||
+    // size > 499 ? true : false,
     // (isMobile && false),
     infinite: true,
     speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3500,
     centerMode: false,
     swipe: true,
@@ -36,15 +36,17 @@ const LiveSlide = ({ live, size }) => {
           <Slider {...liveSettings}>
             {live.map((info, index) => (
               <div className="live-container" key={index}>
-                <div className="live-wrapper">
-                  {/* <div className="live-livestatus">
-                    {info.live}
-                  </div> */}
-                  <div className="live-timestatus">
-                    {info.time}
-                  </div>
-                </div>
                 <div className="live-imgarea">
+                  <div style={{ position: "relative" }}>
+                    <div className="live-wrapper">
+                      <div className="live-livestatus">
+                        {info.status}
+                      </div>
+                      <div className="live-timestatus">
+                        {info.time}
+                      </div>
+                    </div>
+                  </div>
                   <img src={info.img} alt={info.img} />
                 </div>
                 <div className="live-info-wrapper">
@@ -52,40 +54,30 @@ const LiveSlide = ({ live, size }) => {
                     <span className="live-info-title">
                       {info.title}
                     </span>
-
-                    <div className="live-wininfo">
-                      <span className="live-win">WIN</span>
-                      <span className="pp-wrapper">
-                        <p className="pp-text">PP</p>
-                      </span>
-                      <span className="live-point">
-                        {info.point}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="live-liveinfo">
                     <div
-                      className="live-"
                       style={{
-                        borderTop: "1px solid",
-                        padding: "20px 0",
+                        padding: "10px 0 0 0",
                         display: "flex",
                         justifyContent: "space-between",
                       }}
                     >
-                      <span
-                        style={{
-                          border: "1px solid",
-                          padding: "7px",
-                          borderRadius: 10,
-                          backgroundColor: "red",
-                          color: "#fff",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        Live
-                      </span>
-                      <span>People</span>
+                      <div>
+                        <span>number</span>
+                        <span>People</span>
+                      </div>
+                      <div className="live-liveinfo">
+                        <div className="live-wininfo">
+                          <span className="live-win">
+                            WIN
+                          </span>
+                          <span className="pp-wrapper">
+                            <p className="pp-text">PP</p>
+                          </span>
+                          <span className="live-point">
+                            {info.point}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>

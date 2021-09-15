@@ -7,7 +7,7 @@ p {
   min-width: 360px;
   max-width: 690px;
   position: fixed;
-  height: 80px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,14 +72,14 @@ p {
 
 //continue slide
 .continue-container {
-  width: 220px;
+  // width: 220px;
   position: relative;
   border: none;
 }
 .continue-img {
   position: relative;
-  width: 100%;
-  height: 217px;
+  width: 122px;
+  height: 141px;
   border-radius: 16px 16px 0 0;
   background-color: #9bc8d7;
   border: none;

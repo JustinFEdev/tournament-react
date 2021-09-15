@@ -16,7 +16,7 @@ const MissionSlide = ({ weekly, size }) => {
     slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,

@@ -13,10 +13,10 @@ const ContinueSlide = ({ conti, size }) => {
     infinite: true,
     speed: 500,
     // slidesToShow: size < 501 ? 2 : 3,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,
@@ -33,15 +33,15 @@ const ContinueSlide = ({ conti, size }) => {
       //   },
       // },
       {
-        breakpoint: 501, //화면 사이즈 501
+        breakpoint: 401, //화면 사이즈 501
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 5,
         },
       },
       {
-        breakpoint: 500, //화면 사이즈 500
+        breakpoint: 400, //화면 사이즈 500
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
     ],
@@ -66,7 +66,7 @@ const ContinueSlide = ({ conti, size }) => {
                     className="continue-img"
                     alt={info.img}
                   />
-                  <div className="continue-time-wrapper">
+                  {/* <div className="continue-time-wrapper">
                     <span className="continue-time-text">
                       Time :{info.time}
                     </span>
@@ -82,7 +82,7 @@ const ContinueSlide = ({ conti, size }) => {
                       </span>
                       <span>{info.point}</span>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </>
             ))}

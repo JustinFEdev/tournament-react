@@ -113,7 +113,7 @@ const Main = () => {
     {
       id: 1,
       title: "Continue Playing",
-      route: "Completed >",
+      route: "Completed",
       direction: "/completed",
       slide: (
         <ContinueSlide conti={conti} size={widthStatus} />
@@ -122,7 +122,7 @@ const Main = () => {
     {
       id: 2,
       title: "Weekly Mission",
-      route: "See All >",
+      route: "See All",
       direction: "/allrank",
       slide: (
         <MissionSlide weekly={weekly} size={widthStatus} />
@@ -258,6 +258,20 @@ const Main = () => {
         time: 5,
         point: 10,
         img: "2222",
+      },
+      {
+        id: 3,
+        title: "cc",
+        time: 2,
+        point: 5,
+        img: "3333",
+      },
+      {
+        id: 4,
+        title: "dd",
+        time: "2:11",
+        point: 10,
+        img: "444",
       },
       {
         id: 3,
@@ -412,11 +426,6 @@ const Main = () => {
                         </div>
                         <div className="slide-area">
                           {info.slide}
-                          {/* {info.id === 1 ? (
-                            <ContinueSlide conti={conti} />
-                          ) : (
-                            <MissionSlide weekly={weekly} />
-                          )} */}
                         </div>
                         {info.id === 2 && (
                           <h2 className="weekly-daycount">
