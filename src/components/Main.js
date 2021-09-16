@@ -178,50 +178,50 @@ const liveInfo = [
   },
 ];
 //feature
-const featureInfo = [
-  {
-    id: 1,
-    time: 4,
-    point: 2,
-    user: 35,
-    img: "1111",
-  },
-  {
-    id: 2,
-    time: 6,
-    point: 12,
-    user: 22,
-    img: "2222",
-  },
-  {
-    id: 3,
-    time: 65,
-    point: 266,
-    user: 878,
-    img: "3333",
-  },
-  {
-    id: 1,
-    time: 4,
-    point: 2,
-    user: 35,
-    img: "1111",
-  },
-  {
-    id: 2,
-    time: 6,
-    point: 12,
-    user: 22,
-    img: "2222",
-  },
-  {
-    id: 3,
-    time: 65,
-    point: 266,
-    user: 878,
-    img: "3333",
-  },
-];
+// const featureInfo = [
+//   {
+//     id: 1,
+//     time: 4,
+//     point: 2,
+//     user: 35,
+//     img: "1111",
+//   },
+//   {
+//     id: 2,
+//     time: 6,
+//     point: 12,
+//     user: 22,
+//     img: "2222",
+//   },
+//   {
+//     id: 3,
+//     time: 65,
+//     point: 266,
+//     user: 878,
+//     img: "3333",
+//   },
+//   {
+//     id: 1,
+//     time: 4,
+//     point: 2,
+//     user: 35,
+//     img: "1111",
+//   },
+//   {
+//     id: 2,
+//     time: 6,
+//     point: 12,
+//     user: 22,
+//     img: "2222",
+//   },
+//   {
+//     id: 3,
+//     time: 65,
+//     point: 266,
+//     user: 878,
+//     img: "3333",
+//   },
+// ];
 
 // weekly progress bar
 const Progress = ({ done }) => {
