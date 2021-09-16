@@ -112,7 +112,48 @@ header {
   position: relative;
   z-index: 100;
 }
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  max-width: 690px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 5px 0px 10px 10px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  padding-left: 12;
+}
 
+.footer-ppimg-layout {
+  width: 18px;
+  height: 18px;
+  background-color: #38ae53;
+  border-radius: 5.2px;
+  margin: 0 5px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.footer-ppimg-text {
+  margin: auto;
+  font-size: 9.1px;
+  font-weight: 800;
+}
+.footer-game-point {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+}
+.footer-game-name {
+  font-size: 14px;
+  color: #000;
+  margin: 0 15px 0 4px;
+}
 .main-container {
   position: relative;
   text-align: center;

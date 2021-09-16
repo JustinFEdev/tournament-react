@@ -13,7 +13,7 @@ import "../App.css";
 // import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import moment from "moment";
+// import moment from "moment";
 
 // import AllGames from "./details/AllGames";
 import styled, { ThemeProvider } from "styled-components";
@@ -200,28 +200,36 @@ const featureInfo = [
     user: 878,
     img: "3333",
   },
+];
+// footer;
+const footerInfo = [
   {
     id: 1,
-    time: 4,
-    point: 2,
-    user: 35,
-    img: "1111",
+    point: 2000,
+    user: "jackson",
   },
   {
     id: 2,
-    time: 6,
-    point: 12,
-    user: 22,
-    img: "2222",
+    point: 4000,
+    user: "melody",
   },
   {
     id: 3,
-    time: 65,
-    point: 266,
-    user: 878,
-    img: "3333",
+    point: 6000,
+    user: "sam",
+  },
+  {
+    id: 4,
+    point: 2500,
+    user: "paul",
+  },
+  {
+    id: 3,
+    point: 1000,
+    user: "anderson",
   },
 ];
+
 //하단 게임메뉴 data
 const pickMenu = [
   "newarivel",
@@ -257,6 +265,9 @@ const Progress = ({ done }) => {
 };
 
 const Main = () => {
+  const [widthStatus, setWidthStatus] = useState(
+    window.innerWidth
+  );
   //liveslide state
   const [live, setLive] = useState();
   // continue state
@@ -267,15 +278,14 @@ const Main = () => {
   // const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
-  const [widthStatus, setWidthStatus] = useState(
-    window.innerWidth
-  );
+
   // dark mode
   const [theme, setTheme] = useState("light");
   //현 시간
-  const nowTime = moment().format("HH:mm:ss");
+  // const nowTime = moment().format("HH:mm:ss");
   // console.log(nowTime);
 
+  // tournament 데이터 종합
   const dataBook = {
     allitems: gameData,
     continue: contiInfo,
@@ -283,6 +293,7 @@ const Main = () => {
     live: liveInfo,
     feature: featureInfo,
     type: pickMenu,
+    footer: footerInfo,
   };
 
   const tournamentData = { ...dataBook };
@@ -374,25 +385,28 @@ const Main = () => {
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
-    const status = [
-      "newarivel",
-      "shooting",
-      "sports",
-      "arcade",
-      "rpg",
-      "adventure",
-      "puzzle",
-      "rhythm",
-    ];
+    // const status = [
+    //   "newarivel",
+    //   "shooting",
+    //   "sports",
+    //   "arcade",
+    //   "rpg",
+    //   "adventure",
+    //   "puzzle",
+    //   "rhythm",
+    // ];
+
     for (var i = 0; i < 100; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
         Math.floor(Math.random() * 10000000)
       );
       const choose =
-        status[
-          Math.floor(Math.random() * 100000) % status.length
+        dataBook.type[
+          Math.floor(Math.random() * 100000) %
+            dataBook.type.length
         ];
+
       const people = AddComma(
         Math.floor(Math.random() * 100000)
       );
@@ -409,8 +423,7 @@ const Main = () => {
     setConti(contiInfo);
     setLive(liveInfo);
     // setFeature(featureInfo);
-  }, [nowTime]);
-
+  }, [dataBook.type]);
   return (
     <>
       <ThemeProvider
@@ -569,132 +582,141 @@ const Main = () => {
                     <p className="featured-title">
                       Featured Tournaments
                     </p>
-                    {feature !== undefined && (
+                    {tournamentData.feature !==
+                      undefined && (
                       <>
-                        {feature.map((data) => (
-                          <>
-                            {data.id === 1 && (
-                              <>
-                                <div
-                                  className="featured-img"
-                                  alt={data.img}
-                                />
-                                <div className="featured-infoarea">
-                                  <span className="gameItem-pointarea">
-                                    <div className="gameItem-icon">
-                                      <p
-                                        style={{
-                                          paddingTop: 2.5,
-                                        }}
-                                      >
-                                        PP
-                                      </p>
-                                    </div>
-                                    <div className="gameItem-point">
-                                      {data.point}
-                                    </div>
-                                  </span>
-                                  <span className="gameItem-userarea">
-                                    <div className="gameItem-usericon">
-                                      Icon
-                                    </div>
-                                    <span className="gameItem-number">
-                                      {data.user}
-                                    </span>
-                                    <div>Info icon</div>
-                                  </span>
-                                </div>
-                              </>
-                            )}
-                          </>
-                        ))}
-                        <div className="featured-smallarea">
-                          {feature.map((data) => (
+                        {tournamentData.feature.map(
+                          (data) => (
                             <>
-                              {data.id === 2 && (
+                              {data.id === 1 && (
                                 <>
-                                  <div className="featured-samll-wrapper">
-                                    <div
-                                      className="featured-samll-img"
-                                      alt="1"
-                                    />
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        justifyContent:
-                                          "space-between",
-                                      }}
-                                    >
-                                      <span className="gameItem-pointarea">
-                                        <div className="gameItem-icon">
-                                          <p
-                                            style={{
-                                              paddingTop: 2.5,
-                                            }}
-                                          >
-                                            PP
-                                          </p>
-                                        </div>
-                                        <div className="gameItem-point">
-                                          {data.point}
-                                        </div>
+                                  <div
+                                    className="featured-img"
+                                    alt={data.img}
+                                  />
+                                  <div className="featured-infoarea">
+                                    <span className="gameItem-pointarea">
+                                      <div className="gameItem-icon">
+                                        <p
+                                          style={{
+                                            paddingTop: 2.5,
+                                          }}
+                                        >
+                                          PP
+                                        </p>
+                                      </div>
+                                      <div className="gameItem-point">
+                                        {data.point}
+                                      </div>
+                                    </span>
+                                    <span className="gameItem-userarea">
+                                      <div className="gameItem-usericon">
+                                        Icon
+                                      </div>
+                                      <span className="gameItem-number">
+                                        {data.user}
                                       </span>
-                                      <span className="gameItem-userarea">
-                                        <div className="gameItem-usericon">
-                                          Icon
-                                        </div>
-                                        <span className="gameItem-number">
-                                          {data.user}
-                                        </span>
-                                        <div>Info icon</div>
-                                      </span>
-                                    </div>
-                                  </div>
-                                </>
-                              )}
-                              {data.id === 3 && (
-                                <>
-                                  <div className="featured-samll-wrapper">
-                                    <div
-                                      className="featured-samll-img"
-                                      alt="1"
-                                    />
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        justifyContent:
-                                          "space-between",
-                                      }}
-                                    >
-                                      <span className="gameItem-pointarea">
-                                        <div className="gameItem-icon">
-                                          <p
-                                            style={{
-                                              paddingTop: 2.5,
-                                            }}
-                                          >
-                                            PP
-                                          </p>
-                                        </div>
-                                        <div className="gameItem-point">
-                                          {data.point}
-                                        </div>
-                                      </span>
-                                      <span className="gameItem-userarea">
-                                        <div className="gameItem-usericon">
-                                          Icon
-                                        </div>
-                                        <span className="gameItem-number">
-                                          {data.user}
-                                        </span>
-                                        <div>Info icon</div>
-                                      </span>
-                                    </div>
+                                      <div>Info icon</div>
+                                    </span>
                                   </div>
                                 </>
                               )}
                             </>
-                          ))}
+                          )
+                        )}
+                        <div className="featured-smallarea">
+                          {tournamentData.feature.map(
+                            (data) => (
+                              <>
+                                {data.id === 2 && (
+                                  <>
+                                    <div className="featured-samll-wrapper">
+                                      <div
+                                        className="featured-samll-img"
+                                        alt="1"
+                                      />
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          justifyContent:
+                                            "space-between",
+                                        }}
+                                      >
+                                        <span className="gameItem-pointarea">
+                                          <div className="gameItem-icon">
+                                            <p
+                                              style={{
+                                                paddingTop: 2.5,
+                                              }}
+                                            >
+                                              PP
+                                            </p>
+                                          </div>
+                                          <div className="gameItem-point">
+                                            {data.point}
+                                          </div>
+                                        </span>
+                                        <span className="gameItem-userarea">
+                                          <div className="gameItem-usericon">
+                                            Icon
+                                          </div>
+                                          <span className="gameItem-number">
+                                            {data.user}
+                                          </span>
+                                          <div>
+                                            Info icon
+                                          </div>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </>
+                                )}
+                                {data.id === 3 && (
+                                  <>
+                                    <div className="featured-samll-wrapper">
+                                      <div
+                                        className="featured-samll-img"
+                                        alt="1"
+                                      />
+                                      <div
+                                        style={{
+                                          display: "flex",
+                                          justifyContent:
+                                            "space-between",
+                                        }}
+                                      >
+                                        <span className="gameItem-pointarea">
+                                          <div className="gameItem-icon">
+                                            <p
+                                              style={{
+                                                paddingTop: 2.5,
+                                              }}
+                                            >
+                                              PP
+                                            </p>
+                                          </div>
+                                          <div className="gameItem-point">
+                                            {data.point}
+                                          </div>
+                                        </span>
+                                        <span className="gameItem-userarea">
+                                          <div className="gameItem-usericon">
+                                            Icon
+                                          </div>
+                                          <span className="gameItem-number">
+                                            {data.user}
+                                          </span>
+                                          <div>
+                                            Info icon
+                                          </div>
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </>
+                                )}
+                              </>
+                            )
+                          )}
                         </div>
                       </>
                     )}
@@ -702,37 +724,37 @@ const Main = () => {
                 </div>
               </div> */}
               {/* Slide menu */}
-              <div className="menu-container">
-                {/* <span
-              className="menu-selector"
-              style={{
-                backgroundColor: "#9bd0e1",
-                color: "#fff",
-              }}
-            >
-              All Games
-            </span>
-            <span
-              className="menu-selector"
-              style={{
-                backgroundColor: "#fff",
-                border: "solid 2.5px #77b5c9",
-                color: "#77b5c9",
-              }}
-            >
-              New Arrival
-            </span> */}
+              {/* <div className="menu-container">
+                <span
+                  className="menu-selector"
+                  style={{
+                    backgroundColor: "#9bd0e1",
+                    color: "#fff",
+                  }}
+                >
+                  All Games
+                </span>
+                <span
+                  className="menu-selector"
+                  style={{
+                    backgroundColor: "#fff",
+                    border: "solid 2.5px #77b5c9",
+                    color: "#77b5c9",
+                  }}
+                >
+                  New Arrival
+                </span> */}
 
-                {/* 슬라이더안 div(잠시 주석) */}
-                {/* <div>
+              {/* 슬라이더안 div(잠시 주석) */}
+              {/* <div>
                   <button
                     onClick={() => setAllItem(allItem)}
                     className="menu-selector"
                   >
                     All Games
                   </button>
-                </div> */}
-                {/* <div style={{ width: "100%" }}>
+                </div>
+                <div style={{ width: "100%" }}>
                   <Slider {...titleSettings}>
                     {pickMenu.map((info) => (
                       <>
@@ -794,8 +816,8 @@ const Main = () => {
                       </>
                     ))}
                   </Slider>
-                </div> */}
-              </div>
+                </div>
+              </div> */}
               {/* <div className="gameitems-container">
                 <div className="gameitems-wrapper">
                   <GameItem
@@ -804,28 +826,34 @@ const Main = () => {
                     limitNum={true}
                   />
                 </div>
-              </div>
-              {gameData.length > 15 && (
+              </div> */}
+              {/* {gameData.length > 15 && (
                 <>
                   <div className="gameitems-overtext">
                     <a href="/allgames">View All Games</a>
                   </div>
                 </>
               )} */}
-              <footer
-                style={{
-                  position: "fixed",
-                  bottom: 0,
-                  width: "100%",
-                  height: 44,
-                  maxWidth: "690px",
-                  backgroundColor: "ButtonHighlight",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                asdasd
+              <footer>
+                {tournamentData.footer !== undefined && (
+                  <>
+                    {tournamentData.footer.map((info) => (
+                      <>
+                        <span className="footer-ppimg-layout">
+                          <p className="footer-ppimg-text">
+                            PP
+                          </p>
+                        </span>
+                        <div className="footer-game-point">
+                          {info.point}
+                        </div>
+                        <div className="footer-game-name">
+                          {info.user}
+                        </div>
+                      </>
+                    ))}
+                  </>
+                )}
               </footer>
             </div>
           </div>
