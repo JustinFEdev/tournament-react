@@ -177,51 +177,62 @@ const liveInfo = [
     img: "4444",
   },
 ];
-//feature
-// const featureInfo = [
-//   {
-//     id: 1,
-//     time: 4,
-//     point: 2,
-//     user: 35,
-//     img: "1111",
-//   },
-//   {
-//     id: 2,
-//     time: 6,
-//     point: 12,
-//     user: 22,
-//     img: "2222",
-//   },
-//   {
-//     id: 3,
-//     time: 65,
-//     point: 266,
-//     user: 878,
-//     img: "3333",
-//   },
-//   {
-//     id: 1,
-//     time: 4,
-//     point: 2,
-//     user: 35,
-//     img: "1111",
-//   },
-//   {
-//     id: 2,
-//     time: 6,
-//     point: 12,
-//     user: 22,
-//     img: "2222",
-//   },
-//   {
-//     id: 3,
-//     time: 65,
-//     point: 266,
-//     user: 878,
-//     img: "3333",
-//   },
-// ];
+// feature;
+const featureInfo = [
+  {
+    id: 1,
+    time: 4,
+    point: 2,
+    user: 35,
+    img: "1111",
+  },
+  {
+    id: 2,
+    time: 6,
+    point: 12,
+    user: 22,
+    img: "2222",
+  },
+  {
+    id: 3,
+    time: 65,
+    point: 266,
+    user: 878,
+    img: "3333",
+  },
+  {
+    id: 1,
+    time: 4,
+    point: 2,
+    user: 35,
+    img: "1111",
+  },
+  {
+    id: 2,
+    time: 6,
+    point: 12,
+    user: 22,
+    img: "2222",
+  },
+  {
+    id: 3,
+    time: 65,
+    point: 266,
+    user: 878,
+    img: "3333",
+  },
+];
+//하단 게임메뉴 data
+const pickMenu = [
+  "newarivel",
+  "shooting",
+  "sports",
+  "arcade",
+  "rpg",
+  "adventure",
+  "puzzle",
+  "rhythm",
+];
 
 // weekly progress bar
 const Progress = ({ done }) => {
@@ -255,7 +266,7 @@ const Main = () => {
   // weekly mession state
   // const [feature, setFeature] = useState();
   // game menu data
-  // const [gameData, setGameData] = useState([]);
+  const [gameData, setGameData] = useState([]);
   const [widthStatus, setWidthStatus] = useState(
     window.innerWidth
   );
@@ -264,6 +275,19 @@ const Main = () => {
   //현 시간
   const nowTime = moment().format("HH:mm:ss");
   // console.log(nowTime);
+
+  const dataBook = {
+    allitems: gameData,
+    continue: contiInfo,
+    weekly: datas,
+    live: liveInfo,
+    feature: featureInfo,
+    type: pickMenu,
+  };
+
+  const tournamentData = { ...dataBook };
+  console.log("tournamentData");
+  console.log(tournamentData);
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
   // const [gameType, setGameType] = useState({});
@@ -284,18 +308,6 @@ const Main = () => {
   //   touchMove: true,
   //   useCss: true,
   // };
-  //하단 게임메뉴 data
-  // const pickMenu = [
-  //   { type: "all games" },
-  //   { type: "newarivel" },
-  //   { type: "shooting" },
-  //   { type: "sports" },
-  //   { type: "arcade" },
-  //   { type: "rpg" },
-  //   { type: "adventure" },
-  //   { type: "puzzle" },
-  //   { type: "rhythm" },
-  // ];
 
   // ContinueSlide && MissionSlide
   const typeData = [
@@ -392,7 +404,7 @@ const Main = () => {
       };
       aa.push(menuDatas);
     }
-    // setGameData(aa);
+    setGameData(aa);
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
