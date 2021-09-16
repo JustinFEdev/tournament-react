@@ -144,7 +144,7 @@ const liveInfo = [
     id: 1,
     status: "live",
     title: "Bit Miner Bit 22 Miner Game",
-    time: nowTime,
+    // time: nowTime,
     point: 2,
     number: 35,
     img: "1111",
@@ -253,9 +253,9 @@ const Main = () => {
   // weekly mession state
   const [weekly, setWeekly] = useState();
   // weekly mession state
-  const [feature, setFeature] = useState();
+  // const [feature, setFeature] = useState();
   // game menu data
-  const [gameData, setGameData] = useState([]);
+  // const [gameData, setGameData] = useState([]);
   const [widthStatus, setWidthStatus] = useState(
     window.innerWidth
   );
@@ -266,36 +266,36 @@ const Main = () => {
   // console.log(nowTime);
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
-  const [gameType, setGameType] = useState({});
+  // const [gameType, setGameType] = useState({});
   // const [max, setMax] = useState();
 
   //하단 게임메뉴 slide
-  const titleSettings = {
-    arrows: false,
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    // slidesToScroll: 1,
-    initialSlide: 0,
-    centerMode: false,
-    swipe: true,
-    swipeToSlide: true,
-    touchMove: true,
-    useCss: true,
-  };
+  // const titleSettings = {
+  //   arrows: false,
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   // slidesToScroll: 1,
+  //   initialSlide: 0,
+  //   centerMode: false,
+  //   swipe: true,
+  //   swipeToSlide: true,
+  //   touchMove: true,
+  //   useCss: true,
+  // };
   //하단 게임메뉴 data
-  const pickMenu = [
-    { type: "all games" },
-    { type: "newarivel" },
-    { type: "shooting" },
-    { type: "sports" },
-    { type: "arcade" },
-    { type: "rpg" },
-    { type: "adventure" },
-    { type: "puzzle" },
-    { type: "rhythm" },
-  ];
+  // const pickMenu = [
+  //   { type: "all games" },
+  //   { type: "newarivel" },
+  //   { type: "shooting" },
+  //   { type: "sports" },
+  //   { type: "arcade" },
+  //   { type: "rpg" },
+  //   { type: "adventure" },
+  //   { type: "puzzle" },
+  //   { type: "rhythm" },
+  // ];
 
   // ContinueSlide && MissionSlide
   const typeData = [
@@ -392,11 +392,11 @@ const Main = () => {
       };
       aa.push(menuDatas);
     }
-    setGameData(aa);
+    // setGameData(aa);
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
-    setFeature(featureInfo);
+    // setFeature(featureInfo);
   }, [nowTime]);
 
   return (
