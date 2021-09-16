@@ -11,41 +11,33 @@ const MissionSlide = ({ weekly, size }) => {
   const settings = {
     arrows: false,
     dots: false,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    // slidesToShow: size < 501 ? 2 : 3,
-    slidesToShow: 3,
+    slidesToShow: size < 361 ? 2 : 3,
+    // slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,
     swipeToSlide: true,
     touchMove: true,
     pauseOnHover: true,
-    useCSS: true,
-    vertical: false,
-    responsive: [
-      {
-        breakpoint: 690, //화면 사이즈 690
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 501, //화면 사이즈 501
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 360, //화면 사이즈 360
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-    ],
+    // responsive: [
+    //   {
+    //     breakpoint: 501, //화면 사이즈 501
+    //     settings: {
+    //       slidesToShow: 2,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 360, //화면 사이즈 360
+    //     settings: {
+    //       slidesToShow: 2,
+    //     },
+    //   },
+    // ],
   };
 
   // useEffect(() => {
@@ -64,9 +56,10 @@ const MissionSlide = ({ weekly, size }) => {
               <>
                 <div
                   style={{
-                    width: 220,
+                    width: 224,
                     position: "relative",
                     // margin: "0 0 15px 0",
+                    padding: "6px 4px 6.5px 6px",
                     border: "1px solid",
                     borderRadius: 10,
                     boxShadow:

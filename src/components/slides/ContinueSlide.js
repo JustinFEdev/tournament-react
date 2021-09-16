@@ -12,38 +12,38 @@ const ContinueSlide = ({ conti, size }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    // slidesToShow: size < 501 ? 2 : 3,
-    slidesToShow: 5,
+    slidesToShow: size < 361 ? 3 : 6,
+    // slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     swipe: true,
     swipeToSlide: true,
     touchMove: true,
     pauseOnHover: true,
     useCSS: true,
-    vertical: false,
-    responsive: [
-      // {
-      //   breakpoint: 620, //화면 사이즈 501
-      //   settings: {
-      //     slidesToShow: 4,
-      //   },
-      // },
-      {
-        breakpoint: 401, //화면 사이즈 501
-        settings: {
-          slidesToShow: 5,
-        },
-      },
-      {
-        breakpoint: 400, //화면 사이즈 500
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-    ],
+    // vertical: false,
+    // responsive: [
+    //   {
+    //     breakpoint: 630, //화면 사이즈 401
+    //     settings: {
+    //       slidesToShow: 5,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 550, //화면 사이즈 401
+    //     settings: {
+    //       slidesToShow: 4,
+    //     },
+    //   },
+    //   {
+    //     breakpoint: 430, //화면 사이즈 500
+    //     settings: {
+    //       slidesToShow: 3,
+    //     },
+    //   },
+    // ],
   };
 
   return (
@@ -51,6 +51,16 @@ const ContinueSlide = ({ conti, size }) => {
       {conti !== undefined && (
         <>
           <Slider {...contiSettings}>
+            {/* <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              width: "100%",
+              height: "100%",
+              overflowX: "scroll",
+              overflowY: "hidden",
+            }}
+          > */}
             {/* <div
               className="slick-list"
               style={{ display: "flex" }}
@@ -104,6 +114,7 @@ const ContinueSlide = ({ conti, size }) => {
                 </div>
               </>
             ))}
+            {/* </div> */}
             {/* </div> */}
           </Slider>
         </>

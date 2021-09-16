@@ -6,11 +6,11 @@ import React, {
 import ContinueSlide from "./slides/ContinueSlide";
 import LiveSlide from "./slides/LiveSlide";
 import MissionSlide from "./slides/MissionSlide";
-import GameItem from "./slides/GameItem";
+// import GameItem from "./slides/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.scss";
 import "../App.css";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import moment from "moment";
@@ -114,18 +114,19 @@ const Main = () => {
       title: "Continue Playing",
       route: "Completed",
       direction: "/completed",
-      slide: (
-        <ContinueSlide conti={conti} size={widthStatus} />
-      ),
+      // slide: (
+      //   <ContinueSlide conti={conti} size={widthStatus} />
+      // ),
     },
+
     {
       id: 2,
       title: "Weekly Mission",
       route: "See All",
       direction: "/allrank",
-      slide: (
-        <MissionSlide weekly={weekly} size={widthStatus} />
-      ),
+      // slide: (
+      //   <MissionSlide weekly={weekly} size={widthStatus} />
+      // ),
       complete: 5,
     },
   ];
@@ -288,6 +289,27 @@ const Main = () => {
         point: 8000,
         img: "444",
       },
+      {
+        id: 4,
+        title: "dd",
+        time: "2:11",
+        point: 1000,
+        img: "444",
+      },
+      {
+        id: 3,
+        title: "cc",
+        time: 2,
+        point: 6000,
+        img: "3333",
+      },
+      {
+        id: 4,
+        title: "dd",
+        time: "2:11",
+        point: 8000,
+        img: "444",
+      },
     ];
     //Live mission
     const liveInfo = [
@@ -330,6 +352,27 @@ const Main = () => {
     ];
     //feature
     const featureInfo = [
+      {
+        id: 1,
+        time: 4,
+        point: 2,
+        user: 35,
+        img: "1111",
+      },
+      {
+        id: 2,
+        time: 6,
+        point: 12,
+        user: 22,
+        img: "2222",
+      },
+      {
+        id: 3,
+        time: 65,
+        point: 266,
+        user: 878,
+        img: "3333",
+      },
       {
         id: 1,
         time: 4,
@@ -454,15 +497,49 @@ const Main = () => {
                             </>
                           )}
                         </div>
-                        <span>{info.slide}</span>
+                        {info.id === 1 && (
+                          <>
+                            <div
+                              style={{
+                                width:
+                                  widthStatus < 361
+                                    ? 410
+                                    : 785,
+                                overflow: "hidden",
+                              }}
+                            >
+                              {/* {info.slide} */}
+                              <ContinueSlide
+                                conti={conti}
+                                size={widthStatus}
+                              />
+                            </div>
+                          </>
+                        )}
+                        {info.id === 2 && (
+                          <>
+                            <div
+                              style={{
+                                width:
+                                  widthStatus < 361
+                                    ? 500
+                                    : 750,
+                                overflow: "hidden",
+                              }}
+                            >
+                              <MissionSlide
+                                weekly={weekly}
+                                size={widthStatus}
+                              />
+                            </div>
+                            <p className="weekly-daycount">
+                              {info.complete} days left to
+                              complet
+                            </p>
+                          </>
+                        )}
                         {/* <div className="slide-area"> */}
                         {/* </div> */}
-                        {info.id === 2 && (
-                          <p className="weekly-daycount">
-                            {info.complete} days left to
-                            complet
-                          </p>
-                        )}
                       </div>
                     </div>
                   ))}

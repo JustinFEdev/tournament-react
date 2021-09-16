@@ -49,6 +49,7 @@ a:link {
 .continue-container {
   position: relative;
   border: none;
+  width: 122px;
 }
 .continue-img {
   height: 100%;
@@ -149,15 +150,11 @@ header {
   padding-bottom: 16px;
 }
 .slick-slide > div {
-  // width: 560px;
-  // padding: 0 0 0 16px;
   padding: 0 10px;
 }
-
 // .slick-slide > .slide-contianer {
 //   padding: 0 10px;
 // }
-
 .main-live-wrapper {
   width: 100%;
   overflow: hidden;
