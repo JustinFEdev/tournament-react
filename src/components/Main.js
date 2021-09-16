@@ -33,6 +33,196 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `;
 
+//weekly mission datas
+const datas = [
+  {
+    id: 1,
+    title: "aa",
+    target: 4,
+    point: 2,
+    img: "1111",
+  },
+  {
+    id: 2,
+    title: "bb",
+    target: 5,
+    point: 10,
+    img: "2222",
+  },
+  {
+    id: 3,
+    title: "cc",
+    target: 2,
+    point: 5,
+    img: "3333",
+  },
+  {
+    id: 4,
+    title: "dd",
+    target: 3,
+    point: 1,
+    img: "4444",
+  },
+  {
+    id: 5,
+    title: "ff",
+    target: 5,
+    point: 6,
+    img: "555",
+  },
+];
+
+//continue mission data
+const contiInfo = [
+  {
+    id: 1,
+    title: "aa",
+    time: 4,
+    point: 2000,
+    img: "1111",
+  },
+  {
+    id: 2,
+    title: "bb",
+    time: 5,
+    point: 1000,
+    img: "2222",
+  },
+  {
+    id: 3,
+    title: "cc",
+    time: 2,
+    point: 5000,
+    img: "3333",
+  },
+  {
+    id: 4,
+    title: "dd",
+    time: "2:11",
+    point: 1000,
+    img: "444",
+  },
+  {
+    id: 3,
+    title: "cc",
+    time: 2,
+    point: 6000,
+    img: "3333",
+  },
+  {
+    id: 4,
+    title: "dd",
+    time: "2:11",
+    point: 8000,
+    img: "444",
+  },
+  {
+    id: 4,
+    title: "dd",
+    time: "2:11",
+    point: 1000,
+    img: "444",
+  },
+  {
+    id: 3,
+    title: "cc",
+    time: 2,
+    point: 6000,
+    img: "3333",
+  },
+  {
+    id: 4,
+    title: "dd",
+    time: "2:11",
+    point: 8000,
+    img: "444",
+  },
+];
+//Live mission
+const liveInfo = [
+  {
+    id: 1,
+    status: "live",
+    title: "Bit Miner Bit 22 Miner Game",
+    time: nowTime,
+    point: 2,
+    number: 35,
+    img: "1111",
+  },
+  {
+    id: 2,
+    status: "live",
+    title: "bb",
+    time: 6,
+    point: 12,
+    number: 22,
+    img: "2222",
+  },
+  {
+    id: 3,
+    status: "live",
+    title: "cc",
+    time: 65,
+    point: 266,
+    number: 878,
+    img: "3333",
+  },
+  {
+    id: 4,
+    status: "live",
+    title: "dd",
+    time: "24:00:00",
+    point: 21,
+    number: 45,
+    img: "4444",
+  },
+];
+//feature
+const featureInfo = [
+  {
+    id: 1,
+    time: 4,
+    point: 2,
+    user: 35,
+    img: "1111",
+  },
+  {
+    id: 2,
+    time: 6,
+    point: 12,
+    user: 22,
+    img: "2222",
+  },
+  {
+    id: 3,
+    time: 65,
+    point: 266,
+    user: 878,
+    img: "3333",
+  },
+  {
+    id: 1,
+    time: 4,
+    point: 2,
+    user: 35,
+    img: "1111",
+  },
+  {
+    id: 2,
+    time: 6,
+    point: 12,
+    user: 22,
+    img: "2222",
+  },
+  {
+    id: 3,
+    time: 65,
+    point: 266,
+    user: 878,
+    img: "3333",
+  },
+];
+
 // weekly progress bar
 const Progress = ({ done }) => {
   return (
@@ -194,208 +384,15 @@ const Main = () => {
       const people = AddComma(
         Math.floor(Math.random() * 100000)
       );
-
       const menuDatas = {
         img: count,
         point: num,
         user: people,
         status: choose,
       };
-
       aa.push(menuDatas);
     }
     setGameData(aa);
-
-    //weekly mission datas
-    const datas = [
-      {
-        id: 1,
-        title: "aa",
-        target: 4,
-        point: 2,
-        img: "1111",
-      },
-      {
-        id: 2,
-        title: "bb",
-        target: 5,
-        point: 10,
-        img: "2222",
-      },
-      {
-        id: 3,
-        title: "cc",
-        target: 2,
-        point: 5,
-        img: "3333",
-      },
-      {
-        id: 4,
-        title: "dd",
-        target: 3,
-        point: 1,
-        img: "4444",
-      },
-      {
-        id: 5,
-        title: "ff",
-        target: 5,
-        point: 6,
-        img: "555",
-      },
-    ];
-
-    //continue mission data
-    const contiInfo = [
-      {
-        id: 1,
-        title: "aa",
-        time: 4,
-        point: 2000,
-        img: "1111",
-      },
-      {
-        id: 2,
-        title: "bb",
-        time: 5,
-        point: 1000,
-        img: "2222",
-      },
-      {
-        id: 3,
-        title: "cc",
-        time: 2,
-        point: 5000,
-        img: "3333",
-      },
-      {
-        id: 4,
-        title: "dd",
-        time: "2:11",
-        point: 1000,
-        img: "444",
-      },
-      {
-        id: 3,
-        title: "cc",
-        time: 2,
-        point: 6000,
-        img: "3333",
-      },
-      {
-        id: 4,
-        title: "dd",
-        time: "2:11",
-        point: 8000,
-        img: "444",
-      },
-      {
-        id: 4,
-        title: "dd",
-        time: "2:11",
-        point: 1000,
-        img: "444",
-      },
-      {
-        id: 3,
-        title: "cc",
-        time: 2,
-        point: 6000,
-        img: "3333",
-      },
-      {
-        id: 4,
-        title: "dd",
-        time: "2:11",
-        point: 8000,
-        img: "444",
-      },
-    ];
-    //Live mission
-    const liveInfo = [
-      {
-        id: 1,
-        status: "live",
-        title: "Bit Miner Bit 22 Miner Game",
-        time: nowTime,
-        point: 2,
-        number: 35,
-        img: "1111",
-      },
-      {
-        id: 2,
-        status: "live",
-        title: "bb",
-        time: 6,
-        point: 12,
-        number: 22,
-        img: "2222",
-      },
-      {
-        id: 3,
-        status: "live",
-        title: "cc",
-        time: 65,
-        point: 266,
-        number: 878,
-        img: "3333",
-      },
-      {
-        id: 4,
-        status: "live",
-        title: "dd",
-        time: "24:00:00",
-        point: 21,
-        number: 45,
-        img: "4444",
-      },
-    ];
-    //feature
-    const featureInfo = [
-      {
-        id: 1,
-        time: 4,
-        point: 2,
-        user: 35,
-        img: "1111",
-      },
-      {
-        id: 2,
-        time: 6,
-        point: 12,
-        user: 22,
-        img: "2222",
-      },
-      {
-        id: 3,
-        time: 65,
-        point: 266,
-        user: 878,
-        img: "3333",
-      },
-      {
-        id: 1,
-        time: 4,
-        point: 2,
-        user: 35,
-        img: "1111",
-      },
-      {
-        id: 2,
-        time: 6,
-        point: 12,
-        user: 22,
-        img: "2222",
-      },
-      {
-        id: 3,
-        time: 65,
-        point: 266,
-        user: 878,
-        img: "3333",
-      },
-    ];
-
     setWeekly(datas);
     setConti(contiInfo);
     setLive(liveInfo);
@@ -504,7 +501,7 @@ const Main = () => {
                                 width:
                                   widthStatus < 361
                                     ? 410
-                                    : 785,
+                                    : 790,
                                 overflow: "hidden",
                               }}
                             >
