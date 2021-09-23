@@ -33,6 +33,22 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `;
 
+const SideOpac = styled.div`
+  position: fixed;
+  height: 68%;
+  width: 15px;
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  // -webkit-filter: blur(5px);
+  // -moz-filter: blur(5px);
+  // -o-filter: blur(5px);
+  // -ms-filter: blur(5px);
+  filter: blur(6px);
+  background-color: lightgray;
+  z-index: 999;
+`;
+
 //weekly mission datas
 const datas = [
   {
@@ -246,20 +262,13 @@ const pickMenu = [
 const Progress = ({ done }) => {
   return (
     <>
-      <div className="progress-wrapper">
-        <div
-          // className="progress-done"
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: `${done}%`,
-            backgroundColor: "lightGreen",
-          }}
-        />
-        {/* <div style={{ position: "absolute" }}>{done}%</div> */}
-      </div>
+      <div
+        className="progress-done"
+        style={{
+          width: `${done}%`,
+          borderRadius: 2.5,
+        }}
+      />
     </>
   );
 };
@@ -439,6 +448,7 @@ const Main = () => {
                   theme={theme}
                 />
               </header>
+              <SideOpac />
               {/* 연습용  ToggleComponent 기능*/}
               {/* <ToggleComponent /> */}
               {/* LiveSlide */}
@@ -499,18 +509,25 @@ const Main = () => {
                                       2000
                                     </div>
                                   </div>
-                                  <div
+                                  <span
                                     style={{
-                                      width: 61,
-                                      height: 24,
+                                      // width: 61,
+                                      // height: 24,
+                                      fontSize: 12,
+                                      fontWeight: "bold",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent:
+                                        "center",
                                       padding: "4px 16px",
                                       borderRadius: 12,
+                                      color: "#fff",
                                       backgroundImage:
                                         "linear-gradient(103deg, var(--primay-2-01) -11%, #92b2ff 122%, var(--primay-2-02) 122%)",
                                     }}
                                   >
                                     0/30
-                                  </div>
+                                  </span>
                                 </div>
                                 <div className="weekly-progress-layout">
                                   <Progress done="70" />

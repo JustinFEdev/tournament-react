@@ -55,33 +55,17 @@ const MissionSlide = ({ weekly, size }) => {
             {weekly.map((info, index) => (
               <>
                 <div
-                  style={{
-                    width: 224,
-                    position: "relative",
-                    // margin: "0 0 15px 0",
-                    padding: "6px 4px 6.5px 6px",
-                    border: "1px solid",
-                    borderRadius: 10,
-                    boxShadow:
-                      "0 13px 13px 0 rgb(77 93 107 / 13%)",
-                  }}
+                  className="content-weekly-layout"
                   key={index}
                 >
                   <img
-                    style={{
-                      position: "relative",
-                      width: "100%",
-                      height: 118,
-                      borderRadius: "16px",
-                      backgroundColor: "lightyellow",
-                      border: "none",
-                    }}
+                    className="content-weekly-img"
                     src={info.img}
                     alt=""
                   />
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
-                      <p>Play Again</p>
+                      <p>Play Again to</p>
                       <span>icon</span>
                     </div>
                     <div className="content-wininfo">

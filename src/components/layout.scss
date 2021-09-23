@@ -4,6 +4,15 @@
 a {
   text-decoration: none;
 }
+:root {
+  --background-1: #12151b;
+  --neutral-3: #808191;
+  --neutral-2: #5e6272;
+  --neutrals-04: #e6e8ec;
+  --neutral-1: #1b202a;
+  --primay-2-01: #3772ff;
+  --primay-2-02: #9dbaff;
+}
 a:visited {
   // text-decoration: none;
   // color: #fff;
@@ -15,11 +24,24 @@ a:hover {
 a:link {
   text-decoration: none;
 }
-.progress-wrapper {
-  // position: relative;
-  // width: 100%;
+.slick-dots {
+  margin: 0;
+  padding: 0;
+  color: var(--primay-2-01);
+}
+.progress-done {
+  position: relative;
+  height: 100%;
+  max-width: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
+  background-image: linear-gradient(
+    to left,
+    #ffeba2,
+    #ff8669
+  );
+  z-index: 10;
 }
 .pp-container {
   display: flex;
@@ -68,7 +90,7 @@ a:link {
 }
 .continue-time-text {
   width: 85px;
-  height: 25px;
+  height: 24px;
   border-radius: 8px;
   background-color: #1b1d21;
   opacity: 0.6;
@@ -81,7 +103,21 @@ a:link {
   align-items: center;
   justify-content: center;
 }
-
+.content-weekly-layout {
+  width: 224px;
+  position: relative;
+  padding: 6px 4px 6.5px 6px;
+  border-radius: 10px;
+  box-shadow: 0 13px 13px 0 rgb(77 93 107 / 13%);
+}
+.content-weekly-img {
+  position: relative;
+  width: 100%;
+  height: 118px;
+  border-radius: 16px;
+  background-color: lightyellow;
+  border: none;
+}
 .content-text-wrapper {
   font-family: AppleSDGothicNeo;
   text-align: left;
@@ -99,6 +135,7 @@ a:link {
   font-weight: 500;
   color: #09607b;
   display: flex;
+  padding: 4px 0;
   // justify-content: space-around;
   align-items: center;
 }
@@ -115,7 +152,7 @@ header {
 footer {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: 690px;
   height: 44px;
   max-width: 690px;
   background-color: #fff;
@@ -125,6 +162,7 @@ footer {
   box-shadow: 5px 0px 10px 10px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   padding-left: 12;
+  z-index: 10;
 }
 
 .footer-ppimg-layout {
@@ -169,6 +207,7 @@ footer {
 }
 
 .main-wrapper {
+  position: relative;
   width: 100%;
   min-width: 360px;
   max-width: 690px;
@@ -226,7 +265,7 @@ footer {
 .slide-route {
   font-size: 16px;
   font-weight: 500;
-  color: #3772ff;
+  color: var(--primay-2-01);
   cursor: pointer;
   transition-duration: 0.2s;
 }
@@ -274,7 +313,7 @@ footer {
 }
 .weekly-progress-layout {
   height: 5px;
-  background-color: #d8d8d8;
+  background-color: var(--neutral-2);
   border-radius: 2.5px;
   box-shadow: 4px 10px 20px 0 rgba(0, 0, 0, 0.06);
   // background-color: var(--neutral-2);

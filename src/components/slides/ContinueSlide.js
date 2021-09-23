@@ -16,7 +16,7 @@ const ContinueSlide = ({ conti, size }) => {
     // slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     swipe: true,
     swipeToSlide: true,
@@ -81,7 +81,7 @@ const ContinueSlide = ({ conti, size }) => {
                   >
                     <div className="continue-time-wrapper">
                       <div className="continue-time-text">
-                        Time :{info.time}
+                        <p>Time :{info.time}</p>
                       </div>
                     </div>
 
@@ -92,15 +92,15 @@ const ContinueSlide = ({ conti, size }) => {
                   </div>
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
-                      <p>Play Again</p>
+                      <p>Play Again to</p>
                       <span>icon</span>
                     </div>
                     <div className="content-wininfo">
-                      <span>Win</span>
+                      <p>Win</p>
                       <span className="pp-wrapper">
-                        <div className="pp-text">PP</div>
+                        <p className="pp-text">PP</p>
                       </span>
-                      <span
+                      <p
                         style={{
                           fontSize: 16,
                           fontWeight: 500,
@@ -108,7 +108,7 @@ const ContinueSlide = ({ conti, size }) => {
                         }}
                       >
                         {info.point}
-                      </span>
+                      </p>
                     </div>
                   </div>
                 </div>

@@ -59,10 +59,30 @@ const LiveSlide = ({ live, size }) => {
                         padding: "10px 0 0 0",
                         display: "flex",
                         justifyContent: "space-between",
+                        alignItems: "center",
                       }}
                     >
-                      <div>
-                        <span>number</span>
+                      <div
+                        style={{
+                          height: 27,
+                          fontSize: 14,
+                          display: "flex",
+                          alignItems: "center",
+                          color: "var(--neutral-3)",
+                        }}
+                      >
+                        <p
+                          style={{
+                            width: 8,
+                            height: 8,
+                            margin: "5px 8px 5px 0",
+                            backgroundColor: "#e62b2b",
+                            borderRadius: 8,
+                          }}
+                        />
+                        <span style={{ marginRight: 5 }}>
+                          8.1M
+                        </span>
                         <span>People</span>
                       </div>
                       <div className="live-liveinfo">
