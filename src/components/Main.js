@@ -34,19 +34,19 @@ const StyledApp = styled.div`
 `;
 
 const SideOpac = styled.div`
-  position: fixed;
+  position: absolute;
   height: 68%;
   width: 15px;
   right: 0;
   bottom: 0;
   opacity: 0.4;
-  // -webkit-filter: blur(5px);
-  // -moz-filter: blur(5px);
-  // -o-filter: blur(5px);
-  // -ms-filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
   filter: blur(6px);
-  background-color: lightgray;
-  z-index: 999;
+  background-color: #fff;
+  z-index: 10;
 `;
 
 //weekly mission datas
@@ -449,6 +449,23 @@ const Main = () => {
                 />
               </header>
               <SideOpac />
+              {/* <span
+                style={{
+                  position: "absolute",
+                  height: "68%",
+                  width: 15,
+                  right: 0,
+                  bottom: 0,
+                  opacity: 0.4,
+                  // -webkit-filter: blur(5px);
+                  // -moz-filter: blur(5px);
+                  // -o-filter: blur(5px);
+                  // -ms-filter: blur(5px);
+                  // filter: "blur(6px)",
+                  backgroundColor: "lightgray",
+                  zIndex: 999,
+                }}
+              /> */}
               {/* 연습용  ToggleComponent 기능*/}
               {/* <ToggleComponent /> */}
               {/* LiveSlide */}
