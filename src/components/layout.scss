@@ -40,7 +40,7 @@ a:link {
   align-items: center;
 
   li {
-    margin: 0 0.1em;
+    margin: 0 0.2em;
     // width: auto;
     width: 15px;
     height: 20px;
@@ -77,7 +77,7 @@ a:link {
     background: transparent;
   }
   li.slick-active button {
-    width: 8.6px;
+    width: 8.7px;
     height: 9px;
     font-size: 8px;
     border-radius: 40px;
@@ -302,6 +302,17 @@ footer {
   -moz-overflow-scrolling: touch;
   -ms-overflow-scrolling: touch;
   -webkit-appearance: none;
+}
+.main-sideblur {
+  height: 68%;
+  width: 32.1px;
+  opacity: 0.4;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  background-color: #fff;
 }
 
 // .slide-area {

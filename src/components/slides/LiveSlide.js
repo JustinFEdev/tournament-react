@@ -13,7 +13,7 @@ const LiveSlide = ({ live, size }) => {
     arrows: false,
     dots: true,
     infinite: true,
-    speed: 2500,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,

@@ -448,24 +448,18 @@ const Main = () => {
                   theme={theme}
                 />
               </header>
-              <SideOpac />
-              {/* <span
+              {/* <SideOpac /> */}
+              <div
                 style={{
                   position: "absolute",
-                  height: "68%",
-                  width: 15,
-                  right: 0,
-                  bottom: 0,
-                  opacity: 0.4,
-                  // -webkit-filter: blur(5px);
-                  // -moz-filter: blur(5px);
-                  // -o-filter: blur(5px);
-                  // -ms-filter: blur(5px);
-                  // filter: "blur(6px)",
-                  backgroundColor: "lightgray",
-                  zIndex: 999,
+                  height: "100%",
+                  right: -5,
+                  top: "32%",
+                  zIndex: 10,
                 }}
-              /> */}
+              >
+                <div className="main-sideblur" />
+              </div>
               {/* 연습용  ToggleComponent 기능*/}
               {/* <ToggleComponent /> */}
               {/* LiveSlide */}
