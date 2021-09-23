@@ -12,21 +12,17 @@ const LiveSlide = ({ live, size }) => {
   const liveSettings = {
     arrows: false,
     dots: true,
-    // (isBrowser && true) ||
-    // size > 499 ? true : false,
-    // (isMobile && false),
     infinite: true,
-    speed: 1500,
+    speed: 2500,
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
-    autoplaySpeed: 3500,
+    autoplay: true,
+    autoplaySpeed: 2500,
     centerMode: false,
     swipe: true,
     swipeToSlide: false,
     touchMove: true,
-    useCSS: true,
   };
 
   return (
