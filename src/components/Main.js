@@ -33,21 +33,21 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `;
 
-const SideOpac = styled.div`
-  position: absolute;
-  height: 68%;
-  width: 15px;
-  right: 0;
-  bottom: 0;
-  opacity: 0.4;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(6px);
-  background-color: #fff;
-  z-index: 10;
-`;
+// const SideOpac = styled.div`
+//   position: absolute;
+//   height: 68%;
+//   width: 15px;
+//   right: 0;
+//   bottom: 0;
+//   opacity: 0.4;
+//   -webkit-filter: blur(5px);
+//   -moz-filter: blur(5px);
+//   -o-filter: blur(5px);
+//   -ms-filter: blur(5px);
+//   filter: blur(6px);
+//   background-color: #fff;
+//   z-index: 10;
+// `;
 
 //weekly mission datas
 const datas = [

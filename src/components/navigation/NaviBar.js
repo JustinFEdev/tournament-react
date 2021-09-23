@@ -161,9 +161,10 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                 <>
                   <div
                     style={{
+                      // position: "absolute",
                       overflow: "hidden",
+                      maxWidth: 690,
                       width: "100%",
-                      zIndex: 1,
                     }}
                   >
                     <SideBar
