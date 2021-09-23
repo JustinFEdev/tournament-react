@@ -277,6 +277,7 @@ const Main = () => {
   const [widthStatus, setWidthStatus] = useState(
     window.innerWidth
   );
+
   //liveslide state
   const [live, setLive] = useState();
   // continue state
@@ -371,6 +372,7 @@ const Main = () => {
   // auto resize handler
   const handleResize = useCallback((event) => {
     setWidthStatus(window.innerWidth);
+    // setHeightStatus(window.innerHeight);
   }, []);
 
   // resize useEffect

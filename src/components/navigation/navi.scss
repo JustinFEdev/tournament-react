@@ -66,10 +66,10 @@ p {
 
 .sidebar {
   z-index: 1;
-  position: absolute;
+  position: fixed;
   text-align: left;
-  height: 100vh;
-  width: 80%;
+  z-index: 1;
+  // width: 80%;
   // background-color: lightgray;
   top: 0;
   transform: translateX(-100%);

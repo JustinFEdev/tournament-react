@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router";
 import SideBar from "./SideBar";
+import PropTypes from "prop-types";
+
 import "./navi.scss";
 
-const NaviBar = ({ onClick, theme }) => {
+const NaviBar = ({ onClick, theme, sizeStatus }) => {
   const pathName = useLocation().pathname;
   const [menubtn, setMenubtn] = useState(false);
   // console.log("navibar-menubtn");
   // console.log(menubtn);
   const titles = [
-    { name: "main", path: "/" },
+    { name: "tournament", path: "/" || "/main" },
     { name: "completed", path: "/completed" },
     { name: "allgames", path: "/allgames" },
     { name: "allrank", path: "/allrank" },
@@ -35,11 +37,29 @@ const NaviBar = ({ onClick, theme }) => {
                     className="navi-container"
                     index={index}
                   >
-                    <button
-                      onClick={() => setMenubtn(true)}
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
                     >
-                      Menu
-                    </button>
+                      <button
+                        onClick={() => setMenubtn(true)}
+                      >
+                        Menu
+                      </button>
+                      <p
+                        style={{
+                          marginLeft: 25,
+                          textTransform: "capitalize",
+                          fontSize: 20,
+                          fontWeight: "bold",
+                          color: "var(--neutral-1)",
+                        }}
+                      >
+                        {title.name}
+                      </p>
+                    </div>
                     {/* 임시 스코어경로 라우팅 */}
                     {/* <a href="/yourscore">Your Score</a> */}
                     {/* dark mode */}
@@ -139,11 +159,20 @@ const NaviBar = ({ onClick, theme }) => {
 
               {menubtn && (
                 <>
-                  <SideBar
-                    btnSwitch={(menubtn) =>
-                      setMenubtn(menubtn)
-                    }
-                  />
+                  <div
+                    style={{
+                      overflow: "hidden",
+                      width: "100%",
+                      zIndex: 1,
+                    }}
+                  >
+                    <SideBar
+                      sizeStatus={sizeStatus}
+                      btnSwitch={(menubtn) =>
+                        setMenubtn(menubtn)
+                      }
+                    />
+                  </div>
                 </>
               )}
 
@@ -271,3 +300,6 @@ const NaviBar = ({ onClick, theme }) => {
 };
 
 export default NaviBar;
+NaviBar.prototype = {
+  sizeStatus: PropTypes.arrayOf(PropTypes.number),
+};

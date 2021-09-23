@@ -1,26 +1,37 @@
-import React, { useLayoutEffect } from "react";
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import "./navi.scss";
 import "../layout.scss";
-
-const Overlay = styled.div`
-  position: absolute;
-  background-color: rgb(0, 0, 0);
-  opacity: 0.68;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-`;
-
 const SideBar = (props) => {
   console.log("props.menubtn");
   console.log(props);
+  const [heightStatus, setHeightStatus] = useState(
+    window.innerHeight
+  );
+  console.log("window.innerHeight");
+  console.log(heightStatus);
+  const handleResize = useCallback((event) => {
+    setHeightStatus(window.innerHeight);
+  }, []);
 
+  const Overlay = styled.div`
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.68;
+    height: ${heightStatus}vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  `;
   const sideData = [
     "point shop",
     "refferal code",
@@ -29,9 +40,13 @@ const SideBar = (props) => {
     "faq",
     "logout",
   ];
-  // useLayoutEffect(() => {
-  //   console.log("layout effect");
-  // }, []);
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [handleResize]);
+
   useLayoutEffect(() => {
     document.body.style.cssText = `
       position: fixed; 
@@ -48,6 +63,7 @@ const SideBar = (props) => {
   return (
     <>
       <Overlay onClick={() => props.btnSwitch(false)} />
+
       <div className="sidebar">
         <div
           style={{
