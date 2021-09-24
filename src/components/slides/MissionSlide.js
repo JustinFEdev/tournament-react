@@ -5,8 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import "../layout.scss";
 import { AddComma } from "../Main";
 // slide icon
-// import trophy from "../resource/image/group.png";
 // import trophy from "../resource/";
+// import trophy from "../resource/icon/group@2x.png";
 // import { isBrowser, isMobile } from "react-device-detect";
 
 const MissionSlide = ({ weekly, size }) => {
@@ -110,7 +110,7 @@ const MissionSlide = ({ weekly, size }) => {
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
                       <p>Play Again to</p>
-                      <p />
+                      {/* <img src={trophy} alt="" /> */}
                     </div>
                     <div className="content-wininfo">
                       <span>Win</span>
