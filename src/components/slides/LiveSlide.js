@@ -5,6 +5,7 @@ import "./slide.scss";
 import "../layout.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import notice from "../../resource/icons/icon-arrow-i.png";
 // import { isBrowser, isMobile } from "react-device-detect";
 import { AddComma } from "../Main";
 
@@ -94,6 +95,11 @@ const LiveSlide = ({ live, size }) => {
                           8.1M
                         </span>
                         <span>People</span>
+                        <img
+                          src={notice}
+                          alt=""
+                          style={{ cursor: "pointer" }}
+                        />
                       </div>
                       <div className="live-liveinfo">
                         <div className="content-wininfo">

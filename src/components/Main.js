@@ -452,17 +452,7 @@ const Main = () => {
               </header>
 
               {/* <SideOpac /> */}
-              <div
-                style={{
-                  position: "absolute",
-                  height: "100%",
-                  right: -5,
-                  top: "32%",
-                  zIndex: 10,
-                }}
-              >
-                <div className="main-sideblur" />
-              </div>
+
               {/* 연습용  ToggleComponent 기능*/}
               {/* <ToggleComponent /> */}
               {/* LiveSlide */}
@@ -549,6 +539,17 @@ const Main = () => {
                               </div>
                             </>
                           )}
+                        </div>
+                        <div
+                          style={{
+                            position: "absolute",
+                            height: "100%",
+                            right: -5,
+                            // top: "32%",
+                            zIndex: 10,
+                          }}
+                        >
+                          <div className="main-sideblur" />
                         </div>
                         {info.id === 1 && (
                           <>
