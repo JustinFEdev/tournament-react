@@ -15,6 +15,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import moment from "moment";
 
+// live banner img
+import live_banner_1 from "../resource/image/banner_646x328 (1).jpg";
+import live_banner_2 from "../resource/image/banner_646x328 (2).jpg";
+import live_banner_3 from "../resource/image/banner_646x328.jpg";
+// continue banner img
+import continue_img_1 from "../resource/image/banner_300x370 (1).jpg";
+import continue_img_2 from "../resource/image/banner_300x370 (2).jpg";
+import continue_img_3 from "../resource/image/banner_300x370.jpg";
 // import AllGames from "./details/AllGames";
 import styled, { ThemeProvider } from "styled-components";
 import {
@@ -53,38 +61,31 @@ const StyledApp = styled.div`
 const datas = [
   {
     id: 1,
-    title: "aa",
-    target: 4,
-    point: 2124,
-    img: "1111",
+    title: "spooky",
+    time: 4,
+    point: 4320,
+    img: continue_img_1,
   },
   {
     id: 2,
-    title: "bb",
-    target: 5,
-    point: 1045,
-    img: "2222",
+    title: "bit miner",
+    time: 5,
+    point: 1560,
+    img: continue_img_2,
   },
   {
     id: 3,
-    title: "cc",
-    target: 2,
-    point: 578,
-    img: "3333",
+    title: "minnimoe",
+    time: 2,
+    point: 7050,
+    img: continue_img_3,
   },
   {
     id: 4,
-    title: "dd",
-    target: 3,
-    point: 1945,
-    img: "4444",
-  },
-  {
-    id: 5,
-    title: "ff",
-    target: 5,
-    point: 7896,
-    img: "555",
+    title: "spooky",
+    time: "2:11",
+    point: 1230,
+    img: continue_img_1,
   },
 ];
 
@@ -92,66 +93,66 @@ const datas = [
 const contiInfo = [
   {
     id: 1,
-    title: "aa",
+    title: "spooky",
     time: 4,
     point: 2000,
-    img: "1111",
+    img: continue_img_1,
   },
   {
     id: 2,
-    title: "bb",
+    title: "bit miner",
     time: 5,
     point: 1000,
-    img: "2222",
+    img: continue_img_2,
   },
   {
     id: 3,
-    title: "cc",
+    title: "minnimoe",
     time: 2,
     point: 5000,
-    img: "3333",
+    img: continue_img_3,
   },
   {
     id: 4,
-    title: "dd",
+    title: "spooky",
     time: "2:11",
     point: 1000,
-    img: "444",
+    img: continue_img_1,
   },
   {
     id: 3,
-    title: "cc",
+    title: "bit miner",
     time: 2,
     point: 6000,
-    img: "3333",
+    img: continue_img_2,
   },
   {
     id: 4,
-    title: "dd",
+    title: "minnimoe",
     time: "2:11",
     point: 8000,
-    img: "444",
+    img: continue_img_3,
   },
   {
     id: 4,
-    title: "dd",
+    title: "spooky",
     time: "2:11",
     point: 1000,
-    img: "444",
+    img: continue_img_1,
   },
   {
     id: 3,
-    title: "cc",
+    title: "bit miner",
     time: 2,
     point: 6000,
-    img: "3333",
+    img: continue_img_3,
   },
   {
     id: 4,
-    title: "dd",
+    title: "minnimoe",
     time: "2:11",
     point: 8000,
-    img: "444",
+    img: continue_img_2,
   },
 ];
 //Live mission
@@ -163,25 +164,25 @@ const liveInfo = [
     // time: nowTime,
     point: 2000,
     number: 35,
-    img: "1111",
+    img: live_banner_1,
   },
   {
     id: 2,
     status: "live",
-    title: "bb",
+    title: "Spooky Bumb Game",
     time: 6,
     point: 12000,
     number: 22,
-    img: "2222",
+    img: live_banner_2,
   },
   {
     id: 3,
     status: "live",
-    title: "cc",
+    title: "Bit Miner Bit 22 Miner Game",
     time: 65,
     point: 266,
     number: 878,
-    img: "3333",
+    img: live_banner_3,
   },
   {
     id: 4,
@@ -190,7 +191,7 @@ const liveInfo = [
     time: "24:00:00",
     point: 2000,
     number: 45,
-    img: "4444",
+    img: live_banner_2,
   },
 ];
 // feature;

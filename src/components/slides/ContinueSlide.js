@@ -88,6 +88,7 @@ const ContinueSlide = ({ conti, size }) => {
 
                     <img
                       className="content-img"
+                      src={info.img}
                       alt={info.img}
                     />
                   </div>

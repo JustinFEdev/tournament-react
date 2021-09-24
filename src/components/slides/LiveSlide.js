@@ -18,14 +18,15 @@ const LiveSlide = ({ live, size }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 2500,
     centerMode: false,
     swipe: true,
     swipeToSlide: false,
     touchMove: true,
   };
-
+  console.log("live");
+  console.log(live);
   return (
     <>
       {live !== undefined && (
@@ -44,7 +45,17 @@ const LiveSlide = ({ live, size }) => {
                       </div>
                     </div>
                   </div>
-                  <img src={info.img} alt={info.img} />
+                  <img
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      padding: 0,
+                      margin: 0,
+                      objectFit: "fill",
+                    }}
+                    src={info.img}
+                    alt={info.img}
+                  />
                 </div>
                 <div className="live-info-wrapper">
                   <div className="live-info-titlearea">
