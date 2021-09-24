@@ -5,13 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import "../layout.scss";
 import { AddComma } from "../Main";
 // slide icon
-// import trophy from "../resource/icon/group@2x.png";
+import trophy from "../../resource/icons/group.png";
 // import { isBrowser, isMobile } from "react-device-detect";
 
 const MissionSlide = ({ weekly, size }) => {
   // console.log("weekly로 넘어온 size");
   // console.log(size);
-  const trophy = "../resource/icons/group@2x.png";
 
   const settings = {
     arrows: false,
@@ -111,7 +110,14 @@ const MissionSlide = ({ weekly, size }) => {
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
                       <p>Play Again to</p>
-                      <img src={trophy} alt="11" />
+                      <div className="content-trophy-layout">
+                        <span className="content-trophy-overlay" />
+                        <img
+                          className="content-trophy-img"
+                          src={trophy}
+                          alt="11"
+                        />
+                      </div>
                     </div>
                     <div className="content-wininfo">
                       <span>Win</span>

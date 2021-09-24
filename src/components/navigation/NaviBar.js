@@ -3,15 +3,12 @@ import { useLocation } from "react-router";
 import SideBar from "./SideBar";
 import PropTypes from "prop-types";
 import { AddComma } from "../Main";
-
+import NaviIcon from "../../resource/icons/navi@2x.png";
 import "./navi.scss";
 
 const NaviBar = ({ onClick, theme, sizeStatus }) => {
   const pathName = useLocation().pathname;
   const [menubtn, setMenubtn] = useState(false);
-
-  // console.log("navibar-menubtn");
-  // console.log(menubtn);
   const titles = [
     { name: "tournament", path: "/" || "/main" },
     { name: "completed", path: "/completed" },
@@ -21,11 +18,6 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
     { name: "leaderboard", path: "/leaderboard" },
     { name: "yourscore", path: "/yourscore" },
   ];
-  // useLayoutEffect(() => {
-  //   console.log("useLayoutEffect");
-  // }, []);
-  // console.log("theme");
-  // console.log(theme);
   return (
     <>
       {titles.map((title, index) => (
@@ -46,11 +38,12 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                           alignItems: "center",
                         }}
                       >
-                        <button
+                        <img
+                          src={NaviIcon}
+                          alt="menu-button"
                           onClick={() => setMenubtn(true)}
-                        >
-                          Menu
-                        </button>
+                          style={{ cursor: "pointer" }}
+                        />
                         <p
                           style={{
                             marginLeft: 25,

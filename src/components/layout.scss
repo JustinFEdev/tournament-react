@@ -232,7 +232,27 @@ a:link {
   // justify-content: space-around;
   align-items: center;
 }
-
+.content-trophy-layout {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.content-trophy-overlay {
+  position: absolute;
+  opacity: 0.1;
+  border-radius: 6px;
+  background-color: var(--neutral-3);
+  width: 100%;
+  height: 100%;
+}
+.content-trophy-img {
+  color: rgb(255, 255, 255);
+  width: 17px;
+  height: 14px;
+  display: block;
+  margin: auto;
+  padding: 4px 0px 0px;
+}
 .icon-ppnum {
   font-size: 28px;
   font-weight: 500;
@@ -356,7 +376,7 @@ footer {
   width: 100%;
 }
 .slide-space {
-  padding: 0 17.5px 22px 17.5px;
+  padding: 0 16px 22px 16px;
 }
 .slide-title-wrapper {
   display: flex;

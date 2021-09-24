@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AddComma } from "../Main";
+import trophy from "../../resource/icons/group.png";
 
 const ContinueSlide = ({ conti, size }) => {
   // console.log("넘어온 size");
@@ -100,10 +101,14 @@ const ContinueSlide = ({ conti, size }) => {
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
                       <p>Play Again to</p>
-                      <img
-                        src="../resource/icons/group.png"
-                        alt=""
-                      />
+                      <div className="content-trophy-layout">
+                        <span className="content-trophy-overlay" />
+                        <img
+                          className="content-trophy-img"
+                          src={trophy}
+                          alt="11"
+                        />
+                      </div>
                     </div>
                     <div className="content-wininfo">
                       <p>Win</p>
