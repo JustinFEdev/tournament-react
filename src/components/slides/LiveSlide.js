@@ -53,6 +53,7 @@ const LiveSlide = ({ live, size }) => {
                       padding: 0,
                       margin: 0,
                       objectFit: "fill",
+                      borderRadius: "10px 10px 0 0 ",
                     }}
                     src={info.img}
                     alt={info.img}
