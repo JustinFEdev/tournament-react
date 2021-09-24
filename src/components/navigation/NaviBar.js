@@ -42,7 +42,13 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                           src={NaviIcon}
                           alt="menu-button"
                           onClick={() => setMenubtn(true)}
-                          style={{ cursor: "pointer" }}
+                          style={{
+                            cursor: "pointer",
+                            width: 21,
+                            height: 11,
+                            objectFit: "cover",
+                            color: "var(--neutral-3)",
+                          }}
                         />
                         <p
                           style={{

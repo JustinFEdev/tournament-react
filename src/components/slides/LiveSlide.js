@@ -20,7 +20,7 @@ const LiveSlide = ({ live, size }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2500,
     centerMode: false,
     swipe: true,
@@ -33,7 +33,7 @@ const LiveSlide = ({ live, size }) => {
     <>
       {live !== undefined && (
         <>
-          <div style={{ padding: "0 16px" }}>
+          <div style={{ padding: "0 8px" }}>
             <Slider {...liveSettings}>
               {live.map((info, index) => (
                 <div className="live-container" key={index}>

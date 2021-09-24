@@ -20,7 +20,7 @@ const ContinueSlide = ({ conti, size }) => {
     // slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 3000,
     swipe: true,
     swipeToSlide: true,
