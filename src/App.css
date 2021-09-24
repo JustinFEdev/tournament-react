@@ -36,3 +36,8 @@ body {
 .App-link {
   color: #61dafb;
 }
+@font-face {
+  font-family: "Inter";
+  src: url("./resource/fonts/Inter-Regular.ttf")
+    format("truetype");
+}

@@ -21,6 +21,7 @@ a {
   opacity: 0.9;
   align-items: center;
   justify-content: space-between;
+  padding: 0 16px;
 }
 .navi-signstatus {
   padding: 13px 74px;
@@ -60,8 +61,8 @@ a {
   height: 24px;
   display: flex;
   align-items: center;
-  margin: 0 6px;
-  padding: 0 6px;
+  margin: 0 0 0 6px;
+  // padding: 0 6px;
 }
 .navi-insideball {
   width: 17px;

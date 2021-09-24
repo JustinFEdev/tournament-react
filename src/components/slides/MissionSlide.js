@@ -109,7 +109,7 @@ const MissionSlide = ({ weekly, size }) => {
                   </div> */}
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
-                      <p>Play Again to</p>
+                      <p>Play again to</p>
                       <div className="content-trophy-layout">
                         <span className="content-trophy-overlay" />
                         <img
