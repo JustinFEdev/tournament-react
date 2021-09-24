@@ -52,7 +52,7 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                         />
                         <p
                           style={{
-                            marginLeft: 25,
+                            marginLeft: 12,
                             textTransform: "capitalize",
                             fontSize: 20,
                             fontWeight: "bold",
