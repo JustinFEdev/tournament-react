@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useLocation } from "react-router";
 import SideBar from "./SideBar";
 import PropTypes from "prop-types";
+import { AddComma } from "../Main";
 
 import "./navi.scss";
 
@@ -132,7 +133,7 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                               color: "#1b202a",
                             }}
                           >
-                            2000
+                            {AddComma(2000)}
                           </span>
                         </div>
                         <div className="navi-pointwrapper">
@@ -151,7 +152,7 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                               color: "#1b202a",
                             }}
                           >
-                            2000
+                            {AddComma(2000)}
                           </span>
                         </div>
                       </div>

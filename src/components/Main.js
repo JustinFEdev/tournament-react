@@ -520,7 +520,7 @@ const Main = () => {
                                       </p>
                                     </span>
                                     <div className="weekly-game-status">
-                                      2000
+                                      2,000
                                     </div>
                                   </div>
                                   <span
@@ -557,7 +557,7 @@ const Main = () => {
                                 width:
                                   widthStatus < 361
                                     ? 410
-                                    : 790,
+                                    : 750,
                                 overflow: "hidden",
                               }}
                             >

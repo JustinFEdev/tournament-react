@@ -8,6 +8,8 @@ import { AddComma } from "../Main";
 const ContinueSlide = ({ conti, size }) => {
   // console.log("넘어온 size");
   // console.log(size);
+  const trophy = "";
+
   const contiSettings = {
     arrows: false,
     dots: false,
@@ -98,7 +100,10 @@ const ContinueSlide = ({ conti, size }) => {
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
                       <p>Play Again to</p>
-                      <span>icon</span>
+                      <img
+                        src="../resource/icons/group@2x.png"
+                        alt=""
+                      />
                     </div>
                     <div className="content-wininfo">
                       <p>Win</p>
