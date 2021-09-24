@@ -5,6 +5,7 @@ import "./slide.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import { isBrowser, isMobile } from "react-device-detect";
+import { AddComma } from "../Main";
 
 const LiveSlide = ({ live, size }) => {
   // console.log("live로 넘어온 size");
@@ -90,7 +91,7 @@ const LiveSlide = ({ live, size }) => {
                             <p className="pp-text">PP</p>
                           </span>
                           <span className="live-point">
-                            {info.point}
+                            {AddComma(info.point)}
                           </span>
                         </div>
                       </div>

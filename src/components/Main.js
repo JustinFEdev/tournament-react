@@ -55,35 +55,35 @@ const datas = [
     id: 1,
     title: "aa",
     target: 4,
-    point: 2,
+    point: 2124,
     img: "1111",
   },
   {
     id: 2,
     title: "bb",
     target: 5,
-    point: 10,
+    point: 1045,
     img: "2222",
   },
   {
     id: 3,
     title: "cc",
     target: 2,
-    point: 5,
+    point: 578,
     img: "3333",
   },
   {
     id: 4,
     title: "dd",
     target: 3,
-    point: 1,
+    point: 1945,
     img: "4444",
   },
   {
     id: 5,
     title: "ff",
     target: 5,
-    point: 6,
+    point: 7896,
     img: "555",
   },
 ];
@@ -161,7 +161,7 @@ const liveInfo = [
     status: "live",
     title: "Bit Miner Bit 22 Miner Game",
     // time: nowTime,
-    point: 2,
+    point: 2000,
     number: 35,
     img: "1111",
   },
@@ -170,7 +170,7 @@ const liveInfo = [
     status: "live",
     title: "bb",
     time: 6,
-    point: 12,
+    point: 12000,
     number: 22,
     img: "2222",
   },
@@ -188,7 +188,7 @@ const liveInfo = [
     status: "live",
     title: "dd",
     time: "24:00:00",
-    point: 21,
+    point: 2000,
     number: 45,
     img: "4444",
   },
@@ -199,20 +199,20 @@ const featureInfo = [
     id: 1,
     time: 4,
     point: 2,
-    user: 35,
+    user: 305,
     img: "1111",
   },
   {
     id: 2,
     time: 6,
-    point: 12,
+    point: 1020,
     user: 22,
     img: "2222",
   },
   {
     id: 3,
     time: 65,
-    point: 266,
+    point: 2066,
     user: 878,
     img: "3333",
   },
@@ -277,7 +277,10 @@ const Main = () => {
   const [widthStatus, setWidthStatus] = useState(
     window.innerWidth
   );
-
+  const [signStatus, setSignStatus] = useState([]);
+  const signHandle = () => {
+    setSignStatus(!signStatus);
+  };
   //liveslide state
   const [live, setLive] = useState();
   // continue state
@@ -450,6 +453,7 @@ const Main = () => {
                   theme={theme}
                 />
               </header>
+
               {/* <SideOpac /> */}
               <div
                 style={{
@@ -585,8 +589,24 @@ const Main = () => {
                               />
                             </div>
                             <p className="weekly-daycount">
-                              {info.complete} days left to
-                              complet
+                              <span
+                                style={{
+                                  color:
+                                    "var(--primay-2-01)",
+                                  fontSize: 16,
+                                  fontWeight: 500,
+                                }}
+                              >
+                                {info.complete} days
+                              </span>{" "}
+                              <span
+                                style={{
+                                  color: "var(--neutral-2)",
+                                  fontSize: 16,
+                                }}
+                              >
+                                left to complet
+                              </span>
                             </p>
                           </>
                         )}
@@ -875,7 +895,7 @@ const Main = () => {
                           </p>
                         </span>
                         <div className="footer-game-point">
-                          {info.point}
+                          {AddComma(info.point)}
                         </div>
                         <div className="footer-game-name">
                           {info.user}

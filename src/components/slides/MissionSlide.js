@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../layout.scss";
+import { AddComma } from "../Main";
+
 // import { isBrowser, isMobile } from "react-device-detect";
 
 const MissionSlide = ({ weekly, size }) => {
@@ -17,7 +19,7 @@ const MissionSlide = ({ weekly, size }) => {
     // slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,
@@ -58,11 +60,23 @@ const MissionSlide = ({ weekly, size }) => {
                   className="content-weekly-layout"
                   key={index}
                 >
-                  <img
-                    className="content-weekly-img"
-                    src={info.img}
-                    alt=""
-                  />
+                  <div
+                    style={{
+                      position: "relative",
+                    }}
+                  >
+                    <div className="content-time-wrapper">
+                      <div className="content-time-text">
+                        <p>Time :{info.time}</p>
+                      </div>
+                    </div>
+
+                    <img
+                      className="content-weekly-img"
+                      src={info.img}
+                      alt=""
+                    />
+                  </div>
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
                       <p>Play Again to</p>
@@ -80,11 +94,13 @@ const MissionSlide = ({ weekly, size }) => {
                           color: "#1b202a",
                         }}
                       >
-                        {info.point}
+                        {AddComma(info.point)}
                       </span>
                     </div>
                   </div>
-                  {/* <div
+                </div>
+
+                {/* <div
                     style={{
                       fontFamily: "AppleSDGothicNeo",
                       textAlign: "left",
@@ -148,7 +164,6 @@ const MissionSlide = ({ weekly, size }) => {
                       START NOW
                     </div>
                   </div> */}
-                </div>
               </>
             ))}
           </Slider>

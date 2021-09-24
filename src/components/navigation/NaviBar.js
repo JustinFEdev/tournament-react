@@ -8,6 +8,7 @@ import "./navi.scss";
 const NaviBar = ({ onClick, theme, sizeStatus }) => {
   const pathName = useLocation().pathname;
   const [menubtn, setMenubtn] = useState(false);
+
   // console.log("navibar-menubtn");
   // console.log(menubtn);
   const titles = [
@@ -33,37 +34,38 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
               {/* main page  */}
               {pathName === "/" && (
                 <>
-                  <div
-                    className="navi-container"
-                    index={index}
-                  >
+                  <div className="navi-container">
                     <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                      }}
+                      className="navi-wrapper"
+                      index={index}
                     >
-                      <button
-                        onClick={() => setMenubtn(true)}
-                      >
-                        Menu
-                      </button>
-                      <p
+                      <div
                         style={{
-                          marginLeft: 25,
-                          textTransform: "capitalize",
-                          fontSize: 20,
-                          fontWeight: "bold",
-                          color: "var(--neutral-1)",
+                          display: "flex",
+                          alignItems: "center",
                         }}
                       >
-                        {title.name}
-                      </p>
-                    </div>
-                    {/* 임시 스코어경로 라우팅 */}
-                    {/* <a href="/yourscore">Your Score</a> */}
-                    {/* dark mode */}
-                    {/* <div
+                        <button
+                          onClick={() => setMenubtn(true)}
+                        >
+                          Menu
+                        </button>
+                        <p
+                          style={{
+                            marginLeft: 25,
+                            textTransform: "capitalize",
+                            fontSize: 20,
+                            fontWeight: "bold",
+                            color: "var(--neutral-1)",
+                          }}
+                        >
+                          {title.name}
+                        </p>
+                      </div>
+                      {/* 임시 스코어경로 라우팅 */}
+                      {/* <a href="/yourscore">Your Score</a> */}
+                      {/* dark mode */}
+                      {/* <div
                       onClick={onClick}
                       style={{
                         width: 150,
@@ -117,63 +119,61 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                         </div>
                       )}
                     </div> */}
-                    {/* 점수 & 유저수 현황 */}
-                    <div className="navi-content-container">
-                      <div className="navi-pointwrapper">
-                        <span className="navi-insideball">
-                          PP
-                        </span>
-                        <span
-                          style={{
-                            fontSize: 16,
-                            fontWeight: "bold",
-                            color: "#1b202a",
-                          }}
-                        >
-                          2000
-                        </span>
+                      {/* 점수 & 유저수 현황 */}
+                      <div className="navi-content-container">
+                        <div className="navi-pointwrapper">
+                          <span className="navi-insideball">
+                            PP
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "bold",
+                              color: "#1b202a",
+                            }}
+                          >
+                            2000
+                          </span>
+                        </div>
+                        <div className="navi-pointwrapper">
+                          <span
+                            className="navi-insideball"
+                            style={{
+                              backgroundColor: "#ffb400",
+                            }}
+                          >
+                            T
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "bold",
+                              color: "#1b202a",
+                            }}
+                          >
+                            2000
+                          </span>
+                        </div>
                       </div>
-                      <div className="navi-pointwrapper">
-                        <span
-                          className="navi-insideball"
-                          style={{
-                            backgroundColor: "#ffb400",
-                          }}
-                        >
-                          T
-                        </span>
-                        <span
-                          style={{
-                            fontSize: 16,
-                            fontWeight: "bold",
-                            color: "#1b202a",
-                          }}
-                        >
-                          2000
-                        </span>
-                      </div>
+                    </div>
+                    {/* 비로그인시 알림창  */}
+                    <div className="navi-signstatus">
+                      <a href="/" style={{ color: "#fff" }}>
+                        Sign up and get 300PP/4Ticket.
+                      </a>
                     </div>
                   </div>
                 </>
               )}
-
+              {/* 사이드 메뉴바  */}
               {menubtn && (
                 <>
-                  <div
-                    style={{
-                      // position: "absolute",
-                      overflow: "hidden",
-                      maxWidth: 690,
-                      width: "100%",
-                    }}
-                  >
-                    <SideBar
-                      sizeStatus={sizeStatus}
-                      btnSwitch={(menubtn) =>
-                        setMenubtn(menubtn)
-                      }
-                    />
-                  </div>
+                  <SideBar
+                    sizeStatus={sizeStatus}
+                    btnSwitch={(menubtn) =>
+                      setMenubtn(menubtn)
+                    }
+                  />
                 </>
               )}
 

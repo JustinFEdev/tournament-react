@@ -2,21 +2,31 @@ p {
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
 .navi-container {
+  position: fixed;
   width: 100%;
   min-width: 360px;
   max-width: 690px;
-  // padding: 0 16px;
-  position: fixed;
+  top: 0;
+  z-index: 1;
+  opacity: 0.9;
+  background-color: #fff;
+}
+.navi-wrapper {
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  // background-color: #c9e2ea;
-  background-color: #fff;
-  opacity: 0.9;
-  z-index: 1;
-  top: 0;
+}
+.navi-signstatus {
+  padding: 13px 74px;
+  background-color: var(--primay-2-01);
+  color: #fff;
+  font-size: 14px;
 }
 .navi-title-container {
   position: fixed;
@@ -66,7 +76,7 @@ p {
 
 .sidebar {
   z-index: 1;
-  position: fixed;
+  position: absolute;
   text-align: left;
   // width: 80%;
   top: 0;

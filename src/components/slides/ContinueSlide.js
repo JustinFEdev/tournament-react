@@ -3,6 +3,7 @@ import "../navigation/navi.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { AddComma } from "../Main";
 
 const ContinueSlide = ({ conti, size }) => {
   // console.log("넘어온 size");
@@ -16,7 +17,7 @@ const ContinueSlide = ({ conti, size }) => {
     // slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     swipe: true,
     swipeToSlide: true,
@@ -79,14 +80,14 @@ const ContinueSlide = ({ conti, size }) => {
                       height: 141,
                     }}
                   >
-                    <div className="continue-time-wrapper">
-                      <div className="continue-time-text">
+                    <div className="content-time-wrapper">
+                      <div className="content-time-text">
                         <p>Time :{info.time}</p>
                       </div>
                     </div>
 
                     <img
-                      className="continue-img"
+                      className="content-img"
                       alt={info.img}
                     />
                   </div>
@@ -107,7 +108,7 @@ const ContinueSlide = ({ conti, size }) => {
                           color: "#1b202a",
                         }}
                       >
-                        {info.point}
+                        {AddComma(info.point)}
                       </p>
                     </div>
                   </div>
