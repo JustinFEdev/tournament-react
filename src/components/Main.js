@@ -278,10 +278,6 @@ const Main = () => {
   const [widthStatus, setWidthStatus] = useState(
     window.innerWidth
   );
-  const [signStatus, setSignStatus] = useState([]);
-  const signHandle = () => {
-    setSignStatus(!signStatus);
-  };
   //liveslide state
   const [live, setLive] = useState();
   // continue state
