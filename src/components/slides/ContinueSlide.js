@@ -82,7 +82,10 @@ const ContinueSlide = ({ conti, size }) => {
                   >
                     <div className="content-time-wrapper">
                       <div className="content-time-text">
-                        <p>Time :{info.time}</p>
+                        <span className="content-time-overlay" />
+                        <p className="content-time">
+                          Time :{info.time}
+                        </p>
                       </div>
                     </div>
 

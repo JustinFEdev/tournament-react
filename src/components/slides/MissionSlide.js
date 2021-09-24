@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../layout.scss";
 import { AddComma } from "../Main";
 // slide icon
+// import trophy from "../resource/image/group.png";
 // import trophy from "../resource/";
 // import { isBrowser, isMobile } from "react-device-detect";
 
@@ -66,6 +67,34 @@ const MissionSlide = ({ weekly, size }) => {
                       position: "relative",
                     }}
                   >
+                    <div
+                      className="content-time-wrapper"
+                      style={{
+                        justifyContent: "flex-start",
+                      }}
+                    >
+                      <div
+                        className="content-time-text"
+                        style={{ marginLeft: 7 }}
+                      >
+                        <span className="content-time-overlay" />
+                        <p className="content-time">
+                          Time :{info.time}
+                        </p>
+                      </div>
+                    </div>
+
+                    <img
+                      className="content-weekly-img"
+                      src={info.img}
+                      alt={info.img}
+                    />
+                  </div>
+                  {/* <div
+                    style={{
+                      position: "relative",
+                    }}
+                  >
                     <div className="content-time-wrapper">
                       <div className="content-time-text">
                         <p>Time :{info.time}</p>
@@ -77,11 +106,11 @@ const MissionSlide = ({ weekly, size }) => {
                       src={info.img}
                       alt=""
                     />
-                  </div>
+                  </div> */}
                   <div className="content-text-wrapper">
                     <div className="content-playagin">
                       <p>Play Again to</p>
-                      <p src={trophy} />
+                      <p />
                     </div>
                     <div className="content-wininfo">
                       <span>Win</span>

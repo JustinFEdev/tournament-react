@@ -1,7 +1,8 @@
 import React from "react";
 import Slider from "react-slick";
-import "../navigation/navi.scss";
+// import "../navigation/navi.scss";
 import "./slide.scss";
+import "../layout.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import { isBrowser, isMobile } from "react-device-detect";
@@ -94,14 +95,20 @@ const LiveSlide = ({ live, size }) => {
                         <span>People</span>
                       </div>
                       <div className="live-liveinfo">
-                        <div className="live-wininfo">
-                          <span className="live-win">
-                            WIN
-                          </span>
+                        <div className="content-wininfo">
+                          <span>Win</span>
                           <span className="pp-wrapper">
-                            <p className="pp-text">PP</p>
+                            <div className="pp-text">
+                              PP
+                            </div>
                           </span>
-                          <span className="live-point">
+                          <span
+                            style={{
+                              fontSize: 16,
+                              fontWeight: 500,
+                              color: "#1b202a",
+                            }}
+                          >
                             {AddComma(info.point)}
                           </span>
                         </div>

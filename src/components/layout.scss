@@ -172,9 +172,6 @@ a:link {
 .content-time-text {
   width: 85px;
   height: 24px;
-  border-radius: 8px;
-  background-color: #1b1d21;
-  opacity: 0.6;
   bottom: 0;
   font-size: 13px;
   font-weight: 600;
@@ -184,6 +181,17 @@ a:link {
   align-items: center;
   justify-content: center;
 }
+.content-time-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: #1b1d21;
+  border-radius: 8px;
+  opacity: 0.6;
+}
+.content-time {
+  position: absolute;
+  color: #fff;
+}
 .content-weekly-layout {
   width: 224px;
   position: relative;
@@ -192,10 +200,9 @@ a:link {
   box-shadow: 0 13px 13px 0 rgb(77 93 107 / 13%);
 }
 .content-weekly-img {
-  position: relative;
   width: 100%;
   height: 118px;
-  border-radius: 16px;
+  border-radius: 10px;
   background-color: lightgray;
   border: none;
 }
