@@ -560,6 +560,7 @@ const Main = () => {
                                     ? 410
                                     : 750,
                                 overflow: "hidden",
+                                paddingLeft: 6,
                               }}
                             >
                               {/* {info.slide} */}
@@ -579,6 +580,7 @@ const Main = () => {
                                     ? 500
                                     : 750,
                                 overflow: "hidden",
+                                paddingLeft: 6,
                               }}
                             >
                               <MissionSlide

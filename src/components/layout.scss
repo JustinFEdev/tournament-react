@@ -1,8 +1,6 @@
 * {
   font-family: Inter;
-  -webkit-font-family: Inter;
-  -moz-font-family: Inter;
-  -ms-font-family: Inter;
+  font-family: "Inter";
 }
 
 a {
@@ -198,8 +196,10 @@ a:link {
   color: #fff;
 }
 .content-weekly-layout {
-  width: 224px;
   position: relative;
+  width: 224px;
+  display: block;
+  margin: auto;
   padding: 6px 4px 6.5px 6px;
   border-radius: 10px;
   box-shadow: 0 13px 13px 0 rgb(77 93 107 / 13%);
