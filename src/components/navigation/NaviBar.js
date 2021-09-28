@@ -170,9 +170,9 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                 <>
                   <SideBar
                     sizeStatus={sizeStatus}
-                    btnSwitch={(menubtn) =>
-                      setMenubtn(menubtn)
-                    }
+                    // btnSwitch={(menubtn) =>
+                    //   setMenubtn(menubtn)
+                    // }
                   />
                 </>
               )}
