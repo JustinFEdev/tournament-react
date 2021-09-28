@@ -8,7 +8,7 @@ import "./navi.scss";
 
 const NaviBar = ({ onClick, theme, sizeStatus }) => {
   const pathName = useLocation().pathname;
-  const [menubtn, setMenubtn] = useState(false);
+  // const [menubtn, setMenubtn] = useState(false);
   const titles = [
     { name: "tournament", path: "/" || "/main" },
     { name: "completed", path: "/completed" },
@@ -166,16 +166,16 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                 </>
               )}
               {/* 사이드 메뉴바  */}
-              {menubtn && (
+              {/* {menubtn && (
                 <>
                   <SideBar
                     sizeStatus={sizeStatus}
-                    // btnSwitch={(menubtn) =>
-                    //   setMenubtn(menubtn)
-                    // }
+                    btnSwitch={(menubtn) =>
+                      setMenubtn(menubtn)
+                    }
                   />
                 </>
-              )}
+              )} */}
 
               {/* title */}
               {pathName === "/allgames" ? (
