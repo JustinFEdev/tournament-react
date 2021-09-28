@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router";
-import SideBar from "./SideBar";
+// import SideBar from "./SideBar";
 import PropTypes from "prop-types";
 import { AddComma } from "../Main";
 import NaviIcon from "../../resource/icons/navi@2x.png";
