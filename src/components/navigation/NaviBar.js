@@ -41,7 +41,7 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                         <img
                           src={NaviIcon}
                           alt="menu-button"
-                          onClick={() => setMenubtn(true)}
+                          // onClick={() => setMenubtn(true)}
                           style={{
                             cursor: "pointer",
                             width: 21,

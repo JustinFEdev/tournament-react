@@ -38,6 +38,6 @@ body {
 }
 @font-face {
   font-family: "Inter";
-  src: url("./resource/fonts/Inter-Regular.ttf")
+  src: url("./resource/fonts/Inter-Medium.ttf")
     format("truetype");
 }
