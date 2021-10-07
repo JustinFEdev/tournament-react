@@ -35,7 +35,8 @@ const SignPopup = () => {
     <>
       {activePopup === true && (
         <>
-          <Overlay onClick={() => setActivePopup(false)} />
+          <Overlay />
+          {/* onClick={() => setActivePopup(false)}  */}
           <div
             style={{
               width: "100%",
@@ -78,6 +79,7 @@ const SignPopup = () => {
                     borderRadius: 25,
                     border: "none",
                   }}
+                  onClick={() => setActivePopup(false)}
                 >
                   guest mode
                 </div>

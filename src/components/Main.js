@@ -31,6 +31,7 @@ import {
   darkTheme,
   GlobalStyles,
 } from "../themes";
+import LoaderSpinner from "./util/LoaderSpinner";
 // import ToggleComponent from "./util/ToggleComponent";
 
 export function AddComma(num) {
@@ -289,7 +290,8 @@ const Main = () => {
   // const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
-
+  // loading spinner
+  const [loading, setLoading] = useState(true);
   // dark mode
   const [theme, setTheme] = useState("light");
   //현 시간
@@ -403,7 +405,7 @@ const Main = () => {
     //   "puzzle",
     //   "rhythm",
     // ];
-
+    setLoading(false);
     for (var i = 0; i < 100; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
@@ -439,184 +441,193 @@ const Main = () => {
       >
         <GlobalStyles />
         <StyledApp>
-          <div className="main-container">
-            <div className="main-wrapper">
-              <SignPopup />
-              <header>
-                <NaviBar
-                  onClick={() => themeToggler()}
-                  theme={theme}
-                />
-              </header>
+          {loading ? (
+            <LoaderSpinner />
+          ) : (
+            <div className="main-container">
+              <div className="main-wrapper">
+                <SignPopup />
+                <header>
+                  <NaviBar
+                    onClick={() => themeToggler()}
+                    theme={theme}
+                  />
+                </header>
 
-              {/* <SideOpac /> */}
+                {/* <SideOpac /> */}
 
-              {/* 연습용  ToggleComponent 기능*/}
-              {/* <ToggleComponent /> */}
-              {/* LiveSlide */}
-              <div className="main-live-wrapper">
-                <LiveSlide live={live} size={widthStatus} />
-              </div>
+                {/* 연습용  ToggleComponent 기능*/}
+                {/* <ToggleComponent /> */}
+                {/* LiveSlide */}
+                <div className="main-live-wrapper">
+                  <LiveSlide
+                    live={live}
+                    size={widthStatus}
+                  />
+                </div>
 
-              {/* Weekly Mission & Continue Playing */}
-              {typeData !== undefined && (
-                <>
-                  {typeData.map((info, index) => (
-                    <div
-                      className="slide-contianer"
-                      key={index}
-                    >
-                      <div className="slide-wrapper">
-                        <div className="slide-space">
-                          <div className="slide-title-wrapper">
-                            {/* Continue Playing */}
-                            <span className="slide-title">
-                              {info.title}
-                            </span>
-                            {/* option */}
-                            <a href={info.direction}>
-                              <span className="slide-route">
-                                {info.route}
+                {/* Weekly Mission & Continue Playing */}
+                {typeData !== undefined && (
+                  <>
+                    {typeData.map((info, index) => (
+                      <div
+                        className="slide-contianer"
+                        key={index}
+                      >
+                        <div className="slide-wrapper">
+                          <div className="slide-space">
+                            <div className="slide-title-wrapper">
+                              {/* Continue Playing */}
+                              <span className="slide-title">
+                                {info.title}
                               </span>
-                            </a>
+                              {/* option */}
+                              <a href={info.direction}>
+                                <span className="slide-route">
+                                  {info.route}
+                                </span>
+                              </a>
+                            </div>
+                            {info.id === 2 && (
+                              <>
+                                <div
+                                  style={{
+                                    border:
+                                      "solid 1px #e6e8ec",
+                                    borderRadius: 10,
+                                    padding:
+                                      "0 15.4px 16px 15.4px",
+                                    marginTop: 17,
+                                  }}
+                                >
+                                  <div className="weekly-textwrapper">
+                                    <div
+                                      style={{
+                                        display: "flex",
+                                        alignItems:
+                                          "center",
+                                      }}
+                                    >
+                                      <p className="weekly-towin">
+                                        You Won
+                                      </p>
+                                      <span className="weekly-ppimg-layout">
+                                        <p className="weekly-ppimg-text">
+                                          PP
+                                        </p>
+                                      </span>
+                                      <div className="weekly-game-status">
+                                        2,000
+                                      </div>
+                                    </div>
+                                    <span
+                                      style={{
+                                        // width: 61,
+                                        // height: 24,
+                                        fontSize: 12,
+                                        fontWeight: "bold",
+                                        display: "flex",
+                                        alignItems:
+                                          "center",
+                                        justifyContent:
+                                          "center",
+                                        padding: "4px 16px",
+                                        borderRadius: 12,
+                                        color: "#fff",
+                                        backgroundImage:
+                                          "linear-gradient(103deg, var(--primay-2-01) -11%, #92b2ff 122%, var(--primay-2-02) 122%)",
+                                      }}
+                                    >
+                                      0/30
+                                    </span>
+                                  </div>
+                                  <div className="weekly-progress-layout">
+                                    <Progress done="70" />
+                                  </div>
+                                </div>
+                              </>
+                            )}
                           </div>
+                          <div
+                            style={{
+                              position: "absolute",
+                              height: "100%",
+                              right: -5,
+                              // top: "32%",
+                              zIndex: 10,
+                            }}
+                          >
+                            <div className="main-sideblur" />
+                          </div>
+                          {info.id === 1 && (
+                            <>
+                              <div
+                                style={{
+                                  width:
+                                    widthStatus < 361
+                                      ? 410
+                                      : 750,
+                                  overflow: "hidden",
+                                  paddingLeft: 11,
+                                }}
+                              >
+                                {/* {info.slide} */}
+                                <ContinueSlide
+                                  conti={conti}
+                                  size={widthStatus}
+                                />
+                              </div>
+                            </>
+                          )}
                           {info.id === 2 && (
                             <>
                               <div
                                 style={{
-                                  border:
-                                    "solid 1px #e6e8ec",
-                                  borderRadius: 10,
-                                  padding:
-                                    "0 15.4px 16px 15.4px",
-                                  marginTop: 17,
+                                  width:
+                                    widthStatus < 361
+                                      ? 500
+                                      : 750,
+                                  overflow: "hidden",
+                                  paddingLeft: 11,
                                 }}
                               >
-                                <div className="weekly-textwrapper">
-                                  <div
-                                    style={{
-                                      display: "flex",
-                                      alignItems: "center",
-                                    }}
-                                  >
-                                    <p className="weekly-towin">
-                                      You Won
-                                    </p>
-                                    <span className="weekly-ppimg-layout">
-                                      <p className="weekly-ppimg-text">
-                                        PP
-                                      </p>
-                                    </span>
-                                    <div className="weekly-game-status">
-                                      2,000
-                                    </div>
-                                  </div>
-                                  <span
-                                    style={{
-                                      // width: 61,
-                                      // height: 24,
-                                      fontSize: 12,
-                                      fontWeight: "bold",
-                                      display: "flex",
-                                      alignItems: "center",
-                                      justifyContent:
-                                        "center",
-                                      padding: "4px 16px",
-                                      borderRadius: 12,
-                                      color: "#fff",
-                                      backgroundImage:
-                                        "linear-gradient(103deg, var(--primay-2-01) -11%, #92b2ff 122%, var(--primay-2-02) 122%)",
-                                    }}
-                                  >
-                                    0/30
-                                  </span>
-                                </div>
-                                <div className="weekly-progress-layout">
-                                  <Progress done="70" />
-                                </div>
+                                <MissionSlide
+                                  weekly={weekly}
+                                  size={widthStatus}
+                                />
                               </div>
+                              <p className="weekly-daycount">
+                                <span
+                                  style={{
+                                    color:
+                                      "var(--primay-2-01)",
+                                    fontSize: 16,
+                                    fontWeight: 500,
+                                  }}
+                                >
+                                  {info.complete} days
+                                </span>{" "}
+                                <span
+                                  style={{
+                                    color:
+                                      "var(--neutral-2)",
+                                    fontSize: 16,
+                                  }}
+                                >
+                                  left to complet
+                                </span>
+                              </p>
                             </>
                           )}
+                          {/* <div className="slide-area"> */}
+                          {/* </div> */}
                         </div>
-                        <div
-                          style={{
-                            position: "absolute",
-                            height: "100%",
-                            right: -5,
-                            // top: "32%",
-                            zIndex: 10,
-                          }}
-                        >
-                          <div className="main-sideblur" />
-                        </div>
-                        {info.id === 1 && (
-                          <>
-                            <div
-                              style={{
-                                width:
-                                  widthStatus < 361
-                                    ? 410
-                                    : 750,
-                                overflow: "hidden",
-                                paddingLeft: 11,
-                              }}
-                            >
-                              {/* {info.slide} */}
-                              <ContinueSlide
-                                conti={conti}
-                                size={widthStatus}
-                              />
-                            </div>
-                          </>
-                        )}
-                        {info.id === 2 && (
-                          <>
-                            <div
-                              style={{
-                                width:
-                                  widthStatus < 361
-                                    ? 500
-                                    : 750,
-                                overflow: "hidden",
-                                paddingLeft: 11,
-                              }}
-                            >
-                              <MissionSlide
-                                weekly={weekly}
-                                size={widthStatus}
-                              />
-                            </div>
-                            <p className="weekly-daycount">
-                              <span
-                                style={{
-                                  color:
-                                    "var(--primay-2-01)",
-                                  fontSize: 16,
-                                  fontWeight: 500,
-                                }}
-                              >
-                                {info.complete} days
-                              </span>{" "}
-                              <span
-                                style={{
-                                  color: "var(--neutral-2)",
-                                  fontSize: 16,
-                                }}
-                              >
-                                left to complet
-                              </span>
-                            </p>
-                          </>
-                        )}
-                        {/* <div className="slide-area"> */}
-                        {/* </div> */}
                       </div>
-                    </div>
-                  ))}
-                </>
-              )}
-              {/* Featured Tournament */}
-              {/* <div className="featured-container">
+                    ))}
+                  </>
+                )}
+                {/* Featured Tournament */}
+                {/* <div className="featured-container">
                 <div
                   style={{
                     width: "100%",
@@ -771,8 +782,8 @@ const Main = () => {
                   </div>
                 </div>
               </div> */}
-              {/* Slide menu */}
-              {/* <div className="menu-container">
+                {/* Slide menu */}
+                {/* <div className="menu-container">
                 <span
                   className="menu-selector"
                   style={{
@@ -793,8 +804,8 @@ const Main = () => {
                   New Arrival
                 </span> */}
 
-              {/* 슬라이더안 div(잠시 주석) */}
-              {/* <div>
+                {/* 슬라이더안 div(잠시 주석) */}
+                {/* <div>
                   <button
                     onClick={() => setAllItem(allItem)}
                     className="menu-selector"
@@ -866,7 +877,7 @@ const Main = () => {
                   </Slider>
                 </div>
               </div> */}
-              {/* <div className="gameitems-container">
+                {/* <div className="gameitems-container">
                 <div className="gameitems-wrapper">
                   <GameItem
                     menuData={gameData}
@@ -875,36 +886,37 @@ const Main = () => {
                   />
                 </div>
               </div> */}
-              {/* {gameData.length > 15 && (
+                {/* {gameData.length > 15 && (
                 <>
                   <div className="gameitems-overtext">
                     <a href="/allgames">View All Games</a>
                   </div>
                 </>
               )} */}
-              <footer>
-                {tournamentData.footer !== undefined && (
-                  <>
-                    {tournamentData.footer.map((info) => (
-                      <>
-                        <span className="footer-ppimg-layout">
-                          <p className="footer-ppimg-text">
-                            PP
-                          </p>
-                        </span>
-                        <div className="footer-game-point">
-                          {AddComma(info.point)}
-                        </div>
-                        <div className="footer-game-name">
-                          {info.user}
-                        </div>
-                      </>
-                    ))}
-                  </>
-                )}
-              </footer>
+                <footer>
+                  {tournamentData.footer !== undefined && (
+                    <>
+                      {tournamentData.footer.map((info) => (
+                        <>
+                          <span className="footer-ppimg-layout">
+                            <p className="footer-ppimg-text">
+                              PP
+                            </p>
+                          </span>
+                          <div className="footer-game-point">
+                            {AddComma(info.point)}
+                          </div>
+                          <div className="footer-game-name">
+                            {info.user}
+                          </div>
+                        </>
+                      ))}
+                    </>
+                  )}
+                </footer>
+              </div>
             </div>
-          </div>
+          )}
         </StyledApp>
       </ThemeProvider>
     </>
