@@ -14,6 +14,7 @@ import "../App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import moment from "moment";
+import SignPopup from "./modal/SignPopup";
 
 // live banner img
 import live_banner_1 from "../resource/image/banner_646x328 (1).jpg";
@@ -293,7 +294,6 @@ const Main = () => {
   const [theme, setTheme] = useState("light");
   //현 시간
   // const nowTime = moment().format("HH:mm:ss");
-  // console.log(nowTime);
 
   // tournament 데이터 종합
   const dataBook = {
@@ -305,10 +305,9 @@ const Main = () => {
     type: pickMenu,
     footer: footerInfo,
   };
-
+  //전체 데이터
   const tournamentData = { ...dataBook };
-  console.log("tournamentData");
-  console.log(tournamentData);
+
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
   // const [gameType, setGameType] = useState({});
@@ -365,8 +364,6 @@ const Main = () => {
     theme === "light"
       ? setTheme("dark")
       : setTheme("light");
-    console.log("theme 모드 설정");
-    console.log(theme);
   };
 
   // auto resize handler
@@ -444,6 +441,7 @@ const Main = () => {
         <StyledApp>
           <div className="main-container">
             <div className="main-wrapper">
+              <SignPopup />
               <header>
                 <NaviBar
                   onClick={() => themeToggler()}

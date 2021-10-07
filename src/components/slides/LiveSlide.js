@@ -10,8 +10,6 @@ import notice from "../../resource/icons/icon-arrow-i.png";
 import { AddComma } from "../Main";
 
 const LiveSlide = ({ live, size }) => {
-  // console.log("live로 넘어온 size");
-  // console.log(size);
   const liveSettings = {
     arrows: false,
     dots: true,
@@ -27,8 +25,6 @@ const LiveSlide = ({ live, size }) => {
     swipeToSlide: false,
     touchMove: true,
   };
-  console.log("live");
-  console.log(live);
   return (
     <>
       {live !== undefined && (

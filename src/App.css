@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./resource/fonts/Inter-Medium.ttf")
+    format("truetype");
+}
+
 .App {
   text-align: center;
   /* -ms-user-select: none;
@@ -20,6 +26,7 @@ body {
   -ms-overflow-scrolling: touch;
   -webkit-appearance: none;
   -ms-overflow-style: none;
+  overscroll-behavior-y: contain;
 }
 
 .App-header {
@@ -35,9 +42,4 @@ body {
 
 .App-link {
   color: #61dafb;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("./resource/fonts/Inter-Medium.ttf")
-    format("truetype");
 }
