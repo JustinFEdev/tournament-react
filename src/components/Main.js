@@ -6,14 +6,14 @@ import React, {
 import ContinueSlide from "./slides/ContinueSlide";
 import LiveSlide from "./slides/LiveSlide";
 import MissionSlide from "./slides/MissionSlide";
-// import GameItem from "./slides/GameItem";
+import GameItem from "./slides/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.scss";
 import "../App.css";
-// import Slider from "react-slick";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// import moment from "moment";
+import moment from "moment";
 import SignPopup from "./modal/SignPopup";
 
 // live banner img
@@ -31,7 +31,6 @@ import {
   darkTheme,
   GlobalStyles,
 } from "../themes";
-import LoaderSpinner from "./util/LoaderSpinner";
 // import ToggleComponent from "./util/ToggleComponent";
 
 export function AddComma(num) {
@@ -43,21 +42,21 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `;
 
-// const SideOpac = styled.div`
-//   position: absolute;
-//   height: 68%;
-//   width: 15px;
-//   right: 0;
-//   bottom: 0;
-//   opacity: 0.4;
-//   -webkit-filter: blur(5px);
-//   -moz-filter: blur(5px);
-//   -o-filter: blur(5px);
-//   -ms-filter: blur(5px);
-//   filter: blur(6px);
-//   background-color: #fff;
-//   z-index: 10;
-// `;
+const SideOpac = styled.div`
+  position: absolute;
+  height: 68%;
+  width: 15px;
+  right: 0;
+  bottom: 0;
+  opacity: 0.4;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(6px);
+  background-color: #fff;
+  z-index: 10;
+`;
 
 //weekly mission datas
 const datas = [
@@ -204,6 +203,7 @@ const featureInfo = [
     point: 2,
     user: 305,
     img: "1111",
+    type: 1,
   },
   {
     id: 2,
@@ -211,6 +211,7 @@ const featureInfo = [
     point: 1020,
     user: 22,
     img: "2222",
+    type: 1,
   },
   {
     id: 3,
@@ -218,6 +219,31 @@ const featureInfo = [
     point: 2066,
     user: 878,
     img: "3333",
+    type: 2,
+  },
+  {
+    id: 2,
+    time: 6,
+    point: 1020,
+    user: 22,
+    img: "2222",
+    type: 2,
+  },
+  {
+    id: 3,
+    time: 65,
+    point: 2066,
+    user: 878,
+    img: "3333",
+    type: 2,
+  },
+  {
+    id: 3,
+    time: 65,
+    point: 2066,
+    user: 878,
+    img: "3333",
+    type: 2,
   },
 ];
 // footer;
@@ -251,7 +277,8 @@ const footerInfo = [
 
 //하단 게임메뉴 data
 const pickMenu = [
-  "newarivel",
+  "all games",
+  "new arivel",
   "shooting",
   "sports",
   "arcade",
@@ -287,15 +314,13 @@ const Main = () => {
   // weekly mession state
   const [weekly, setWeekly] = useState();
   // weekly mession state
-  // const [feature, setFeature] = useState();
+  const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
-  // loading spinner
-  const [loading, setLoading] = useState(true);
   // dark mode
   const [theme, setTheme] = useState("light");
   //현 시간
-  // const nowTime = moment().format("HH:mm:ss");
+  const nowTime = moment().format("HH:mm:ss");
 
   // tournament 데이터 종합
   const dataBook = {
@@ -307,29 +332,32 @@ const Main = () => {
     type: pickMenu,
     footer: footerInfo,
   };
+  console.log("dataBook");
+  console.log(dataBook);
+
   //전체 데이터
   const tournamentData = { ...dataBook };
 
   //하단 게임메뉴 state
-  // const [allItem, setAllItem] = useState(true);
-  // const [gameType, setGameType] = useState({});
-  // const [max, setMax] = useState();
+  const [allItem, setAllItem] = useState(true);
+  const [gameType, setGameType] = useState({});
+  const [max, setMax] = useState();
 
   //하단 게임메뉴 slide
-  // const titleSettings = {
-  //   arrows: false,
-  //   dots: false,
-  //   infinite: false,
-  //   speed: 500,
-  //   slidesToShow: 4,
-  //   // slidesToScroll: 1,
-  //   initialSlide: 0,
-  //   centerMode: false,
-  //   swipe: true,
-  //   swipeToSlide: true,
-  //   touchMove: true,
-  //   useCss: true,
-  // };
+  const titleSettings = {
+    arrows: false,
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    // slidesToScroll: 1,
+    initialSlide: 0,
+    centerMode: false,
+    swipe: true,
+    swipeToSlide: true,
+    touchMove: true,
+    useCss: true,
+  };
 
   // ContinueSlide && MissionSlide
   const typeData = [
@@ -395,17 +423,17 @@ const Main = () => {
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
-    // const status = [
-    //   "newarivel",
-    //   "shooting",
-    //   "sports",
-    //   "arcade",
-    //   "rpg",
-    //   "adventure",
-    //   "puzzle",
-    //   "rhythm",
-    // ];
-    setLoading(false);
+    const status = [
+      "all games",
+      "new arivel",
+      "shooting",
+      "sports",
+      "arcade",
+      "rpg",
+      "adventure",
+      "puzzle",
+      "rhythm",
+    ];
     for (var i = 0; i < 100; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
@@ -441,193 +469,206 @@ const Main = () => {
       >
         <GlobalStyles />
         <StyledApp>
-          {loading ? (
-            <LoaderSpinner />
-          ) : (
-            <div className="main-container">
-              <div className="main-wrapper">
-                <SignPopup />
-                <header>
-                  <NaviBar
-                    onClick={() => themeToggler()}
-                    theme={theme}
-                  />
-                </header>
+          <div className="main-container">
+            <div className="main-wrapper">
+              <SignPopup />
+              <header>
+                <NaviBar
+                  onClick={() => themeToggler()}
+                  theme={theme}
+                />
+              </header>
 
-                {/* <SideOpac /> */}
+              {/* <SideOpac /> */}
 
-                {/* 연습용  ToggleComponent 기능*/}
-                {/* <ToggleComponent /> */}
-                {/* LiveSlide */}
-                <div className="main-live-wrapper">
-                  <LiveSlide
-                    live={live}
-                    size={widthStatus}
-                  />
-                </div>
+              {/* 연습용  ToggleComponent 기능*/}
+              {/* <ToggleComponent /> */}
+              {/* LiveSlide */}
+              <div className="main-live-wrapper">
+                <LiveSlide live={live} size={widthStatus} />
+              </div>
 
-                {/* Weekly Mission & Continue Playing */}
-                {typeData !== undefined && (
-                  <>
-                    {typeData.map((info, index) => (
-                      <div
-                        className="slide-contianer"
-                        key={index}
-                      >
-                        <div className="slide-wrapper">
-                          <div className="slide-space">
-                            <div className="slide-title-wrapper">
-                              {/* Continue Playing */}
-                              <span className="slide-title">
-                                {info.title}
-                              </span>
-                              {/* option */}
-                              <a href={info.direction}>
-                                <span className="slide-route">
-                                  {info.route}
-                                </span>
-                              </a>
-                            </div>
-                            {info.id === 2 && (
-                              <>
-                                <div
-                                  style={{
-                                    border:
-                                      "solid 1px #e6e8ec",
-                                    borderRadius: 10,
-                                    padding:
-                                      "0 15.4px 16px 15.4px",
-                                    marginTop: 17,
-                                  }}
-                                >
-                                  <div className="weekly-textwrapper">
-                                    <div
-                                      style={{
-                                        display: "flex",
-                                        alignItems:
-                                          "center",
-                                      }}
-                                    >
-                                      <p className="weekly-towin">
-                                        You Won
-                                      </p>
-                                      <span className="weekly-ppimg-layout">
-                                        <p className="weekly-ppimg-text">
-                                          PP
-                                        </p>
-                                      </span>
-                                      <div className="weekly-game-status">
-                                        2,000
-                                      </div>
-                                    </div>
-                                    <span
-                                      style={{
-                                        // width: 61,
-                                        // height: 24,
-                                        fontSize: 12,
-                                        fontWeight: "bold",
-                                        display: "flex",
-                                        alignItems:
-                                          "center",
-                                        justifyContent:
-                                          "center",
-                                        padding: "4px 16px",
-                                        borderRadius: 12,
-                                        color: "#fff",
-                                        backgroundImage:
-                                          "linear-gradient(103deg, var(--primay-2-01) -11%, #92b2ff 122%, var(--primay-2-02) 122%)",
-                                      }}
-                                    >
-                                      0/30
-                                    </span>
-                                  </div>
-                                  <div className="weekly-progress-layout">
-                                    <Progress done="70" />
-                                  </div>
-                                </div>
-                              </>
-                            )}
-                          </div>
-                          <div
-                            style={{
-                              position: "absolute",
-                              height: "100%",
-                              right: -5,
-                              // top: "32%",
-                              zIndex: 10,
-                            }}
-                          >
-                            <div className="main-sideblur" />
-                          </div>
-                          {info.id === 1 && (
-                            <>
-                              <div
+              {/* Weekly Mission & Continue Playing */}
+              {typeData !== undefined && (
+                <>
+                  {typeData.map((info, index) => (
+                    <div
+                      className="slide-contianer"
+                      style={{
+                        backgroundColor:
+                          info.id === 2 &&
+                          "var(--primay-2-01)",
+                        padding:
+                          info.id === 2 && "21px 0 21px 0",
+                      }}
+                      key={index}
+                    >
+                      <div className="slide-wrapper">
+                        <div className="slide-space">
+                          <div className="slide-title-wrapper">
+                            {/* Continue Playing */}
+                            <span
+                              className="slide-title"
+                              style={{
+                                color:
+                                  info.id === 2 && "#fff",
+                              }}
+                            >
+                              {info.title}
+                            </span>
+                            {/* option */}
+                            <a href={info.direction}>
+                              <span
+                                className="slide-route"
                                 style={{
-                                  width:
-                                    widthStatus < 361
-                                      ? 410
-                                      : 750,
-                                  overflow: "hidden",
-                                  paddingLeft: 11,
+                                  color:
+                                    info.id === 2 && "#fff",
                                 }}
                               >
-                                {/* {info.slide} */}
-                                <ContinueSlide
-                                  conti={conti}
-                                  size={widthStatus}
-                                />
-                              </div>
-                            </>
-                          )}
+                                {info.route}
+                              </span>
+                            </a>
+                          </div>
                           {info.id === 2 && (
                             <>
                               <div
                                 style={{
-                                  width:
-                                    widthStatus < 361
-                                      ? 500
-                                      : 750,
-                                  overflow: "hidden",
-                                  paddingLeft: 11,
+                                  backgroundColor: "#fff",
+                                  border:
+                                    "solid 1px #e6e8ec",
+                                  borderRadius: 10,
+                                  padding:
+                                    "0 15.4px 16px 15.4px",
+                                  marginTop: 17,
                                 }}
                               >
-                                <MissionSlide
-                                  weekly={weekly}
-                                  size={widthStatus}
-                                />
+                                <div className="weekly-textwrapper">
+                                  <div
+                                    style={{
+                                      display: "flex",
+                                      alignItems: "center",
+                                    }}
+                                  >
+                                    <p className="weekly-towin">
+                                      You Won
+                                    </p>
+                                    <span className="weekly-ppimg-layout">
+                                      <p className="weekly-ppimg-text">
+                                        PP
+                                      </p>
+                                    </span>
+                                    <div className="weekly-game-status">
+                                      2,000
+                                    </div>
+                                  </div>
+                                  <span
+                                    style={{
+                                      // width: 61,
+                                      // height: 24,
+                                      fontSize: 12,
+                                      fontWeight: "bold",
+                                      display: "flex",
+                                      alignItems: "center",
+                                      justifyContent:
+                                        "center",
+                                      padding: "4px 16px",
+                                      borderRadius: 12,
+                                      color: "#fff",
+                                      backgroundImage:
+                                        "linear-gradient(103deg, var(--primay-2-01) -11%, #92b2ff 122%, var(--primay-2-02) 122%)",
+                                    }}
+                                  >
+                                    0/30
+                                  </span>
+                                </div>
+                                <div className="weekly-progress-layout">
+                                  <Progress done="70" />
+                                </div>
                               </div>
-                              <p className="weekly-daycount">
-                                <span
-                                  style={{
-                                    color:
-                                      "var(--primay-2-01)",
-                                    fontSize: 16,
-                                    fontWeight: 500,
-                                  }}
-                                >
-                                  {info.complete} days
-                                </span>{" "}
-                                <span
-                                  style={{
-                                    color:
-                                      "var(--neutral-2)",
-                                    fontSize: 16,
-                                  }}
-                                >
-                                  left to complet
-                                </span>
-                              </p>
                             </>
                           )}
-                          {/* <div className="slide-area"> */}
-                          {/* </div> */}
                         </div>
+                        <div
+                          style={{
+                            position: "absolute",
+                            height: "100%",
+                            right: -5,
+                            // top: "32%",
+                            zIndex: 10,
+                          }}
+                        >
+                          <div className="main-sideblur" />
+                        </div>
+                        {info.id === 1 && (
+                          <>
+                            <div
+                              style={{
+                                width:
+                                  widthStatus < 361
+                                    ? 410
+                                    : 750,
+                                overflow: "hidden",
+                                paddingLeft: 11,
+                              }}
+                            >
+                              {/* {info.slide} */}
+                              <ContinueSlide
+                                conti={conti}
+                                size={widthStatus}
+                              />
+                            </div>
+                          </>
+                        )}
+                        {info.id === 2 && (
+                          <>
+                            <div
+                              style={{
+                                width:
+                                  widthStatus < 361
+                                    ? 500
+                                    : 750,
+                                overflow: "hidden",
+                                paddingLeft: 11,
+                              }}
+                            >
+                              <MissionSlide
+                                weekly={weekly}
+                                size={widthStatus}
+                              />
+                            </div>
+                            <p className="weekly-daycount">
+                              <span
+                                style={{
+                                  color: "#fff",
+                                  // "var(--primay-2-01)",
+                                  fontSize: 16,
+                                  fontWeight: 600,
+                                }}
+                              >
+                                {info.complete} days
+                              </span>{" "}
+                              <span
+                                style={{
+                                  color: "#fff",
+                                  opacity: 0.7,
+                                  // color: "var(--neutral-2)",
+                                  fontSize: 16,
+                                }}
+                              >
+                                left to complet
+                              </span>
+                            </p>
+                          </>
+                        )}
+                        {/* <div className="slide-area"> */}
+                        {/* </div> */}
                       </div>
-                    ))}
-                  </>
-                )}
-                {/* Featured Tournament */}
-                {/* <div className="featured-container">
+                    </div>
+                  ))}
+                </>
+              )}
+              {/* Featured Tournament */}
+              <div className="featured-container">
                 <div
                   style={{
                     width: "100%",
@@ -635,7 +676,7 @@ const Main = () => {
                 >
                   <div
                     style={{
-                      padding: "0 30px",
+                      padding: "0 16px",
                     }}
                   >
                     <p className="featured-title">
@@ -644,180 +685,90 @@ const Main = () => {
                     {tournamentData.feature !==
                       undefined && (
                       <>
+                        {/* <div
+                          style={{
+                            width: "100%",
+                            height: 300,
+                            backgroundColor: "GrayText",
+                            border: "1px solid",
+                          }}
+                        /> */}
                         {tournamentData.feature.map(
                           (data) => (
                             <>
-                              {data.id === 1 && (
+                              {data.type === 1 && (
                                 <>
-                                  <div
-                                    className="featured-img"
-                                    alt={data.img}
-                                  />
-                                  <div className="featured-infoarea">
-                                    <span className="gameItem-pointarea">
-                                      <div className="gameItem-icon">
-                                        <p
-                                          style={{
-                                            paddingTop: 2.5,
-                                          }}
-                                        >
-                                          PP
-                                        </p>
-                                      </div>
-                                      <div className="gameItem-point">
-                                        {data.point}
-                                      </div>
-                                    </span>
-                                    <span className="gameItem-userarea">
-                                      <div className="gameItem-usericon">
-                                        Icon
-                                      </div>
-                                      <span className="gameItem-number">
-                                        {data.user}
-                                      </span>
-                                      <div>Info icon</div>
-                                    </span>
+                                  <div style={{}}>
+                                    <div
+                                      className="featured-img"
+                                      alt={data.img}
+                                    />
                                   </div>
                                 </>
                               )}
                             </>
                           )
                         )}
-                        <div className="featured-smallarea">
-                          {tournamentData.feature.map(
-                            (data) => (
-                              <>
-                                {data.id === 2 && (
-                                  <>
-                                    <div className="featured-samll-wrapper">
-                                      <div
-                                        className="featured-samll-img"
-                                        alt="1"
-                                      />
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                          justifyContent:
-                                            "space-between",
-                                        }}
-                                      >
-                                        <span className="gameItem-pointarea">
-                                          <div className="gameItem-icon">
-                                            <p
-                                              style={{
-                                                paddingTop: 2.5,
-                                              }}
-                                            >
-                                              PP
-                                            </p>
-                                          </div>
-                                          <div className="gameItem-point">
-                                            {data.point}
-                                          </div>
-                                        </span>
-                                        <span className="gameItem-userarea">
-                                          <div className="gameItem-usericon">
-                                            Icon
-                                          </div>
-                                          <span className="gameItem-number">
-                                            {data.user}
-                                          </span>
-                                          <div>
-                                            Info icon
-                                          </div>
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </>
-                                )}
-                                {data.id === 3 && (
-                                  <>
-                                    <div className="featured-samll-wrapper">
-                                      <div
-                                        className="featured-samll-img"
-                                        alt="1"
-                                      />
-                                      <div
-                                        style={{
-                                          display: "flex",
-                                          justifyContent:
-                                            "space-between",
-                                        }}
-                                      >
-                                        <span className="gameItem-pointarea">
-                                          <div className="gameItem-icon">
-                                            <p
-                                              style={{
-                                                paddingTop: 2.5,
-                                              }}
-                                            >
-                                              PP
-                                            </p>
-                                          </div>
-                                          <div className="gameItem-point">
-                                            {data.point}
-                                          </div>
-                                        </span>
-                                        <span className="gameItem-userarea">
-                                          <div className="gameItem-usericon">
-                                            Icon
-                                          </div>
-                                          <span className="gameItem-number">
-                                            {data.user}
-                                          </span>
-                                          <div>
-                                            Info icon
-                                          </div>
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </>
-                                )}
-                              </>
-                            )
-                          )}
-                        </div>
                       </>
                     )}
                   </div>
+                  <div className="featured-samllarea">
+                    {tournamentData.feature.map((data) => (
+                      <>
+                        {data.type === 2 && (
+                          <>
+                            <div className="featured-samll-wrapper">
+                              <div
+                                className="featured-samll-img"
+                                alt="1"
+                              />
+                            </div>
+                          </>
+                        )}
+                      </>
+                    ))}
+                  </div>
+                  <div className="gameitems-overtext">
+                    <a>View All Games</a>
+                  </div>
                 </div>
-              </div> */}
-                {/* Slide menu */}
-                {/* <div className="menu-container">
-                <span
+              </div>
+              {/* Slide menu */}
+              <div className="menu-container">
+                {/* <span
                   className="menu-selector"
                   style={{
-                    backgroundColor: "#9bd0e1",
-                    color: "#fff",
+                    color: "var(--neutral-1)",
                   }}
                 >
                   All Games
-                </span>
-                <span
+                </span> */}
+                {/* <span
                   className="menu-selector"
                   style={{
-                    backgroundColor: "#fff",
-                    border: "solid 2.5px #77b5c9",
-                    color: "#77b5c9",
+                    color: "var(--neutral-3)",
                   }}
                 >
                   New Arrival
                 </span> */}
 
                 {/* 슬라이더안 div(잠시 주석) */}
-                {/* <div>
-                  <button
+                <div>
+                  {/* <button
                     onClick={() => setAllItem(allItem)}
                     className="menu-selector"
+                    style={{
+                      color: "var(--neutral-1)",
+                    }}
                   >
                     All Games
-                  </button>
+                  </button> */}
                 </div>
                 <div style={{ width: "100%" }}>
                   <Slider {...titleSettings}>
-                    {pickMenu.map((info) => (
+                    {tournamentData.type.map((info) => (
                       <>
-                        <div
+                        {/* <div
                           style={{
                             display: "inline-flex",
                             width: "100%",
@@ -845,39 +796,38 @@ const Main = () => {
                                 {info.type}
                               </button>
                             </>
-                          ) : (
-                            <>
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setGameType(info.type)
-                                }
-                                className="menu-selector-sub"
-                                style={{
-                                  border:
-                                    gameType === info.type
-                                      ? "solid 2.5px black"
-                                      : "solid 2.5px #77b5c9",
-                                  color:
-                                    gameType === info.type
-                                      ? "black"
-                                      : "#77b5c9",
-                                  padding: "0px ​10px",
-                                  textTransform:
-                                    "capitalize",
-                                }}
-                              >
-                                {info.type}
-                              </button>
-                            </>
-                          )}
-                        </div>
+                          ) : ( */}
+                        <>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setGameType(info)
+                            }
+                            className="menu-selector"
+                            style={{
+                              // border:
+                              //   gameType === info.type
+                              //     ? "solid 2.5px black"
+                              //     : "solid 2.5px #77b5c9",
+                              color:
+                                gameType === info
+                                  ? "black"
+                                  : "#77b5c9",
+                              padding: "0px ​10px",
+                              textTransform: "capitalize",
+                            }}
+                          >
+                            {info}
+                          </button>
+                        </>
+                        {/* )}
+                        </div> */}
                       </>
                     ))}
                   </Slider>
                 </div>
-              </div> */}
-                {/* <div className="gameitems-container">
+              </div>
+              <div className="gameitems-container">
                 <div className="gameitems-wrapper">
                   <GameItem
                     menuData={gameData}
@@ -885,38 +835,37 @@ const Main = () => {
                     limitNum={true}
                   />
                 </div>
-              </div> */}
-                {/* {gameData.length > 15 && (
+              </div>
+              {/* {gameData.length > 15 && (
                 <>
                   <div className="gameitems-overtext">
                     <a href="/allgames">View All Games</a>
                   </div>
                 </>
               )} */}
-                <footer>
-                  {tournamentData.footer !== undefined && (
-                    <>
-                      {tournamentData.footer.map((info) => (
-                        <>
-                          <span className="footer-ppimg-layout">
-                            <p className="footer-ppimg-text">
-                              PP
-                            </p>
-                          </span>
-                          <div className="footer-game-point">
-                            {AddComma(info.point)}
-                          </div>
-                          <div className="footer-game-name">
-                            {info.user}
-                          </div>
-                        </>
-                      ))}
-                    </>
-                  )}
-                </footer>
-              </div>
+              <footer>
+                {tournamentData.footer !== undefined && (
+                  <>
+                    {tournamentData.footer.map((info) => (
+                      <>
+                        <span className="footer-ppimg-layout">
+                          <p className="footer-ppimg-text">
+                            PP
+                          </p>
+                        </span>
+                        <div className="footer-game-point">
+                          {AddComma(info.point)}
+                        </div>
+                        <div className="footer-game-name">
+                          {info.user}
+                        </div>
+                      </>
+                    ))}
+                  </>
+                )}
+              </footer>
             </div>
-          )}
+          </div>
         </StyledApp>
       </ThemeProvider>
     </>
