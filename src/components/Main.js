@@ -57,7 +57,45 @@ const SideOpac = styled.div`
   background-color: #fff;
   z-index: 10;
 `;
-
+//Live mission
+const liveInfo = [
+  {
+    id: 1,
+    status: "live",
+    title: "Bit Miner Bit 22 Miner Game",
+    // time: nowTime,
+    point: 2000,
+    number: 35,
+    img: live_banner_1,
+  },
+  {
+    id: 2,
+    status: "live",
+    title: "Spooky Bumb Game",
+    time: 6,
+    point: 12000,
+    number: 22,
+    img: live_banner_2,
+  },
+  {
+    id: 3,
+    status: "live",
+    title: "Bit Miner Bit 22 Miner Game",
+    time: 65,
+    point: 266,
+    number: 878,
+    img: live_banner_3,
+  },
+  {
+    id: 4,
+    status: "live",
+    title: "dd",
+    time: "24:00:00",
+    point: 2000,
+    number: 45,
+    img: live_banner_2,
+  },
+];
 //weekly mission datas
 const datas = [
   {
@@ -156,45 +194,7 @@ const contiInfo = [
     img: continue_img_2,
   },
 ];
-//Live mission
-const liveInfo = [
-  {
-    id: 1,
-    status: "live",
-    title: "Bit Miner Bit 22 Miner Game",
-    // time: nowTime,
-    point: 2000,
-    number: 35,
-    img: live_banner_1,
-  },
-  {
-    id: 2,
-    status: "live",
-    title: "Spooky Bumb Game",
-    time: 6,
-    point: 12000,
-    number: 22,
-    img: live_banner_2,
-  },
-  {
-    id: 3,
-    status: "live",
-    title: "Bit Miner Bit 22 Miner Game",
-    time: 65,
-    point: 266,
-    number: 878,
-    img: live_banner_3,
-  },
-  {
-    id: 4,
-    status: "live",
-    title: "dd",
-    time: "24:00:00",
-    point: 2000,
-    number: 45,
-    img: live_banner_2,
-  },
-];
+
 // feature;
 const featureInfo = [
   {
@@ -202,7 +202,7 @@ const featureInfo = [
     time: 4,
     point: 2,
     user: 305,
-    img: "1111",
+    img: live_banner_1,
     type: 1,
   },
   {
@@ -210,7 +210,7 @@ const featureInfo = [
     time: 6,
     point: 1020,
     user: 22,
-    img: "2222",
+    img: live_banner_1,
     type: 1,
   },
   {
@@ -218,7 +218,7 @@ const featureInfo = [
     time: 65,
     point: 2066,
     user: 878,
-    img: "3333",
+    img: continue_img_3,
     type: 2,
   },
   {
@@ -226,7 +226,7 @@ const featureInfo = [
     time: 6,
     point: 1020,
     user: 22,
-    img: "2222",
+    img: continue_img_2,
     type: 2,
   },
   {
@@ -234,7 +234,7 @@ const featureInfo = [
     time: 65,
     point: 2066,
     user: 878,
-    img: "3333",
+    img: continue_img_1,
     type: 2,
   },
   {
@@ -242,7 +242,7 @@ const featureInfo = [
     time: 65,
     point: 2066,
     user: 878,
-    img: "3333",
+    img: continue_img_3,
     type: 2,
   },
 ];
@@ -496,10 +496,10 @@ const Main = () => {
                       className="slide-contianer"
                       style={{
                         backgroundColor:
-                          info.id === 2 &&
-                          "var(--primay-2-01)",
-                        padding:
-                          info.id === 2 && "21px 0 21px 0",
+                          info.id === 2
+                            ? "var(--primay-2-01)"
+                            : info.id === 1 && "#f1f1f5",
+                        padding: "21px 0 21px 0",
                       }}
                       key={index}
                     >
@@ -672,6 +672,7 @@ const Main = () => {
                 <div
                   style={{
                     width: "100%",
+                    // height: 500,
                   }}
                 >
                   <div
@@ -698,11 +699,77 @@ const Main = () => {
                             <>
                               {data.type === 1 && (
                                 <>
-                                  <div style={{}}>
-                                    <div
+                                  <div
+                                    style={{
+                                      position: "relative",
+                                      marginTop: 11,
+                                      height: "100%",
+                                      width: "100%",
+                                    }}
+                                  >
+                                    <img
                                       className="featured-img"
+                                      src={data.img}
                                       alt={data.img}
                                     />
+
+                                    <div
+                                      style={{
+                                        position:
+                                          "absolute",
+                                        zIndex: 2,
+                                        top: 0,
+                                        right: 0,
+                                        display: "flex",
+                                        justifyContent:
+                                          "space-between",
+                                        // padding:
+                                        //   "14px 11px 0 0 ",
+                                        color: "#fff",
+                                      }}
+                                    >
+                                      <div
+                                        className="content-time-wrapper"
+                                        style={{
+                                          justifyContent:
+                                            "flex-start",
+                                        }}
+                                      >
+                                        <div
+                                          className="content-time-text"
+                                          style={{
+                                            marginLeft: 7,
+                                          }}
+                                        >
+                                          <span className="content-time-overlay" />
+                                          <p className="content-time">
+                                            {/* Time : */}
+                                            {/* {info.time} */}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    <div
+                                      style={{
+                                        position:
+                                          "absolute",
+                                        zIndex: 2,
+                                        width: "89%",
+                                        bottom: 0,
+                                        display: "flex",
+                                        justifyContent:
+                                          "space-between",
+                                        padding:
+                                          "0px 5.5% 13.4px",
+                                        color: "#fff",
+                                      }}
+                                    >
+                                      <span>player</span>
+                                      <div>
+                                        game win info
+                                      </div>
+                                    </div>
                                   </div>
                                 </>
                               )}
@@ -712,24 +779,86 @@ const Main = () => {
                       </>
                     )}
                   </div>
+                  {/* feature 작은항목 */}
                   <div className="featured-samllarea">
                     {tournamentData.feature.map((data) => (
                       <>
                         {data.type === 2 && (
                           <>
-                            <div className="featured-samll-wrapper">
-                              <div
+                            <div
+                              className="featured-samll-wrapper"
+                              style={{}}
+                            >
+                              <img
+                                style={{}}
                                 className="featured-samll-img"
-                                alt="1"
+                                src={data.img}
+                                alt={data.img}
                               />
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  fontSize: 14,
+                                  textAlign: "left",
+                                  color: "#fff",
+                                  zIndex: 3,
+                                  padding: "0 16px 11.5px",
+                                  borderRadius: 10,
+                                  width: 117,
+                                  backgroundImage:
+                                    "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
+                                }}
+                              >
+                                <div>
+                                  <span
+                                    style={{
+                                      marginRight: 5,
+                                    }}
+                                  >
+                                    8.1M
+                                  </span>
+                                  <span>Player</span>
+                                  <img
+                                    // src={notice}
+                                    alt=""
+                                    style={{
+                                      cursor: "pointer",
+                                    }}
+                                  />
+                                </div>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    justifyContent:
+                                      "flex-start",
+                                    marginTop: 8,
+                                  }}
+                                >
+                                  <span>Win</span>
+                                  <span className="pp-wrapper">
+                                    <div className="pp-text">
+                                      PP
+                                    </div>
+                                  </span>
+                                  <span
+                                    style={{
+                                      fontSize: 16,
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {/* {AddComma(info.point)} */}
+                                    point
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </>
                         )}
                       </>
                     ))}
-                  </div>
-                  <div className="gameitems-overtext">
-                    <a>View All Games</a>
+                    <div className="gameitems-overtext">
+                      View All Games
+                    </div>
                   </div>
                 </div>
               </div>

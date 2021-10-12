@@ -4,6 +4,15 @@ import "./popup.scss";
 
 const SignPopup = () => {
   const [activePopup, setActivePopup] = useState(true);
+  const metaBtnHandle = () => {
+    console.log("METAMASK");
+  };
+  const coinbaseBtnHandle = () => {
+    console.log("Coinbase");
+  };
+  const portisBtnHandle = () => {
+    console.log("Portis");
+  };
   const Overlay = styled.div`
     position: fixed;
     background-color: var(--primay-2-01);
@@ -66,7 +75,11 @@ const SignPopup = () => {
                 >
                   Connect Wallet
                 </p>
-                <div className="connect-button" style={{}}>
+                <div
+                  className="connect-button"
+                  style={{}}
+                  onClick={metaBtnHandle}
+                >
                   <label>
                     <span>ㅁ</span>
                     <span
@@ -74,12 +87,17 @@ const SignPopup = () => {
                         color: "#fff",
                         letterSpacing: "2.5px",
                       }}
+                      type="button"
                     >
                       METAMASK
                     </span>
                   </label>
                 </div>
-                <div className="connect-button" style={{}}>
+                <div
+                  className="connect-button"
+                  style={{}}
+                  onClick={coinbaseBtnHandle}
+                >
                   <label>
                     <span>ㅁ</span>
                     <span style={{ color: "#fff" }}>
@@ -87,7 +105,11 @@ const SignPopup = () => {
                     </span>
                   </label>
                 </div>
-                <div className="connect-button" style={{}}>
+                <div
+                  className="connect-button"
+                  style={{}}
+                  onClick={portisBtnHandle}
+                >
                   <label>
                     <span>ㅁ</span>
                     <span style={{ color: "#fff" }}>
@@ -112,7 +134,12 @@ const SignPopup = () => {
                       borderRadius: 10,
                       color: "var(--neutral-3)",
                     }}
-                    onClick={() => setActivePopup(false)}
+                    onClick={() =>
+                      setActivePopup(
+                        false,
+                        console.log("Guest mode")
+                      )
+                    }
                   >
                     Guest Play
                   </div>

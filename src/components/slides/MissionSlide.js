@@ -21,7 +21,7 @@ const MissionSlide = ({ weekly, size }) => {
     // slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,
@@ -65,6 +65,8 @@ const MissionSlide = ({ weekly, size }) => {
                   <div
                     style={{
                       position: "relative",
+                      display: "flex",
+                      justifyContent: "center",
                     }}
                   >
                     <div
@@ -107,32 +109,104 @@ const MissionSlide = ({ weekly, size }) => {
                       alt=""
                     />
                   </div> */}
-                  <div className="content-text-wrapper">
+                  <div
+                    className="content-text-wrapper"
+                    style={{
+                      borderBottom: "1px solid #f1f1f5",
+                      padding: "12px 15px 8px 16px",
+                    }}
+                  >
                     <div className="content-playagin">
-                      <p>Play again to</p>
-                      <div className="content-trophy-layout">
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                        }}
+                      >
+                        <p>To Win</p>
+                        <div className="content-wininfo">
+                          <span className="pp-wrapper">
+                            <div className="pp-text">
+                              PP
+                            </div>
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 16,
+                              fontWeight: 500,
+                              color: "#1b202a",
+                            }}
+                          >
+                            {AddComma(info.point)}
+                          </span>
+                        </div>
+                      </div>
+                      {/* 트로피 아이콘 */}
+                      {/* <div className="content-trophy-layout">
                         <span className="content-trophy-overlay" />
                         <img
                           className="content-trophy-img"
                           src={trophy}
                           alt="11"
                         />
-                      </div>
+                      </div> */}
                     </div>
-                    <div className="content-wininfo">
-                      <span>Win</span>
-                      <span className="pp-wrapper">
-                        <div className="pp-text">PP</div>
-                      </span>
-                      <span
+                  </div>
+                  <div
+                    className="content-text-wrapper"
+                    style={{
+                      padding: "12px 9px 0 16px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
+                      }}
+                    >
+                      <div
                         style={{
-                          fontSize: 16,
-                          fontWeight: 500,
-                          color: "#1b202a",
+                          display: "flex",
+                          alignItems: "center",
                         }}
                       >
-                        {AddComma(info.point)}
-                      </span>
+                        <p
+                          style={{
+                            fontSize: 13,
+                            color: "var(--neutral-2)",
+                            letterSpacing: "-0.2px",
+                          }}
+                        >
+                          Target
+                        </p>
+                        <p
+                          style={{
+                            fontSize: 18,
+                            fontWeight: 600,
+                            color: "var(--primay-2-01)",
+                            marginLeft: 7,
+                          }}
+                        >
+                          60
+                        </p>
+                      </div>
+                      <button
+                        style={{
+                          width: 97,
+                          height: 40,
+                          borderRadius: 10,
+                          border:
+                            "solid 1px var(--primay-2-01)",
+                          backgroundColor:
+                            "rgba(55, 114, 255, 0.1)",
+                          cursor: "pointer",
+                          color: "var(--primay-2-01)",
+                        }}
+                      >
+                        Start now
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -3,7 +3,11 @@
   src: url("./resource/fonts/Inter-Medium.ttf")
     format("truetype");
 }
-
+@font-face {
+  font-family: "Poppin";
+  src: url("./resource/fonts/Poppins/Poppins-Medium.ttf")
+    format("truetype");
+}
 .App {
   text-align: center;
   /* -ms-user-select: none;

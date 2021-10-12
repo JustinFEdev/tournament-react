@@ -95,7 +95,7 @@
 /* Game Item */
 .gameItem-container {
   cursor: pointer;
-  width: 190px;
+  // width: 190px;
   border-radius: 12.5px;
   box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
   border: solid 2.5px #86b1be;
@@ -103,8 +103,8 @@
   margin: 25px 7px;
 }
 .gameItem-img {
-  width: 190px;
-  height: 191px;
+  width: 103px;
+  height: 103px;
   border-radius: 12.5px 12.5px 0 0;
   background-color: #c9e2ea;
 }
