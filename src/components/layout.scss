@@ -173,20 +173,18 @@ a:link {
   width: 100%;
   height: 100%;
   border-radius: 0 0 16px 16px;
-  // background-color: #09607b;
-  // display: flex;
-  // float: right;
-  // align-items: flex-end;
-  // justify-content: flex-start;
+  display: flex;
+  justify-content: center;
 }
 .content-time-text {
   width: 85px;
   height: 24px;
-  float: right;
   font-size: 13px;
   font-weight: 600;
   margin: 14px 14px 0 0;
   color: #fff;
+  bottom: 0vmax;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -508,11 +506,11 @@ footer {
 .featured-samll-wrapper {
   display: flex;
   align-items: flex-end;
-  padding: 5px;
+  padding: 0 5px 5px 0;
 }
 .featured-samll-img {
   height: 180px;
-  width: 149px;
+  width: 159px;
   // width: 159px;
   border-radius: 12.5px;
   // box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
@@ -531,7 +529,7 @@ footer {
 .menu-selector {
   // width: 70px;
   position: relative;
-  padding: 17px 10px;
+  // padding: 17px 10px;
   font-size: 16px;
   font-weight: bold;
   width: 110px;
@@ -572,7 +570,7 @@ footer {
 }
 
 .gameitems-container {
-  padding: 0 30px;
+  padding: 25px 5px 0 16px;
   text-align: center;
   min-height: 450px;
 }

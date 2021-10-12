@@ -588,7 +588,8 @@ const Main = () => {
                             </>
                           )}
                         </div>
-                        <div
+                        {/* 사이드 블러 효과 */}
+                        {/* <div
                           style={{
                             position: "absolute",
                             height: "100%",
@@ -598,7 +599,7 @@ const Main = () => {
                           }}
                         >
                           <div className="main-sideblur" />
-                        </div>
+                        </div> */}
                         {info.id === 1 && (
                           <>
                             <div
@@ -761,8 +762,13 @@ const Main = () => {
                                         justifyContent:
                                           "space-between",
                                         padding:
-                                          "0px 5.5% 13.4px",
-                                        color: "#fff",
+                                          "33.6px 5.5% 13.4px",
+                                        color:
+                                          "rgb(255, 255, 255)",
+                                        borderRadius:
+                                          "0 0 10px 10px",
+                                        backgroundImage:
+                                          "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
                                       }}
                                     >
                                       <span>player</span>
@@ -804,7 +810,7 @@ const Main = () => {
                                   zIndex: 3,
                                   padding: "0 16px 11.5px",
                                   borderRadius: 10,
-                                  width: 117,
+                                  width: 127,
                                   backgroundImage:
                                     "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
                                 }}

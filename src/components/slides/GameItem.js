@@ -79,13 +79,13 @@ const GameItem = ({ menuData, gameType, limitNum }) => {
                         </div>
                         <div className="gameItem-wrapper">
                           <span className="gameItem-pointarea">
-                            <div className="gameItem-icon">
+                            {/* <div className="gameItem-icon">
                               <p
                                 style={{ paddingTop: 2.5 }}
                               >
                                 PP
                               </p>
-                            </div>
+                            </div> */}
                             <div className="gameItem-point">
                               {data.point}
                             </div>

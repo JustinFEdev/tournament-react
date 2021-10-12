@@ -94,22 +94,25 @@
 
 /* Game Item */
 .gameItem-container {
+  position: relative;
   cursor: pointer;
   // width: 190px;
+  margin: 0 10px 10px 0;
   border-radius: 12.5px;
-  box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
-  border: solid 2.5px #86b1be;
-  background-color: #fff;
-  margin: 25px 7px;
+  // box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
+  // border: solid 2.5px #86b1be;
+  // background-color: #fff;
 }
 .gameItem-img {
   width: 103px;
   height: 103px;
-  border-radius: 12.5px 12.5px 0 0;
+  border-radius: 12.5px;
   background-color: #c9e2ea;
 }
 .gameItem-wrapper {
-  padding: 25px 3%;
+  position: absolute;
+  bottom: 0;
+  // padding: 25px 3%;
 }
 .gameItem-pointarea {
   display: flex;
@@ -124,16 +127,16 @@
   border: solid 1.5px #149231;
   background-color: #38ae53;
   border-radius: 24px;
-  font-size: 22px;
-  font-weight: 800;
+  font-size: 5px;
+  // font-weight: 800;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .gameItem-point {
-  font-size: 26px;
-  font-weight: bold;
+  font-size: 5px;
+  // font-weight: bold;
   color: #09607b;
 }
 .gameItem-userarea {
@@ -148,8 +151,8 @@
   color: #598b9b;
 }
 .gameItem-number {
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 5px;
+  // font-weight: 500;
   color: #598b9b;
 }
 
