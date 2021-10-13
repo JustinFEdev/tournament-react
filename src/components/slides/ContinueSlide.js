@@ -20,7 +20,7 @@ const ContinueSlide = ({ conti, size }) => {
     // slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     swipe: true,
     swipeToSlide: true,
@@ -84,7 +84,14 @@ const ContinueSlide = ({ conti, size }) => {
                     }}
                   >
                     <div className="content-time-wrapper">
-                      <div className="content-time-text">
+                      <div
+                        className="content-time-text"
+                        style={{
+                          bottom: 0,
+                          // margin: "0 0 8px 0",
+                          padding: "0 0 8px 0",
+                        }}
+                      >
                         <span className="content-time-overlay" />
                         <p className="content-time">
                           Time :{info.time}
@@ -98,10 +105,13 @@ const ContinueSlide = ({ conti, size }) => {
                       alt={info.img}
                     />
                   </div>
-                  <div className="content-text-wrapper">
+                  <div
+                    className="content-text-wrapper"
+                    style={{ textAlign: "center" }}
+                  >
                     <div className="content-playagin">
-                      <p style={{ fontSize: 14 }}>
-                        Play again to
+                      <p className="content-gametitle">
+                        Game Title Play again to
                       </p>
                       <div className="content-trophy-layout">
                         <span className="content-trophy-overlay" />

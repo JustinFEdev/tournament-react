@@ -62,7 +62,8 @@ const liveInfo = [
   {
     id: 1,
     status: "live",
-    title: "Bit Miner Bit 22 Miner Game",
+    title:
+      "Bit Miner Bit 22 Miner Game Bit Miner Bit 22 Miner Game ",
     // time: nowTime,
     point: 2000,
     number: 35,
@@ -349,7 +350,7 @@ const Main = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: widthStatus < 360 ? 3 : 4,
     // slidesToScroll: 1,
     initialSlide: 0,
     centerMode: false,
@@ -754,7 +755,6 @@ const Main = () => {
                                         </div>
                                       </div>
                                     </div>
-
                                     <div
                                       style={{
                                         position:
@@ -874,36 +874,13 @@ const Main = () => {
               </div>
               {/* Slide menu */}
               <div className="menu-container">
-                {/* <span
-                  className="menu-selector"
+                <div
                   style={{
-                    color: "var(--neutral-1)",
+                    width: widthStatus < 360 ? 500 : 750,
+                    overflow: "hidden",
+                    paddingLeft: 11,
                   }}
                 >
-                  All Games
-                </span> */}
-                {/* <span
-                  className="menu-selector"
-                  style={{
-                    color: "var(--neutral-3)",
-                  }}
-                >
-                  New Arrival
-                </span> */}
-
-                {/* 슬라이더안 div(잠시 주석) */}
-                <div>
-                  {/* <button
-                    onClick={() => setAllItem(allItem)}
-                    className="menu-selector"
-                    style={{
-                      color: "var(--neutral-1)",
-                    }}
-                  >
-                    All Games
-                  </button> */}
-                </div>
-                <div style={{ width: "100%" }}>
                   <Slider {...titleSettings}>
                     {tournamentData.type.map((info) => (
                       <>

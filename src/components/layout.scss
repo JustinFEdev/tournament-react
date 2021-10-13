@@ -230,13 +230,25 @@ a:link {
   text-align: left;
 }
 .content-playagin {
-  width: 100%;
+  // width: 100%;
+  width: 110px;
   font-size: 14px;
   color: #808191;
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
+.content-gametitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--neutral-1);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .content-wininfo {
   font-size: 14px;
   font-weight: 500;
@@ -533,9 +545,9 @@ footer {
   display: inline-flex;
   overflow: hidden;
 }
+
 .menu-selector {
   position: relative;
-  width: 100%;
   font-size: 16px;
   font-weight: bold;
   padding: 0;
@@ -568,7 +580,8 @@ footer {
 }
 
 .gameitems-container {
-  padding: 25px 5px 0 16px;
+  // padding: 25px 5px 0 16px;
+  padding: 0 5px 0 16px;
   text-align: center;
   min-height: 450px;
 }
