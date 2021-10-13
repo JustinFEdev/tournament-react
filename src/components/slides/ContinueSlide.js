@@ -16,7 +16,7 @@ const ContinueSlide = ({ conti, size }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: size < 361 ? 3 : 6,
+    slidesToShow: size < 360 ? 3 : 6,
     // slidesToShow: 5,
     slidesToScroll: 1,
     initialSlide: 0,

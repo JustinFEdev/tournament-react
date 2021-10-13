@@ -13,7 +13,7 @@ import "../App.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import moment from "moment";
+// import moment from "moment";
 import SignPopup from "./modal/SignPopup";
 
 // live banner img
@@ -42,21 +42,21 @@ const StyledApp = styled.div`
   color: ${(props) => props.theme.fontColor};
 `;
 
-const SideOpac = styled.div`
-  position: absolute;
-  height: 68%;
-  width: 15px;
-  right: 0;
-  bottom: 0;
-  opacity: 0.4;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(6px);
-  background-color: #fff;
-  z-index: 10;
-`;
+// const SideOpac = styled.div`
+//   position: absolute;
+//   height: 68%;
+//   width: 15px;
+//   right: 0;
+//   bottom: 0;
+//   opacity: 0.4;
+//   -webkit-filter: blur(5px);
+//   -moz-filter: blur(5px);
+//   -o-filter: blur(5px);
+//   -ms-filter: blur(5px);
+//   filter: blur(6px);
+//   background-color: #fff;
+//   z-index: 10;
+// `;
 //Live mission
 const liveInfo = [
   {
@@ -314,13 +314,13 @@ const Main = () => {
   // weekly mession state
   const [weekly, setWeekly] = useState();
   // weekly mession state
-  const [feature, setFeature] = useState();
+  // const [feature, setFeature] = useState();
   // game menu data
   const [gameData, setGameData] = useState([]);
   // dark mode
   const [theme, setTheme] = useState("light");
   //현 시간
-  const nowTime = moment().format("HH:mm:ss");
+  // const nowTime = moment().format("HH:mm:ss");
 
   // tournament 데이터 종합
   const dataBook = {
@@ -339,9 +339,9 @@ const Main = () => {
   const tournamentData = { ...dataBook };
 
   //하단 게임메뉴 state
-  const [allItem, setAllItem] = useState(true);
+  // const [allItem, setAllItem] = useState(true);
   const [gameType, setGameType] = useState({});
-  const [max, setMax] = useState();
+  // const [max, setMax] = useState();
 
   //하단 게임메뉴 slide
   const titleSettings = {
@@ -423,30 +423,30 @@ const Main = () => {
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
-    const status = [
-      "all games",
-      "new arivel",
-      "shooting",
-      "sports",
-      "arcade",
-      "rpg",
-      "adventure",
-      "puzzle",
-      "rhythm",
-    ];
+    // const status = [
+    //   "all games",
+    //   "new arivel",
+    //   "shooting",
+    //   "sports",
+    //   "arcade",
+    //   "rpg",
+    //   "adventure",
+    //   "puzzle",
+    //   "rhythm",
+    // ];
     for (var i = 0; i < 100; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
-        Math.floor(Math.random() * 10000000)
+        Math.floor(Math.random() * 1000)
       );
       const choose =
         dataBook.type[
-          Math.floor(Math.random() * 100000) %
+          Math.floor(Math.random() * 100) %
             dataBook.type.length
         ];
 
       const people = AddComma(
-        Math.floor(Math.random() * 100000)
+        Math.floor(Math.random() * 1000)
       );
       const menuDatas = {
         img: count,
@@ -552,8 +552,13 @@ const Main = () => {
                                     <p className="weekly-towin">
                                       You Won
                                     </p>
-                                    <span className="weekly-ppimg-layout">
+                                    {/* <span className="weekly-ppimg-layout">
                                       <p className="weekly-ppimg-text">
+                                        PP
+                                      </p>
+                                    </span> */}
+                                    <span className="pp-wrapper">
+                                      <p className="pp-text">
                                         PP
                                       </p>
                                     </span>
@@ -605,14 +610,13 @@ const Main = () => {
                             <div
                               style={{
                                 width:
-                                  widthStatus < 361
+                                  widthStatus < 360
                                     ? 410
                                     : 750,
                                 overflow: "hidden",
                                 paddingLeft: 11,
                               }}
                             >
-                              {/* {info.slide} */}
                               <ContinueSlide
                                 conti={conti}
                                 size={widthStatus}
@@ -625,7 +629,7 @@ const Main = () => {
                             <div
                               style={{
                                 width:
-                                  widthStatus < 361
+                                  widthStatus < 360
                                     ? 500
                                     : 750,
                                 overflow: "hidden",
@@ -647,7 +651,7 @@ const Main = () => {
                                 }}
                               >
                                 {info.complete} days
-                              </span>{" "}
+                              </span>
                               <span
                                 style={{
                                   color: "#fff",
@@ -933,27 +937,49 @@ const Main = () => {
                             </>
                           ) : ( */}
                         <>
-                          <button
-                            type="button"
-                            onClick={() =>
-                              setGameType(info)
-                            }
-                            className="menu-selector"
+                          <div
                             style={{
-                              // border:
-                              //   gameType === info.type
-                              //     ? "solid 2.5px black"
-                              //     : "solid 2.5px #77b5c9",
-                              color:
-                                gameType === info
-                                  ? "black"
-                                  : "#77b5c9",
-                              padding: "0px ​10px",
-                              textTransform: "capitalize",
+                              textAlign: "center",
+                              width: "100%",
                             }}
                           >
-                            {info}
-                          </button>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setGameType(info)
+                              }
+                              className="menu-selector"
+                              style={{
+                                // border:
+                                //   gameType === info.type
+                                //     ? "solid 2.5px black"
+                                //     : "solid 2.5px #77b5c9",
+                                color:
+                                  gameType === info
+                                    ? "var(--primay-2-01)"
+                                    : "var(--neutral-3)",
+                                padding: "0px ​10px",
+                                textTransform: "capitalize",
+                              }}
+                            >
+                              {info}
+                            </button>
+                            {gameType === info ? (
+                              <div
+                                style={{
+                                  position: "relative",
+                                  color:
+                                    "var(--primay-2-01)",
+                                  verticalAlign: "middle",
+                                  content: " B7 ",
+                                }}
+                              >
+                                &middot;
+                              </div>
+                            ) : (
+                              ""
+                            )}
+                          </div>
                         </>
                         {/* )}
                         </div> */}

@@ -139,21 +139,27 @@ a:link {
 .pp-wrapper {
   background-color: #38ae53;
   margin: 0 4px;
-  padding: 4.5px;
-  display: flex;
+  // padding: 4.5px;
+  width: 19px;
+  height: 19px;
+  display: inline-block;
   align-items: center;
   justify-content: center;
   border-radius: 15px;
 }
 .pp-text {
   font-family: Poppins;
+  font-style: italic;
   font-size: 10.3px;
   font-weight: 800;
   margin: auto;
   letter-spacing: -0.34px;
+  padding: 4.5px 2px 0 0;
   color: #fff2cb;
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
+  text-align: center;
+  // width: 100%;
 }
 
 //continue & weeckly slide
@@ -183,7 +189,8 @@ a:link {
   font-weight: 600;
   margin: 14px 14px 0 0;
   color: #fff;
-  bottom: 0vmax;
+  right: 0;
+  // bottom: 0vmax;
   position: absolute;
   display: flex;
   align-items: center;
@@ -388,7 +395,7 @@ footer {
   width: 100%;
 }
 .slide-space {
-  padding: 0 16px 22px 16px;
+  padding: 0 16px 16px 16px;
 }
 .slide-title-wrapper {
   display: flex;
@@ -428,7 +435,7 @@ footer {
   height: 24px;
   // border: solid 1.5px #149231;
   background-color: #38ae53;
-  border-radius: 6.4px;
+  border-radius: 12.5px;
   margin: 0 10px;
   color: #fff;
   display: flex;
@@ -527,25 +534,16 @@ footer {
   overflow: hidden;
 }
 .menu-selector {
-  // width: 70px;
   position: relative;
-  // padding: 17px 10px;
+  width: 100%;
   font-size: 16px;
   font-weight: bold;
-  width: 110px;
-  margin-right: 15px;
+  padding: 0;
   border: none;
-  background-color: #fff;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   cursor: pointer;
+  background-color: #fff;
   transition-duration: 0.4s;
   text-transform: capitalize;
-  // &:hover {
-  //   color: gold;
-  //   border: 1px solid gold;
-  // }
 }
 .menu-selector-sub {
   position: relative;
@@ -586,7 +584,7 @@ footer {
   border: solid 1px #f1f1f5;
   background-color: #fafaff;
   padding: 15px 0;
-  margin: 0 5px;
+  margin: 7px 5px 0 5px;
   font-size: 14px;
   font-weight: 600;
   color: var(--neutral-3);

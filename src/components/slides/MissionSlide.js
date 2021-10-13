@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "../layout.scss";
 import { AddComma } from "../Main";
 // slide icon
-import trophy from "../../resource/icons/group.png";
+// import trophy from "../../resource/icons/group.png";
 // import { isBrowser, isMobile } from "react-device-detect";
 
 const MissionSlide = ({ weekly, size }) => {
@@ -17,7 +17,7 @@ const MissionSlide = ({ weekly, size }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: size < 361 ? 2 : 3,
+    slidesToShow: size < 360 ? 2 : 3,
     // slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
@@ -197,6 +197,7 @@ const MissionSlide = ({ weekly, size }) => {
                           width: 97,
                           height: 40,
                           borderRadius: 10,
+                          fontWeight: 600,
                           border:
                             "solid 1px var(--primay-2-01)",
                           backgroundColor:

@@ -87,13 +87,16 @@ const GameItem = ({ menuData, gameType, limitNum }) => {
                               </p>
                             </div> */}
                             <div className="gameItem-point">
-                              {data.point}
+                              {data.point} Player
                             </div>
                           </span>
                           <span className="gameItem-userarea">
-                            <div className="gameItem-usericon">
-                              II
-                            </div>
+                            <span
+                              className="pp-wrapper"
+                              style={{ margin: 0 }}
+                            >
+                              <p className="pp-text">PP</p>
+                            </span>
                             <span className="gameItem-number">
                               {data.user}
                             </span>
