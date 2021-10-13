@@ -18,7 +18,7 @@ const LiveSlide = ({ live, size }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 2500,
     centerMode: false,
     swipe: true,
