@@ -124,7 +124,7 @@ const MissionSlide = ({ weekly, size }) => {
                           alignItems: "center",
                         }}
                       >
-                        <p>To Win</p>
+                        <p style={{ width: 47 }}>To Win</p>
                         <div className="content-wininfo">
                           <span className="pp-wrapper">
                             <div className="pp-text">

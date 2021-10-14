@@ -6,18 +6,20 @@ import { AddComma } from "../Main";
 import NaviIcon from "../../resource/icons/navi@2x.png";
 import "./navi.scss";
 
-const NaviBar = ({ onClick, theme, sizeStatus }) => {
+const NaviBar = () => {
   const pathName = useLocation().pathname;
   // const [menubtn, setMenubtn] = useState(false);
   const titles = [
-    { name: "tournament", path: "/" || "/main" },
-    { name: "completed", path: "/completed" },
-    { name: "allgames", path: "/allgames" },
-    { name: "allrank", path: "/allrank" },
-    { name: "smash", path: "/smash" },
-    { name: "leaderboard", path: "/leaderboard" },
-    { name: "yourscore", path: "/yourscore" },
+    { id: 1, name: "tournament", path: "/" || "/main" },
+    { id: 2, name: "completed", path: "/completed" },
+    { id: 3, name: "allgames", path: "/allgames" },
+    { id: 4, name: "allrank", path: "/allrank" },
+    { id: 5, name: "smash", path: "/smash" },
+    { id: 6, name: "leaderboard", path: "/leaderboard" },
+    { id: 7, name: "yourscore", path: "/yourscore" },
   ];
+  console.log(pathName);
+  console.log(titles);
   return (
     <>
       {titles.map((title, index) => (
@@ -27,11 +29,11 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
               {/* main page  */}
               {pathName === "/" && (
                 <>
-                  <div className="navi-container">
-                    <div
-                      className="navi-wrapper"
-                      index={index}
-                    >
+                  <div
+                    className="navi-container"
+                    key={index}
+                  >
+                    <div className="navi-wrapper">
                       <div
                         style={{
                           display: "flex",
@@ -180,9 +182,12 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
               {/* title */}
               {pathName === "/allgames" ? (
                 <>
-                  <div className="navi-title-container">
+                  <div
+                    className="navi-title-container"
+                    key={index}
+                  >
                     <div style={{ float: "left" }}>
-                      <a href="/" key={index}>
+                      <a href="/">
                         <h3>
                           {pathName === title.path &&
                             " < " + title.name}
@@ -194,7 +199,7 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
               ) : pathName === "/completed" ? (
                 <div className="navi-title-container">
                   <div style={{ float: "left" }}>
-                    <a href="/" key={index}>
+                    <a href="/">
                       <h3>
                         {pathName === title.path &&
                           " < " + title.name}
@@ -209,9 +214,12 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
               {/* opacity */}
               {pathName === "/smash" ? (
                 <>
-                  <div className="navi-opac-container">
+                  <div
+                    className="navi-opac-container"
+                    key={index}
+                  >
                     <div style={{ float: "left" }}>
-                      <a href="/" key={index}>
+                      <a href="/">
                         <h3>
                           {pathName === title.path &&
                             " < " + title.name}
@@ -221,9 +229,12 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                   </div>
                 </>
               ) : pathName === "/allrank" ? (
-                <div className="navi-opac-container">
+                <div
+                  className="navi-opac-container"
+                  key={index}
+                >
                   <div style={{ float: "left" }}>
-                    <a href="/" key={index}>
+                    <a href="/">
                       <h3>
                         {pathName === title.path &&
                           " < " + title.name}
@@ -232,9 +243,12 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                   </div>
                 </div>
               ) : pathName === "/leaderboard" ? (
-                <div className="navi-opac-container">
+                <div
+                  className="navi-opac-container"
+                  key={index}
+                >
                   <div style={{ float: "left" }}>
-                    <a href="/" key={index}>
+                    <a href="/">
                       <h3>
                         {pathName === title.path &&
                           " < " + title.name}
@@ -243,17 +257,23 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                   </div>
                 </div>
               ) : pathName === "/yourscore" ? (
-                <div className="navi-opac-container">
+                <div
+                  className="navi-opac-container"
+                  key={index}
+                >
                   <div
                     style={{
                       float: "left",
-                      padding: "0 30px",
+                      padding: "0 16px",
                       display: "flex",
+                      alignItems: "center",
                       justifyContent: "space-between",
                       width: "100%",
+                      boxShadow: "inset 0 -1px 0 0 #f1f1f5",
+                      backgroundColor: "#fff",
                     }}
                   >
-                    <a href="/" key={index}>
+                    <a href="/">
                       <h3>
                         {pathName === title.path && "X"}
                       </h3>
@@ -261,8 +281,8 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                     <div className="navi-pointwrapper">
                       <span
                         style={{
-                          width: 34,
-                          height: 34,
+                          width: 28,
+                          height: 28,
                           backgroundColor: "#38ae53",
                           margin: " 0 5px 0 0 ",
                           color: "#fff",
@@ -274,18 +294,49 @@ const NaviBar = ({ onClick, theme, sizeStatus }) => {
                       >
                         <div
                           style={{
+                            position: "relative",
+                            right: 1,
                             margin: "auto",
-                            fontSize: 22,
+                            fontSize: 15,
                             fontWeight: 800,
-                            display: "flex",
-                            height: "88%",
-                            alignItems: "flex-end",
+                            fontStyle: "italic",
+                            letterSpacing: -0.5,
                           }}
                         >
                           PP
                         </div>
                       </span>
-                      <span>number</span>
+                      <span>20</span>
+                      <span
+                        style={{
+                          width: 28,
+                          height: 28,
+                          backgroundColor: "#fff",
+                          border: "1px solid",
+                          margin: " 0 5px 0 11px ",
+                          color: "#fff",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          borderRadius: 25,
+                        }}
+                      >
+                        <div
+                          style={{
+                            position: "relative",
+                            right: 1.5,
+                            margin: "auto",
+                            fontSize: 17,
+                            fontWeight: 800,
+                            fontStyle: "italic",
+                            letterSpacing: -0.57,
+                            color: "#bd5c43",
+                          }}
+                        >
+                          T
+                        </div>
+                      </span>
+                      <span>20</span>
                     </div>
                   </div>
                 </div>
