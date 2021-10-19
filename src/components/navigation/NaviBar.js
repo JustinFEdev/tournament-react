@@ -16,10 +16,9 @@ const NaviBar = () => {
     { id: 4, name: "allrank", path: "/allrank" },
     { id: 5, name: "smash", path: "/smash" },
     { id: 6, name: "leaderboard", path: "/leaderboard" },
-    { id: 7, name: "yourscore", path: "/yourscore" },
+    { id: 7, name: "pricedetail", path: "/pricedetail" },
   ];
-  console.log(pathName);
-  console.log(titles);
+
   return (
     <>
       {titles.map((title, index) => (
@@ -27,7 +26,7 @@ const NaviBar = () => {
           {title.path === pathName && (
             <>
               {/* main page  */}
-              {pathName === "/" && (
+              {pathName === "/" ? (
                 <>
                   <div
                     className="navi-container"
@@ -46,8 +45,8 @@ const NaviBar = () => {
                           // onClick={() => setMenubtn(true)}
                           style={{
                             cursor: "pointer",
-                            width: 21,
-                            height: 11,
+                            width: 16,
+                            height: 8,
                             objectFit: "cover",
                             color: "var(--neutral-3)",
                           }}
@@ -65,7 +64,6 @@ const NaviBar = () => {
                         </p>
                       </div>
                       {/* 임시 스코어경로 라우팅 */}
-                      {/* <a href="/yourscore">Your Score</a> */}
                       {/* dark mode */}
                       {/* <div
                       onClick={onClick}
@@ -125,6 +123,101 @@ const NaviBar = () => {
                       <div className="navi-content-container">
                         <div className="navi-pointwrapper">
                           <span className="navi-insideball">
+                            <p
+                              style={{
+                                margin: "auto",
+                              }}
+                            >
+                              PP
+                            </p>
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "bold",
+                              color: "#1b202a",
+                            }}
+                          >
+                            {AddComma(2000)}
+                          </span>
+                        </div>
+                        <div className="navi-pointwrapper">
+                          <span
+                            className="navi-insideball"
+                            style={{
+                              backgroundColor: "#ffb400",
+                            }}
+                          >
+                            <p
+                              style={{
+                                margin: "auto",
+                                padding: "auto",
+                              }}
+                            >
+                              T
+                            </p>
+                          </span>
+                          <span
+                            style={{
+                              fontSize: 16,
+                              fontWeight: "bold",
+                              color: "#1b202a",
+                            }}
+                          >
+                            {AddComma(2000)}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    {/* 비로그인시 알림창  */}
+                    <div className="navi-signstatus">
+                      <a href="/" style={{ color: "#fff" }}>
+                        Sign up and get 300PP/4Ticket.
+                      </a>
+                    </div>
+                  </div>
+                </>
+              ) : pathName === "/leaderboard" ? (
+                <>
+                  <div
+                    className="navi-container"
+                    key={index}
+                  >
+                    <div className="navi-wrapper">
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                        }}
+                      >
+                        <a href="/">
+                          <img
+                            src={NaviIcon}
+                            alt="menu-button"
+                            style={{
+                              cursor: "pointer",
+                              width: 16,
+                              height: 8,
+                              objectFit: "cover",
+                              color: "var(--neutral-3)",
+                            }}
+                          />
+                        </a>
+                        <p
+                          style={{
+                            marginLeft: 12,
+                            textTransform: "capitalize",
+                            fontSize: 20,
+                            fontWeight: "bold",
+                            color: "var(--neutral-1)",
+                          }}
+                        >
+                          {title.name}
+                        </p>
+                      </div>
+                      <div className="navi-content-container">
+                        <div className="navi-pointwrapper">
+                          <span className="navi-insideball">
                             PP
                           </span>
                           <span
@@ -158,14 +251,11 @@ const NaviBar = () => {
                         </div>
                       </div>
                     </div>
-                    {/* 비로그인시 알림창  */}
-                    <div className="navi-signstatus">
-                      <a href="/" style={{ color: "#fff" }}>
-                        Sign up and get 300PP/4Ticket.
-                      </a>
-                    </div>
                   </div>
+                  {/* </div> */}
                 </>
+              ) : (
+                ""
               )}
               {/* 사이드 메뉴바  */}
               {/* {menubtn && (
@@ -217,6 +307,7 @@ const NaviBar = () => {
                   <div
                     className="navi-opac-container"
                     key={index}
+                    // style={{ alignItems: "flex-end" }}
                   >
                     <div style={{ float: "left" }}>
                       <a href="/">
@@ -229,38 +320,134 @@ const NaviBar = () => {
                   </div>
                 </>
               ) : pathName === "/allrank" ? (
-                <div
-                  className="navi-opac-container"
-                  key={index}
-                >
-                  <div style={{ float: "left" }}>
-                    <a href="/">
-                      <h3>
-                        {pathName === title.path &&
-                          " < " + title.name}
-                      </h3>
-                    </a>
+                <>
+                  <div
+                    className="navi-opac-container"
+                    style={{
+                      height: 174,
+                    }}
+                    key={index}
+                  >
+                    <div className="allrank-img-layout" />
+                    <div
+                      style={{
+                        display: "inline-grid",
+                        float: "left",
+                        padding: "0 16px",
+                        width: "100%",
+                        height: "100%",
+                        zIndex: 10,
+                      }}
+                    >
+                      <a href="/">
+                        <h3
+                          style={{
+                            color: "#fff",
+                            float: "left",
+                          }}
+                        >
+                          {"<  "}Full Ranking
+                          {/* {pathName === title.path &&
+                          `${pathName}`} */}
+                        </h3>
+                      </a>
+                      <div
+                        style={{
+                          position: "relative",
+                          display: "inline-flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          height: 70,
+                          borderRadius: 10,
+                          padding: "0 16px",
+                          backgroundColor: "#fff",
+                        }}
+                      >
+                        <div
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <span
+                            style={{
+                              width: 38,
+                              height: 38,
+                              margin: "1px 10px 0 0",
+                              borderRadius: 12,
+                              border: "1px solid",
+                            }}
+                          />
+                          <div
+                            style={{ textAlign: "left" }}
+                          >
+                            <p
+                              style={{
+                                fontSize: 14,
+                                fontWeight: 600,
+                                letterSpacing: -0.2,
+                                color: "var(--neutral-1)",
+                                textTransform: "capitalize",
+                              }}
+                            >
+                              name
+                            </p>
+                            <div
+                              style={{
+                                display: "inline-flex",
+                              }}
+                            >
+                              <p
+                                style={{
+                                  fontSize: 12,
+                                  letterSpacing: -0.4,
+                                  color: "var(--neutral-2)",
+                                  marginRight: 5,
+                                }}
+                              >
+                                Best
+                              </p>
+                              <p
+                                style={{
+                                  fontSize: 12,
+                                  letterSpacing: -0.4,
+                                  color: "var(--neutral-2)",
+                                }}
+                              >
+                                7777777
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div style={{ textAlign: "right" }}>
+                          <p
+                            style={{
+                              fontSize: 12,
+                              letterSpacing: -0.4,
+                              color: "var(--neutral-2)",
+                            }}
+                          >
+                            You Can Win
+                          </p>
+                          <p
+                            style={{
+                              letterSpacing: -0.2,
+                              color: "var(--primay-2-01)",
+                            }}
+                          >
+                            123456
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ) : pathName === "/leaderboard" ? (
+                </>
+              ) : pathName === "/pricedetail" ? (
                 <div
                   className="navi-opac-container"
                   key={index}
                 >
-                  <div style={{ float: "left" }}>
-                    <a href="/">
-                      <h3>
-                        {pathName === title.path &&
-                          " < " + title.name}
-                      </h3>
-                    </a>
-                  </div>
-                </div>
-              ) : pathName === "/yourscore" ? (
-                <div
-                  className="navi-opac-container"
-                  key={index}
-                >
+                  <div className="detail-img-layout" />
                   <div
                     style={{
                       float: "left",
@@ -269,75 +456,18 @@ const NaviBar = () => {
                       alignItems: "center",
                       justifyContent: "space-between",
                       width: "100%",
-                      boxShadow: "inset 0 -1px 0 0 #f1f1f5",
-                      backgroundColor: "#fff",
+                      // boxShadow: "inset 0 -1px 0 0 #f1f1f5",
+                      // backgroundColor: "#fff",
+                      zIndex: 10,
                     }}
                   >
                     <a href="/">
-                      <h3>
-                        {pathName === title.path && "X"}
+                      <h3 style={{ color: "#fff" }}>
+                        Tournament
+                        {/* {pathName === title.path &&
+                          `${pathName}`} */}
                       </h3>
                     </a>
-                    <div className="navi-pointwrapper">
-                      <span
-                        style={{
-                          width: 28,
-                          height: 28,
-                          backgroundColor: "#38ae53",
-                          margin: " 0 5px 0 0 ",
-                          color: "#fff",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          borderRadius: 25,
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            right: 1,
-                            margin: "auto",
-                            fontSize: 15,
-                            fontWeight: 800,
-                            fontStyle: "italic",
-                            letterSpacing: -0.5,
-                          }}
-                        >
-                          PP
-                        </div>
-                      </span>
-                      <span>20</span>
-                      <span
-                        style={{
-                          width: 28,
-                          height: 28,
-                          backgroundColor: "#fff",
-                          border: "1px solid",
-                          margin: " 0 5px 0 11px ",
-                          color: "#fff",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          borderRadius: 25,
-                        }}
-                      >
-                        <div
-                          style={{
-                            position: "relative",
-                            right: 1.5,
-                            margin: "auto",
-                            fontSize: 17,
-                            fontWeight: 800,
-                            fontStyle: "italic",
-                            letterSpacing: -0.57,
-                            color: "#bd5c43",
-                          }}
-                        >
-                          T
-                        </div>
-                      </span>
-                      <span>20</span>
-                    </div>
                   </div>
                 </div>
               ) : (

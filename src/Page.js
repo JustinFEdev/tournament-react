@@ -7,7 +7,7 @@ import AllRank from "./components/details/AllRank";
 import AllGames from "./components/details/AllGames";
 import Smash from "./components/details/Smash";
 import LeaderBoard from "./components/details/LeaderBoard";
-import YourScore from "./components/details/YourScore";
+import PriceDetail from "./components/details/PriceDetail";
 
 const Page = () => (
   <Switch>
@@ -18,7 +18,7 @@ const Page = () => (
     <Route path="/allgames" component={AllGames} />
     <Route path="/smash" component={Smash} />
     <Route path="/leaderboard" component={LeaderBoard} />
-    <Route path="/yourscore" component={YourScore} />
+    <Route path="/pricedetail" component={PriceDetail} />
   </Switch>
 );
 

@@ -1,12 +1,25 @@
 // allrank
-.detail-img-layout {
-  height: 250px;
-  width: 690px;
-  background-color: rgb(182, 232, 250);
+.allrank-img-layout {
+  position: absolute;
+  height: 174px;
+  width: 100%;
+  background-color: var(--primay-2-01);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+// detail
+.detail-img-layout {
+  position: absolute;
+  height: 130px;
+  width: 100%;
+  opacity: 0.3;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .detail-leader-container {
   display: flex;
   justify-content: space-evenly;
@@ -17,115 +30,126 @@
 
 .detail-body-container {
   position: relative;
-  padding: 58px 32px 48px 32px;
+  padding: 130px 32px 48px 32px;
 }
+
 .detail-body-toparea {
   width: 100%;
-  padding: 0 0 48px 0;
+  padding: 0 0 22px 0;
   text-align: center;
 }
 .detail-point-text {
+  margin: 15px 0 8.4px 0;
   color: #09607b;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .detail-livebox {
-  padding: 10px 14px 10px;
-  width: 68px;
-  border-radius: 3.8px;
-  background-color: #09607b;
-  font-size: 19px;
-  font-weight: 500;
-  color: #88d9f3;
+  width: 70px;
+  height: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e62b2b;
+  color: #fff;
 }
 .icon-container {
   display: flex;
   align-items: center;
-  padding: 46px 0 60px 0;
+  justify-content: space-around;
+  padding: 20px 6px 3px 6px;
+  border-radius: 15px;
+  border: 1px solid;
 }
 .icon-wrapper {
-  position: relative;
   height: 100%;
-  margin: 0 6px;
+  width: 100%;
+  display: flex;
 }
 .icon-round {
-  position: relative;
-  top: 3%;
-  width: 60px;
-  height: 60px;
-  margin: 0 69px 137px;
-  padding: 19px 12px 18px 14px;
-  border: solid 2.5px #86b1be;
+  display: block;
+  margin: auto;
+  margin-bottom: 21px;
+  width: 40px;
+  height: 40px;
+  // border: solid 2.5px #86b1be;
   background-color: #dcedf2;
   border-radius: 30px;
 }
 .icon-inside-layout {
-  padding: 46px 30px 35px 31px;
-  border-radius: 15.1px;
-  border: solid 2.5px #86b1be;
-  background-color: #f3f8f9;
-  display: flex;
-  justify-content: space-around;
+  width: 100%;
+  height: 100%;
 }
 .icon-textarea {
-  font-size: 30px;
+  font-size: 12px;
+  opacity: 0.4;
   font-weight: 500;
-  color: #598b9b;
+  letter-spacing: -0.4px;
+  color: var(--neutral-2);
+  text-transform: capitalize;
 }
 .prize-text {
   color: #09607b;
-  font-family: AppleSDGothicNeo;
-  font-size: 38px;
+  font-size: 20px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin: 32px 0 11px 0;
+  letter-spacing: -0.2px;
+  color: var(--neutral-1);
 }
 .prize-rank-layout {
   border: 1px solid #a7ccd5;
-  padding: 16px 30px;
+  padding: 9px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 6px;
+  margin-bottom: 6px;
 }
 .prize-title-layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 13px 25px 6px 25px;
+  padding: 7px 25px 6px 25px;
   margin-bottom: 13px;
   opacity: 0.75;
   border: solid 1.3px rgba(167, 204, 213, 0.72);
-  background-color: #eaf2f4;
+  background-color: #ebebeb;
 }
 .prize-rank-title {
-  font-family: AppleSDGothicNeo;
-  font-size: 25px;
-  color: #67a1b3;
+  font-size: 13px;
   font-weight: 500;
+  text-transform: capitalize;
+  color: var(--neutral-2);
 }
 
 .prize-rank-text {
-  font-family: AppleSDGothicNeo;
-  font-size: 32px;
-  font-weight: 500;
-  color: #09607b;
-  // width: 150px;
+  width: 110px;
+  font-size: 14px;
   text-align: left;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.1px;
+  color: var(--neutral-1);
   text-transform: capitalize;
 }
 
 .allrank-join-button {
+  // margin: 0 60px;
   width: 100%;
-  height: 108px;
-  margin-top: 50px;
-  border-radius: 12.5px;
-  box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
-  border: solid 2.5px #149231;
-  background-color: #65c17a;
-  font-family: AppleSDGothicNeo;
-  font-size: 38px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  // box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
+  background-color: var(--primay-2-01);
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
   cursor: pointer;
-}
-.allrank-join-button:hover {
-  border: solid 2.5px gold;
+  &:hover {
+    border: solid 2.5px gold;
+  }
 }

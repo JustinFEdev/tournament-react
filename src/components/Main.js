@@ -463,6 +463,7 @@ const Main = () => {
     setLive(liveInfo);
     // setFeature(featureInfo);
   }, [dataBook.type]);
+
   return (
     <>
       <ThemeProvider

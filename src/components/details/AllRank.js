@@ -1,25 +1,52 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../layout.scss";
 import "./details.scss";
 import NaviBar from "../navigation/NaviBar";
-// import styled from "styled-components";
-const AllRank = () => {
-  // const [rank, setRank] = useState([]);
-  const rankData = [
-    { num: "1", point: 5, oddeven: 1 },
-    { num: "2", point: 4, oddeven: 0 },
-    { num: "3", point: 3, oddeven: 1 },
-    { num: "4-5", point: 2, oddeven: 0 },
-    { num: "6-2211", point: 1, oddeven: 1 },
-    { num: "2212-2582", point: 10, oddeven: 0 },
-    { num: "2583-2953", point: 5, oddeven: 1 },
-    { num: "2954-3325", point: 2, oddeven: 0 },
-  ];
-  const gameData = [
-    { data: 3 },
-    { data: 7000 },
-    { data: "00:35:11" },
-  ];
+import { AddComma } from "../Main";
+
+const LeaderBoard = () => {
+  const [rankInfo, setRankInfo] = useState();
+
+  useEffect(() => {
+    const array = [];
+    const username = [
+      "jack lucas",
+      "max lucas",
+      "james max",
+      "raphael choi",
+      "lucas rachel",
+      "santiago",
+      "alex kim",
+      "park sam",
+      "lucius kim",
+      "paul lucas",
+      "sam jacky",
+      "rachel park",
+      "lucius park",
+      "sanchaz jacky",
+      "jacky lucius",
+      "lucius choi",
+    ];
+    for (let i = 0; i < 15; i++) {
+      const score = Math.floor(Math.random() * 10000) + 1;
+      const prize = Math.floor(Math.random() * 10) + 1;
+      const user =
+        username[
+          Math.floor(Math.random() * 100) % username.length
+        ];
+      const userDatas = {
+        score: AddComma(score),
+        prize: prize,
+        username: user,
+      };
+      array.push(userDatas);
+    }
+    const tt = [];
+    array.map((info) => tt.push(info));
+    setRankInfo(
+      tt.sort((a, b) => (a.score > b.score ? -1 : 1))
+    );
+  }, []);
 
   return (
     <>
@@ -28,95 +55,132 @@ const AllRank = () => {
           <div style={{ height: "100%" }}>
             <header>
               <NaviBar />
-              <div className="detail-img-layout">
-                <h1>img area</h1>
-              </div>
+              {/* <div className="detail-img-layout">
+                <div className="detail-leader-container">
+                  <div style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        // position: "absolute",
+                        width: 78,
+                        height: 78,
+                        border: "solid 2.5px #4c8597",
+                        backgroundColor: "#6fa9bb",
+                        borderRadius: 50,
+                      }}
+                    />
+                    <div
+                      style={{
+                        position: "absolute",
+                        width: 45,
+                        height: 45,
+                        border: "solid 2.5px #4c8597",
+                        backgroundColor: "#fff",
+                        borderRadius: 50,
+                        top: "5vh",
+                        left: "4vw",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <span>name</span>
+                    <span>best score</span>
+                  </div>
+                  <div>
+                    <h3>you can win</h3>
+                    <span className="gameItem-pointarea">
+                      <div className="gameItem-icon">
+                        PP
+                      </div>
+                      <div className="gameItem-point">
+                        point
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </div> */}
             </header>
-            <div className="detail-body-container">
-              {/* top title & Live button */}
-              <div className="detail-body-toparea">
-                <h1 className="detail-point-text">
-                  PP 2,222 Tournament
-                </h1>
-                <span className="detail-livebox">LIVE</span>
+            <div
+              style={{
+                padding: "174px 0 140px 0",
+                boxShadow: "inset 0 1px 0 0 #c4c4c4",
+              }}
+            >
+              <div className="prize-title-layout">
+                <p
+                  className="prize-rank-title"
+                  style={{ paddingRight: 0 }}
+                >
+                  no.
+                </p>
+                <p
+                  className="prize-rank-title"
+                  style={{
+                    textAlign: "left",
+                    width: 80,
+                    left: "-3%",
+                    position: "relative",
+                  }}
+                >
+                  player
+                </p>
+                <p className="prize-rank-title">score</p>
+                <p className="prize-rank-title">prize</p>
               </div>
-              {/* icon box */}
-              <div className="icon-container">
-                {gameData.map((info) => (
-                  <>
-                    <div className="icon-wrapper">
-                      <span className="icon-round">
-                        icon
-                      </span>
-                      <div className="icon-inside-layout">
+              {rankInfo !== undefined && (
+                <>
+                  {rankInfo.map((info, index) => (
+                    <>
+                      <div style={{ padding: "0 16px" }}>
                         <div
-                          style={{ textAlign: "center" }}
+                          className="prize-rank-layout"
+                          style={
+                            {
+                              // backgroundColor:
+                              //   index % 2
+                              //     ? "#fff"
+                              //     : "#eaf2f4",
+                            }
+                          }
                         >
-                          <span className="icon-textarea">
-                            Prize Pool
-                          </span>
-
-                          <div className="pp-container">
-                            <span className="pp-wrapper">
-                              <div className="pp-text">
-                                PP
-                              </div>
-                            </span>
-                            <span className="icon-ppnum">
-                              2
-                            </span>
-                          </div>
+                          <p
+                            className="prize-rank-text"
+                            style={{
+                              width: 60,
+                              textAlign: "left",
+                            }}
+                          >
+                            {index + 1}
+                          </p>
+                          <p
+                            className="prize-rank-text"
+                            // style={{ marginLeft: 15 }}
+                          >
+                            {info.username}
+                          </p>
+                          <p
+                            className="prize-rank-text"
+                            style={{
+                              width: 150,
+                              textAlign: "center",
+                            }}
+                          >
+                            {info.score}
+                          </p>
+                          <p
+                            className="prize-rank-text"
+                            style={{
+                              width: 50,
+                              textAlign: "right",
+                            }}
+                          >
+                            {info.prize}
+                          </p>
                         </div>
                       </div>
-                    </div>
-                  </>
-                ))}
-              </div>
-              {/* ranking graph */}
-              <div style={{ textAlign: "left" }}>
-                <div className="prize-text">
-                  Prize Break-up
-                </div>
-                {rankData.map((info) => (
-                  <>
-                    <div
-                      className="prize-rank-layout"
-                      style={{
-                        backgroundColor:
-                          info.oddeven === 1
-                            ? "#eaf2f4"
-                            : "#fff",
-                      }}
-                    >
-                      <p className="prize-rank-text">
-                        Rank {info.num}
-                      </p>
-
-                      <div
-                        style={{
-                          width: 100,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-around",
-                        }}
-                      >
-                        <span className="pp-wrapper">
-                          <div className="pp-text">PP</div>
-                        </span>
-                        <span className="icon-ppnum">
-                          {info.point}
-                        </span>
-                      </div>
-                    </div>
-                  </>
-                ))}
-              </div>
-              {/* Join button */}
-              <a href="/smash">
-                <button className="allrank-join-button">
-                  Join Tournament Free
-                </button>
-              </a>
+                    </>
+                  ))}
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -125,4 +189,4 @@ const AllRank = () => {
   );
 };
 
-export default AllRank;
+export default LeaderBoard;

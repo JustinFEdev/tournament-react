@@ -123,23 +123,17 @@ a:link {
   align-items: center;
   justify-content: center;
   background-color: #26c34a;
-  // background-image: linear-gradient(
-  //   to left,
-  //   #ffeba2,
-  //   #ff8669
-  // );
   z-index: 10;
 }
 .pp-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 9px;
+  margin: 6px 14px 24px 14px;
 }
 .pp-wrapper {
   background-color: #38ae53;
   margin: 0 4px;
-  // padding: 4.5px;
   width: 19px;
   height: 19px;
   display: inline-block;
@@ -282,9 +276,10 @@ a:link {
   padding: 4px 0px 0px;
 }
 .icon-ppnum {
-  font-size: 28px;
-  font-weight: 500;
-  color: #09607b;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--neutral-1);
 }
 header {
   position: relative;
