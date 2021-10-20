@@ -345,7 +345,6 @@ const Main = () => {
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
   const [gameType, setGameType] = useState({});
-  // const [max, setMax] = useState();
 
   //하단 게임메뉴 slide
   const titleSettings = {
@@ -375,16 +374,16 @@ const Main = () => {
       // ),
     },
 
-    {
-      id: 2,
-      title: "Weekly Mission",
-      route: "See All",
-      direction: "/allrank",
-      // slide: (
-      //   <MissionSlide weekly={weekly} size={widthStatus} />
-      // ),
-      complete: 5,
-    },
+    // {
+    //   id: 2,
+    //   title: "Weekly Mission",
+    //   route: "See All",
+    //   direction: "/allrank",
+    //   slide: (
+    //     <MissionSlide weekly={weekly} size={widthStatus} />
+    //   ),
+    //   complete: 5,
+    // },
   ];
 
   // comma function
@@ -546,11 +545,6 @@ const Main = () => {
                                     <p className="weekly-towin">
                                       You Won
                                     </p>
-                                    {/* <span className="weekly-ppimg-layout">
-                                      <p className="weekly-ppimg-text">
-                                        PP
-                                      </p>
-                                    </span> */}
                                     <span className="pp-wrapper">
                                       <p className="pp-text">
                                         PP
@@ -562,8 +556,6 @@ const Main = () => {
                                   </div>
                                   <span
                                     style={{
-                                      // width: 61,
-                                      // height: 24,
                                       fontSize: 12,
                                       fontWeight: "bold",
                                       display: "flex",
@@ -588,17 +580,16 @@ const Main = () => {
                           )}
                         </div>
                         {/* 사이드 블러 효과 */}
-                        {/* <div
+                        <div
                           style={{
                             position: "absolute",
                             height: "100%",
                             right: -5,
-                            // top: "32%",
                             zIndex: 10,
                           }}
                         >
                           <div className="main-sideblur" />
-                        </div> */}
+                        </div>
                         {info.id === 1 && (
                           <>
                             <div
@@ -639,7 +630,6 @@ const Main = () => {
                               <span
                                 style={{
                                   color: "#fff",
-                                  // "var(--primay-2-01)",
                                   fontSize: 16,
                                   fontWeight: 600,
                                 }}
@@ -650,7 +640,6 @@ const Main = () => {
                                 style={{
                                   color: "#fff",
                                   opacity: 0.7,
-                                  // color: "var(--neutral-2)",
                                   fontSize: 16,
                                 }}
                               >
@@ -889,30 +878,6 @@ const Main = () => {
                                     "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
                                 }}
                               >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    justifyContent:
-                                      "flex-start",
-                                    marginTop: 8,
-                                  }}
-                                >
-                                  <span>Win</span>
-                                  <span className="pp-wrapper">
-                                    <div className="pp-text">
-                                      PP
-                                    </div>
-                                  </span>
-                                  <span
-                                    style={{
-                                      fontSize: 16,
-                                      fontWeight: 500,
-                                    }}
-                                  >
-                                    {/* {AddComma(info.point)} */}
-                                    point
-                                  </span>
-                                </div>
                                 <div
                                   style={{
                                     height: 27,
