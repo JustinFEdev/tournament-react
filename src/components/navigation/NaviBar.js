@@ -4,6 +4,9 @@ import { useLocation } from "react-router";
 import PropTypes from "prop-types";
 import { AddComma } from "../Main";
 import NaviIcon from "../../resource/icons/navi@2x.png";
+import Point_logo from "../../resource/image/icon-pp@2x.png";
+import Ticket_logo from "../../resource/image/icon-ticket@2x.png";
+
 import "./navi.scss";
 
 const NaviBar = () => {
@@ -123,13 +126,11 @@ const NaviBar = () => {
                       <div className="navi-content-container">
                         <div className="navi-pointwrapper">
                           <span className="navi-insideball">
-                            <p
-                              style={{
-                                margin: "auto",
-                              }}
-                            >
-                              PP
-                            </p>
+                            <img
+                              className="navi-point-img"
+                              src={Point_logo}
+                              alt=""
+                            />
                           </span>
                           <span
                             style={{
@@ -141,21 +142,13 @@ const NaviBar = () => {
                             {AddComma(2000)}
                           </span>
                         </div>
-                        <div className="navi-pointwrapper">
-                          <span
-                            className="navi-insideball"
-                            style={{
-                              backgroundColor: "#ffb400",
-                            }}
-                          >
-                            <p
-                              style={{
-                                margin: "auto",
-                                padding: "auto",
-                              }}
-                            >
-                              T
-                            </p>
+                        <div className="navi-ticketwrapper">
+                          <span className="navi-insideball">
+                            <img
+                              className="navi-point-img"
+                              src={Ticket_logo}
+                              alt=""
+                            />
                           </span>
                           <span
                             style={{
@@ -170,11 +163,11 @@ const NaviBar = () => {
                       </div>
                     </div>
                     {/* 비로그인시 알림창  */}
-                    <div className="navi-signstatus">
+                    {/* <div className="navi-signstatus">
                       <a href="/" style={{ color: "#fff" }}>
                         Sign up and get 300PP/4Ticket.
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </>
               ) : pathName === "/leaderboard" ? (
@@ -217,9 +210,16 @@ const NaviBar = () => {
                       </div>
                       <div className="navi-content-container">
                         <div className="navi-pointwrapper">
-                          <span className="navi-insideball">
-                            PP
-                          </span>
+                          <div className="navi-insideball">
+                            <span
+                              style={{
+                                margin: "auto",
+                                paddingRight: 2,
+                              }}
+                            >
+                              PP
+                            </span>
+                          </div>
                           <span
                             style={{
                               fontSize: 16,
@@ -231,14 +231,21 @@ const NaviBar = () => {
                           </span>
                         </div>
                         <div className="navi-pointwrapper">
-                          <span
+                          <div
                             className="navi-insideball"
                             style={{
                               backgroundColor: "#ffb400",
                             }}
                           >
-                            T
-                          </span>
+                            <span
+                              style={{
+                                margin: "auto",
+                                paddingRight: 2,
+                              }}
+                            >
+                              T
+                            </span>
+                          </div>
                           <span
                             style={{
                               fontSize: 16,

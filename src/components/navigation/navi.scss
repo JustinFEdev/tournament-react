@@ -21,7 +21,7 @@ a {
   opacity: 0.9;
   align-items: center;
   justify-content: space-between;
-  padding: 0 21px;
+  padding: 0 16px;
   // padding: 0 4%;
 }
 .navi-signstatus {
@@ -61,19 +61,26 @@ a {
 }
 
 .navi-pointwrapper {
-  // width: 70px;+
-  height: 24px;
   display: flex;
   align-items: center;
   margin: 0 0 0 6px;
-  // padding: 0 6px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  background-color: #f1f1f5;
+}
+.navi-ticketwrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 6px;
+  padding: 2px 5px;
+  border-radius: 10px;
+  background-color: #fff2cb;
 }
 .navi-insideball {
   font-family: Poppins;
   width: 28px;
   height: 28px;
   border-radius: 25px;
-  background-color: #38ae53;
   font-size: 15px;
   font-weight: 800;
   color: #fff2cb;
@@ -81,6 +88,14 @@ a {
   margin-right: 6px;
   font-style: italic;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navi-point-img {
+  width: 30px;
+  height: 30px;
+  margin: 0 1px 0 0;
+  object-fit: contain;
 }
 
 .sidebar {

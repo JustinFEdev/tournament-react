@@ -101,7 +101,7 @@ const LeaderBoard = () => {
             </header>
             <div
               style={{
-                padding: "174px 0 140px 0",
+                padding: "174px 0 40px 0",
                 boxShadow: "inset 0 1px 0 0 #c4c4c4",
               }}
             >
@@ -182,6 +182,19 @@ const LeaderBoard = () => {
                 </>
               )}
             </div>
+            <div
+              style={{
+                position: "fixed",
+                width: "100%",
+                maxWidth: "690px",
+                bottom: 0,
+                height: 82,
+                opacity: 0.5,
+                backgroundColor: "#fff",
+                backgroundImage:
+                  "linear-gradient(to top, #fff 110%, rgba(255, 255, 255, 0) 21%)",
+              }}
+            />
           </div>
         </div>
       </div>

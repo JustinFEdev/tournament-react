@@ -128,7 +128,7 @@ const YourScore = ({ index }) => {
                     textTransform: "uppercase",
                   }}
                 >
-                  best score
+                  best 123456789
                 </p>
                 <p
                   style={{
@@ -195,101 +195,180 @@ const YourScore = ({ index }) => {
                   fontWeight: 600,
                   color: "var(--neutral-1)",
                   letterSpacing: -0.1,
-                  marginBottom: 13,
+                  marginBottom: 12,
                 }}
               >
                 Tournament Leaderboard
               </p>
-              <div>
-                <div
+
+              <div
+                style={{
+                  position: "relative",
+                  margin: "0 26px",
+                  height: 47,
+                  opacity: 0.75,
+                  borderRadius: 5.6,
+                  boxShadow:
+                    "0 6px 6px 0 rgba(77, 93, 107, 0.13)",
+                  backgroundColor: "#fff",
+                  zIndex: 1,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  top: 5,
+                  padding: "0 10px",
+                }}
+              >
+                <span
                   style={{
-                    position: "relative",
-                    margin: "0 26px",
-                    height: 47,
-                    opacity: 0.75,
-                    borderRadius: 5.6,
-                    boxShadow:
-                      "0 6px 6px 0 rgba(77, 93, 107, 0.13)",
-                    backgroundColor: "#fff",
-                    zIndex: 1,
-                    display: "flex",
-                    justifyContent: "space-between",
+                    display: "inline-flex",
                     alignItems: "center",
-                    top: 5,
-                    padding: "0 10px",
                   }}
                 >
-                  <span
+                  <p
                     style={{
-                      display: "inline-flex",
-                      alignItems: "center",
+                      fontSize: 13,
+                      color: "#09607b",
+                      opacity: 0.75,
+                      fontFamily: "AppleSDGothicNeo",
+                      fontWeight: 800,
                     }}
                   >
-                    <p>35</p>
-                    <div
-                      style={{
-                        width: 34,
-                        height: 34,
-                        borderRadius: 25,
-                        margin: 8,
-                        border: "solid 0.6px #4c8597",
-                        backgroundColor: "#6fa9bb",
-                      }}
-                    />
-                  </span>
-                  <p>point</p>
-                </div>
-                <div
-                  style={{
-                    position: "relative",
-                    height: 60,
-                    borderRadius: 10,
-                    backgroundColor: "#fff",
-                    zIndex: 3,
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    padding: "0 20px",
-                  }}
-                >
+                    {35}
+                  </p>
                   <div
                     style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
+                      width: 34,
+                      height: 34,
+                      borderRadius: 25,
+                      margin: 8,
+                      border: "solid 0.6px #4c8597",
+                      backgroundColor: "#6fa9bb",
                     }}
-                  >
+                  />
+                  <div style={{ textAlign: "left" }}>
+                    <p
+                      style={{
+                        fontFamily: "AppleSDGothicNeo",
+                        fontSize: 13,
+                        letterSpacing: -0.2,
+                        color: "#09607b",
+                        fontWeight: 800,
+                      }}
+                    >
+                      user name
+                    </p>
                     <div
                       style={{
-                        width: 44,
-                        height: 44,
-                        border: "1px solid",
-                        borderRadius: 25,
-                        marginRight: 21,
+                        display: "flex",
+                        opacity: 0.75,
+                        alignItems: "center",
+                        marginTop: 2,
                       }}
-                    />
-                    <div>
-                      <p>user name</p>
+                    >
+                      <p
+                        style={{
+                          fontFamily: "AppleSDGothicNeo",
+                          fontSize: 11,
+                          fontWeight: "bold",
+                          color: "#7e9da7",
+                          marginRight: 5,
+                        }}
+                      >
+                        Win
+                      </p>
                       <span
                         className="pp-wrapper"
                         style={{ margin: 0 }}
                       >
                         <div className="pp-text">PP</div>
                       </span>
+                      <p
+                        style={{
+                          fontFamily: "AppleSDGothicNeo",
+                          fontSize: 11,
+                          fontWeight: "bold",
+                          color: "#7e9da7",
+                          marginLeft: 5,
+                        }}
+                      >
+                        5
+                      </p>
                     </div>
                   </div>
-                  <p
-                    style={{
-                      fontSize: 14,
-                      fontWeight: 600,
-                      letterSpacing: -0.2,
-                      color: "var(--neutral-1)",
-                    }}
-                  >
-                    middle
-                  </p>
-                </div>
+                </span>
+                <p
+                  style={{
+                    fontSize: 13,
+                    color: "var(--neutral-2)",
+                    fontFamily: "AppleSDGothicNeo",
+                    fontWeight: 800,
+                    opacity: 0.75,
+                  }}
+                >
+                  point 1234567489
+                </p>
+              </div>
+              <div
+                style={{
+                  position: "relative",
+                  height: 60,
+                  borderRadius: 10,
+                  backgroundColor: "#fff",
+                  zIndex: 3,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  padding: "0 20px",
+                }}
+              >
                 <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: 44,
+                      height: 44,
+                      border: "1px solid",
+                      borderRadius: 25,
+                      marginRight: 21,
+                    }}
+                  />
+                  <div style={{ textAlign: "left" }}>
+                    <p
+                      style={{
+                        fontSize: 14,
+                        letterSpacing: -0.2,
+                        color: "rgba(94, 98, 114, 0.7)",
+                        fontWeight: 600,
+                      }}
+                    >
+                      user name
+                    </p>
+                    <span
+                      className="pp-wrapper"
+                      style={{ margin: 0 }}
+                    >
+                      <div className="pp-text">PP</div>
+                    </span>
+                  </div>
+                </div>
+                <p
+                  style={{
+                    fontSize: 14,
+                    fontWeight: 600,
+                    letterSpacing: -0.2,
+                    color: "var(--neutral-1)",
+                  }}
+                >
+                  point 1234567489
+                </p>
+              </div>
+              {/* <div
                   style={{
                     position: "relative",
                     margin: "0 26px",
@@ -304,7 +383,115 @@ const YourScore = ({ index }) => {
                   }}
                 >
                   bottom
-                </div>
+                </div> */}
+              {/* 하단 박스 */}
+              <div
+                style={{
+                  position: "relative",
+                  margin: "0 26px",
+                  height: 47,
+                  opacity: 0.75,
+                  borderRadius: 5.6,
+                  boxShadow:
+                    "0 6px 6px 0 rgba(77, 93, 107, 0.13)",
+                  backgroundColor: "#fff",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  top: -5,
+                  padding: "0 10px",
+                  zIndex: 10,
+                }}
+              >
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <p
+                    style={{
+                      fontSize: 13,
+                      color: "#09607b",
+                      opacity: 0.75,
+                      fontFamily: "AppleSDGothicNeo",
+                      fontWeight: 800,
+                    }}
+                  >
+                    {10}
+                  </p>
+                  <div
+                    style={{
+                      width: 34,
+                      height: 34,
+                      borderRadius: 25,
+                      margin: 8,
+                      border: "solid 0.6px #4c8597",
+                      backgroundColor: "#6fa9bb",
+                    }}
+                  />
+                  <div style={{ textAlign: "left" }}>
+                    <p
+                      style={{
+                        fontFamily: "AppleSDGothicNeo",
+                        fontSize: 13,
+                        letterSpacing: -0.2,
+                        color: "#09607b",
+                        fontWeight: 800,
+                      }}
+                    >
+                      user name
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        opacity: 0.75,
+                        alignItems: "center",
+                        marginTop: 2,
+                      }}
+                    >
+                      <p
+                        style={{
+                          fontFamily: "AppleSDGothicNeo",
+                          fontSize: 11,
+                          fontWeight: "bold",
+                          color: "#7e9da7",
+                          marginRight: 5,
+                        }}
+                      >
+                        Win
+                      </p>
+                      <span
+                        className="pp-wrapper"
+                        style={{ margin: 0 }}
+                      >
+                        <div className="pp-text">PP</div>
+                      </span>
+                      <p
+                        style={{
+                          fontFamily: "AppleSDGothicNeo",
+                          fontSize: 11,
+                          fontWeight: "bold",
+                          color: "#7e9da7",
+                          marginLeft: 5,
+                        }}
+                      >
+                        5
+                      </p>
+                    </div>
+                  </div>
+                </span>
+                <p
+                  style={{
+                    fontSize: 13,
+                    color: "#09607b",
+                    fontFamily: "AppleSDGothicNeo",
+                    fontWeight: 800,
+                    opacity: 0.75,
+                  }}
+                >
+                  point 1234567489
+                </p>
               </div>
             </div>
             <div

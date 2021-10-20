@@ -21,7 +21,7 @@ const MissionSlide = ({ weekly, size }) => {
     // slidesToShow: 3,
     slidesToScroll: 1,
     initialSlide: 0,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 3000,
     centerMode: false,
     swipe: true,
@@ -144,7 +144,6 @@ const MissionSlide = ({ weekly, size }) => {
                       </div>
                       {/* 트로피 아이콘 */}
                       {/* <div className="content-trophy-layout">
-                        <span className="content-trophy-overlay" />
                         <img
                           className="content-trophy-img"
                           src={trophy}

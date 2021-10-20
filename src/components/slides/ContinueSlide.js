@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AddComma } from "../Main";
 import trophy from "../../resource/icons/group.png";
+import Letter_img from "../../resource/image/icons-video-line@2x.png";
 
 const ContinueSlide = ({ conti, size }) => {
   // console.log("넘어온 size");
@@ -114,10 +115,9 @@ const ContinueSlide = ({ conti, size }) => {
                         Game Title Play again to
                       </p>
                       <div className="content-trophy-layout">
-                        <span className="content-trophy-overlay" />
                         <img
                           className="content-trophy-img"
-                          src={trophy}
+                          src={Letter_img}
                           alt="11"
                         />
                       </div>

@@ -5,7 +5,9 @@ import "./slide.scss";
 import "../layout.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import notice from "../../resource/icons/icon-arrow-i.png";
+import Notice from "../../resource/image/icon-arrow-i@2x.png";
+import Man_img from "../../resource/image/man-small@2x.png";
+import Live_img from "../../resource/image/ui-icon-arrow-live@2x.png";
 // import { isBrowser, isMobile } from "react-device-detect";
 import { AddComma } from "../Main";
 
@@ -37,7 +39,28 @@ const LiveSlide = ({ live, size }) => {
                     <div style={{ position: "relative" }}>
                       <div className="live-wrapper">
                         <div className="live-livestatus">
-                          {info.status}
+                          {info.status === "live" && (
+                            <>
+                              <img
+                                style={{
+                                  width: 24,
+                                  height: 24,
+                                  margin: "0 1px 0 0",
+                                  objectFit: "contain",
+                                }}
+                                src={Live_img}
+                                alt=""
+                              />
+                              <span
+                                stylr={{
+                                  fontSize: 13,
+                                  color: "#fff",
+                                }}
+                              >
+                                Live
+                              </span>
+                            </>
+                          )}
                         </div>
                         <div className="live-timestatus">
                           {info.time}
@@ -79,23 +102,27 @@ const LiveSlide = ({ live, size }) => {
                             color: "var(--neutral-3)",
                           }}
                         >
-                          <p
+                          <img
                             style={{
-                              width: 8,
-                              height: 8,
-                              margin: "5px 8px 5px 0",
-                              backgroundColor: "#e62b2b",
-                              borderRadius: 8,
+                              width: 19,
+                              height: 19,
+                              objectFit: "contain",
                             }}
+                            src={Man_img}
+                            alt=""
                           />
                           <span style={{ marginRight: 5 }}>
                             8.1M
                           </span>
-                          <span>People</span>
                           <img
-                            src={notice}
+                            src={Notice}
                             alt=""
-                            style={{ cursor: "pointer" }}
+                            style={{
+                              cursor: "pointer",
+                              width: 21,
+                              height: 21,
+                              objectFit: "contain",
+                            }}
                           />
                         </div>
                         <div className="live-liveinfo">

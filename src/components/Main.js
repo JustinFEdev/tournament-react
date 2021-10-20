@@ -24,6 +24,9 @@ import live_banner_3 from "../resource/image/banner_646x328.jpg";
 import continue_img_1 from "../resource/image/banner_300x370 (1).jpg";
 import continue_img_2 from "../resource/image/banner_300x370 (2).jpg";
 import continue_img_3 from "../resource/image/banner_300x370.jpg";
+import Man_img from "../resource/image/man-small@2x.png";
+import Notice from "../resource/image/icon-arrow-i@2x.png";
+import Point_logo from "../resource/image/icon-pp@2x.png";
 // import AllGames from "./details/AllGames";
 import styled, { ThemeProvider } from "styled-components";
 import {
@@ -350,7 +353,7 @@ const Main = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: widthStatus < 360 ? 3 : 4,
+    slidesToShow: widthStatus < 360 ? 4 : 5,
     // slidesToScroll: 1,
     initialSlide: 0,
     centerMode: false,
@@ -424,17 +427,6 @@ const Main = () => {
   // bottom menu slide demo data & (ContinueSlide && MissionSlide) data
   useEffect(() => {
     const aa = [];
-    // const status = [
-    //   "all games",
-    //   "new arivel",
-    //   "shooting",
-    //   "sports",
-    //   "arcade",
-    //   "rpg",
-    //   "adventure",
-    //   "puzzle",
-    //   "rhythm",
-    // ];
     for (var i = 0; i < 100; i++) {
       const count = Math.floor(Math.random() * 10000);
       const num = AddComma(
@@ -693,100 +685,177 @@ const Main = () => {
                     {tournamentData.feature !==
                       undefined && (
                       <>
-                        {/* <div
+                        <div
                           style={{
-                            width: "100%",
-                            height: 300,
-                            backgroundColor: "GrayText",
-                            border: "1px solid",
+                            display: "flex",
+                            flexWrap: "wrap",
+                            justifyContent: "center",
                           }}
-                        /> */}
-                        {tournamentData.feature.map(
-                          (data) => (
-                            <>
-                              {data.type === 1 && (
-                                <>
-                                  <div
-                                    style={{
-                                      position: "relative",
-                                      marginTop: 11,
-                                      height: "100%",
-                                      width: "100%",
-                                    }}
-                                  >
-                                    <img
-                                      className="featured-img"
-                                      src={data.img}
-                                      alt={data.img}
-                                    />
-
+                        >
+                          {tournamentData.feature.map(
+                            (data) => (
+                              <>
+                                {data.type === 1 && (
+                                  <>
                                     <div
                                       style={{
                                         position:
-                                          "absolute",
-                                        zIndex: 2,
-                                        top: 0,
-                                        right: 0,
-                                        display: "flex",
-                                        justifyContent:
-                                          "space-between",
-                                        // padding:
-                                        //   "14px 11px 0 0 ",
-                                        color: "#fff",
+                                          "relative",
+                                        marginTop: 11,
+                                        height: "100%",
+                                        // width: "324px",
+                                        // display: "flex",
                                       }}
                                     >
+                                      <img
+                                        className="featured-img"
+                                        src={data.img}
+                                        alt={data.img}
+                                      />
+
                                       <div
-                                        className="content-time-wrapper"
                                         style={{
+                                          position:
+                                            "absolute",
+                                          zIndex: 2,
+                                          top: 0,
+                                          right: 0,
+                                          display: "flex",
                                           justifyContent:
-                                            "flex-start",
+                                            "space-between",
+                                          // padding:
+                                          //   "14px 11px 0 0 ",
+                                          color: "#fff",
                                         }}
                                       >
                                         <div
-                                          className="content-time-text"
+                                          className="content-time-wrapper"
                                           style={{
-                                            marginLeft: 7,
+                                            justifyContent:
+                                              "flex-start",
                                           }}
                                         >
-                                          <span className="content-time-overlay" />
-                                          <p className="content-time">
-                                            {/* Time : */}
-                                            {/* {info.time} */}
-                                          </p>
+                                          <div
+                                            className="content-time-text"
+                                            style={{
+                                              marginLeft: 7,
+                                            }}
+                                          >
+                                            <span className="content-time-overlay" />
+                                            <p className="content-time">
+                                              {/* Time : */}
+                                              {/* {info.time} */}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        style={{
+                                          position:
+                                            "absolute",
+                                          zIndex: 2,
+                                          width: "87.5%",
+                                          bottom: 0,
+                                          textAlign: "left",
+                                          // display: "flex",
+                                          // alignItems:
+                                          //   "center",
+                                          // justifyContent:
+                                          //   "space-between",
+                                          padding:
+                                            "33.6px 5.5% 13.4px",
+                                          color:
+                                            "rgb(255, 255, 255)",
+                                          borderRadius:
+                                            "0 0 10px 10px",
+                                          backgroundImage:
+                                            "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
+                                        }}
+                                      >
+                                        <div
+                                          style={{
+                                            display: "flex",
+                                            justifyContent:
+                                              "flex-start",
+                                          }}
+                                        >
+                                          <span>Win</span>
+                                          {/* <span className="pp-wrapper">
+                                          <div className="pp-text">
+                                            PP
+                                          </div>
+                                        </span> */}
+                                          <img
+                                            src={Point_logo}
+                                            alt=""
+                                            style={{
+                                              width: 19,
+                                              height: 19,
+                                              objectFit:
+                                                "cover",
+                                              margin:
+                                                "0 2px",
+                                            }}
+                                          />
+                                          <span
+                                            style={{
+                                              fontSize: 16,
+                                              fontWeight: 500,
+                                            }}
+                                          >
+                                            {/* {AddComma(info.point)} */}
+                                            point
+                                          </span>
+                                        </div>
+                                        <div
+                                          style={{
+                                            height: 27,
+                                            fontSize: 14,
+                                            display: "flex",
+                                            alignItems:
+                                              "center",
+                                            color: "#fff",
+                                          }}
+                                        >
+                                          <img
+                                            style={{
+                                              width: 19,
+                                              height: 19,
+                                              objectFit:
+                                                "contain",
+                                              color: "#fff",
+                                            }}
+                                            src={Man_img}
+                                            alt=""
+                                          />
+                                          <span
+                                            style={{
+                                              marginRight: 5,
+                                            }}
+                                          >
+                                            8.1M
+                                          </span>
+                                          <img
+                                            src={Notice}
+                                            alt=""
+                                            style={{
+                                              cursor:
+                                                "pointer",
+                                              width: 21,
+                                              height: 21,
+                                              objectFit:
+                                                "contain",
+                                            }}
+                                          />
                                         </div>
                                       </div>
                                     </div>
-                                    <div
-                                      style={{
-                                        position:
-                                          "absolute",
-                                        zIndex: 2,
-                                        width: "89%",
-                                        bottom: 0,
-                                        display: "flex",
-                                        justifyContent:
-                                          "space-between",
-                                        padding:
-                                          "33.6px 5.5% 13.4px",
-                                        color:
-                                          "rgb(255, 255, 255)",
-                                        borderRadius:
-                                          "0 0 10px 10px",
-                                        backgroundImage:
-                                          "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
-                                      }}
-                                    >
-                                      <span>player</span>
-                                      <div>
-                                        game win info
-                                      </div>
-                                    </div>
-                                  </div>
-                                </>
-                              )}
-                            </>
-                          )
-                        )}
+                                  </>
+                                )}
+                              </>
+                            )
+                          )}
+                        </div>
                       </>
                     )}
                   </div>
@@ -820,23 +889,6 @@ const Main = () => {
                                     "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
                                 }}
                               >
-                                <div>
-                                  <span
-                                    style={{
-                                      marginRight: 5,
-                                    }}
-                                  >
-                                    8.1M
-                                  </span>
-                                  <span>Player</span>
-                                  <img
-                                    // src={notice}
-                                    alt=""
-                                    style={{
-                                      cursor: "pointer",
-                                    }}
-                                  />
-                                </div>
                                 <div
                                   style={{
                                     display: "flex",
@@ -861,6 +913,43 @@ const Main = () => {
                                     point
                                   </span>
                                 </div>
+                                <div
+                                  style={{
+                                    height: 27,
+                                    fontSize: 14,
+                                    display: "flex",
+                                    alignItems: "center",
+                                    color:
+                                      "var(--neutral-3)",
+                                  }}
+                                >
+                                  <img
+                                    style={{
+                                      width: 19,
+                                      height: 19,
+                                      objectFit: "contain",
+                                    }}
+                                    src={Man_img}
+                                    alt=""
+                                  />
+                                  <span
+                                    style={{
+                                      marginRight: 5,
+                                    }}
+                                  >
+                                    8.1M
+                                  </span>
+                                  <img
+                                    src={Notice}
+                                    alt=""
+                                    style={{
+                                      cursor: "pointer",
+                                      width: 21,
+                                      height: 21,
+                                      objectFit: "contain",
+                                    }}
+                                  />
+                                </div>
                               </div>
                             </div>
                           </>
@@ -877,7 +966,7 @@ const Main = () => {
               <div className="menu-container">
                 <div
                   style={{
-                    width: widthStatus < 360 ? 500 : 750,
+                    width: widthStatus < 360 ? 700 : 800,
                     overflow: "hidden",
                     paddingLeft: 11,
                   }}
@@ -918,7 +1007,6 @@ const Main = () => {
                           <div
                             style={{
                               textAlign: "center",
-                              width: "100%",
                             }}
                           >
                             <button
@@ -942,17 +1030,28 @@ const Main = () => {
                             >
                               {info}
                             </button>
+                            {/* menu 아래 점 */}
                             {gameType === info ? (
                               <div
                                 style={{
                                   position: "relative",
-                                  color:
-                                    "var(--primay-2-01)",
-                                  verticalAlign: "middle",
-                                  content: " B7 ",
+                                  width: "100%",
+                                  textAlign: "center",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
                                 }}
                               >
-                                &middot;
+                                <div
+                                  style={{
+                                    width: 5,
+                                    height: 5,
+                                    borderRadius: 50,
+                                    backgroundColor:
+                                      "var(--primay-2-01)",
+                                    marginTop: 4,
+                                  }}
+                                />
                               </div>
                             ) : (
                               ""
