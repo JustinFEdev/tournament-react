@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AddComma } from "../Main";
-import trophy from "../../resource/icons/group.png";
 import Letter_img from "../../resource/image/icons-video-line@2x.png";
 
 const ContinueSlide = ({ conti, size }) => {

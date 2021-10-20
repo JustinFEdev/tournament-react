@@ -21,11 +21,6 @@ const AllRank = () => {
     { num: "2583-2953", point: 5, oddeven: 1 },
     { num: "2954-3325", point: 2, oddeven: 0 },
   ];
-  const gameData = {
-    prizepool: { data: 3 },
-    player: { data: 7000 },
-    endin: { data: "00:35:11" },
-  };
 
   return (
     <>
