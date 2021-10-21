@@ -1,6 +1,7 @@
 import React from "react";
 import "../layout.scss";
 import "./details.scss";
+import "../modal/popup.scss";
 import NaviBar from "../navigation/NaviBar";
 import Prize_icon_1 from "../../resource/image/prize_badge_1@2x.png";
 import Prize_icon_2 from "../../resource/image/prize_badge_2@2x.png";
@@ -26,195 +27,210 @@ const AllRank = () => {
     <>
       <div className="main-container">
         <div className="main-wrapper">
-          {/* <div style={{ height: "100%" }}> */}
           <header>
             <NaviBar />
             {/* <div className="detail-img-layout">
-                <h1>img area</h1>
-              </div> */}
+              <h1>img area</h1>
+            </div> */}
           </header>
-          <div className="detail-body-container">
-            {/* top title & Live button */}
-            <div className="detail-body-toparea">
-              <p className="detail-point-text">
-                <span
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    lineHeight: 1.3,
-                    color: "var(--primay-2-01)",
-                  }}
-                >
-                  PP 2,222
-                </span>
-                <span
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    lineHeight: 1.3,
-                    color: "var(--neutral-1)",
-                    marginLeft: 1,
-                  }}
-                >
-                  Tournament
-                </span>
-              </p>
-              <div className="detail-livebox">
-                <span>ㅁ</span>
-                <p>Live</p>
-              </div>
-            </div>
-            {/* icon box */}
-            <div className="icon-container">
-              <div className="icon-wrapper">
-                {/* prize pool */}
-                <div className="icon-inside-layout">
-                  <img
-                    src={Prize_icon_2}
-                    alt=""
-                    className="icon-round"
-                  />
-                  <div style={{ textAlign: "center" }}>
-                    <span className="icon-textarea">
-                      prize pool
-                    </span>
-                    <div className="pp-container">
-                      <span className="icon-ppnum">2</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="icon-inside-layout">
-                  <img
-                    src={Prize_icon_1}
-                    alt=""
-                    className="icon-round"
-                  />
-                  <div
+          <div
+            style={{
+              position: "relative",
+              zIndex: 1001,
+              bottom: 0,
+              borderRadius: "25px 25px 0 0",
+              display: "flex",
+              justifyContent: "center",
+              transform: "translateY(100%)",
+              // -webkit-transform: translateY(100%);
+              animation: "allgame-popup-in 3s forwards",
+              // -webkit-animation: allgame-popup-in 3s forwards;
+            }}
+          >
+            <div className="detail-body-container">
+              {/* top title & Live button */}
+              <div className="detail-body-toparea">
+                <p className="detail-point-text">
+                  <span
                     style={{
-                      textAlign: "center",
-                      borderRight: "1px solid #e2e2ea",
-                      borderLeft: "1px solid #e2e2ea",
+                      fontSize: 20,
+                      fontWeight: "bold",
+                      lineHeight: 1.3,
+                      color: "var(--primay-2-01)",
                     }}
                   >
-                    <span className="icon-textarea">
-                      player
-                    </span>
-                    <div className="pp-container">
-                      <span className="icon-ppnum">
-                        7000
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="icon-inside-layout">
-                  <img
-                    src={Prize_icon_3}
-                    alt=""
-                    className="icon-round"
-                  />
-                  <div style={{ textAlign: "center" }}>
-                    <span className="icon-textarea">
-                      ends in
-                    </span>
-                    <div className="pp-container">
-                      <span
-                        className="icon-ppnum"
-                        style={{ color: "#e44f4f" }}
-                      >
-                        00:35:11
-                      </span>
-                    </div>
-                  </div>
+                    PP 2,222
+                  </span>
+                  <span
+                    style={{
+                      fontSize: 20,
+                      fontWeight: "bold",
+                      lineHeight: 1.3,
+                      color: "var(--neutral-1)",
+                      marginLeft: 1,
+                    }}
+                  >
+                    Tournament
+                  </span>
+                </p>
+                <div className="detail-livebox">
+                  <span>ㅁ</span>
+                  <p>Live</p>
                 </div>
               </div>
-            </div>
-            {/* ranking graph */}
-            <div style={{ textAlign: "left" }}>
-              <div className="prize-text">
-                Prize Break-up
-              </div>
-              <div
-                style={{
-                  minHeight: 320,
-                  height: "50vh",
-                  overflow: "hidden",
-                  overflowY: "scroll",
-                  paddingBottom: "13%",
-                }}
-              >
-                {rankData.map((info) => (
-                  <>
-                    <div
-                      className="prize-rank-layout"
-                      style={{
-                        backgroundColor:
-                          // info.oddeven === 1
-                          //   ? "#eaf2f4" :
-                          "#fff",
-                      }}
-                    >
-                      <p className="prize-rank-text">
-                        Rank {info.num}
-                      </p>
-                      <div
-                        style={{
-                          width: 65,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "flex-start",
-                        }}
-                      >
-                        <span
-                          className="pp-wrapper"
-                          style={{ marginRight: 19 }}
-                        >
-                          <div className="pp-text">PP</div>
-                        </span>
+              {/* icon box */}
+              <div className="icon-container">
+                <div className="icon-wrapper">
+                  {/* prize pool */}
+                  <div className="icon-inside-layout">
+                    <img
+                      src={Prize_icon_2}
+                      alt=""
+                      className="icon-round"
+                    />
+                    <div style={{ textAlign: "center" }}>
+                      <span className="icon-textarea">
+                        prize pool
+                      </span>
+                      <div className="pp-container">
                         <span className="icon-ppnum">
-                          {info.point}
+                          2
                         </span>
                       </div>
                     </div>
-                  </>
-                ))}
+                  </div>
+                  <div className="icon-inside-layout">
+                    <img
+                      src={Prize_icon_1}
+                      alt=""
+                      className="icon-round"
+                    />
+                    <div
+                      style={{
+                        textAlign: "center",
+                        borderRight: "1px solid #e2e2ea",
+                        borderLeft: "1px solid #e2e2ea",
+                      }}
+                    >
+                      <span className="icon-textarea">
+                        player
+                      </span>
+                      <div className="pp-container">
+                        <span className="icon-ppnum">
+                          7000
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="icon-inside-layout">
+                    <img
+                      src={Prize_icon_3}
+                      alt=""
+                      className="icon-round"
+                    />
+                    <div style={{ textAlign: "center" }}>
+                      <span className="icon-textarea">
+                        ends in
+                      </span>
+                      <div className="pp-container">
+                        <span
+                          className="icon-ppnum"
+                          style={{ color: "#e44f4f" }}
+                        >
+                          00:35:11
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            {/* Join button */}
-            <div
-              style={{
-                position: "fixed",
-                height: 81.6,
-                display: "flex",
-                alignItems: "flex-start",
-                justifyContent: "center",
-                left: 0,
-                bottom: 0,
-                right: 0,
-              }}
-            >
+              {/* ranking graph */}
+              <div style={{ textAlign: "left" }}>
+                <div className="prize-text">
+                  Prize Break-up
+                </div>
+                <div
+                  style={{
+                    height: "100%",
+                    paddingBottom: 60,
+                  }}
+                >
+                  {rankData.map((info) => (
+                    <>
+                      <div
+                        className="prize-rank-layout"
+                        style={{
+                          backgroundColor:
+                            // info.oddeven === 1
+                            //   ? "#eaf2f4" :
+                            "#fff",
+                        }}
+                      >
+                        <p className="prize-rank-text">
+                          Rank {info.num}
+                        </p>
+                        <div
+                          style={{
+                            width: 65,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "flex-start",
+                          }}
+                        >
+                          <span
+                            className="pp-wrapper"
+                            style={{ marginRight: 19 }}
+                          >
+                            <div className="pp-text">
+                              PP
+                            </div>
+                          </span>
+                          <span className="icon-ppnum">
+                            {info.point}
+                          </span>
+                        </div>
+                      </div>
+                    </>
+                  ))}
+                </div>
+              </div>
+              {/* Join button */}
               <div
                 style={{
-                  width: "100%",
-                  height: "100%",
-                  opacity: 0.8,
-                  // backgroundImage:
-                  //   "linear-gradient(to top, #fff 110%, rgba(255, 255, 255, 0) 21%)",
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  width: "82%",
-                  maxWidth: 690,
-                  height: 50,
-                  padding: "0 10%",
+                  position: "fixed",
+                  height: 81.6,
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "center",
+                  left: 0,
+                  bottom: 0,
+                  right: 0,
                 }}
               >
-                {/* <a href="/smash"> */}
-                <button className="allrank-join-button">
-                  Join Tournament Free
-                </button>
-                {/* </a> */}
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    opacity: 0.8,
+                    // backgroundImage:
+                    //   "linear-gradient(to top, #fff 110%, rgba(255, 255, 255, 0) 21%)",
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    width: "82%",
+                    maxWidth: 690,
+                    height: 50,
+                    padding: "0 10%",
+                  }}
+                >
+                  {/* <a href="/smash"> */}
+                  <button className="allrank-join-button">
+                    Join Tournament Free
+                  </button>
+                  {/* </a> */}
+                </div>
               </div>
             </div>
           </div>

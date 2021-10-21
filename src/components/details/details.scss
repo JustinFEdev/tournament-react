@@ -30,9 +30,10 @@
 
 .detail-body-container {
   position: relative;
+  width: 100%;
   margin-top: 60px;
   padding: 0 32px 48px 32px;
-  border-radius: 30.7px;
+  border-radius: 30.7px 30.7px 0 0;
   background-color: #f1f1f5;
   z-index: 100;
 }
@@ -128,7 +129,6 @@
 }
 
 .prize-rank-text {
-  width: 110px;
   font-size: 14px;
   text-align: left;
   display: block;
