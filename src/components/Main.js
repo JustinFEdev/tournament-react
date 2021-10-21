@@ -27,6 +27,8 @@ import continue_img_3 from "../resource/image/banner_300x370.jpg";
 import Man_img from "../resource/image/man-small@2x.png";
 import Notice from "../resource/image/icon-arrow-i@2x.png";
 import Point_logo from "../resource/image/icon-pp@2x.png";
+import time_layout from "../resource/image/rectangle@2x.png";
+
 // import AllGames from "./details/AllGames";
 import styled, { ThemeProvider } from "styled-components";
 import {
@@ -580,7 +582,7 @@ const Main = () => {
                           )}
                         </div>
                         {/* 사이드 블러 효과 */}
-                        <div
+                        {/* <div
                           style={{
                             position: "absolute",
                             height: "100%",
@@ -589,7 +591,7 @@ const Main = () => {
                           }}
                         >
                           <div className="main-sideblur" />
-                        </div>
+                        </div> */}
                         {info.id === 1 && (
                           <>
                             <div
@@ -665,7 +667,7 @@ const Main = () => {
                 >
                   <div
                     style={{
-                      padding: "0 16px",
+                      padding: "0 6px 0 16px",
                     }}
                   >
                     <p className="featured-title">
@@ -690,10 +692,9 @@ const Main = () => {
                                       style={{
                                         position:
                                           "relative",
-                                        marginTop: 11,
+                                        margin:
+                                          "11px 10px 0 0 ",
                                         height: "100%",
-                                        // width: "324px",
-                                        // display: "flex",
                                       }}
                                     >
                                       <img
@@ -701,49 +702,64 @@ const Main = () => {
                                         src={data.img}
                                         alt={data.img}
                                       />
-
                                       <div
                                         style={{
                                           position:
                                             "absolute",
+                                          display: "block",
                                           zIndex: 2,
                                           top: 0,
                                           right: 0,
-                                          display: "flex",
-                                          justifyContent:
-                                            "space-between",
-                                          // padding:
-                                          //   "14px 11px 0 0 ",
+                                          width: "97%",
+                                          margin:
+                                            "14px 0 0 10px ",
                                           color: "#fff",
                                         }}
                                       >
-                                        <div
+                                        {/* <div
                                           className="content-time-wrapper"
                                           style={{
                                             justifyContent:
                                               "flex-start",
                                           }}
-                                        >
-                                          <div
-                                            className="content-time-text"
+                                        > */}
+                                        {/* time  */}
+                                        <div className="content-time-text">
+                                          <img
+                                            src={
+                                              time_layout
+                                            }
+                                            alt=""
                                             style={{
-                                              marginLeft: 7,
+                                              position:
+                                                "absolute",
+                                              width: 85,
+                                              height: 24,
+                                              objectFit:
+                                                "contain",
+                                              borderRadius: 6,
+                                              backdropFilter:
+                                                "blur(3.2px)",
+                                              backgroundColor:
+                                                "rgba(255, 255, 255, 0.4)",
+                                            }}
+                                          />
+                                          <span
+                                            style={{
+                                              zIndex: 1,
                                             }}
                                           >
-                                            <span className="content-time-overlay" />
-                                            <p className="content-time">
-                                              {/* Time : */}
-                                              {/* {info.time} */}
-                                            </p>
-                                          </div>
+                                            time info
+                                          </span>
                                         </div>
+                                        {/* </div> */}
                                       </div>
                                       <div
                                         style={{
                                           position:
                                             "absolute",
                                           zIndex: 2,
-                                          width: "87.5%",
+                                          width: "89%",
                                           bottom: 0,
                                           textAlign: "left",
                                           // display: "flex",
@@ -769,11 +785,6 @@ const Main = () => {
                                           }}
                                         >
                                           <span>Win</span>
-                                          {/* <span className="pp-wrapper">
-                                          <div className="pp-text">
-                                            PP
-                                          </div>
-                                        </span> */}
                                           <img
                                             src={Point_logo}
                                             alt=""
@@ -792,8 +803,9 @@ const Main = () => {
                                               fontWeight: 500,
                                             }}
                                           >
-                                            {/* {AddComma(info.point)} */}
-                                            point
+                                            {AddComma(
+                                              123456
+                                            )}
                                           </span>
                                         </div>
                                         <div
@@ -854,10 +866,7 @@ const Main = () => {
                       <>
                         {data.type === 2 && (
                           <>
-                            <div
-                              className="featured-samll-wrapper"
-                              style={{}}
-                            >
+                            <div className="featured-samll-wrapper">
                               <img
                                 style={{}}
                                 className="featured-samll-img"
@@ -867,25 +876,89 @@ const Main = () => {
                               <div
                                 style={{
                                   position: "absolute",
+                                  display: "block",
+                                  zIndex: 2,
+                                  top: 0,
+                                  right: 0,
+                                  width: "97%",
+                                  margin: "14px 0 0 10px ",
+                                  color: "#fff",
+                                }}
+                              >
+                                <div className="content-time-text">
+                                  <img
+                                    src={time_layout}
+                                    alt=""
+                                    style={{
+                                      position: "absolute",
+                                      width: 85,
+                                      height: 24,
+                                      objectFit: "contain",
+                                      borderRadius: 6,
+                                      backdropFilter:
+                                        "blur(3.2px)",
+                                      backgroundColor:
+                                        "rgba(255, 255, 255, 0.4)",
+                                    }}
+                                  />
+                                  <span
+                                    style={{
+                                      zIndex: 1,
+                                    }}
+                                  >
+                                    time info
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div
+                                style={{
+                                  position: "absolute",
                                   fontSize: 14,
                                   textAlign: "left",
                                   color: "#fff",
                                   zIndex: 3,
                                   padding: "0 16px 11.5px",
                                   borderRadius: 10,
-                                  width: 127,
+                                  width: 125,
                                   backgroundImage:
                                     "linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 32%, #000 93%)",
                                 }}
                               >
                                 <div
                                   style={{
+                                    display: "flex",
+                                    justifyContent:
+                                      "flex-start",
+                                  }}
+                                >
+                                  <span>Win</span>
+                                  <img
+                                    src={Point_logo}
+                                    alt=""
+                                    style={{
+                                      width: 19,
+                                      height: 19,
+                                      objectFit: "cover",
+                                      margin: "0 2px",
+                                    }}
+                                  />
+                                  <span
+                                    style={{
+                                      fontSize: 16,
+                                      fontWeight: 500,
+                                    }}
+                                  >
+                                    {AddComma(123456)}
+                                  </span>
+                                </div>
+                                <div
+                                  style={{
                                     height: 27,
                                     fontSize: 14,
                                     display: "flex",
                                     alignItems: "center",
-                                    color:
-                                      "var(--neutral-3)",
+                                    color: "#fff",
                                   }}
                                 >
                                   <img
@@ -893,6 +966,7 @@ const Main = () => {
                                       width: 19,
                                       height: 19,
                                       objectFit: "contain",
+                                      color: "#fff",
                                     }}
                                     src={Man_img}
                                     alt=""
@@ -912,6 +986,7 @@ const Main = () => {
                                       width: 21,
                                       height: 21,
                                       objectFit: "contain",
+                                      color: "#fff",
                                     }}
                                   />
                                 </div>
@@ -927,8 +1002,16 @@ const Main = () => {
                   </div>
                 </div>
               </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: 219,
+                  marginTop: 21,
+                  backgroundColor: "#f1f1f5",
+                }}
+              />
               {/* Slide menu */}
-              <div className="menu-container">
+              {/* <div className="menu-container">
                 <div
                   style={{
                     width: widthStatus < 360 ? 700 : 800,
@@ -939,98 +1022,60 @@ const Main = () => {
                   <Slider {...titleSettings}>
                     {tournamentData.type.map((info) => (
                       <>
-                        {/* <div
+                        <div
                           style={{
-                            display: "inline-flex",
-                            width: "100%",
-                            marginLeft: 25,
+                            textAlign: "center",
                           }}
                         >
-                          {info.type === "all games" ? (
-                            <>
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  setGameType(info.type)
-                                }
-                                className="menu-selector"
-                                style={{
-                                  border:
-                                    gameType === info.type
-                                      ? "solid 2.5px #77b5c9"
-                                      : "solid 2.5px #fff",
-                                  color:
-                                    gameType ===
-                                      info.type && "#fff",
-                                }}
-                              >
-                                {info.type}
-                              </button>
-                            </>
-                          ) : ( */}
-                        <>
-                          <div
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setGameType(info)
+                            }
+                            className="menu-selector"
                             style={{
-                              textAlign: "center",
+                              color:
+                                gameType === info
+                                  ? "var(--primay-2-01)"
+                                  : "var(--neutral-3)",
+                              padding: "0px ​10px",
+                              textTransform: "capitalize",
                             }}
                           >
-                            <button
-                              type="button"
-                              onClick={() =>
-                                setGameType(info)
-                              }
-                              className="menu-selector"
+                            {info}
+                          </button>
+                          {gameType === info ? (
+                            <div
                               style={{
-                                // border:
-                                //   gameType === info.type
-                                //     ? "solid 2.5px black"
-                                //     : "solid 2.5px #77b5c9",
-                                color:
-                                  gameType === info
-                                    ? "var(--primay-2-01)"
-                                    : "var(--neutral-3)",
-                                padding: "0px ​10px",
-                                textTransform: "capitalize",
+                                position: "relative",
+                                width: "100%",
+                                textAlign: "center",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
                               }}
                             >
-                              {info}
-                            </button>
-                            {/* menu 아래 점 */}
-                            {gameType === info ? (
                               <div
                                 style={{
-                                  position: "relative",
-                                  width: "100%",
-                                  textAlign: "center",
-                                  display: "flex",
-                                  justifyContent: "center",
-                                  alignItems: "center",
+                                  width: 5,
+                                  height: 5,
+                                  borderRadius: 50,
+                                  backgroundColor:
+                                    "var(--primay-2-01)",
+                                  marginTop: 4,
                                 }}
-                              >
-                                <div
-                                  style={{
-                                    width: 5,
-                                    height: 5,
-                                    borderRadius: 50,
-                                    backgroundColor:
-                                      "var(--primay-2-01)",
-                                    marginTop: 4,
-                                  }}
-                                />
-                              </div>
-                            ) : (
-                              ""
-                            )}
-                          </div>
-                        </>
-                        {/* )}
-                        </div> */}
+                              />
+                            </div>
+                          ) : (
+                            ""
+                          )}
+                        </div>
                       </>
                     ))}
                   </Slider>
                 </div>
-              </div>
-              <div className="gameitems-container">
+              </div> */}
+              {/* <div className="gameitems-container">
                 <div className="gameitems-wrapper">
                   <GameItem
                     menuData={gameData}
@@ -1038,14 +1083,7 @@ const Main = () => {
                     limitNum={true}
                   />
                 </div>
-              </div>
-              {/* {gameData.length > 15 && (
-                <>
-                  <div className="gameitems-overtext">
-                    <a href="/allgames">View All Games</a>
-                  </div>
-                </>
-              )} */}
+              </div> */}
               <footer>
                 {tournamentData.footer !== undefined && (
                   <>

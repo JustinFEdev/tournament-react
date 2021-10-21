@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Notice from "../../resource/image/icon-arrow-i@2x.png";
 import Man_img from "../../resource/image/man-small@2x.png";
 import Live_img from "../../resource/image/ui-icon-arrow-live@2x.png";
+import time_layout from "../../resource/image/rectangle@2x.png";
 // import { isBrowser, isMobile } from "react-device-detect";
 import { AddComma } from "../Main";
 
@@ -63,7 +64,18 @@ const LiveSlide = ({ live, size }) => {
                           )}
                         </div>
                         <div className="live-timestatus">
-                          {info.time}
+                          <img
+                            src={time_layout}
+                            alt=""
+                            style={{
+                              position: "absolute",
+                              width: 85,
+                              height: 24,
+                            }}
+                          />
+                          <span style={{ zIndex: 1 }}>
+                            {info.time}time info
+                          </span>
                         </div>
                       </div>
                     </div>

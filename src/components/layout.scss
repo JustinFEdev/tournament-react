@@ -175,17 +175,18 @@ a:link {
   border-radius: 0 0 16px 16px;
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 .content-time-text {
   width: 85px;
   height: 24px;
   font-size: 13px;
   font-weight: 600;
-  margin: 14px 14px 0 0;
+  // margin: 14px 14px 0 0;
   color: #fff;
   right: 0;
   // bottom: 0vmax;
-  position: absolute;
+  // position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -482,7 +483,6 @@ footer {
 }
 .featured-img {
   width: 324px;
-  margin-right: 5px;
   position: relative;
   height: 180px;
   object-fit: fill;
@@ -498,31 +498,24 @@ footer {
 }
 
 .featured-samllarea {
-  // width: 100%;
-  // flex-direction: column;
-  margin-top: 10px;
-  // width: 159px;
-  // width: 100%;
-  // border-bottom: solid 1.3px #c9e2ea;
-  // padding: 10px 0 12px 0;
   display: inline-flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 11px;
+  padding: 0 6px 0 16px;
+  // overflow: hidden;
 }
 .featured-samll-wrapper {
+  position: relative;
+  margin-top: 11px;
+  height: 100%;
   display: flex;
   align-items: flex-end;
-  padding: 0 5px 5px 0;
+  padding: 0 10px 0 0;
 }
 .featured-samll-img {
   height: 180px;
-  width: 159px;
-  // width: 159px;
+  width: 157px;
   border-radius: 12.5px;
-  // box-shadow: 0 13px 13px 0 rgba(77, 93, 107, 0.13);
-  // border: solid 2.5px #86b1be;
-  // background-color: #c9e2ea;
   outline: none;
 }
 
