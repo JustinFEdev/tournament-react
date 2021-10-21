@@ -6,11 +6,11 @@ import React, {
 import ContinueSlide from "./slides/ContinueSlide";
 import LiveSlide from "./slides/LiveSlide";
 import MissionSlide from "./slides/MissionSlide";
-import GameItem from "./slides/GameItem";
+// import GameItem from "./slides/GameItem";
 import NaviBar from "./navigation/NaviBar";
 import "./layout.scss";
 import "../App.css";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // import moment from "moment";
@@ -346,23 +346,23 @@ const Main = () => {
 
   //하단 게임메뉴 state
   // const [allItem, setAllItem] = useState(true);
-  const [gameType, setGameType] = useState({});
+  // const [gameType, setGameType] = useState({});
 
   //하단 게임메뉴 slide
-  const titleSettings = {
-    arrows: false,
-    dots: false,
-    infinite: false,
-    speed: 500,
-    slidesToShow: widthStatus < 360 ? 4 : 5,
-    // slidesToScroll: 1,
-    initialSlide: 0,
-    centerMode: false,
-    swipe: true,
-    swipeToSlide: true,
-    touchMove: true,
-    useCss: true,
-  };
+  // const titleSettings = {
+  //   arrows: false,
+  //   dots: false,
+  //   infinite: false,
+  //   speed: 500,
+  //   slidesToShow: widthStatus < 360 ? 4 : 5,
+  //   // slidesToScroll: 1,
+  //   initialSlide: 0,
+  //   centerMode: false,
+  //   swipe: true,
+  //   swipeToSlide: true,
+  //   touchMove: true,
+  //   useCss: true,
+  // };
 
   // ContinueSlide && MissionSlide
   const typeData = [
