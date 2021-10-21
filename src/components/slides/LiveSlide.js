@@ -43,6 +43,7 @@ const LiveSlide = ({ live, size }) => {
                           {info.status === "live" && (
                             <>
                               <img
+                                className="live-icon"
                                 style={{
                                   width: 24,
                                   height: 24,

@@ -156,6 +156,23 @@ a:link {
   // width: 100%;
 }
 
+.live-livestatus {
+  // width: 80px;
+  height: 26px;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0px 15px;
+  margin: 12px 0 0 12px;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #e62b2b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Inter;
+  text-transform: capitalize;
+}
+
 //continue & weeckly slide
 .continue-container {
   position: relative;
@@ -343,7 +360,7 @@ footer {
   height: 100%;
   overflow: hidden;
   z-index: 1000;
-  padding: 0 0 44px 0;
+  // padding: 0 0 44px 0;
   // border: 1px solid blue;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */

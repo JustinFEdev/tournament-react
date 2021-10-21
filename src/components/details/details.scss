@@ -11,7 +11,7 @@
 // detail
 .detail-img-layout {
   position: absolute;
-  height: 130px;
+  height: 180px;
   width: 100%;
   opacity: 0.3;
   background-color: #000;
@@ -30,7 +30,11 @@
 
 .detail-body-container {
   position: relative;
-  padding: 130px 32px 48px 32px;
+  margin-top: 60px;
+  padding: 0 32px 48px 32px;
+  border-radius: 30.7px;
+  background-color: #f1f1f5;
+  z-index: 100;
 }
 
 .detail-body-toparea {
@@ -39,7 +43,7 @@
   text-align: center;
 }
 .detail-point-text {
-  margin: 15px 0 8.4px 0;
+  padding: 15px 0 8.4px 0;
   color: #09607b;
   text-transform: capitalize;
 }
@@ -61,7 +65,7 @@
   justify-content: space-around;
   padding: 20px 6px 3px 6px;
   border-radius: 15px;
-  border: 1px solid;
+  background-color: #fff;
 }
 .icon-wrapper {
   height: 100%;
@@ -99,7 +103,6 @@
   color: var(--neutral-1);
 }
 .prize-rank-layout {
-  border: 1px solid #a7ccd5;
   padding: 9px 16px;
   display: flex;
   justify-content: space-between;

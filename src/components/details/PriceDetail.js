@@ -133,41 +133,51 @@ const AllRank = () => {
               <div className="prize-text">
                 Prize Break-up
               </div>
-              {rankData.map((info) => (
-                <>
-                  <div
-                    className="prize-rank-layout"
-                    style={{
-                      backgroundColor:
-                        // info.oddeven === 1
-                        //   ? "#eaf2f4" :
-                        "#fff",
-                    }}
-                  >
-                    <p className="prize-rank-text">
-                      Rank {info.num}
-                    </p>
+              <div
+                style={{
+                  minHeight: 320,
+                  height: "50vh",
+                  overflow: "hidden",
+                  overflowY: "scroll",
+                  paddingBottom: "13%",
+                }}
+              >
+                {rankData.map((info) => (
+                  <>
                     <div
+                      className="prize-rank-layout"
                       style={{
-                        width: 65,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "flex-start",
+                        backgroundColor:
+                          // info.oddeven === 1
+                          //   ? "#eaf2f4" :
+                          "#fff",
                       }}
                     >
-                      <span
-                        className="pp-wrapper"
-                        style={{ marginRight: 19 }}
+                      <p className="prize-rank-text">
+                        Rank {info.num}
+                      </p>
+                      <div
+                        style={{
+                          width: 65,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "flex-start",
+                        }}
                       >
-                        <div className="pp-text">PP</div>
-                      </span>
-                      <span className="icon-ppnum">
-                        {info.point}
-                      </span>
+                        <span
+                          className="pp-wrapper"
+                          style={{ marginRight: 19 }}
+                        >
+                          <div className="pp-text">PP</div>
+                        </span>
+                        <span className="icon-ppnum">
+                          {info.point}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </>
-              ))}
+                  </>
+                ))}
+              </div>
             </div>
             {/* Join button */}
             <div
@@ -187,8 +197,8 @@ const AllRank = () => {
                   width: "100%",
                   height: "100%",
                   opacity: 0.8,
-                  backgroundImage:
-                    "linear-gradient(to top, #fff 110%, rgba(255, 255, 255, 0) 21%)",
+                  // backgroundImage:
+                  //   "linear-gradient(to top, #fff 110%, rgba(255, 255, 255, 0) 21%)",
                 }}
               />
               <div
