@@ -879,8 +879,7 @@ const Main = () => {
                                   display: "block",
                                   zIndex: 2,
                                   top: 0,
-                                  right: 0,
-                                  width: "97%",
+                                  left: 0,
                                   margin: "14px 0 0 10px ",
                                   color: "#fff",
                                 }}

@@ -1,49 +1,10 @@
 @font-face {
-  font-family: "Inter";
-  src: url("./resource/fonts/Inter-Medium.ttf")
+  font-family: Inter;
+  src: url("./resource/fonts/Inter-SemiBold.ttf")
     format("truetype");
+  /* url("./resource/fonts/Inter-Bold.ttf")
+      format("truetype"); */
 }
-/* @font-face {
-  font-family: Inter;
-  src: local(Inter-Regular),
-    url("./resource/fonts/Inter-Regular.woff2")
-      format("woff2"),
-    url("./resource/fonts/Inter-Regular.woff")
-      format("woff"),
-    url("./resource/fonts/Inter-Regular.ttf")
-      format("truetype");
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-}
-
-@font-face {
-  font-family: Inter;
-  src: local(Inter-Medium),
-    url("./resource/fonts/Inter-Medium.woff2")
-      format("woff2"),
-    url("./resource/fonts/Inter-Medium.woff") format("woff"),
-    url("./resource/fonts/Inter-Medium.ttf")
-      format("truetype");
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-} */
-
-/* @font-face {
-  font-family: Inter;
-  src: local(Inter-SemiBold),
-    url("./resource/fonts/Inter-SemiBold.woff2")
-      format("woff2"),
-    url("./resource/fonts/Inter-SemiBold.woff")
-      format("woff"),
-    url("./resource/fonts/Inter-SemiBold.ttf")
-      format("truetype");
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-} */
-
 @font-face {
   font-family: "Poppin";
   src: url("./resource/fonts/Poppins/Poppins-Medium.ttf")
