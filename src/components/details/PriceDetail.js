@@ -1,7 +1,6 @@
 import React from "react";
 import "../layout.scss";
 import "./details.scss";
-import "../modal/popup.scss";
 import NaviBar from "../navigation/NaviBar";
 import Prize_icon_1 from "../../resource/image/prize_badge_1@2x.png";
 import Prize_icon_2 from "../../resource/image/prize_badge_2@2x.png";
@@ -33,6 +32,7 @@ const AllRank = () => {
               <h1>img area</h1>
             </div> */}
           </header>
+          <div className="detail-img-layout" />
           <div
             style={{
               position: "relative",
@@ -43,7 +43,7 @@ const AllRank = () => {
               justifyContent: "center",
               transform: "translateY(100%)",
               // -webkit-transform: translateY(100%);
-              animation: "allgame-popup-in 3s forwards",
+              animation: "allgame-popup-in 2s forwards",
               // -webkit-animation: allgame-popup-in 3s forwards;
             }}
           >

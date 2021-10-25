@@ -9,6 +9,13 @@ function App() {
   // loading spinner
   const [loading, setLoading] = useState(true);
   useEffect(() => {
+    // const meta = document.createElement("meta");
+    // meta.name = "viewport";
+    // meta.content =
+    //   "width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover";
+    // document
+    //   .getElementsByTagName("head")[0]
+    //   .appendChild(meta);
     setTimeout(() => {
       setLoading(false);
     }, 100);

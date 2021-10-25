@@ -261,6 +261,31 @@ const NaviBar = () => {
                   </div>
                   {/* </div> */}
                 </>
+              ) : pathName === "/pricedetail" ? (
+                <div className="navi-container" key={index}>
+                  {/* <div className="detail-img-layout" /> */}
+                  <div
+                    style={{
+                      float: "left",
+                      padding: "0 16px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      width: "100%",
+                      // boxShadow: "inset 0 -1px 0 0 #f1f1f5",
+                      // backgroundColor: "#fff",
+                      zIndex: 1001,
+                    }}
+                  >
+                    <a href="/">
+                      <h3 style={{ color: "#000" }}>
+                        {"<   "}Tournament
+                        {/* {pathName === title.path &&
+                          `${pathName}`} */}
+                      </h3>
+                    </a>
+                  </div>
+                </div>
               ) : (
                 ""
               )}
@@ -300,34 +325,6 @@ const NaviBar = () => {
                       <h3>
                         {pathName === title.path &&
                           " < " + title.name}
-                      </h3>
-                    </a>
-                  </div>
-                </div>
-              ) : pathName === "/pricedetail" ? (
-                <div
-                  className="navi-title-container"
-                  key={index}
-                >
-                  <div className="detail-img-layout" />
-                  <div
-                    style={{
-                      float: "left",
-                      padding: "0 16px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      width: "100%",
-                      // boxShadow: "inset 0 -1px 0 0 #f1f1f5",
-                      // backgroundColor: "#fff",
-                      zIndex: 10,
-                    }}
-                  >
-                    <a href="/">
-                      <h3 style={{ color: "#fff" }}>
-                        Tournament
-                        {/* {pathName === title.path &&
-                          `${pathName}`} */}
                       </h3>
                     </a>
                   </div>

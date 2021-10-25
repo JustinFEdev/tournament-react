@@ -23,7 +23,7 @@ const SignPopup = () => {
     width: 690px;
     top: 0;
     bottom: 0;
-    z-index: 1000;
+    z-index: 1003;
   `;
   useEffect(() => {
     if (activePopup === true) {
@@ -57,7 +57,7 @@ const SignPopup = () => {
           >
             <div
               style={{
-                zIndex: 1001,
+                zIndex: 1003,
                 padding: "0 16px",
                 width: "100%",
                 display: "flex",
